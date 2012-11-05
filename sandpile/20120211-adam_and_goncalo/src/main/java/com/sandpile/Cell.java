@@ -14,8 +14,8 @@ public class Cell {
     public void dropGrain() {
         grainCounter++;
         if (isAvalanche()) {
-            avalancheDetector.newAvalanche(point);
             grainCounter = 0;
+            avalancheDetector.newAvalanche(point);
         }
     }
 
