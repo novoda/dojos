@@ -17,4 +17,14 @@ public class FizzBuzzShould {
 		assertFalse(FizzBuzz.isFizz(4));
 	}
 	
+	@Test
+	public void returnTrueIfBuzzNumber(){
+		assertTrue(FizzBuzz.isFizz(5));
+	}
+	
+	@Test
+	public void returnFalseIfNotBuzzNumber(){
+		assertFalse(FizzBuzz.isFizz(4));
+	}
+	
 }
