@@ -15,8 +15,8 @@ public class FizzBuzz {
 		return isMultipleOf(BUZZ, number);
 	}
 
-	public static boolean isFizzBuzz(int i) {
-		return isFizz(i) && isBuzz(i);
+	public static boolean isFizzBuzz(int number) {
+		return isFizz(number) && isBuzz(number);
 	}
 
 }
