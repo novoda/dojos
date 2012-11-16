@@ -1,5 +1,6 @@
 package com.fizzbuzz;
 
+import static com.fizzbuzz.MultipleHelper.isMultipleOf;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -25,10 +26,6 @@ public class SomethingShould{
     @Test
     public void returnTrueIfNumberIs10andMultipleIs3() {
     	assertFalse(isMultipleOf(3, 10));
-    }
-    
-    private static boolean isMultipleOf(int multiple, int number) {
-    	return (number % multiple) == 0;
     }
     
 }
