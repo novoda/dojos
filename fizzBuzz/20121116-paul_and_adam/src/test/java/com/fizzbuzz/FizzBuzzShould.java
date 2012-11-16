@@ -19,12 +19,12 @@ public class FizzBuzzShould {
 	
 	@Test
 	public void returnTrueIfBuzzNumber(){
-		assertTrue(FizzBuzz.isFizz(5));
+		assertTrue(FizzBuzz.isBuzz(5));
 	}
 	
 	@Test
 	public void returnFalseIfNotBuzzNumber(){
-		assertFalse(FizzBuzz.isFizz(4));
+		assertFalse(FizzBuzz.isBuzz(4));
 	}
 	
 }
