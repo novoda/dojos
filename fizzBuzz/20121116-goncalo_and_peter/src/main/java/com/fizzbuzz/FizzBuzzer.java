@@ -33,12 +33,14 @@ public class FizzBuzzer {
     }
 
     private boolean containsFive(int i) {
-        String s = "5";
-        return String.valueOf(i).contains(s);
+        return containsNumber(i, "5");
     }
 
     private boolean containsThree(int i) {
-        String s = "3";
+        return containsNumber(i, "3");
+    }
+
+    private boolean containsNumber(int i, String s) {
         return String.valueOf(i).contains(s);
     }
 
