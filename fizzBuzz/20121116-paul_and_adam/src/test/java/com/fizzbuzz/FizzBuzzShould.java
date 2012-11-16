@@ -7,20 +7,14 @@ import org.junit.Test;
 
 public class FizzBuzzShould {
 
-	private static final int FIZZ = 3;
-
 	@Test
 	public void returnTrueIfFizzNumber(){
-		assertTrue(isFizz(3));
+		assertTrue(FizzBuzz.isFizz(3));
 	}
 	
 	@Test
 	public void returnFalseIfNotFizzNumber(){
-		assertFalse(isFizz(4));
-	}
-
-	private boolean isFizz(int number) {
-		return MultipleHelper.isMultipleOf(FIZZ, number);
+		assertFalse(FizzBuzz.isFizz(4));
 	}
 	
 }
