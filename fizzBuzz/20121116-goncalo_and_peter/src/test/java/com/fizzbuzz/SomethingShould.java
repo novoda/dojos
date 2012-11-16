@@ -6,6 +6,8 @@ import static junit.framework.Assert.assertEquals;
 
 public class SomethingShould {
 
+    public static final String FIZZ = "Fizz";
+
     @Test
     public void print_one_as_a_number() {
         assertEquals("1", fizzBuzz(1));
@@ -33,7 +35,7 @@ public class SomethingShould {
 
     @Test
     public void print_six_as_FIZZ() {
-        assertEquals("Fizz", fizzBuzz(6));
+        assertEquals(FIZZ, fizzBuzz(6));
     }
 
     @Test
