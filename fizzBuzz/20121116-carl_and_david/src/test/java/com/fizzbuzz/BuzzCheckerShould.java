@@ -8,6 +8,6 @@ public class BuzzCheckerShould {
 
 	@Test
 	public void ensure_multiple_of_5_are_checked(){
-		assertTrue(true);
+		assertTrue(new BuzzChecker().check(5));
 	}
 }
