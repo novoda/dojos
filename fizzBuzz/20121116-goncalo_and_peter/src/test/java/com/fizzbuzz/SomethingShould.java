@@ -31,8 +31,13 @@ public class SomethingShould {
         assertEquals("Buzz", fizzBuzz(5));
     }
 
+    @Test
+    public void print_six_as_FIZZ() {
+        assertEquals("Fizz", fizzBuzz(6));
+    }
+
     private String fizzBuzz(int i) {
-        if (i == 3) {
+        if (i % 3 == 0) {
             return "Fizz";
         } else if (i == 5) {
             return "Buzz";
