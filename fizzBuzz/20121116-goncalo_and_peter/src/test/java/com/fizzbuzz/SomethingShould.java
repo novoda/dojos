@@ -16,6 +16,11 @@ public class SomethingShould{
         assertEquals("2", fizzBuzz(2));
     }
 
+    @Test
+    public void print_four_as_a_number() {
+        assertEquals("4", fizzBuzz(4));
+    }
+
     private String fizzBuzz(int i) {
         return ""+i;  //To change body of created methods use File | Settings | File Templates.
     }
