@@ -6,7 +6,7 @@ import static junit.framework.Assert.assertTrue;
 
 public class FizzBuzzCheckerShould {
 
-	                   @Test
+    @Test
 	public void print_fizz(){
 		assertTrue(true);
 					   }
