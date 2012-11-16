@@ -11,4 +11,9 @@ public class FizzBuzzPrinterShould {
 		assertEquals("1", new FizzBuzzPrinter().print(1));
 	}
 	
+	@Test
+	public void printFizzIfInputIsAFizz(){
+		assertEquals("Fizz", new FizzBuzzPrinter().print(FizzBuzz.FIZZ));
+	}
+	
 }
