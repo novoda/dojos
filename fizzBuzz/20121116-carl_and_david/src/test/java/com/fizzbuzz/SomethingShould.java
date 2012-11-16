@@ -6,5 +6,6 @@ public class SomethingShould{
 
     @Test
     public void something() {
+
     }
 }
