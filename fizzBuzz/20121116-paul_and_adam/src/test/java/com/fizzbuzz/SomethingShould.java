@@ -11,7 +11,12 @@ public class SomethingShould{
     	assertTrue(isMultipleOf(3, 9));
     }
     
-    private boolean isMultipleOf(int multiple, int number) {
+    @Test
+    public void returnTrueIfNumberIs10andMultipleIs5() {
+    	assertTrue(isMultipleOf(5, 10));
+    }
+    
+    private static boolean isMultipleOf(int multiple, int number) {
     	return (number % multiple) == 0;
     }
     
