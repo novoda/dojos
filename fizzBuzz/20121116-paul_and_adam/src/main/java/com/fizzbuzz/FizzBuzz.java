@@ -12,7 +12,7 @@ public class FizzBuzz {
 	}
 	
 	public static boolean isBuzz(int number) {
-		return isMultipleOf(BUZZ, number);
+		return Integer.toString(number).contains("5") || isMultipleOf(BUZZ, number);
 	}
 
 	public static boolean isFizzBuzz(int number) {
