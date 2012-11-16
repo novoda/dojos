@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
-public class SomethingShould{
+public class SomethingShould {
 
     @Test
     public void print_one_as_a_number() {
@@ -27,7 +27,10 @@ public class SomethingShould{
     }
 
     private String fizzBuzz(int i) {
-
-        return i == 3 ? "Fizz" :""+i;  //To change body of created methods use File | Settings | File Templates.
+        if (i == 3) {
+            return "Fizz";
+        } else {
+            return "" + i;
+        }
     }
 }
