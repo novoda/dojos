@@ -11,6 +11,6 @@ public class FizzBuzzCheckerShould {
 	public void print_fizz() {
 
 		FizzBuzz fb = new FizzBuzz();
-		assertEquals(fb.print(1), "");
+		assertEquals(fb.print(1), "1");
 	}
 }

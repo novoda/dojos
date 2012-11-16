@@ -6,6 +6,12 @@ public class FizzBuzz {
 	}
 
 	public String print(int i) {
-		return "";
+
+		FizzChecker fizz = new FizzChecker();
+		if (fizz.check(i)) {
+			return "fizz";
+		} else {
+			return i + "";
+		}
 	}
 }
