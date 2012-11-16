@@ -52,16 +52,4 @@ public class FizzBuzzerShould {
     public void print_thirty_as_FizzBuzz() {
         assertEquals(FizzBuzzer.FIZZBUZZ, fizzBuzzer.fizzBuzz(30));
     }
-
-    private String fizzBuzz(int i) {
-        return fizzBuzzer.fizzBuzz(i);
-    }
-
-    private boolean multipleOfFive(int i) {
-        return fizzBuzzer.multipleOfFive(i);
-    }
-
-    private boolean multipleOfThree(int i) {
-        return fizzBuzzer.multipleOfThree(i);
-    }
 }
