@@ -44,8 +44,15 @@ public class SomethingShould {
         assertEquals(BUZZ, fizzBuzz(10));
     }
 
+    @Test
+    public void print_fiftteen_as_Buzz() {
+        assertEquals(FIZZ+BUZZ, fizzBuzz(15));
+    }
+
     private String fizzBuzz(int i) {
-        if (i % 3 == 0) {
+        if (i % 3 == 0 && i % 5 == 0) {
+            return FIZZ + BUZZ;
+        } else if (i % 3 == 0) {
             return FIZZ;
         } else if (i % 5 == 0) {
             return BUZZ;
