@@ -9,7 +9,7 @@ public class FizzBuzzer {
     }
 
     String fizzBuzz(int i) {
-        if (multipleOfThree(i) && multipleOfFive(i)) {
+        if ((multipleOfThree(i) && multipleOfFive(i)) || (containsFive(i) && containsThree(i))) {
             return FIZZBUZZ;
         } else if (multipleOfThree(i) || containsThree(i)) {
             return FIZZ;
