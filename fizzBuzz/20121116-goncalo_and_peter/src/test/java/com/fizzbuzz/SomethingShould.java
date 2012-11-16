@@ -8,10 +8,10 @@ public class SomethingShould{
 
     @Test
     public void something() {
-        assertEquals(1, fizzBuzz(1));
+        assertEquals("", fizzBuzz(1));
     }
 
-    private int fizzBuzz(int i) {
-        return 1;  //To change body of created methods use File | Settings | File Templates.
+    private String fizzBuzz(int i) {
+        return "";  //To change body of created methods use File | Settings | File Templates.
     }
 }
