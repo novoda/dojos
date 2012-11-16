@@ -7,6 +7,7 @@ import static junit.framework.Assert.assertEquals;
 public class SomethingShould {
 
     public static final String FIZZ = "Fizz";
+    public static final String BUZZ = "Buzz";
 
     @Test
     public void print_one_as_a_number() {
@@ -20,7 +21,7 @@ public class SomethingShould {
 
     @Test
     public void print_three_as_FIZZ() {
-        assertEquals("Fizz", fizzBuzz(3));
+        assertEquals(FIZZ, fizzBuzz(3));
     }
 
     @Test
@@ -30,7 +31,7 @@ public class SomethingShould {
 
     @Test
     public void print_five_as_Buzz() {
-        assertEquals("Buzz", fizzBuzz(5));
+        assertEquals(BUZZ, fizzBuzz(5));
     }
 
     @Test
@@ -40,14 +41,14 @@ public class SomethingShould {
 
     @Test
     public void print_ten_as_Buzz() {
-        assertEquals("Buzz", fizzBuzz(10));
+        assertEquals(BUZZ, fizzBuzz(10));
     }
 
     private String fizzBuzz(int i) {
         if (i % 3 == 0) {
-            return "Fizz";
+            return FIZZ;
         } else if (i % 5 == 0) {
-            return "Buzz";
+            return BUZZ;
         } else {
             return "" + i;
         }
