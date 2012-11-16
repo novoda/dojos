@@ -8,6 +8,11 @@ import org.junit.Test;
 
 public class MultipleHelperShould{
 
+	@Test
+	public void returnFalseIfNumberIs0AndMultipleIs3(){
+		assertFalse(isMultipleOf(3, 0));
+	}
+	
     @Test
     public void returnTrueIfNumberIs9andMultipleIs3() {
     	assertTrue(isMultipleOf(3, 9));
