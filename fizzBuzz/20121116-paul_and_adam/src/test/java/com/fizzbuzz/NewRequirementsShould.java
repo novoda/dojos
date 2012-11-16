@@ -12,8 +12,8 @@ public class NewRequirementsShould {
 	}
 	
 	@Test
-	public void returnTrueIf15IsBuzz(){
-		assertTrue(FizzBuzz.isBuzz(15));
+	public void returnTrueIf59IsBuzz(){
+		assertTrue(FizzBuzz.isBuzz(59));
 	}
 	
 	@Test
