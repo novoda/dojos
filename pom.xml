@@ -9,6 +9,7 @@
 
 	<modules>
 		<module>sandpile</module>
+		<module>fizzBuzz</module>
 	</modules>
 
 </project>

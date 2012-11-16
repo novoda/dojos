@@ -1,4 +1,4 @@
-package com.sandpile;
+package com.fizzbuzz;
 
 import org.junit.Test;
 
