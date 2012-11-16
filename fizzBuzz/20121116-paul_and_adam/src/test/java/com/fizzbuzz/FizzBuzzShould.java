@@ -36,5 +36,4 @@ public class FizzBuzzShould {
 	public void returnFalseIfNotFizzBuzzNumber(){
 		assertFalse(FizzBuzz.isFizzBuzz(4));
 	}
-	
 }
