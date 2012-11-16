@@ -36,10 +36,15 @@ public class SomethingShould {
         assertEquals("Fizz", fizzBuzz(6));
     }
 
+    @Test
+    public void print_ten_as_Buzz() {
+        assertEquals("Buzz", fizzBuzz(10));
+    }
+
     private String fizzBuzz(int i) {
         if (i % 3 == 0) {
             return "Fizz";
-        } else if (i == 5) {
+        } else if (i % 5 == 0) {
             return "Buzz";
         } else {
             return "" + i;
