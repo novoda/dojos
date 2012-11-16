@@ -7,7 +7,7 @@ public class FizzBuzz {
 	private static final String FIZZ_STR = "3";
 	private static final String BUZZ_STR = "5";
 	static final int FIZZ = 3;
-	private static final int BUZZ = 5;
+	static final int BUZZ = 5;
 
 	public static boolean isFizz(int number) {
 		return Integer.toString(number).contains(FIZZ_STR) || isMultipleOf(FIZZ, number);
