@@ -8,7 +8,7 @@ public class FizzBuzz {
 	private static final int BUZZ = 5;
 
 	public static boolean isFizz(int number) {
-		return isMultipleOf(FIZZ, number);
+		return Integer.toString(number).contains("3") || isMultipleOf(FIZZ, number);
 	}
 	
 	public static boolean isBuzz(int number) {
