@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
-public class SomethingShould {
+public class FizzBuzzerShould {
 
     public static final String FIZZ = "Fizz";
     public static final String BUZZ = "Buzz";
