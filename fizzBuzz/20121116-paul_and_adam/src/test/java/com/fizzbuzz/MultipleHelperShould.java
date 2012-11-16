@@ -13,6 +13,11 @@ public class MultipleHelperShould{
 		assertFalse(isMultipleOf(3, 0));
 	}
 	
+	@Test
+	public void returnFalseIfNumberIs0AndMultipleIs5(){
+		assertFalse(isMultipleOf(5, 0));
+	}
+	
     @Test
     public void returnTrueIfNumberIs9andMultipleIs3() {
     	assertTrue(isMultipleOf(3, 9));
