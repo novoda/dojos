@@ -8,6 +8,7 @@ public class SomethingShould {
 
     public static final String FIZZ = "Fizz";
     public static final String BUZZ = "Buzz";
+    private static final String FIZZBUZZ = "FizzBuzz";
 
     @Test
     public void print_one_as_a_number() {
@@ -46,18 +47,26 @@ public class SomethingShould {
 
     @Test
     public void print_fiftteen_as_Buzz() {
-        assertEquals(FIZZ+BUZZ, fizzBuzz(15));
+        assertEquals(FIZZBUZZ, fizzBuzz(15));
     }
 
     private String fizzBuzz(int i) {
-        if (i % 3 == 0 && i % 5 == 0) {
-            return FIZZ + BUZZ;
-        } else if (i % 3 == 0) {
+        if (multipleOfThree(i) && multipleOfFive(i)) {
+            return FIZZBUZZ;
+        } else if (multipleOfThree(i)) {
             return FIZZ;
-        } else if (i % 5 == 0) {
+        } else if (multipleOfFive(i)) {
             return BUZZ;
         } else {
             return "" + i;
         }
+    }
+
+    private boolean multipleOfFive(int i) {
+        return i % 5 == 0;
+    }
+
+    private boolean multipleOfThree(int i) {
+        return i % 3 == 0;
     }
 }
