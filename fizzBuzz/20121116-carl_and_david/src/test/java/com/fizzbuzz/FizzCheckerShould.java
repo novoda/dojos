@@ -18,6 +18,6 @@ public class FizzCheckerShould {
 
 	@Test
 	public void ensure_2_is_false() {
-		 Assert.assertTrue(true);
+		assertThat(new FizzChecker().check(2), equalTo(false));
 	}
 }

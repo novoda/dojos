@@ -2,6 +2,6 @@ package com.fizzbuzz;
 
 public class FizzChecker {
 	public boolean check(int i) {
-	return true;
+	return i % 3 == 0;
 	}
 }
