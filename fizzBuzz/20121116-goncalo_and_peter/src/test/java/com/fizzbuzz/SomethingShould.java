@@ -50,6 +50,11 @@ public class SomethingShould {
         assertEquals(FIZZBUZZ, fizzBuzz(15));
     }
 
+    @Test
+    public void print_thirty_as_FizzBuzz() {
+        assertEquals(FIZZBUZZ, fizzBuzz(30));
+    }
+
     private String fizzBuzz(int i) {
         if (multipleOfThree(i) && multipleOfFive(i)) {
             return FIZZBUZZ;
