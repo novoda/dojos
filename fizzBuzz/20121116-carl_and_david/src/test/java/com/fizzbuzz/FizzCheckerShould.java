@@ -11,9 +11,7 @@ public class FizzCheckerShould {
 
     @Test
     public void ensure_multiple_of_3_are_checked() {
-
 		assertThat(	new FizzChecker().check(3), equalTo(true));
-
     }
 
 	@Test

@@ -1,7 +1,8 @@
 package com.fizzbuzz;
 
-public class FizzChecker {
+public class FizzChecker implements Checker {
+	@Override
 	public boolean check(int i) {
-	return i % 3 == 0;
+		return i % 3 == 0;
 	}
 }
