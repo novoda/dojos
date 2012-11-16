@@ -13,11 +13,15 @@ public class FizzBuzzer {
             return FIZZBUZZ;
         } else if (multipleOfThree(i) || containsThree(i)) {
             return FIZZ;
-        } else if (multipleOfFive(i)) {
+        } else if (multipleOfFive(i) || containsFive(i)) {
             return BUZZ;
         } else {
             return "" + i;
         }
+    }
+
+    private boolean containsFive(int i) {
+        return String.valueOf(i).contains("5");
     }
 
     private boolean containsThree(int i) {

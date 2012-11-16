@@ -61,4 +61,9 @@ public class FizzBuzzerShould {
     public void print_thirteen_as_Fizz() {
         assertEquals(FIZZ, fizzBuzzer.fizzBuzz(13));
     }
+
+    @Test
+    public void print_fiftynine_as_Fizz() {
+        assertEquals(BUZZ, fizzBuzzer.fizzBuzz(59));
+    }
 }
