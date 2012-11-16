@@ -9,23 +9,37 @@ public class FizzBuzzer {
     }
 
     String fizzBuzz(int i) {
-        if ((multipleOfThree(i) && multipleOfFive(i)) || (containsFive(i) && containsThree(i))) {
+        if (isFizzBuzz(i)) {
             return FIZZBUZZ;
-        } else if (multipleOfThree(i) || containsThree(i)) {
+        } else if (isFizz(i)) {
             return FIZZ;
-        } else if (multipleOfFive(i) || containsFive(i)) {
+        } else if (isBuzz(i)) {
             return BUZZ;
         } else {
             return "" + i;
         }
     }
 
+    private boolean isFizzBuzz(int i) {
+        return (multipleOfThree(i) && multipleOfFive(i)) || (containsFive(i) && containsThree(i));
+    }
+
+    private boolean isFizz(int i) {
+        return multipleOfThree(i) || containsThree(i);
+    }
+
+    private boolean isBuzz(int i) {
+        return multipleOfFive(i) || containsFive(i);
+    }
+
     private boolean containsFive(int i) {
-        return String.valueOf(i).contains("5");
+        String s = "5";
+        return String.valueOf(i).contains(s);
     }
 
     private boolean containsThree(int i) {
-        return String.valueOf(i).contains("3");
+        String s = "3";
+        return String.valueOf(i).contains(s);
     }
 
     boolean multipleOfFive(int i) {
