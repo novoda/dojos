@@ -2,6 +2,9 @@ package com.fizzbuzz;
 
 import org.junit.Test;
 
+import static com.fizzbuzz.FizzBuzzer.BUZZ;
+import static com.fizzbuzz.FizzBuzzer.FIZZ;
+import static com.fizzbuzz.FizzBuzzer.FIZZBUZZ;
 import static junit.framework.Assert.assertEquals;
 
 public class FizzBuzzerShould {
@@ -20,7 +23,7 @@ public class FizzBuzzerShould {
 
     @Test
     public void print_three_as_FIZZ() {
-        assertEquals(FizzBuzzer.FIZZ, fizzBuzzer.fizzBuzz(3));
+        assertEquals(FIZZ, fizzBuzzer.fizzBuzz(3));
     }
 
     @Test
@@ -30,26 +33,32 @@ public class FizzBuzzerShould {
 
     @Test
     public void print_five_as_Buzz() {
-        assertEquals(FizzBuzzer.BUZZ, fizzBuzzer.fizzBuzz(5));
+        assertEquals(BUZZ, fizzBuzzer.fizzBuzz(5));
     }
 
     @Test
     public void print_six_as_FIZZ() {
-        assertEquals(FizzBuzzer.FIZZ, fizzBuzzer.fizzBuzz(6));
+        assertEquals(FIZZ, fizzBuzzer.fizzBuzz(6));
     }
 
     @Test
     public void print_ten_as_Buzz() {
-        assertEquals(FizzBuzzer.BUZZ, fizzBuzzer.fizzBuzz(10));
+        assertEquals(BUZZ, fizzBuzzer.fizzBuzz(10));
     }
 
     @Test
     public void print_fiftteen_as_Buzz() {
-        assertEquals(FizzBuzzer.FIZZBUZZ, fizzBuzzer.fizzBuzz(15));
+        assertEquals(FIZZBUZZ, fizzBuzzer.fizzBuzz(15));
     }
 
     @Test
     public void print_thirty_as_FizzBuzz() {
-        assertEquals(FizzBuzzer.FIZZBUZZ, fizzBuzzer.fizzBuzz(30));
+        assertEquals(FIZZBUZZ, fizzBuzzer.fizzBuzz(30));
+    }
+
+
+    @Test
+    public void print_thirteen_as_Fizz() {
+        assertEquals(FIZZ, fizzBuzzer.fizzBuzz(13));
     }
 }

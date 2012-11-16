@@ -11,7 +11,7 @@ public class FizzBuzzer {
     String fizzBuzz(int i) {
         if (multipleOfThree(i) && multipleOfFive(i)) {
             return FIZZBUZZ;
-        } else if (multipleOfThree(i)) {
+        } else if (multipleOfThree(i) || String.valueOf(i).contains("3")) {
             return FIZZ;
         } else if (multipleOfFive(i)) {
             return BUZZ;
