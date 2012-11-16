@@ -17,7 +17,7 @@ public class SomethingShould {
     }
 
     @Test
-    public void print_three_as_a_fizz() {
+    public void print_three_as_FIZZ() {
         assertEquals("Fizz", fizzBuzz(3));
     }
 
@@ -26,9 +26,16 @@ public class SomethingShould {
         assertEquals("4", fizzBuzz(4));
     }
 
+    @Test
+    public void print_five_as_Buzz() {
+        assertEquals("Buzz", fizzBuzz(5));
+    }
+
     private String fizzBuzz(int i) {
         if (i == 3) {
             return "Fizz";
+        } else if (i == 5) {
+            return "Buzz";
         } else {
             return "" + i;
         }
