@@ -3,14 +3,6 @@ package com.novoda.dojos.bankaccount;
 
 
 public class HsbcBank implements Bank {
-	public interface Account {
-    	void add(Money money);
-    	void remove(Money money);
-    }
-	
-	public HsbcBank() {
-		
-	}
 	
 	@Override
 	public void deposit(Account account, Money money) {

@@ -1,6 +1,5 @@
 package com.novoda.dojos.bankaccount;
 
-import com.novoda.dojos.bankaccount.HsbcBank.Account;
 
 public interface Bank {
 

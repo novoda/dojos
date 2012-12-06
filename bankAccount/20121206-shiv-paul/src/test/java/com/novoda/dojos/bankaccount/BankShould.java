@@ -2,8 +2,6 @@ package com.novoda.dojos.bankaccount;
 
 import static org.mockito.Mockito.verify;
 
-import com.novoda.dojos.bankaccount.HsbcBank.Account;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
