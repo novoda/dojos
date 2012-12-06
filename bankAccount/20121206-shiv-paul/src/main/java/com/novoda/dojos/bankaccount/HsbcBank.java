@@ -1,6 +1,7 @@
 package com.novoda.dojos.bankaccount;
 
 
+
 public class HsbcBank implements Bank {
 	
 	@Override
