@@ -3,7 +3,7 @@ package com.novoda.dojos.bankaccount;
 
 public class BankAccount {
 	public interface Account {
-    	void add(int amount);
+    	void add(Money money);
     }
 	
 	Account account;
@@ -12,7 +12,7 @@ public class BankAccount {
 		this.account = account;
 	}
 	
-	public void deposit(int deposit) {
-		account.add(deposit);
+	public void deposit(Money money) {
+		account.add(money);
 	}
 }

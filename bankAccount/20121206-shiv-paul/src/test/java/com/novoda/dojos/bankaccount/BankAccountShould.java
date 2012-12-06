@@ -1,10 +1,13 @@
 package com.novoda.dojos.bankaccount;
 
+import static org.mockito.Mockito.verify;
+
 import com.novoda.dojos.bankaccount.BankAccount.Account;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.*;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 public class BankAccountShould {
 
@@ -20,8 +23,9 @@ public class BankAccountShould {
 	
     @Test
     public void canMakeDeposit(){
-    	bankAccount.deposit(5);
+    	Money money = new Money();
+		bankAccount.deposit(money);
     	
-    	Mockito.verify(account).add(5);
+    	verify(account).add(money);
     }
 }
