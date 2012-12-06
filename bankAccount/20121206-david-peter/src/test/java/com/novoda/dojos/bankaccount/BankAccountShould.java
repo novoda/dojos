@@ -3,17 +3,19 @@ package com.novoda.dojos.bankaccount;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-import static junit.framework.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
 
 public class BankAccountShould {
 
-    private BankAccount bankAccount;
-    private final int DEPOSIT = 200;
+    @Mock private BankAccount bankAccount;
+    private final Money DEPOSIT = new Money(200);
 
     @Before
     public void setupAccount(){
-        bankAccount = new BankAccount(DEPOSIT);
+        MockitoAnnotations.initMocks(this);
     }
 
     @After
@@ -22,23 +24,16 @@ public class BankAccountShould {
     }
 
     @Test
-    public void account_should_accept_the_first_deposit(){
-        int preDepositBalance = bankAccount.balance;
+    public void account_should_accept_deposit(){
         bankAccount.deposit(DEPOSIT);
-        assertEquals(bankAccount.balance, preDepositBalance+DEPOSIT);
+        verify(bankAccount).deposit(DEPOSIT);
     }
 
     @Test
-    public void account_should_accept_deposits(){
-        int preDepositeBalance = bankAccount.balance;
-        bankAccount.deposit(200);
-        assertEquals(bankAccount.balance, preDepositeBalance + DEPOSIT);
-
-        preDepositeBalance = bankAccount.balance;
-        bankAccount.deposit(200);
-        assertEquals(bankAccount.balance, preDepositeBalance+DEPOSIT);
+    public void account_should_allow_withdraw(){
+        bankAccount.withdraw(DEPOSIT);
+        verify(bankAccount).withdraw(DEPOSIT);
     }
-
 
 
 }
