@@ -24,16 +24,7 @@ public class Account {
     public Money balance() {
         Money tmp = new Money();
         for (Transaction t : transactions) {
-            tmp = getNext(tmp, t);
-        }
-        return tmp;
-    }
-
-    private Money getNext(Money tmp, Transaction t) {
-        if (t instanceof Deposit) {
-            tmp = tmp.add(t.amount());
-        } else if (t instanceof Withdraw) {
-            tmp = tmp.sub(t.amount());
+            tmp = t.act(tmp);
         }
         return tmp;
     }

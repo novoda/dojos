@@ -18,4 +18,6 @@ public abstract class Transaction {
         return withdrawal;
     }
 
+    public abstract Money act(Money money);
+
 }
