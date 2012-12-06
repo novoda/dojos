@@ -1,5 +1,7 @@
 package com.novoda.dojos.bankaccount;
 
+import com.novoda.dojos.bankaccount.BankAccount.Account;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
@@ -22,23 +24,4 @@ public class SomethingShould {
     	
     	Mockito.verify(account).add(5);
     }
-    
-    public interface Account {
-    	void add(int amount);
-    }
-    
-    public class BankAccount  {
-
-    	Account account;
-    	
-    	public BankAccount(Account account) {
-    		this.account = account;
-    	}
-    	
-		public void deposit(int deposit) {
-			account.add(deposit);
-		}
-    	
-    }
-    
 }
