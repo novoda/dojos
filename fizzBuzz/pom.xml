@@ -9,12 +9,8 @@
 
 	<modules>
 		<module>20121116-carl_and_david</module>
-
-    <!-- Paul & Adam - this fails to build, fix if you want it to be included -->
-    <!--<module>20121116-paul_and_adam</module>-->
-
-    <module>20121116-goncalo_and_peter</module>
-
+                <module>20121116-paul_and_adam</module>
+                <module>20121116-goncalo_and_peter</module>
 	</modules>
 
 </project>
