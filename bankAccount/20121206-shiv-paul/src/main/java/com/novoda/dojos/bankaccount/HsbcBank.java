@@ -23,7 +23,7 @@ public class HsbcBank implements Bank {
 
 	@Override
 	public Statement printStatementFor(Account account) {
-		Statement statement = new Statement();
+		Statement statement = new Statement(account);
 
 		return statement;
 	}
