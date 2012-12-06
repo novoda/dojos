@@ -1,5 +1,6 @@
 package com.novoda.dojos.bankaccount;
 
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
@@ -43,5 +44,12 @@ public class BankShould {
     	
 		verify(account).remove(money);
 		verify(account2).add(money);
+    }
+    
+    @Test
+    public void printStatement(){
+    	Statement statement = bank.printStatementFor(account);
+    	
+    	assertNotNull(statement);
     }
 }

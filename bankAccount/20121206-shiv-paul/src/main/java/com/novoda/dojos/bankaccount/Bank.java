@@ -9,4 +9,6 @@ public interface Bank {
 
 	void transfer(Account account1, Account account2, Money money);
 
+	Statement printStatementFor(Account account);
+
 }
