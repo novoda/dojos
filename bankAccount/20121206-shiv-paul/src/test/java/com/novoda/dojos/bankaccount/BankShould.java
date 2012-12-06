@@ -2,7 +2,7 @@ package com.novoda.dojos.bankaccount;
 
 import static org.mockito.Mockito.verify;
 
-import com.novoda.dojos.bankaccount.Bank.Account;
+import com.novoda.dojos.bankaccount.HsbcBank.Account;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,13 +19,13 @@ public class BankShould {
 	public void setup(){
 		MockitoAnnotations.initMocks(this);
 		
-		bank = new Bank(account);
+		bank = new HsbcBank();
 	}
 	
     @Test
     public void canMakeDeposit(){
     	Money money = new Money();
-		bank.deposit(money);
+		bank.deposit(account, money);
     	
     	verify(account).add(money);
     }
@@ -33,7 +33,7 @@ public class BankShould {
     @Test
     public void canMakeWithdrawal(){
     	Money money = new Money();
-    	bank.withdraw(money);
+    	bank.withdraw(account, money);
     	verify(account).remove(money);
     }
     
