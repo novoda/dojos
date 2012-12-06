@@ -21,12 +21,28 @@ public class MoneyShould {
 
     @Test
     public void be_additive() {
-        Money  first= createMoney(10);
-        Money against = createMoney(2);
+        int firstValue = 10;
+        int againstValue = 2;
+        Money  first= createMoney(firstValue);
+        Money against = createMoney(againstValue);
         Money whatWeGet = first.add(against);
-        assertThat(12, equalTo(whatWeGet.getValue()));
+        assertThat(createMoney(firstValue + againstValue), equalTo(whatWeGet));
     }
 
+    @Test
+    public void be_subtractive() {
+        Money  first= createMoney(5);
+        Money against = createMoney(15);
+        Money whatWeGet = first.sub(against);
+        assertThat(createMoney(-10), equalTo(whatWeGet));
+    }
+
+    @Test
+    public void be_equal_if_contains_the_same_value() {
+        Money first = createMoney(5);
+        Money against = createMoney(5);
+        assertThat(first, equalTo(against));
+    }
 
 
     private Money createMoney(int value) {
