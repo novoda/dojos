@@ -6,26 +6,34 @@ import java.util.List;
 
 public class Account {
 
-    private final List<Money> monies;
+    private final List<Transaction> transactions;
 
     public Account() {
-        monies = Collections.emptyList();
+        transactions = Collections.emptyList();
     }
 
-    public Account(Money head, List<Money> tail) {
-        monies = new ArrayList<Money>(tail);
-        monies.add(head);
+    private Account(Transaction head, List<Transaction> tail) {
+        transactions = new ArrayList<Transaction>(tail);
+        transactions.add(head);
     }
 
-    public Account deposit(Money initialDeposit) {
-        return new Account(initialDeposit, monies);
+    public Account deposit(Money deposit) {
+        return action(new Deposit(deposit));
     }
 
     public Money balance() {
-        return head();
+        Money tmp = new Money();
+        for (Transaction t : transactions) {
+            tmp = t.act(tmp);
+        }
+        return tmp;
     }
 
-    private Money head() {
-        return monies.get(monies.size() - 1);
+    public Account withdraw(Money withdrawal) {
+        return action(new Withdraw(withdrawal));
+    }
+
+    private Account action(Transaction transaction) {
+        return new Account(transaction, transactions);
     }
 }
