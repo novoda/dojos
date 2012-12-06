@@ -1,7 +1,7 @@
 package com.novoda.dojos.bankaccount;
 
 
-public class BankAccount {
+public class Bank {
 	public interface Account {
     	void add(Money money);
     	void remove(Money money);
@@ -9,7 +9,7 @@ public class BankAccount {
 	
 	Account account;
 	
-	public BankAccount(Account account) {
+	public Bank(Account account) {
 		this.account = account;
 	}
 	

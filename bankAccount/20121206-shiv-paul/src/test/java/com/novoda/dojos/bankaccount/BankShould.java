@@ -2,29 +2,29 @@ package com.novoda.dojos.bankaccount;
 
 import static org.mockito.Mockito.verify;
 
-import com.novoda.dojos.bankaccount.BankAccount.Account;
+import com.novoda.dojos.bankaccount.Bank.Account;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class BankAccountShould {
+public class BankShould {
 
-    private BankAccount bankAccount;
+    private Bank bank;
 	@Mock private Account account;
 
 	@Before
 	public void setup(){
 		MockitoAnnotations.initMocks(this);
 		
-		bankAccount = new BankAccount(account);
+		bank = new Bank(account);
 	}
 	
     @Test
     public void canMakeDeposit(){
     	Money money = new Money();
-		bankAccount.deposit(money);
+		bank.deposit(money);
     	
     	verify(account).add(money);
     }
@@ -32,7 +32,7 @@ public class BankAccountShould {
     @Test
     public void canMakeWithdrawal(){
     	Money money = new Money();
-    	bankAccount.withdraw(money);
+    	bank.withdraw(money);
     	verify(account).remove(money);
     }
 }
