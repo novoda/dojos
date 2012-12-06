@@ -20,8 +20,8 @@ public class AccountShould {
     public void withdraw_money() {
         Account account = new Account();
         Money initialWithdraw = new Money(5);
-        Account a = account.deposit(initialWithdraw);
-        assertThat(a.balance(), equalTo(initialWithdraw));
+        Account a = account.withdraw(initialWithdraw);
+        assertThat(a.balance(), equalTo(new Money(-5)));
     }
 
 }
