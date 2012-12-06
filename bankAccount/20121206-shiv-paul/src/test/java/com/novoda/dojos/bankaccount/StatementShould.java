@@ -25,8 +25,6 @@ public class StatementShould {
 
 	@Test
 	public void haveThisFormat(){
-		
-		
 		haveTodaysDate();
 		haveABalance();
 	}
