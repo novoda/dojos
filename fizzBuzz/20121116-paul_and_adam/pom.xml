@@ -3,9 +3,8 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.gnorsilva</groupId>
-	<artifactId>FizzBuzz</artifactId>
+	<artifactId>FizzBuzz-20121116-paul_and_adam</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>20121116-peter_and_paul</name>
 
 	<properties>
 		<junit.version>4.10</junit.version>
