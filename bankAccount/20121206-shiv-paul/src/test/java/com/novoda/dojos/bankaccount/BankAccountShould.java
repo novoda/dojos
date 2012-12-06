@@ -28,4 +28,11 @@ public class BankAccountShould {
     	
     	verify(account).add(money);
     }
+    
+    @Test
+    public void canMakeWithdrawal(){
+    	Money money = new Money();
+    	bankAccount.withdraw(money);
+    	verify(account).remove(money);
+    }
 }
