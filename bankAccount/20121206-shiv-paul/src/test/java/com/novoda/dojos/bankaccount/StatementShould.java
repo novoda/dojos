@@ -1,16 +1,27 @@
 package com.novoda.dojos.bankaccount;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 
 import org.junit.Test;
 
 public class StatementShould {
 
+	private Statement statement;
+
 	@Test
-	public void haveTodaysDate(){
-		Statement statement = new Statement();
+	public void haveThisFormat(){
+		statement = new Statement();
 		
-		assertEquals(statement.toString(), "Statement: 06/12/2012");
+		haveTodaysDate();
+		haveABalance();
+	}
+	
+	public void haveTodaysDate(){
+		assertTrue(statement.toString().contains("Statement: 06/12/2012"));
+	}
+	
+	public void haveABalance(){
+		//assertTrue(statement.toString().contains("Balance"));
 	}
 	
 }
