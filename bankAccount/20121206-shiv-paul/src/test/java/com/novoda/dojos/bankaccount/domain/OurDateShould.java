@@ -1,4 +1,4 @@
-package com.novoda.dojos.bankaccount;
+package com.novoda.dojos.bankaccount.domain;
 
 import static org.junit.Assert.assertEquals;
 

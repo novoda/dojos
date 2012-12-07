@@ -1,8 +1,9 @@
-package com.novoda.dojos.bankaccount;
+package com.novoda.dojos.bankaccount.logging;
 
 import static junit.framework.Assert.assertTrue;
 import static org.mockito.Mockito.stub;
 
+import com.novoda.dojos.bankaccount.Account;
 import com.novoda.dojos.bankaccount.domain.Money;
 import com.novoda.dojos.bankaccount.logging.Statement;
 
