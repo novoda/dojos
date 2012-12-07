@@ -6,4 +6,9 @@ public class TransactionLogger {
 
 	}
 
+	public void logWithdrawal(Account account, Money money) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

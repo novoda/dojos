@@ -61,4 +61,13 @@ public class BankShould {
     	
     	verify(logger).logDeposit(account, money);
     }
+    
+    @Test
+    public void logWithdrawals(){
+    	Bank bank = new HsbcBank(logger);
+    	
+    	bank.withdraw(account, money);
+    	
+    	verify(logger).logWithdrawal(account, money);
+    }
 }

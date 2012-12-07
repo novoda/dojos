@@ -7,7 +7,7 @@ public class HsbcBank implements Bank {
 	private final TransactionLogger logger;
 	
 	public HsbcBank() {
-		logger = new TransactionLogger();
+		this(new TransactionLogger());
 	}
 	
 	public HsbcBank(TransactionLogger logger) {
@@ -23,6 +23,7 @@ public class HsbcBank implements Bank {
 	@Override
 	public void withdraw(Account account, Money money) {
 		account.remove(money);
+		logger.logWithdrawal(account, money);
 		
 	}
 
