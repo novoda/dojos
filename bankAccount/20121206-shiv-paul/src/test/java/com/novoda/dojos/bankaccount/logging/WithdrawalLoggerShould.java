@@ -12,41 +12,41 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class DepositLoggerShould {
+public class WithdrawalLoggerShould {
+	private WithdrawalLogger logger;
 
-	private DepositLogger logger;
-	
-	@Mock Map<Account, Money> map;
-	
+	@Mock
+	Map<Account, Money> map;
+
 	@Before
-	public void setup(){
+	public void setup() {
 		MockitoAnnotations.initMocks(this);
-		
-		logger = new DepositLogger(map);
+
+		logger = new WithdrawalLogger(map);
 	}
-	
+
 	@Test
-	public void log(){
+	public void log() {
 		Money money = new Money();
 		logger.log(account, money);
-		
+
 		verify(map).put(account, money);
 	}
-	
+
 	Account account = new Account() {
 		@Override
 		public void remove(Money money) {
-			
+
 		}
-		
+
 		@Override
 		public Money getBalance() {
 			return null;
 		}
-		
+
 		@Override
 		public void add(Money money) {
-			
+
 		}
 	};
 }

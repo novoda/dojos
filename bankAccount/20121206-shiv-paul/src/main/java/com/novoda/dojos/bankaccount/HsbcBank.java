@@ -4,17 +4,19 @@ import com.novoda.dojos.bankaccount.domain.Money;
 import com.novoda.dojos.bankaccount.logging.*;
 import com.novoda.dojos.bankaccount.logging.TransactionLogger.Type;
 
+import java.util.HashMap;
+
 
 
 public class HsbcBank implements Bank {
 	
-	private final Logger logger;
+	private final Logger<Type, Account, Money> logger;
 	
 	public HsbcBank() {
-		this(new TransactionLogger(new DepositLogger(), new WithdrawalLogger()));
+		this(new TransactionLogger(new DepositLogger(new HashMap<Account, Money>()), new WithdrawalLogger(new HashMap<Account, Money>())));
 	}
 	
-	public HsbcBank(Logger logger) {
+	public HsbcBank(Logger<Type, Account, Money> logger) {
 		this.logger = logger;
 	}
 	
