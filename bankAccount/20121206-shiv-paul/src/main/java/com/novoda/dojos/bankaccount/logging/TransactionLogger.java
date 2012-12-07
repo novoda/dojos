@@ -8,22 +8,19 @@ public class TransactionLogger implements Logger<Type, Account, Money> {
 	public enum Type { DEPOSIT , WITHDRAWAL };
 
 	private final DepositLogger depositLogger;
+	private final WithdrawalLogger withdrawalLogger;
 	
-	public TransactionLogger(DepositLogger depositLogger) {
+	public TransactionLogger(DepositLogger depositLogger, WithdrawalLogger withdrawalLogger) {
 		this.depositLogger = depositLogger;
+		this.withdrawalLogger = withdrawalLogger;
 	}
 
 	@Override
 	public void log(Type type, Account account, Money money) {
-		depositLogger.log(account, money);
+		if(type == Type.DEPOSIT){
+			depositLogger.log(account, money);
+			return;
+		}
+		withdrawalLogger.log(account, money);
 	}
-	
-	private void logDeposit(Account account, Money money) {
-
-	}
-
-	private void logWithdrawal(Account account, Money money) {
-		
-	}
-
 }

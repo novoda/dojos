@@ -11,7 +11,7 @@ public class HsbcBank implements Bank {
 	private final Logger logger;
 	
 	public HsbcBank() {
-		this(new TransactionLogger(new DepositLogger()));
+		this(new TransactionLogger(new DepositLogger(), new WithdrawalLogger()));
 	}
 	
 	public HsbcBank(Logger logger) {

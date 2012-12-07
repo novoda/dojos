@@ -14,36 +14,27 @@ import org.mockito.MockitoAnnotations;
 public class TransactionLoggerShould {
 
 	@Mock private DepositLogger mockDepositLogger;
+	@Mock private WithdrawalLogger mockWithdrawalLogger;
+	
 	private Logger<Type, Account, Money> logger;
 
 	@Before
 	public void setup(){
 		MockitoAnnotations.initMocks(this);
-		logger = new TransactionLogger(mockDepositLogger);
+		logger = new TransactionLogger(mockDepositLogger, mockWithdrawalLogger);
 	}
 	
 	@Test
 	public void logADeposit(){
-		Money money = new Money();
+		logger.log(Type.DEPOSIT, null, null);
 		
-		logger.log(Type.DEPOSIT, account, money);
-		
-		verify(mockDepositLogger).log(account, money);
+		verify(mockDepositLogger).log(null, null);
 	}
 	
-	private final Account account = new Account() {
-		@Override
-		public void remove(Money money) {
-		}
+	@Test
+	public void logAWithdrawal(){
+		logger.log(Type.WITHDRAWAL, null, null);
 		
-		@Override
-		public Money getBalance() {
-			return null;
-		}
-		
-		@Override
-		public void add(Money money) {
-		}
-	};
-	
+		verify(mockWithdrawalLogger).log(null, null);
+	}
 }
