@@ -1,29 +1,31 @@
 package com.novoda.dojos.bankaccount;
 
+import com.novoda.dojos.bankaccount.TransactionLogger.Type;
+
 
 
 public class HsbcBank implements Bank {
 	
-	private final TransactionLogger logger;
+	private final Logger logger;
 	
 	public HsbcBank() {
 		this(new TransactionLogger());
 	}
 	
-	public HsbcBank(TransactionLogger logger) {
+	public HsbcBank(Logger logger) {
 		this.logger = logger;
 	}
 	
 	@Override
 	public void deposit(Account account, Money money) {
 		account.add(money);
-		logger.logDeposit(account, money);
+		logger.log(Type.DEPOSIT, account, money);
 	}
 
 	@Override
 	public void withdraw(Account account, Money money) {
 		account.remove(money);
-		logger.logWithdrawal(account, money);
+		logger.log(Type.WITHDRAWAL, account, money);
 		
 	}
 

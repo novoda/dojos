@@ -3,6 +3,8 @@ package com.novoda.dojos.bankaccount;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.verify;
 
+import com.novoda.dojos.bankaccount.TransactionLogger.Type;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -59,7 +61,7 @@ public class BankShould {
     	
     	bank.deposit(account, money);
     	
-    	verify(logger).logDeposit(account, money);
+    	verify(logger).log(Type.DEPOSIT, account, money);
     }
     
     @Test
@@ -68,6 +70,6 @@ public class BankShould {
     	
     	bank.withdraw(account, money);
     	
-    	verify(logger).logWithdrawal(account, money);
+    	verify(logger).log(Type.WITHDRAWAL, account, money);
     }
 }
