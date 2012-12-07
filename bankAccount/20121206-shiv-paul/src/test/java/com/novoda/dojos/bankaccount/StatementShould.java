@@ -3,6 +3,9 @@ package com.novoda.dojos.bankaccount;
 import static junit.framework.Assert.assertTrue;
 import static org.mockito.Mockito.stub;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -30,11 +33,13 @@ public class StatementShould {
 	}
 	
 	public void haveTodaysDate(){
-		assertTrue(statement.toString().contains("Statement: 06/12/2012"));
+		String stmt = statement.toString();
+		assertTrue("Statement was: "+ stmt, stmt.contains("Statement: "+ new SimpleDateFormat("dd/MM/yyyy").format(new Date())));
 	}
 	
 	public void haveABalance(){
-		assertTrue(statement.toString().contains(balance.toString()));
+		String stmt = statement.toString();
+		assertTrue(stmt.contains(balance.toString()));
 	}
 	
 }
