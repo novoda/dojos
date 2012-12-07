@@ -4,9 +4,20 @@ package com.novoda.dojos.bankaccount;
 
 public class HsbcBank implements Bank {
 	
+	private final TransactionLogger logger;
+	
+	public HsbcBank() {
+		logger = new TransactionLogger();
+	}
+	
+	public HsbcBank(TransactionLogger logger) {
+		this.logger = logger;
+	}
+	
 	@Override
 	public void deposit(Account account, Money money) {
 		account.add(money);
+		logger.logDeposit(account, money);
 	}
 
 	@Override

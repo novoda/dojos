@@ -13,17 +13,19 @@ public class BankShould {
     private Bank bank;
 	@Mock private Account account;
 	@Mock private Account account2;
+	@Mock private TransactionLogger logger;
+	private Money money;
 	
 	@Before
 	public void setup(){
 		MockitoAnnotations.initMocks(this);
 		
+		money = new Money();
 		bank = new HsbcBank();
 	}
 	
     @Test
     public void canMakeDeposit(){
-    	Money money = new Money();
 		bank.deposit(account, money);
     	
     	verify(account).add(money);
@@ -31,15 +33,13 @@ public class BankShould {
     
     @Test
     public void canMakeWithdrawal(){
-    	Money money = new Money();
     	bank.withdraw(account, money);
+    	
     	verify(account).remove(money);
     }
     
     @Test
     public void canMakeATransfer(){
-		Money money = new Money();
-		
 		bank.transfer(account, account2, money);
     	
 		verify(account).remove(money);
@@ -51,5 +51,14 @@ public class BankShould {
     	Statement statement = bank.printStatementFor(account);
     	
     	assertNotNull(statement);
+    }
+    
+    @Test
+    public void logDeposits(){
+    	Bank bank = new HsbcBank(logger);
+    	
+    	bank.deposit(account, money);
+    	
+    	verify(logger).logDeposit(account, money);
     }
 }
