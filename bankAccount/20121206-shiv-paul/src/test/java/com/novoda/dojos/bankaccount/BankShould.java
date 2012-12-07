@@ -3,7 +3,10 @@ package com.novoda.dojos.bankaccount;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.verify;
 
-import com.novoda.dojos.bankaccount.TransactionLogger.Type;
+import com.novoda.dojos.bankaccount.domain.Money;
+import com.novoda.dojos.bankaccount.logging.Statement;
+import com.novoda.dojos.bankaccount.logging.TransactionLogger;
+import com.novoda.dojos.bankaccount.logging.TransactionLogger.Type;
 
 import org.junit.Before;
 import org.junit.Test;

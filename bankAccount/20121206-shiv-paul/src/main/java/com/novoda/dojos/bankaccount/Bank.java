@@ -1,5 +1,8 @@
 package com.novoda.dojos.bankaccount;
 
+import com.novoda.dojos.bankaccount.domain.Money;
+import com.novoda.dojos.bankaccount.logging.Statement;
+
 
 public interface Bank {
 

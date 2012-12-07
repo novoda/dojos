@@ -3,6 +3,9 @@ package com.novoda.dojos.bankaccount;
 import static junit.framework.Assert.assertTrue;
 import static org.mockito.Mockito.stub;
 
+import com.novoda.dojos.bankaccount.domain.Money;
+import com.novoda.dojos.bankaccount.logging.Statement;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

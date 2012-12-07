@@ -2,6 +2,8 @@ package com.novoda.dojos.bankaccount;
 
 import static org.junit.Assert.assertEquals;
 
+import com.novoda.dojos.bankaccount.domain.OurDate;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
