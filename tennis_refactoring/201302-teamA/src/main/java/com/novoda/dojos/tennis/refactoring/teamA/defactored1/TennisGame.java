@@ -17,48 +17,60 @@ public class TennisGame {
         String score = "";
         int tempScore = 0;
         if (scoresAreEqual()) {
-            switch (m_score1) {
-                case 0:
-                    score = "Love-All";
-                    break;
-                case 1:
-                    score = "Fifteen-All";
-                    break;
-                case 2:
-                    score = "Thirty-All";
-                    break;
-                case 3:
-                    score = "Forty-All";
-                    break;
-                default:
-                    score = "Deuce";
-                    break;
-
-            }
+            score = determineDrawScore();
         } else if (eitherScoreOverFourty()) {
             score = determineAdvantageOrWin();
         } else {
-            for (int i = 1; i < 3; i++) {
-                if (i == 1) {
-                    tempScore = m_score1;
-                } else {
-                    score += "-";
-                    tempScore = m_score2;
-                }
-                switch (tempScore) {
-                    case 0:
-                        score += "Love";
-                        break;
-                    case 1:
-                        score += "Fifteen";
-                        break;
-                    case 2:
-                        score += "Thirty";
-                        break;
-                    case 3:
-                        score += "Forty";
-                        break;
-                }
+            score = determineNonDrawScore(score);
+        }
+        return score;
+    }
+
+    private String determineDrawScore() {
+        String score;
+        switch (m_score1) {
+            case 0:
+                score = "Love-All";
+                break;
+            case 1:
+                score = "Fifteen-All";
+                break;
+            case 2:
+                score = "Thirty-All";
+                break;
+            case 3:
+                score = "Forty-All";
+                break;
+            default:
+                score = "Deuce";
+                break;
+
+        }
+        return score;
+    }
+
+    private String determineNonDrawScore(String score) {
+        int tempScore;
+        for (int i = 1; i < 3; i++) {
+            if (i == 1) {
+                tempScore = m_score1;
+            } else {
+                score += "-";
+                tempScore = m_score2;
+            }
+            switch (tempScore) {
+                case 0:
+                    score += "Love";
+                    break;
+                case 1:
+                    score += "Fifteen";
+                    break;
+                case 2:
+                    score += "Thirty";
+                    break;
+                case 3:
+                    score += "Forty";
+                    break;
             }
         }
         return score;
