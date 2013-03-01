@@ -1,12 +1,9 @@
 package com.novoda.dojos.tennis.refactoring.teamB.defactored1;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -59,6 +56,7 @@ public class TennisTest {
                 { 3, 4, "Advantage player2"},
                 { 5, 4, "Advantage player1"},
                 { 4, 5, "Advantage player2"},
+                { 5, 5, "Deuce"},
                 { 15, 14, "Advantage player1"},
                 { 14, 15, "Advantage player2"},
 

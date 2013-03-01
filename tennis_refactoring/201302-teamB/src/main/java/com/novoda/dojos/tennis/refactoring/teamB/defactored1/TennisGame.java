@@ -1,7 +1,7 @@
 package com.novoda.dojos.tennis.refactoring.teamB.defactored1;
 
 public class TennisGame {
-    
+
     private int m_score1 = 0;
     private int m_score2 = 0;
     private String player1Name;
@@ -41,16 +41,21 @@ public class TennisGame {
                 default:
                         score = "Deuce";
                     break;
-                
+
             }
         }
-        else if (m_score1>=4 || m_score2>=4)
+        else if ( inDeuce() )
         {
             int minusResult = m_score1-m_score2;
-            if (minusResult==1) score ="Advantage player1";
-            else if (minusResult ==-1) score ="Advantage player2";
-            else if (minusResult>=2) score = "Win for player1";
-            else score ="Win for player2";
+            if (minusResult==1) {
+                score = "Advantage player1";
+            } else if (minusResult ==-1) {
+                score = "Advantage player2";
+            } else if (minusResult>=2){
+                score = "Win for player1";
+            } else {
+                score ="Win for player2";
+            }
         }
         else
         {
@@ -76,5 +81,9 @@ public class TennisGame {
             }
         }
         return score;
+    }
+
+    private boolean inDeuce() {
+        return m_score1>=4 || m_score2>=4;
     }
 }
