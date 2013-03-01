@@ -59,18 +59,7 @@ public class TennisGame {
     }
 
     private String determineNonDrawScore() {
-        String score = "";
-        int tempScore;
-        for (int i = 1; i < 3; i++) {
-            if (i == 1) {
-                tempScore = playerOneScore;
-            } else {
-                score += "-";
-                tempScore = playerTwoScore;
-            }
-            score += getDescriptionFor(tempScore);
-        }
-        return score;
+        return getDescriptionFor(playerOneScore) + "-" + getDescriptionFor(playerTwoScore);
     }
 
     private String getDescriptionFor(int score) {
