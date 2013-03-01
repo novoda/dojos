@@ -16,10 +16,8 @@ public class TennisGame {
     public String getScore() {
         if (eitherScoreOverFourty()) {
             return determineAdvantageOrWin();
-        } else if (scoresAreEqual()) {
-            return determineDrawScore();
         }
-        return determineNonDrawScore();
+        return determineDrawScore();
     }
 
     private boolean eitherScoreOverFourty() {
@@ -46,10 +44,9 @@ public class TennisGame {
     }
 
     private String determineDrawScore() {
-        return getDescriptionFor(playerOneScore) + "-" + "All";
-    }
-
-    private String determineNonDrawScore() {
+        if (scoresAreEqual()) {
+            return getDescriptionFor(playerOneScore) + "-" + "All";
+        }
         return getDescriptionFor(playerOneScore) + "-" + getDescriptionFor(playerTwoScore);
     }
 
