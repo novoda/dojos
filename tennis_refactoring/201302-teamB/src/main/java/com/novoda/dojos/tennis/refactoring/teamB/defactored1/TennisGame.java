@@ -20,13 +20,12 @@ public class TennisGame {
     }
 
     public String getScore() {
-        String score = "";
         if (playerScoresAreEqual()) {
             return calculateEqualScore();
         } else if (aPlayerScoreExceedsForty()) {
             return calculateScoreOverForty();
         } else {
-            return calculateNormalScore(score);
+            return calculateNormalScore();
         }
     }
 
@@ -67,29 +66,21 @@ public class TennisGame {
         }
     }
 
-    private String calculateNormalScore(String score) {
-        int tempScore;
-        for (int i = 1; i < 3; i++) {
-            if (i == 1) tempScore = score1;
-            else {
-                score += "-";
-                tempScore = score2;
-            }
-            switch (tempScore) {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
+    private String calculateNormalScore() {
+        return getTextScoreFor(score1) + "-" + getTextScoreFor(score2);
+    }
+
+    private String getTextScoreFor(int tempScore) {
+        switch (tempScore) {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            case 3:
+                return "Forty";
         }
-        return score;
+        return "";
     }
 }
