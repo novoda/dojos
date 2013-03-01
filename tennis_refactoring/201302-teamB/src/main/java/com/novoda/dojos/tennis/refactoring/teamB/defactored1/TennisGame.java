@@ -21,50 +21,45 @@ public class TennisGame {
 
     public String getScore() {
         String score = "";
-        int tempScore;
-        if (score1 == score2) {
-            switch (score1) {
-                case 0:
-                        score = "Love-All";
-                    break;
-                case 1:
-                        score = "Fifteen-All";
-                    break;
-                case 2:
-                        score = "Thirty-All";
-                    break;
-                case 3:
-                        score = "Forty-All";
-                    break;
-                default:
-                        score = "Deuce";
-                    break;
-
-            }
+        if (playerScoresAreEqual()) {
+            return calculateEqualScore();
         }
-        else if (scoreExceedsForty()) {
+        else if (aPlayerScoreExceedsForty()) {
             return calculateScoreOverForty();
         } else {
-            for (int i=1; i<3; i++) {
-                if (i==1) tempScore = score1;
-                else { score+="-"; tempScore = score2;}
-                switch(tempScore) {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
-                }
-            }
+            return calculateNormalScore(score);
+        }
+    }
+
+    private boolean playerScoresAreEqual() {
+        return score1 == score2;
+    }
+
+    private String calculateEqualScore() {
+        String score;
+        switch (score1) {
+            case 0:
+                    score = "Love-All";
+                break;
+            case 1:
+                    score = "Fifteen-All";
+                break;
+            case 2:
+                    score = "Thirty-All";
+                break;
+            case 3:
+                    score = "Forty-All";
+                break;
+            default:
+                    score = "Deuce";
+                break;
+
         }
         return score;
+    }
+
+    private boolean aPlayerScoreExceedsForty() {
+        return score1 >=4 || score2 >=4;
     }
 
     private String calculateScoreOverForty() {
@@ -80,7 +75,26 @@ public class TennisGame {
         }
     }
 
-    private boolean scoreExceedsForty() {
-        return score1 >=4 || score2 >=4;
+    private String calculateNormalScore(String score) {
+        int tempScore;
+        for (int i=1; i<3; i++) {
+            if (i==1) tempScore = score1;
+            else { score+="-"; tempScore = score2;}
+            switch(tempScore) {
+                case 0:
+                    score+="Love";
+                    break;
+                case 1:
+                    score+="Fifteen";
+                    break;
+                case 2:
+                    score+="Thirty";
+                    break;
+                case 3:
+                    score+="Forty";
+                    break;
+            }
+        }
+        return score;
     }
 }
