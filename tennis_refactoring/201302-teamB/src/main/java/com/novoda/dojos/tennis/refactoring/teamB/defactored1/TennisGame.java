@@ -36,15 +36,15 @@ public class TennisGame {
     private String calculateEqualScore() {
         switch (score1) {
             case 0:
-                return  "Love-All";
+                return "Love-All";
             case 1:
-                return  "Fifteen-All";
+                return "Fifteen-All";
             case 2:
-                return  "Thirty-All";
+                return "Thirty-All";
             case 3:
-                return  "Forty-All";
+                return "Forty-All";
             default:
-                return  "Deuce";
+                return "Deuce";
 
         }
     }
@@ -54,12 +54,12 @@ public class TennisGame {
     }
 
     private String calculateScoreOverForty() {
-        int minusResult = score1 - score2;
-        if (minusResult == 1) {
+        int pointDifference = score1 - score2;
+        if (pointDifference == 1) {
             return "Advantage player1";
-        } else if (minusResult == -1) {
+        } else if (pointDifference == -1) {
             return "Advantage player2";
-        } else if (minusResult >= 2) {
+        } else if (pointDifference >= 2) {
             return "Win for player1";
         } else {
             return "Win for player2";
@@ -71,16 +71,13 @@ public class TennisGame {
     }
 
     private String getTextScoreFor(int tempScore) {
-        switch (tempScore) {
-            case 0:
-                return "Love";
-            case 1:
-                return "Fifteen";
-            case 2:
-                return "Thirty";
-            case 3:
-                return "Forty";
-        }
-        return "";
+        return Score.values()[tempScore].name();
+    }
+
+    enum Score {
+        Love,
+        Fifteen,
+        Thirty,
+        Forty;
     }
 }
