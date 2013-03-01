@@ -18,9 +18,8 @@ public class TennisGame {
             return determineDrawScore();
         } else if (eitherScoreOverFourty()) {
             return determineAdvantageOrWin();
-        } else {
-            return determineNonDrawScore();
         }
+        return determineNonDrawScore();
     }
 
     private boolean scoresAreEqual() {
