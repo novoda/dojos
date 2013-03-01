@@ -23,8 +23,7 @@ public class TennisGame {
         String score = "";
         if (playerScoresAreEqual()) {
             return calculateEqualScore();
-        }
-        else if (aPlayerScoreExceedsForty()) {
+        } else if (aPlayerScoreExceedsForty()) {
             return calculateScoreOverForty();
         } else {
             return calculateNormalScore(score);
@@ -36,40 +35,33 @@ public class TennisGame {
     }
 
     private String calculateEqualScore() {
-        String score;
         switch (score1) {
             case 0:
-                    score = "Love-All";
-                break;
+                return  "Love-All";
             case 1:
-                    score = "Fifteen-All";
-                break;
+                return  "Fifteen-All";
             case 2:
-                    score = "Thirty-All";
-                break;
+                return  "Thirty-All";
             case 3:
-                    score = "Forty-All";
-                break;
+                return  "Forty-All";
             default:
-                    score = "Deuce";
-                break;
+                return  "Deuce";
 
         }
-        return score;
     }
 
     private boolean aPlayerScoreExceedsForty() {
-        return score1 >=4 || score2 >=4;
+        return score1 >= 4 || score2 >= 4;
     }
 
     private String calculateScoreOverForty() {
         int minusResult = score1 - score2;
-        if (minusResult==1) {
-            return  "Advantage player1";
-        } else if (minusResult ==-1) {
-            return  "Advantage player2";
-        } else if (minusResult>=2){
-            return  "Win for player1";
+        if (minusResult == 1) {
+            return "Advantage player1";
+        } else if (minusResult == -1) {
+            return "Advantage player2";
+        } else if (minusResult >= 2) {
+            return "Win for player1";
         } else {
             return "Win for player2";
         }
@@ -77,21 +69,24 @@ public class TennisGame {
 
     private String calculateNormalScore(String score) {
         int tempScore;
-        for (int i=1; i<3; i++) {
-            if (i==1) tempScore = score1;
-            else { score+="-"; tempScore = score2;}
-            switch(tempScore) {
+        for (int i = 1; i < 3; i++) {
+            if (i == 1) tempScore = score1;
+            else {
+                score += "-";
+                tempScore = score2;
+            }
+            switch (tempScore) {
                 case 0:
-                    score+="Love";
+                    score += "Love";
                     break;
                 case 1:
-                    score+="Fifteen";
+                    score += "Fifteen";
                     break;
                 case 2:
-                    score+="Thirty";
+                    score += "Thirty";
                     break;
                 case 3:
-                    score+="Forty";
+                    score += "Forty";
                     break;
             }
         }
