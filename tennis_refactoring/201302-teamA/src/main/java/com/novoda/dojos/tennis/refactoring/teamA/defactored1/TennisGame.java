@@ -22,17 +22,6 @@ public class TennisGame {
         return determineNonDrawScore();
     }
 
-    private boolean scoresAreEqual() {
-        return playerOneScore == playerTwoScore;
-    }
-
-    private String determineDrawScore() {
-        if (playerOneScore < 4) {
-            return getDescriptionFor(playerOneScore) + "-" + "All";
-        }
-        return getDescriptionFor(playerOneScore);
-    }
-
     private boolean eitherScoreOverFourty() {
         return playerOneScore >= 4 || playerTwoScore >= 4;
     }
@@ -50,6 +39,14 @@ public class TennisGame {
         }
         return "Win for player2";
 
+    }
+
+    private boolean scoresAreEqual() {
+        return playerOneScore == playerTwoScore;
+    }
+
+    private String determineDrawScore() {
+        return getDescriptionFor(playerOneScore) + "-" + "All";
     }
 
     private String determineNonDrawScore() {
