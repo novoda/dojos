@@ -15,7 +15,6 @@ public class TennisGame {
 
     public String getScore() {
         String score = "";
-        int tempScore = 0;
         if (scoresAreEqual()) {
             score = determineDrawScore();
         } else if (eitherScoreOverFourty()) {
@@ -24,6 +23,10 @@ public class TennisGame {
             score = determineNonDrawScore(score);
         }
         return score;
+    }
+
+    private boolean scoresAreEqual() {
+        return m_score1 == m_score2;
     }
 
     private String determineDrawScore() {
@@ -45,6 +48,25 @@ public class TennisGame {
                 score = "Deuce";
                 break;
 
+        }
+        return score;
+    }
+
+    private boolean eitherScoreOverFourty() {
+        return m_score1 >= 4 || m_score2 >= 4;
+    }
+
+    private String determineAdvantageOrWin() {
+        String score;
+        int minusResult = m_score1 - m_score2;
+        if (minusResult == 1) {
+            score = "Advantage player1";
+        } else if (minusResult == -1) {
+            score = "Advantage player2";
+        } else if (minusResult >= 2) {
+            score = "Win for player1";
+        } else {
+            score = "Win for player2";
         }
         return score;
     }
@@ -74,28 +96,5 @@ public class TennisGame {
             }
         }
         return score;
-    }
-
-    private String determineAdvantageOrWin() {
-        String score;
-        int minusResult = m_score1 - m_score2;
-        if (minusResult == 1) {
-            score = "Advantage player1";
-        } else if (minusResult == -1) {
-            score = "Advantage player2";
-        } else if (minusResult >= 2) {
-            score = "Win for player1";
-        } else {
-            score = "Win for player2";
-        }
-        return score;
-    }
-
-    private boolean eitherScoreOverFourty() {
-        return m_score1 >= 4 || m_score2 >= 4;
-    }
-
-    private boolean scoresAreEqual() {
-        return m_score1 == m_score2;
     }
 }
