@@ -2,14 +2,14 @@ package com.novoda.dojos.tennis.refactoring.teamA.defactored1;
 
 public class TennisGame {
 
-    private int m_score1 = 0;
-    private int m_score2 = 0;
+    private int playerOneScore = 0;
+    private int playerTwoScore = 0;
 
     public void wonPoint(String playerName) {
         if (playerName == "player1") {
-            m_score1 += 1;
+            playerOneScore += 1;
         } else {
-            m_score2 += 1;
+            playerTwoScore += 1;
         }
     }
 
@@ -24,12 +24,12 @@ public class TennisGame {
     }
 
     private boolean scoresAreEqual() {
-        return m_score1 == m_score2;
+        return playerOneScore == playerTwoScore;
     }
 
     private String determineDrawScore() {
         String score;
-        switch (m_score1) {
+        switch (playerOneScore) {
             case 0:
                 score = "Love-All";
                 break;
@@ -51,12 +51,12 @@ public class TennisGame {
     }
 
     private boolean eitherScoreOverFourty() {
-        return m_score1 >= 4 || m_score2 >= 4;
+        return playerOneScore >= 4 || playerTwoScore >= 4;
     }
 
     private String determineAdvantageOrWin() {
         String score;
-        int minusResult = m_score1 - m_score2;
+        int minusResult = playerOneScore - playerTwoScore;
         if (minusResult == 1) {
             score = "Advantage player1";
         } else if (minusResult == -1) {
@@ -74,10 +74,10 @@ public class TennisGame {
         int tempScore;
         for (int i = 1; i < 3; i++) {
             if (i == 1) {
-                tempScore = m_score1;
+                tempScore = playerOneScore;
             } else {
                 score += "-";
-                tempScore = m_score2;
+                tempScore = playerTwoScore;
             }
             switch (tempScore) {
                 case 0:
