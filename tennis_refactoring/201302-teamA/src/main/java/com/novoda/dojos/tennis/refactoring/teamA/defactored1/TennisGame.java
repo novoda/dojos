@@ -69,21 +69,23 @@ public class TennisGame {
                 score += "-";
                 tempScore = playerTwoScore;
             }
-            switch (tempScore) {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
+            score += getDescriptionFor(tempScore);
         }
         return score;
+    }
+
+    private String getDescriptionFor(int score) {
+        switch (score) {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            case 3:
+                return "Forty";
+            default:
+                return "fail";
+        }
     }
 }
