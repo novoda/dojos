@@ -67,7 +67,7 @@ public class TennisGame {
             case 3:
                 return "Forty";
             default:
-                return "Deuce";
+                throw new RuntimeException("You suck " + score + " times");
         }
     }
 }
