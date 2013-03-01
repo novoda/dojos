@@ -27,18 +27,11 @@ public class TennisGame {
     }
 
     private String determineDrawScore() {
-        switch (playerOneScore) {
-            case 0:
-                return "Love-All";
-            case 1:
-                return "Fifteen-All";
-            case 2:
-                return "Thirty-All";
-            case 3:
-                return "Forty-All";
-            default:
-                return "Deuce";
+        String scoreSuffix = "";
+        if (playerOneScore < 4) {
+            scoreSuffix = "-All";
         }
+        return getDescriptionFor(playerOneScore) + scoreSuffix;
     }
 
     private boolean eitherScoreOverFourty() {
@@ -73,7 +66,7 @@ public class TennisGame {
             case 3:
                 return "Forty";
             default:
-                return "fail";
+                return "Deuce";
         }
     }
 }
