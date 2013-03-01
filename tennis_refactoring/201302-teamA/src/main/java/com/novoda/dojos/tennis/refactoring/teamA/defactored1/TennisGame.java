@@ -1,80 +1,91 @@
 package com.novoda.dojos.tennis.refactoring.teamA.defactored1;
 
 public class TennisGame {
-    
-    private int m_score1 = 0;
-    private int m_score2 = 0;
-    private String player1Name;
-    private String player2Name;
 
-    public TennisGame(String player1Name, String player2Name) {
-        this.player1Name = player1Name;
-        this.player2Name = player2Name;
-    }
+    private int playerOneScore = 0;
+    private int playerTwoScore = 0;
 
     public void wonPoint(String playerName) {
-        if (playerName == "player1")
-            m_score1 += 1;
-        else
-            m_score2 += 1;
+        if (playerName == "player1") {
+            playerOneScore += 1;
+        } else {
+            playerTwoScore += 1;
+        }
     }
 
     public String getScore() {
+        if (scoresAreEqual()) {
+            return determineDrawScore();
+        } else if (eitherScoreOverFourty()) {
+            return determineAdvantageOrWin();
+        } else {
+            return determineNonDrawScore();
+        }
+    }
+
+    private boolean scoresAreEqual() {
+        return playerOneScore == playerTwoScore;
+    }
+
+    private String determineDrawScore() {
+        switch (playerOneScore) {
+            case 0:
+                return "Love-All";
+            case 1:
+                return "Fifteen-All";
+            case 2:
+                return "Thirty-All";
+            case 3:
+                return "Forty-All";
+            default:
+                return "Deuce";
+        }
+    }
+
+    private boolean eitherScoreOverFourty() {
+        return playerOneScore >= 4 || playerTwoScore >= 4;
+    }
+
+    private String determineAdvantageOrWin() {
+        int minusResult = playerOneScore - playerTwoScore;
+        if (minusResult == 1) {
+            return "Advantage player1";
+        } else if (minusResult == -1) {
+            return "Advantage player2";
+        } else if (minusResult >= 2) {
+            return "Win for player1";
+        }
+        return "Win for player2";
+
+    }
+
+    private String determineNonDrawScore() {
         String score = "";
-        int tempScore=0;
-        if (m_score1==m_score2)
-        {
-            switch (m_score1)
-            {
-                case 0:
-                        score = "Love-All";
-                    break;
-                case 1:
-                        score = "Fifteen-All";
-                    break;
-                case 2:
-                        score = "Thirty-All";
-                    break;
-                case 3:
-                        score = "Forty-All";
-                    break;
-                default:
-                        score = "Deuce";
-                    break;
-                
+        int tempScore;
+        for (int i = 1; i < 3; i++) {
+            if (i == 1) {
+                tempScore = playerOneScore;
+            } else {
+                score += "-";
+                tempScore = playerTwoScore;
             }
-        }
-        else if (m_score1>=4 || m_score2>=4)
-        {
-            int minusResult = m_score1-m_score2;
-            if (minusResult==1) score ="Advantage player1";
-            else if (minusResult ==-1) score ="Advantage player2";
-            else if (minusResult>=2) score = "Win for player1";
-            else score ="Win for player2";
-        }
-        else
-        {
-            for (int i=1; i<3; i++)
-            {
-                if (i==1) tempScore = m_score1;
-                else { score+="-"; tempScore = m_score2;}
-                switch(tempScore)
-                {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
-                }
-            }
+            score += getDescriptionFor(tempScore);
         }
         return score;
+    }
+
+    private String getDescriptionFor(int score) {
+        switch (score) {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            case 3:
+                return "Forty";
+            default:
+                return "fail";
+        }
     }
 }
