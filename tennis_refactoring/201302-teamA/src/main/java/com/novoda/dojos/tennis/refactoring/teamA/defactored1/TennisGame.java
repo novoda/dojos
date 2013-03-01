@@ -16,7 +16,7 @@ public class TennisGame {
     public String getScore() {
         String score = "";
         int tempScore = 0;
-        if (m_score1 == m_score2) {
+        if (scoresAreEqual()) {
             switch (m_score1) {
                 case 0:
                     score = "Love-All";
@@ -35,7 +35,7 @@ public class TennisGame {
                     break;
 
             }
-        } else if (m_score1 >= 4 || m_score2 >= 4) {
+        } else if (eitherScoreOverFourty()) {
             int minusResult = m_score1 - m_score2;
             if (minusResult == 1) {
                 score = "Advantage player1";
@@ -71,5 +71,13 @@ public class TennisGame {
             }
         }
         return score;
+    }
+
+    private boolean eitherScoreOverFourty() {
+        return m_score1 >= 4 || m_score2 >= 4;
+    }
+
+    private boolean scoresAreEqual() {
+        return m_score1 == m_score2;
     }
 }
