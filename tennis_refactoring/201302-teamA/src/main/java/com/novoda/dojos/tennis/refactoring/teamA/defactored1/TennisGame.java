@@ -14,15 +14,13 @@ public class TennisGame {
     }
 
     public String getScore() {
-        String score = "";
         if (scoresAreEqual()) {
-            score = determineDrawScore();
+            return determineDrawScore();
         } else if (eitherScoreOverFourty()) {
-            score = determineAdvantageOrWin();
+            return determineAdvantageOrWin();
         } else {
-            score = determineNonDrawScore(score);
+            return determineNonDrawScore();
         }
-        return score;
     }
 
     private boolean scoresAreEqual() {
@@ -71,7 +69,8 @@ public class TennisGame {
         return score;
     }
 
-    private String determineNonDrawScore(String score) {
+    private String determineNonDrawScore() {
+        String score = "";
         int tempScore;
         for (int i = 1; i < 3; i++) {
             if (i == 1) {
