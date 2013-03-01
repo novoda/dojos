@@ -12,8 +12,8 @@ public class TennisGame {
         this.two = two;
     }
 
-    public void wonPoint(Player playerName) {
-        if (playerName.equals(one))
+    public void wonPoint(Player player) {
+        if (player.equals(one))
             score1 += 1;
         else
             score2 += 1;
@@ -22,10 +22,8 @@ public class TennisGame {
     public String getScore() {
         String score = "";
         int tempScore;
-        if (score1 == score2)
-        {
-            switch (score1)
-            {
+        if (score1 == score2) {
+            switch (score1) {
                 case 0:
                         score = "Love-All";
                     break;
@@ -44,8 +42,7 @@ public class TennisGame {
 
             }
         }
-        else if ( inDeuce() )
-        {
+        else if (inDeuce()) {
             int minusResult = score1 - score2;
             if (minusResult==1) {
                 score = "Advantage player1";
@@ -56,15 +53,11 @@ public class TennisGame {
             } else {
                 score ="Win for player2";
             }
-        }
-        else
-        {
-            for (int i=1; i<3; i++)
-            {
+        } else {
+            for (int i=1; i<3; i++) {
                 if (i==1) tempScore = score1;
                 else { score+="-"; tempScore = score2;}
-                switch(tempScore)
-                {
+                switch(tempScore) {
                     case 0:
                         score+="Love";
                         break;
