@@ -31,4 +31,4 @@ tenth frame.
 
 Original Source: http://butunclebob.com/files/downloads/Bowling%20Game%20Kata.ppt
 
-![OCP](http://4.bp.blogspot.com/-E-WFKuISIW8/T8pkHGxhZfI/AAAAAAAAGuc/GOE9zTw_I1U/s400/OpenClosedPrinciple.jpg)
+![OCP](http://4.bp.blogspot.com/-E-WFKuISIW8/T8pkHGxhZfI/AAAAAAAAGuc/GOE9zTw_I1U/s400/OpenClosedPrinciple.jpg) ![DI](http://www.khominhvi.com/wp-content/uploads/2013/05/DependencyInversion.jpg)
