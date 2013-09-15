@@ -2,7 +2,7 @@ package com.bowling;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class KataSetupTest {
 
@@ -12,6 +12,6 @@ public class KataSetupTest {
 
         boolean setup = kataSetup.isSetup();
 
-        assertTrue(setup);
+        assertThat(setup).isTrue();
     }
 }
