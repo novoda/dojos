@@ -2,15 +2,15 @@ package com.bowling;
 
 public class ScoreKeeper {
 
-    private final SpareBonusCalculator spareBonusCalculator;
+    private final BonusCalculator bonusCalculator;
 
     private int totalScore = 0;
 
     private int[] rolls = new int[21];
     private int index = 0;
 
-    public ScoreKeeper(SpareBonusCalculator spareBonusCalculator) {
-        this.spareBonusCalculator = spareBonusCalculator;
+    public ScoreKeeper(BonusCalculator bonusCalculator) {
+        this.bonusCalculator = bonusCalculator;
     }
 
     public void registerRoll(int pins) {
@@ -19,6 +19,6 @@ public class ScoreKeeper {
     }
 
     public int getScore() {
-        return totalScore + spareBonusCalculator.getBonus(rolls);
+        return totalScore + bonusCalculator.getBonus(rolls);
     }
 }

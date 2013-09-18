@@ -1,9 +1,10 @@
 package com.bowling;
 
-public class SpareBonusCalculator {
+public class SpareBonusCalculator implements BonusCalculator {
 
     private int totalBonus = 0;
 
+    @Override
     public int getBonus(int[] rolls) {
         for (int i = 0; i < rolls.length -1; i = i + 2) {
             addSpareBonusIfNeeded(rolls, i);

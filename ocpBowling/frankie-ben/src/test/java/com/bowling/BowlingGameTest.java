@@ -1,5 +1,6 @@
 package com.bowling;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -37,6 +38,19 @@ public class BowlingGameTest {
         rollMany(1, 1);
 
         assertThat(bowlingGame.score()).isEqualTo(30);
+    }
+
+    @Test
+    @Ignore("Refactoring in process")
+    public void oneStrike() throws Exception {
+        rollStrike();
+        rollMany(18, 1);
+
+        assertThat(bowlingGame.score()).isEqualTo(30);
+    }
+
+    private void rollStrike() {
+        bowlingGame.roll(10);
     }
 
     private void rollSpare() {
