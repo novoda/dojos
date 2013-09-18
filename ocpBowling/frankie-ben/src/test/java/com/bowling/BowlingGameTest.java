@@ -30,6 +30,15 @@ public class BowlingGameTest {
         assertThat(bowlingGame.score()).isEqualTo(29);
     }
 
+    @Test
+    public void oneSpareAtTheEnd() throws Exception {
+        rollMany(18, 1);
+        rollSpare();
+        rollMany(1, 1);
+
+        assertThat(bowlingGame.score()).isEqualTo(30);
+    }
+
     private void rollSpare() {
         bowlingGame.roll(6);
         bowlingGame.roll(4);

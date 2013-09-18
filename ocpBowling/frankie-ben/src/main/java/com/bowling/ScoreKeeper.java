@@ -6,7 +6,7 @@ public class ScoreKeeper {
 
     private int totalScore = 0;
 
-    private int[] rolls = new int[23];
+    private int[] rolls = new int[21];
     private int index = 0;
 
     public ScoreKeeper(SpareBonusCalculator spareBonusCalculator) {
