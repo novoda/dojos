@@ -1,6 +1,5 @@
 package com.bowling;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -41,7 +40,6 @@ public class BowlingGameTest {
     }
 
     @Test
-    @Ignore("Refactoring in process")
     public void oneStrike() throws Exception {
         rollStrike();
         rollMany(18, 1);
