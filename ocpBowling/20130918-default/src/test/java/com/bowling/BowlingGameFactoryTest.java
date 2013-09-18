@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-public class KataSetupTest {
+public class BowlingGameFactoryTest {
 
     @Test
     public void testIsSetup() throws Exception {
