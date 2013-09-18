@@ -6,31 +6,25 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 public class BowlingGameTest {
 
+    private BowlingGame bowlingGame = new BowlingGameFactory().getBowlingGame();
+
     @Test
     public void gutterGameIsZero() throws Exception {
-
-        BowlingGameFactory bowlingGameFactory = new BowlingGameFactory();
-
-        BowlingGame bowlingGame = bowlingGameFactory.getBowlingGame();
-
-        for (int i = 0; i < 20; i++) {
-            bowlingGame.roll(0);
-        }
+        rollMany(20, 0);
 
         assertThat(bowlingGame.score()).isEqualTo(0);
     }
 
     @Test
     public void allOnesIsTwenty() throws Exception {
-
-        BowlingGameFactory bowlingGameFactory = new BowlingGameFactory();
-
-        BowlingGame bowlingGame = bowlingGameFactory.getBowlingGame();
-
-        for (int i = 0; i < 20; i++) {
-            bowlingGame.roll(1);
-        }
+        rollMany(20, 1);
 
         assertThat(bowlingGame.score()).isEqualTo(20);
+    }
+
+    private void rollMany(int count, int pins) {
+        for (int i = 0; i < count; i++) {
+            bowlingGame.roll(pins);
+        }
     }
 }
