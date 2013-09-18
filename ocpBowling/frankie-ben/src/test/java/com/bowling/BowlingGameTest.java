@@ -22,6 +22,19 @@ public class BowlingGameTest {
         assertThat(bowlingGame.score()).isEqualTo(20);
     }
 
+    @Test
+    public void oneSpare() throws Exception {
+        rollSpare();
+        rollMany(18, 1);
+
+        assertThat(bowlingGame.score()).isEqualTo(29);
+    }
+
+    private void rollSpare() {
+        bowlingGame.roll(6);
+        bowlingGame.roll(4);
+    }
+
     private void rollMany(int count, int pins) {
         for (int i = 0; i < count; i++) {
             bowlingGame.roll(pins);
