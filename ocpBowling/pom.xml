@@ -9,6 +9,7 @@
 
   <modules>
     <module>20130918-default</module>
+    <module>20130918-spaghetti</module>
   </modules>
 
 </project>
