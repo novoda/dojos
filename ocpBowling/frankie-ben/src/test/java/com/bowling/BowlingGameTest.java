@@ -47,6 +47,13 @@ public class BowlingGameTest {
         assertThat(bowlingGame.score()).isEqualTo(30);
     }
 
+    @Test
+    public void perfectGameIsThreeHundred() throws Exception {
+        rollMany(21, 10);
+
+        assertThat(bowlingGame.score()).isEqualTo(300);
+    }
+
     private void rollStrike() {
         bowlingGame.roll(10);
     }
