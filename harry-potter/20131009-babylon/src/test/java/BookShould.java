@@ -6,7 +6,7 @@ public class BookShould {
     @Test
     public void have_a_price() {
         Book first = Book.FIRST;
-        assertThat(first.price()).isEqualTo(8);
+        assertThat(first.defaultPrice()).isEqualTo(8);
     }
 
     @Test
