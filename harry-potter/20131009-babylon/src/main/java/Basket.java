@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by acsia on 09/10/13.
+ * Created by acsia on 09/10/13.  << sucks
  */
 public class Basket {
 
@@ -20,16 +20,35 @@ public class Basket {
         return new Basket();
     }
 
-    public void add(Book fifth) {
-        Amount amount = nb
-        nbBooks.put()
+    public void add(Book book) {
+        Amount amount = nbBooks.get(book);
+        if (amount == null) {
+            amount = new Amount(1);
+        } else {
+            amount.total++;
+        }
+
+        nbBooks.put(book, amount);
     }
 
     public int size() {
-        return 0;
+        int booksNr = 0;
+        for (Amount amount : nbBooks.values()) {
+            booksNr += amount.total;
+        }
+
+        return booksNr;
     }
 
-    private static class Amount {
-        public int amount;
+    public double total() {
+        return new PriceCalculator(nbBooks).total();
+    }
+
+    static class Amount {
+        public int total;
+
+        Amount(int total) {
+            this.total = total;
+        }
     }
 }
