@@ -8,7 +8,7 @@ public enum Book {
     FOURTH,
     FIFTH;
 
-    public int price() {
+    public static double defaultPrice() {
         return 8;
     }
 }
