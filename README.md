@@ -1,4 +1,4 @@
 dojos
 =====
 
-GNU is not Unix
+This is where the Novoda team do all their hacking
