@@ -1,0 +1,19 @@
+Name:                Bowling
+Version:             1.0
+Description:         Bowling Kata in Haskell
+License:             MIT
+Author:              Benjamin Augustin
+Build-Type:          Simple
+Cabal-Version:       >=1.2
+
+Executable bowling
+    Main-is:           Main.hs
+    ghc-options:
+          -Wall -Werror
+    Build-Depends:     base
+
+Test-Suite bowling-spec
+    Type:       exitcode-stdio-1.0
+    Main-is:    Spec.hs
+    Build-Depends: base
+                 , hspec
