@@ -14,6 +14,9 @@ Make a copy of the folder below (*rename default with a team name*):
 Update your pom with the new artifactId
 Update the haikuReview pom adding your module
 
+run `mvn clean install` to ensure you are all set
+
+
 **Start!**
 ------------
 
