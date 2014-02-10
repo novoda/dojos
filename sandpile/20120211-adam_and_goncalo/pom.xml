@@ -5,7 +5,7 @@
   <groupId>com.gnorsilva</groupId>
   <artifactId>sandpile</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>20120211-adam_and_goncalo</name>
+  <name>sandpile-20120211-adam_and_goncalo</name>
 
   <properties>
     <junit.version>4.10</junit.version>

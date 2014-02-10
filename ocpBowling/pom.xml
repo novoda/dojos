@@ -10,6 +10,8 @@
   <modules>
     <module>20130918-default</module>
     <module>20130918-spaghetti</module>
+    <module>20130918-nojvihs</module>
+    <module>20130918-paul_xavi</module>
   </modules>
 
 </project>

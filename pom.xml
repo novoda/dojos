@@ -13,6 +13,7 @@
     <module>ocpBowling</module>
     <module>sandpile</module>
     <module>tennis_refactoring</module>
+    <module>haikuReview</module>
   </modules>
 
 </project>
