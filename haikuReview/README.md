@@ -1,4 +1,4 @@
-http://uva.onlinejudge.org/
+http://www.cyber-dojo.com/ > Java Junit > Haiku Review
 
 Fork / Clone this repo
 
