@@ -8,11 +8,11 @@
   <version>1.0-SNAPSHOT</version>
 
   <modules>
-    <module>sandpile</module>
-    <module>fizzBuzz</module>
     <module>bankAccount</module>
-    <module>tennis_refactoring</module>
+    <module>fizzBuzz</module>
     <module>ocpBowling</module>
+    <module>sandpile</module>
+    <module>tennis_refactoring</module>
   </modules>
 
 </project>

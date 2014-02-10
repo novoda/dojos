@@ -3,7 +3,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.blundell</groupId>
-  <artifactId>ocpBowling-20130918-default</artifactId>
+  <artifactId>ocpBowling-20130918-spaghetti</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <properties>
