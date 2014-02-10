@@ -1,3 +1,6 @@
+Setup
+------------
+
 http://www.cyber-dojo.com/ > Java Junit > Haiku Review
 
 Fork / Clone this repo
@@ -12,6 +15,7 @@ Update your pom with the new artifactId
 Update the ocpBowling pom adding your module
 
 **Start!**
+------------
 
 Haiku is an ancient form of Japanese poetry. A haiku
 is a three-line poem with seventeen syllables, where
@@ -29,6 +33,7 @@ check that each line contains the correct number of
 syllables.
 
 Input
+------------
 
 The input contains one or more lines, each of which
 contains a single haiku. A haiku will contain at least
@@ -60,6 +65,7 @@ example below, your program must consider the word
 is silent and so 'code' actually has only one syllable.)
 
 Output
+------------
 
 For each haiku, output a comma seaprated single line
 that contains the number of syllables in each haiku,
@@ -70,11 +76,13 @@ it is not a haiku (see below).
 Sample Input
 ------------
 >happy purple frog/eating bugs in the marshes/get indigestion
+
 >computer programs/the bugs try to eat my code/i will not let them
 
 Sample Output
 -------------
 >5,7,5,Yes
+
 >5,6,5,No
 
 ![haiku](http://www.quickmeme.com/img/61/6190f94a90cc47288544831eb61905a2bb4e8e178c7086c94c77370583b97c15.jpg)
