@@ -9,10 +9,10 @@ Goto this folder:
 `github.com/novoda/dojos/tree/master/haikuReview`
 
 Make a copy of the folder below (*rename default with a team name*):
-`github.com/novoda/dojos/tree/master/ocpBowling/20130918-default`
+`github.com/novoda/dojos/tree/master/haikuReview/20140213-default`
 
 Update your pom with the new artifactId
-Update the ocpBowling pom adding your module
+Update the haikuReview pom adding your module
 
 **Start!**
 ------------
