@@ -16,7 +16,7 @@ public class HaikuReviewTest {
 
     @Test
     public void testInputWithTwoSlashesIsValid() throws Exception {
-        String input = HaikuReview.HAIKU_SEPARATOR + HaikuReview.HAIKU_SEPARATOR;
+        String input = "" + HaikuReview.HAIKU_SEPARATOR + HaikuReview.HAIKU_SEPARATOR;
 
         boolean result = review.validate(input);
 
@@ -25,7 +25,16 @@ public class HaikuReviewTest {
 
     @Test
     public void testInputWithOneSlashIsNotValid() throws Exception {
-        String input = HaikuReview.HAIKU_SEPARATOR;
+        String input = "" + HaikuReview.HAIKU_SEPARATOR;
+
+        boolean result = review.validate(input);
+
+        assertFalse(result);
+    }
+
+    @Test
+    public void testInputWithThreeSlashesIsNotValid() throws Exception {
+        String input = "" + HaikuReview.HAIKU_SEPARATOR + HaikuReview.HAIKU_SEPARATOR + HaikuReview.HAIKU_SEPARATOR;
 
         boolean result = review.validate(input);
 

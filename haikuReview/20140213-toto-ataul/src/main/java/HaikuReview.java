@@ -1,13 +1,20 @@
 public class HaikuReview {
 
-    public static final String HAIKU_SEPARATOR = "/";
+    public static final char HAIKU_SEPARATOR = '/';
 
     private static final String INPUT_ONE = "happy purple frog/eating bugs in the marshes/get indigestion";
     private static final String INPUT_TWO = "computer programs/the bugs try to eat my code/i will not let them";
 
     public boolean validate(String input) {
-        int firstOccurrence = input.indexOf(HAIKU_SEPARATOR);
-        int lastOccurrence = input.lastIndexOf(HAIKU_SEPARATOR);
-        return firstOccurrence != lastOccurrence;
+        int slashesCounter = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == '/') {
+                slashesCounter++;
+            }
+        }
+
+        return slashesCounter == 2;
     }
+
 }
