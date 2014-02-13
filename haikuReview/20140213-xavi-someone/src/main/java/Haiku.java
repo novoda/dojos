@@ -84,5 +84,28 @@ public class Haiku {
         public int hashCode() {
             return word.hashCode();
         }
+
+        public List<Syllable> getSyllables() {
+            byte[] letterBytes = word.getBytes();
+            int syllables = 1;
+
+            int currentSyllableStartingPoint = 0;
+            int currentSyllableEndingPoint = -1;
+            Syllable syllable;
+
+            for (byte letterByte : letterBytes) {
+                char letter = (char)letterByte;
+
+                if (currentSyllableStartingPoint > currentSyllableEndingPoint) {
+                    syllable = new Syllable();
+                }
+
+                syllable.append(letter);
+            }
+            return null;
+        }
+    }
+
+    public static class Syllable {
     }
 }
