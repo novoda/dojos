@@ -8,4 +8,14 @@ public class HaikuReviewTest {
     public void testThatTestsRun() throws Exception {
         assertThat(true).isEqualTo(true);
     }
+
+    @Test
+    public void testHaikuHasTwoSlashes() throws Exception {
+        String input = "//";
+
+        boolean result = HaikuReview.hasTwoSlashes(input);
+
+        assert(result);
+    }
+
 }
