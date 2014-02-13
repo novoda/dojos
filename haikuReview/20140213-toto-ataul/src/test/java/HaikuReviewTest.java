@@ -1,21 +1,26 @@
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class HaikuReviewTest {
 
     @Test
-    public void testThatTestsRun() throws Exception {
-        assertThat(true).isEqualTo(true);
-    }
-
-    @Test
-    public void testHaikuHasTwoSlashes() throws Exception {
-        String input = "//";
+    public void testHaikuMustHaveTwoSlashes() throws Exception {
+        String input = HaikuReview.HAIKU_SEPARATOR + HaikuReview.HAIKU_SEPARATOR;
 
         boolean result = HaikuReview.hasTwoSlashes(input);
 
-        assert(result);
+        assertTrue(result);
     }
 
+    @Test
+    public void testInputWithOneSlashIsNotValid() throws Exception {
+        String input = HaikuReview.HAIKU_SEPARATOR;
+
+        boolean result = HaikuReview.hasTwoSlashes(input);
+
+        assertFalse(result);
+    }
 }
