@@ -4,6 +4,24 @@ public class HaikuReview {
     private static final String INPUT_TWO = "computer programs/the bugs try to eat my code/i will not let them";
 
     private static final char[] VOWELS = {'a', 'e', 'i', 'o', 'u', 'y'};
+    private static final int LINES_IN_HAIKU = 3;
+    private static final String HAIKU_LINE_SEPARATOR = "/";
+
+    public static String processHaiku(String haiku) {
+        if (!isValidHaikuLineLength(haiku)) {
+            throw new IllegalArgumentException();
+        }
+
+        return null;
+    }
+
+    private static boolean isValidHaikuLineLength(String haiku) {
+        return getNumberOfLines(haiku) == LINES_IN_HAIKU;
+    }
+
+    public static int getNumberOfLines(String input) {
+        return input.split(HAIKU_LINE_SEPARATOR).length;
+    }
 
     public static int getNumberOfSyllables(String input) {
         int count = 0;
@@ -37,4 +55,5 @@ public class HaikuReview {
         }
         return false;
     }
+
 }

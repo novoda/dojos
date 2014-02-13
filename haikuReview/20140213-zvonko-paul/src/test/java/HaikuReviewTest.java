@@ -37,6 +37,15 @@ public class HaikuReviewTest {
     }
 
     @Test
+    public void testCountIsSevenForValidInputWithContinuousSyllables() throws Exception {
+        String input = "get indigestion";
+
+        int count = HaikuReview.getNumberOfSyllables(input);
+
+        assertThat(count).isEqualTo(5);
+    }
+
+    @Test
     public void testIsVowel() throws Exception {
         String[] input = {"a", "e", "i", "o", "u", "y"};
         for (String s : input) {
@@ -80,4 +89,23 @@ public class HaikuReviewTest {
 
         assertThat(isSyllable).isFalse();
     }
+
+    @Test
+    public void testNumberOfLinesThreeGivenValidInput() throws Exception {
+        String input = "happy purple frog/eating bugs in the marshes/get indigestion";
+
+        int numberOfLines = HaikuReview.getNumberOfLines(input);
+
+        assertThat(numberOfLines).isEqualTo(3);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidNumberOfLinesForHaiku() throws Exception {
+        String invalidHaiku = "fail/haiku";
+
+        HaikuReview.processHaiku(invalidHaiku);
+
+    }
+
+
 }
