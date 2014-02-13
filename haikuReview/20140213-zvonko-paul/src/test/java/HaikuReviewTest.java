@@ -107,5 +107,21 @@ public class HaikuReviewTest {
 
     }
 
+    @Test
+    public void testValidNumberOfSyllablesForHaiku() throws Exception {
+        String haiku = "happy purple frog/eating bugs in the marshes/get indigestion";
 
+        int numberOfSyllables = HaikuReview.getNumberOfSyllables(haiku);
+
+        assertThat(numberOfSyllables).isEqualTo(17);
+    }
+
+//    @Test
+//    public void testValidHaiku() throws Exception {
+//        String haiku = "happy purple frog/eating bugs in the marshes/get indigestion";
+//
+//        String output = HaikuReview.processHaiku(haiku);
+//
+//        assertThat(output).isEqualTo("5,7,7,Y");
+//    }
 }
