@@ -47,4 +47,12 @@ public class HaikuTest {
         assertThat(words).contains(Haiku.Word.from("hello"), Haiku.Word.from("world"));
     }
 
+//    @Test
+//    public void test_that_a_word_hould_split_into_syllables() {
+//        Haiku.Word word = Haiku.Word.from("hello");
+//
+//        List<Haiku.Syllable> syllables = word.getSyllables();
+//
+//        assertThat(syllables).hasSize(2);
+//    }
 }
