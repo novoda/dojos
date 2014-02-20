@@ -1,7 +1,8 @@
 public class CharactersValidator {
 
     public boolean validate(String input) {
-        return true;
+        String whaaat = input.toLowerCase();
+        return input.equals(whaaat);
     }
 
 }
