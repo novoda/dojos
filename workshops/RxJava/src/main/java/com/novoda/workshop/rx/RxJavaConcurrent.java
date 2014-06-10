@@ -19,6 +19,15 @@ public class RxJavaConcurrent {
         }
     }));
 
+    /*
+        TODO:
+        - What is the default execution environment for observable
+        - What can you use to change the place execution takes place ? What about the callbacks in the Observer ?
+        - What happen if you specify a subscribeOn but not a ObserveOn ?
+        - Create an observable that only executes say("two") once say("one") is over.
+        - Any questions or crazy ideas ? Now is the time !
+     */
+
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("\nsay(\"one\").subscribe(new ThreadAwareStringPrinterObserver());");
