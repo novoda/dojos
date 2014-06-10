@@ -52,7 +52,11 @@ public class RxJavaConcurrent {
         sleep(5000);
 
         System.out.println("\nsay(\"one\").flatMap(sayPreviousAnd(\"two\")).subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());");
-        say("one").flatMap(sayPreviousAnd("two")).subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());
+        say("one")
+                .flatMap(sayPreviousAnd("two"))
+                .subscribeOn(Schedulers.computation())
+                .observeOn(FAKE_CURRENT_THREAD_SCHEDULER)
+                .subscribe(new ThreadAwareStringPrinterObserver());
 
         sleep(10000);
     }
