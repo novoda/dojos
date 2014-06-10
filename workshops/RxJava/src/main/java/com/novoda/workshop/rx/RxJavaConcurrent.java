@@ -1,5 +1,7 @@
 package com.novoda.workshop.rx;
 
+import com.novoda.workshop.rx.observer.ThreadAwareStringPrinterObserver;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
@@ -37,8 +39,14 @@ public class RxJavaConcurrent {
 
         System.out.println("\nsay(\"one\").subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());");
         System.out.println("say(\"two\").subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());");
-        say("one").subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());
-        say("two").subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());
+        say("one")
+                .subscribeOn(Schedulers.computation())
+                .observeOn(FAKE_CURRENT_THREAD_SCHEDULER)
+                .subscribe(new ThreadAwareStringPrinterObserver());
+        say("two")
+                .subscribeOn(Schedulers.computation())
+                .observeOn(FAKE_CURRENT_THREAD_SCHEDULER)
+                .subscribe(new ThreadAwareStringPrinterObserver());
 
         sleep(5000);
     }
