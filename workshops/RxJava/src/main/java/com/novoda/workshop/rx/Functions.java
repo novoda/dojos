@@ -9,6 +9,15 @@ import static java.lang.Thread.sleep;
 
 public class Functions {
 
+    public static Func1<String, Observable<String>> sayPreviousAnd(final String now) {
+        return new Func1<String, Observable<String>>() {
+            @Override
+            public Observable<String> call(String s) {
+                return say("was " + s + " now is " + now);
+            }
+        };
+    }
+
     public static Observable<String> say(final String what) {
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override

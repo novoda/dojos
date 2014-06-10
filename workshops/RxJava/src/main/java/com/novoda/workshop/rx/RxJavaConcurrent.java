@@ -7,6 +7,7 @@ import rx.Scheduler;
 import rx.schedulers.Schedulers;
 
 import static com.novoda.workshop.rx.Functions.say;
+import static com.novoda.workshop.rx.Functions.sayPreviousAnd;
 import static java.lang.Thread.sleep;
 
 public class RxJavaConcurrent {
@@ -32,6 +33,11 @@ public class RxJavaConcurrent {
         say("two").subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());
 
         sleep(5000);
+
+        System.out.println("\nsay(\"one\").flatMap(sayPreviousAnd(\"two\")).subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());");
+        say("one").flatMap(sayPreviousAnd("two")).subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());
+
+        sleep(10000);
     }
 
 }
