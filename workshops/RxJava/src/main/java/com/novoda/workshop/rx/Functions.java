@@ -1,10 +1,28 @@
 package com.novoda.workshop.rx;
 
 import rx.Observable;
+import rx.Subscriber;
 import rx.functions.Func1;
 import rx.functions.Func2;
 
+import static java.lang.Thread.sleep;
+
 public class Functions {
+
+    public static Observable<String> say(final String what) {
+        return Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                System.out.println("Hello I'm running on thread \"" + Thread.currentThread().getName() + "\" in 3 sec I'll say " + what);
+                try {
+                    sleep(3000);
+                } catch (InterruptedException e) {
+                    subscriber.onError(e);
+                }
+                subscriber.onNext(what);
+            }
+        });
+    }
 
     public static Func2<String, String, String> concat() {
         return new Func2<String, String, String>() {
