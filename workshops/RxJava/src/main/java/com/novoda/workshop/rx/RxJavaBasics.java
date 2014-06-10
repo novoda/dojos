@@ -27,7 +27,9 @@ public class RxJavaBasics {
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Observable.from(INTEGERS).filter(isEven()).subscribe(new IntegerPrinterObserver());");
-        Observable.from(INTEGERS).filter(isEven()).subscribe(new IntegerPrinterObserver());
+        Observable.from(INTEGERS)
+                .filter(isEven())
+                .subscribe(new IntegerPrinterObserver());
 
     }
 
