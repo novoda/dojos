@@ -19,6 +19,14 @@ public class RxJavaInfinite {
         }
     };
 
+    /*
+        TODO:
+        - Get one element from the infinite observable.
+        - Get the 20 first integers
+        - Enumerate the sentences by adding their index in front of it.
+        - Concatenate the sequences into one line.
+     */
+
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("\nObservable.from(INFINITE_ITERABLE).subscribe(new IntegerPrinterObserver());");
