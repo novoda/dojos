@@ -1,13 +1,15 @@
 package com.novoda.workshop.rx;
 
 import com.novoda.workshop.rx.observer.IntegerPrinterObserver;
+import com.novoda.workshop.rx.observer.StringPrinterObserver;
 
 import java.util.Arrays;
 import java.util.List;
 
 import rx.Observable;
+import rx.functions.Func1;
 
-import static com.novoda.workshop.rx.Functions.isEven;
+import static com.novoda.workshop.rx.Functions.*;
 
 public class RxJavaBasics {
 
@@ -18,6 +20,31 @@ public class RxJavaBasics {
         System.out.println("Observable.from(INTEGERS).filter(isEven()).subscribe(new IntegerPrinterObserver());");
         Observable.from(INTEGERS).filter(isEven()).subscribe(new IntegerPrinterObserver());
 
+        System.out.println("Observable.from(INTEGERS).filter(isEven()).map(multiplyBy2()).subscribe(new IntegerPrinterObserver());");
+        Observable.from(INTEGERS).filter(isEven()).map(multiplyBy2()).subscribe(new IntegerPrinterObserver());
+
+        System.out.println("\nObservable.from(INTEGERS).filter(isEven()).map(format()).subscribe(new StringPrinterObserver());");
+        Observable.from(INTEGERS).filter(isEven()).map(format()).subscribe(new StringPrinterObserver());
+
+        System.out.println("\nObservable.from(INTEGERS).flatMap(threeTimes()).subscribe(new IntegerPrinterObserver());");
+        Observable.from(INTEGERS).flatMap(threeTimes()).subscribe(new IntegerPrinterObserver());
+
+        System.out.println("\nObservable.from(INTEGERS).flatMap(threeTimesIfEven()).subscribe(new IntegerPrinterObserver());");
+        Observable.from(INTEGERS).flatMap(threeTimesIfEven()).subscribe(new IntegerPrinterObserver());
+
+        System.out.println("\nObservable.from(INTEGERS).flatMap(failIfNotEven()).subscribe(new IntegerPrinterObserver());");
+        Observable.from(INTEGERS).flatMap(failIfNotEven()).subscribe(new IntegerPrinterObserver());
+
+        System.out.println("\nObservable.from(INTEGERS).flatMap(failIfNotEven()).onErrorResumeNext(doubleEverything()).subscribe(new IntegerPrinterObserver());");
+        Observable.from(INTEGERS).flatMap(failIfNotEven()).onErrorResumeNext(doubleEverything()).subscribe(new IntegerPrinterObserver());
     }
 
+    private static Func1<Throwable, Observable<Integer>> doubleEverything() {
+        return new Func1<Throwable, Observable<Integer>>() {
+            @Override
+            public Observable<Integer> call(Throwable throwable) {
+                return Observable.from(INTEGERS).map(multiplyBy2());
+            }
+        };
+    }
 }
