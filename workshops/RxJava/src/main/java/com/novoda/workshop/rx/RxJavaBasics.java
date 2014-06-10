@@ -29,25 +29,42 @@ public class RxJavaBasics {
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Observable.from(INTEGERS).filter(isEven()).subscribe(new IntegerPrinterObserver());");
-        Observable.from(INTEGERS).filter(isEven()).subscribe(new IntegerPrinterObserver());
+        Observable.from(INTEGERS)
+                .filter(isEven())
+                .subscribe(new IntegerPrinterObserver());
 
         System.out.println("Observable.from(INTEGERS).filter(isEven()).map(multiplyBy2()).subscribe(new IntegerPrinterObserver());");
-        Observable.from(INTEGERS).filter(isEven()).map(multiplyBy2()).subscribe(new IntegerPrinterObserver());
+        Observable.from(INTEGERS)
+                .filter(isEven())
+                .map(multiplyBy2())
+                .subscribe(new IntegerPrinterObserver());
 
         System.out.println("\nObservable.from(INTEGERS).filter(isEven()).map(format()).subscribe(new StringPrinterObserver());");
-        Observable.from(INTEGERS).filter(isEven()).map(format()).subscribe(new StringPrinterObserver());
+        Observable.from(INTEGERS)
+                .filter(isEven())
+                .map(format())
+                .subscribe(new StringPrinterObserver());
 
         System.out.println("\nObservable.from(INTEGERS).flatMap(threeTimes()).subscribe(new IntegerPrinterObserver());");
-        Observable.from(INTEGERS).flatMap(threeTimes()).subscribe(new IntegerPrinterObserver());
+        Observable.from(INTEGERS)
+                .flatMap(threeTimes())
+                .subscribe(new IntegerPrinterObserver());
 
         System.out.println("\nObservable.from(INTEGERS).flatMap(threeTimesIfEven()).subscribe(new IntegerPrinterObserver());");
-        Observable.from(INTEGERS).flatMap(threeTimesIfEven()).subscribe(new IntegerPrinterObserver());
+        Observable.from(INTEGERS)
+                .flatMap(threeTimesIfEven())
+                .subscribe(new IntegerPrinterObserver());
 
         System.out.println("\nObservable.from(INTEGERS).flatMap(failIfNotEven()).subscribe(new IntegerPrinterObserver());");
-        Observable.from(INTEGERS).flatMap(failIfNotEven()).subscribe(new IntegerPrinterObserver());
+        Observable.from(INTEGERS)
+                .flatMap(failIfNotEven())
+                .subscribe(new IntegerPrinterObserver());
 
         System.out.println("\nObservable.from(INTEGERS).flatMap(failIfNotEven()).onErrorResumeNext(doubleEverything()).subscribe(new IntegerPrinterObserver());");
-        Observable.from(INTEGERS).flatMap(failIfNotEven()).onErrorResumeNext(doubleEverything()).subscribe(new IntegerPrinterObserver());
+        Observable.from(INTEGERS)
+                .flatMap(failIfNotEven())
+                .onErrorResumeNext(doubleEverything())
+                .subscribe(new IntegerPrinterObserver());
     }
 
     private static Func1<Throwable, Observable<Integer>> doubleEverything() {
