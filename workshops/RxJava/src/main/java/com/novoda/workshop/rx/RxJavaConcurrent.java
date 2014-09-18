@@ -9,7 +9,6 @@ import rx.Scheduler;
 import rx.schedulers.Schedulers;
 
 import static com.novoda.workshop.rx.Functions.say;
-import static com.novoda.workshop.rx.Functions.sayPreviousAnd;
 import static java.lang.Thread.sleep;
 
 public class RxJavaConcurrent {
@@ -27,7 +26,7 @@ public class RxJavaConcurrent {
         - What is the default execution environment for observable
         - What can you use to change the place execution takes place ? What about the callbacks in the Observer ?
         - What happen if you specify a subscribeOn but not a ObserveOn ?
-        - Create an observable that only executes say("two") once say("one") is over.
+        - Create an observable that executes say("one") then takes the result of this to execute say(one + "two") (composition ?).
         - Any questions or crazy ideas ? Now is the time !
      */
 
@@ -45,15 +44,6 @@ public class RxJavaConcurrent {
                 .observeOn(FAKE_CURRENT_THREAD_SCHEDULER)
                 .subscribe(new ThreadAwareStringPrinterObserver());
         say("two")
-                .subscribeOn(Schedulers.computation())
-                .observeOn(FAKE_CURRENT_THREAD_SCHEDULER)
-                .subscribe(new ThreadAwareStringPrinterObserver());
-
-        sleep(5000);
-
-        System.out.println("\nsay(\"one\").flatMap(sayPreviousAnd(\"two\")).subscribeOn(Schedulers.computation()).observeOn(FAKE_CURRENT_THREAD_SCHEDULER).subscribe(new ThreadAwareStringPrinterObserver());");
-        say("one")
-                .flatMap(sayPreviousAnd("two"))
                 .subscribeOn(Schedulers.computation())
                 .observeOn(FAKE_CURRENT_THREAD_SCHEDULER)
                 .subscribe(new ThreadAwareStringPrinterObserver());
