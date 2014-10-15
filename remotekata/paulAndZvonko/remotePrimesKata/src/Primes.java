@@ -4,11 +4,12 @@ import java.util.List;
 public class Primes {
 
     public static List<Integer> generate(int input) {
-        return new ArrayList<Integer>();
-    }
-
-    public static boolean someMethod() {
-        return true;
+        ArrayList<Integer> factors = new ArrayList<Integer>();
+        if (input == 1) {
+            return factors;
+        }
+        factors.add(input);
+        return factors;
     }
 
 }

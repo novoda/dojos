@@ -4,19 +4,17 @@ import java.util.List;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class PrimesTest {
 
     @Test
-    public void testTwo() throws Exception {
-        assertEquals(list2(), Primes.generate(2));
+    public void testOne() throws Exception {
+        assertEquals(list(), Primes.generate(1));
     }
 
     @Test
-    public void testOne() throws Exception {
-        assertEquals(list(), Primes.generate(1));
-
+    public void testTwo() throws Exception {
+        assertEquals(list2(), Primes.generate(2));
     }
 
     private List<Integer> list() {
