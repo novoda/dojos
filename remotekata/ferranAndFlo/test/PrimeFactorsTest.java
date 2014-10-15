@@ -1,6 +1,7 @@
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PrimeFactorsTest extends TestCase {
@@ -12,10 +13,12 @@ public class PrimeFactorsTest extends TestCase {
         assertEquals(primesOf21(), PrimeFactors.generate(21));
     }
 
+    public void testPrimeFactorOf3() throws Exception {
+        assertEquals(primesOf3(), PrimeFactors.generate(3));
+    }
+
     private List<Integer> primesOf1() {
-        List<Integer> list = new ArrayList<Integer>();
-        list.add(1);
-        return list;
+        return Collections.emptyList();
     }
 
     private List<Integer> primesOf21() {
@@ -23,5 +26,9 @@ public class PrimeFactorsTest extends TestCase {
         list.add(3);
         list.add(7);
         return list;
+    }
+
+    private List<Integer> primesOf3() {
+        return Collections.emptyList();
     }
 }
