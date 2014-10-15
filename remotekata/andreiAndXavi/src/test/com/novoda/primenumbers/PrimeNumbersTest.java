@@ -30,7 +30,10 @@ public class PrimeNumbersTest {
         assertThat(list(THREE), is(PrimeNumbers.generate(3)));
     }
 
-    
+    @Test
+    public void testFourHasPrimeFactorTwo() {
+        assertThat(list(TWO), is(PrimeNumbers.generate(4)));
+    }
 
     private List<Integer> list(Integer[] number) {
         return Arrays.asList(number);
