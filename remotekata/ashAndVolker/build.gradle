@@ -1,3 +1,7 @@
+repositories {
+    jcenter()
+}
+
 apply plugin: 'java'
 
 //noinspection GradleImproperProjectLevelStatement
