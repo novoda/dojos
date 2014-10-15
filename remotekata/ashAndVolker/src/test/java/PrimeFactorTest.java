@@ -15,8 +15,14 @@ public class PrimeFactorTest {
 
     @Test
     public void testTwo() {
-        Assert.assertTrue(PrimeFactors.generate(1).size()>=1);
+        Assert.assertEquals(just(2), PrimeFactors.generate(2));
     }
+
+
+    private List<Integer> just(int i) {
+        return Collections.singletonList(Integer.valueOf(i));
+    }
+
     private List<Integer> list() {
                         return Collections.emptyList();
     }
