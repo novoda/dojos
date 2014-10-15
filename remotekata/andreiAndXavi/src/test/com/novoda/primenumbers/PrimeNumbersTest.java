@@ -30,6 +30,8 @@ public class PrimeNumbersTest {
         assertThat(list(THREE), is(PrimeNumbers.generate(3)));
     }
 
+    
+
     private List<Integer> list(Integer[] number) {
         return Arrays.asList(number);
     }
