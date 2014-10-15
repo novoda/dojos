@@ -15,6 +15,7 @@ public class PrimeNumbersTest {
     Integer[] TWO = {2};
     Integer[] THREE = {3};
     Integer[] FOUR = {2, 2};
+    Integer[] SIX = {2,3};
 
     @Test
     public void testOneHasNoPrimitives() {
@@ -34,6 +35,11 @@ public class PrimeNumbersTest {
     @Test
     public void testFourHasPrimeFactorTwoAndTwo() {
         assertThat(list(FOUR), is(PrimeNumbers.generate(4)));
+    }
+
+    @Test
+    public void testSixHasPrimeFactorThreeAndTwo() {
+        assertThat(list(SIX), is(PrimeNumbers.generate(6)));
     }
 
     private List<Integer> list(Integer[] number) {
