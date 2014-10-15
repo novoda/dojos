@@ -9,8 +9,8 @@ import static org.junit.Assert.assertTrue;
 public class PrimesTest {
 
     @Test
-    public void testName() throws Exception {
-        assertTrue(Primes.someMethod());
+    public void testTwo() throws Exception {
+        assertEquals(list2(), Primes.generate(2));
     }
 
     @Test
@@ -21,5 +21,11 @@ public class PrimesTest {
 
     private List<Integer> list() {
         return new ArrayList<Integer>();
+    }
+
+    private List<Integer> list2() {
+        ArrayList<Integer> primeFactors = new ArrayList<Integer>();
+        primeFactors.add(2);
+        return primeFactors;
     }
 }
