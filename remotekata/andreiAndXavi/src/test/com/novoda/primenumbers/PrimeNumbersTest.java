@@ -16,9 +16,7 @@ public class PrimeNumbersTest {
     }
 
     private List<Integer> list() {
-        return new ArrayList<Integer>() {{
-            add(1);
-        }};
+        return new ArrayList<Integer>();
     }
 
 }
