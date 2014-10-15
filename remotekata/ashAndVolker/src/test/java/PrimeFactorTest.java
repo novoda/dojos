@@ -18,6 +18,9 @@ public class PrimeFactorTest {
         Assert.assertEquals(just(2), PrimeFactors.generate(2));
     }
 
+    public void testFour() {
+        Assert.assertEquals(just(2), PrimeFactors.generate(4));
+    }
 
     private List<Integer> just(int i) {
         return Collections.singletonList(Integer.valueOf(i));
