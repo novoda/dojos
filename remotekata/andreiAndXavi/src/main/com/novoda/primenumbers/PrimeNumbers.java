@@ -8,8 +8,14 @@ public class PrimeNumbers {
     public static List<Integer> generate(int i) {
         if (isOne(i)) {
             return emptyList();
-        } else if (i == 2 || i == 4) {
+        } else if (i == 2) {
             return new ArrayList<Integer>() {{
+                add(2);
+            }};
+
+        } else if (i == 4) {
+            return new ArrayList<Integer>() {{
+                add(2);
                 add(2);
             }};
         } else {
