@@ -13,6 +13,10 @@ public class PrimeFactorTest {
         Assert.assertEquals(list(), PrimeFactors.generate(1));
     }
 
+    @Test
+    public void testTwo() {
+        Assert.assertTrue(PrimeFactors.generate(1).size()>=1);
+    }
     private List<Integer> list() {
                         return Collections.emptyList();
     }
