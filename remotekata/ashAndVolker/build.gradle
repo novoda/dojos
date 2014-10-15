@@ -6,11 +6,5 @@ dependencies {
     testCompile 'org.easytesting:fest-assert-core:2.0M10'
 }
 
-    testLogging {
-        events 'passed'
-    }
-    useJUnit {
-    }
-}
 
 
