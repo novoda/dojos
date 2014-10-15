@@ -5,14 +5,14 @@ import java.util.List;
 
 public class PrimeFactorsTest extends TestCase {
     public void testOne() throws Exception {
-        assertEquals(list(), PrimeFactors.generate(1));
+        assertEquals(primesOf1(), PrimeFactors.generate(1));
     }
 
-    public void testAnotherOne() throws Exception {
+    public void testPrimeFactorsOf21() throws Exception {
         assertEquals(primesOf21(), PrimeFactors.generate(21));
     }
 
-    private List<Integer> list() {
+    private List<Integer> primesOf1() {
         List<Integer> list = new ArrayList<Integer>();
         list.add(1);
         return list;
