@@ -46,7 +46,7 @@ public class PrimesTest {
     private List<Integer> list4() {
         ArrayList<Integer> primeFactors = new ArrayList<Integer>();
         primeFactors.add(2);
-        primeFactors.add(4);
+        primeFactors.add(2);
         return primeFactors;
     }
 }
