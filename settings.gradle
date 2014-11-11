@@ -12,3 +12,6 @@ include 'harry-potter:09102010-blundell-xavi', 'harry-potter:20131009-babylon', 
 
 // ocpBowling
 include 'ocpBowling:default', 'ocpBowling:20130918-nojvihs', 'ocpBowling:20130918-paul_xavi', 'ocpBowling:20130918-spaghetti'
+
+// remotekata
+include 'remotekate:ashAndVolker', 'remotekata:paulAndZvonko'
