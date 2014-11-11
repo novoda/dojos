@@ -1,2 +1,5 @@
 // bankAccount
 include 'bankAccount:default', 'bankAccount:20121206-adamsky', 'bankAccount:20121206-david-peter', 'bankAccount:20121206-ronan-gonzalo', 'bankAccount:20121206-shiv-paul'
+
+// fizzbuzz
+include 'fizzBuzz:20121116-carl_and_david', 'fizzBuzz:20121116-goncalo_and_peter', 'fizzBuzz:20121116-paul_and_adam'
