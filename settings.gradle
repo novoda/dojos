@@ -6,3 +6,6 @@ include 'fizzBuzz:20121116-carl_and_david', 'fizzBuzz:20121116-goncalo_and_peter
 
 // haikuReview
 include 'haikuReview:default', '20140213-xavi-someone', 'haikuReview:20140213-toto-ataul', 'haikuReview:20140213-zvonko-paul', 'haikuReview:20140219-roundrobin'
+
+// harry-potter
+include 'harry-potter:09102010-blundell-xavi', 'harry-potter:20131009-babylon', 'harry-potter:frankie-antonio'
