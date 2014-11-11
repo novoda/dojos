@@ -3,3 +3,6 @@ include 'bankAccount:default', 'bankAccount:20121206-adamsky', 'bankAccount:2012
 
 // fizzbuzz
 include 'fizzBuzz:20121116-carl_and_david', 'fizzBuzz:20121116-goncalo_and_peter', 'fizzBuzz:20121116-paul_and_adam'
+
+// haikuReview
+include 'haikuReview:default', '20140213-xavi-someone', 'haikuReview:20140213-toto-ataul', 'haikuReview:20140213-zvonko-paul', 'haikuReview:20140219-roundrobin'
