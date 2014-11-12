@@ -21,13 +21,13 @@ public class Anagrams {
         int maxAnagrams = calculateTotalAnagramsForWordSize(inputLength);
 
         for (int a = 0; a < maxAnagrams; a++) {
-            int pickPosition = calculatePickPosition(inputLength - 1, a);
-//            System.out.println("pick at " + pickPosition);
-            int dropPosition = calculateDropPosition(inputLength - 1, pickPosition, a);
-//            System.out.println("drop at " + dropPosition);
+            int pickPosition = calculatePickPosition(inputLength, a);
+            System.out.println("pick at " + pickPosition);
+            int dropPosition = calculateDropPosition(inputLength, pickPosition, a);
+            System.out.println("drop at " + dropPosition);
             char movingLetter = chars[pickPosition];
 //            System.out.println("moving " + movingLetter);
-//            System.out.println("________");
+            System.out.println("moving " + movingLetter);
             char[] output = new char[inputLength];
             for (int i = 0; i < inputLength; i++) {
                 if (dropPosition == i) {
@@ -51,11 +51,19 @@ public class Anagrams {
     }
 
     private static int calculatePickPosition(int maxPosition, int iteration) {
+        if (iteration < maxPosition) {
+            return 0;
+        } else if (iteration < maxPosition * 2) {
+            return 1;
+        } else if (iteration < maxPosition * 3) {
+            return 2;
+        } else if (iteration < maxPosition * 4) {
+            return 3;
+        }
         return 0;
     }
 
     private static int calculateDropPosition(int maxPosition, int pickUpPosition, int iteration) {
-        int dropPosition = iteration * (pickUpPosition + 1);
-        return dropPosition < maxPosition ? dropPosition : maxPosition;
+        return iteration < maxPosition ? iteration : maxPosition;
     }
 }

@@ -1,5 +1,6 @@
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -26,7 +27,7 @@ public class AnagramsTest {
         assertThat(output).hasSize(24);
     }
 
-    @Test
+    @Test // testSwapFirstLetterIntoFirstPosition
     public void testOriginalWordIsAnAnagramOfItself() throws Exception {
         String input = "biro";
 
@@ -79,4 +80,31 @@ public class AnagramsTest {
                 "llundelb");
     }
 
+    @Test
+    public void testSwapSecondLetterIntoFirstPosition() throws Exception {
+        String input = "biro";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("ibro");
+    }
+
+    @Test
+    public void testSwapSecondLetterIntoSecondPosition() throws Exception {
+        String input = "biro";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("biro");
+    }
+
+    @Ignore // TODO
+    @Test
+    public void testSwapSecondLetterIntoThirdPosition() throws Exception {
+        String input = "biro";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("brio");
+    }
 }
