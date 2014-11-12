@@ -1,11 +1,11 @@
-dojos
+§dojos
 =====
 
 This is where the Novoda team do all their hacking
 
 # Adding a new dojo
 
-- create a new directory with the dojo's name
+- create a new directory inside root with the dojo's name
 - create a `default` directory within which contains the build.gradle file and any template source code to start from
 - a dojo level `build.gradle` containing 
 
