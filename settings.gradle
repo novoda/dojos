@@ -1,0 +1,20 @@
+// bankAccount
+include 'bankAccount:default', 'bankAccount:20121206-adamsky', 'bankAccount:20121206-david-peter', 'bankAccount:20121206-ronan-gonzalo', 'bankAccount:20121206-shiv-paul'
+
+// fizzbuzz
+include 'fizzBuzz:20121116-carl_and_david', 'fizzBuzz:20121116-goncalo_and_peter', 'fizzBuzz:20121116-paul_and_adam'
+
+// haikuReview
+include 'haikuReview:default', 'haikuReview:20140213-xavi-someone', 'haikuReview:20140213-toto-ataul', 'haikuReview:20140213-zvonko-paul', 'haikuReview:20140219-roundrobin'
+
+// harry-potter
+include 'harry-potter:09102010-blundell-xavi', 'harry-potter:20131009-babylon', 'harry-potter:frankie-antonio'
+
+// ocpBowling
+include 'ocpBowling:default', 'ocpBowling:20130918-nojvihs', 'ocpBowling:20130918-paul_xavi', 'ocpBowling:20130918-spaghetti'
+
+// remotekata
+include 'remotekata:ashAndVolker', 'remotekata:paulAndZvonko'
+
+// tennis_refactoring
+include 'tennis_refactoring:201302-teamA', 'tennis_refactoring:201302-teamB'

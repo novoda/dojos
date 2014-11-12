@@ -1,0 +1,5 @@
+name, age, sex, location, race
+paul, 12, m, earth, human
+roland, 43, m, earth, rat
+sprog, 32, f, mars, martian
+verr, 13, f, new york, romulan
