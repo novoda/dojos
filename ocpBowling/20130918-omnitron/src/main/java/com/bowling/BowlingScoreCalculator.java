@@ -5,7 +5,7 @@ package com.bowling;
  */
 public class BowlingScoreCalculator implements ScoreCalculator {
     @Override
-    public void compute() {
-
+    public int compute() {
+    	return 0;
     }
 }

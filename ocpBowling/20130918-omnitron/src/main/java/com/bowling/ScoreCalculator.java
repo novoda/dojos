@@ -5,6 +5,6 @@ package com.bowling;
  */
 public interface ScoreCalculator {
 
-    public void compute();
+    public int compute();
 
 }
