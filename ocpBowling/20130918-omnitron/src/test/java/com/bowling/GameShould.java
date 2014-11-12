@@ -1,10 +1,12 @@
 package com.bowling;
 
 import org.junit.Test;
+import org.junit.Ignore;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+@Ignore
 public class GameShould {
 
     private static final int MAX_GAME_ROLL = 20;
