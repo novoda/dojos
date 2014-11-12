@@ -11,7 +11,7 @@ include 'haikuReview:default', 'haikuReview:20140213-xavi-someone', 'haikuReview
 include 'harry-potter:09102010-blundell-xavi', 'harry-potter:20131009-babylon', 'harry-potter:frankie-antonio'
 
 // ocpBowling
-include 'ocpBowling:default', 'ocpBowling:20130918-nojvihs', 'ocpBowling:20130918-paul_xavi', 'ocpBowling:20130918-spaghetti', 'ocpBowling:fankie_ben'
+include 'ocpBowling:default', 'ocpBowling:20130918-nojvihs', 'ocpBowling:20130918-paul_xavi', 'ocpBowling:20130918-spaghetti', 'ocpBowling:fankie_ben', 'ocpBowling:20130918-omnitron'
 
 // remotekata
 include 'remotekata:ashAndVolker', 'remotekata:paulAndZvonko'
