@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+import org.junit.Ignore;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -38,6 +39,7 @@ public class PriceCalculatorTest {
         assertThat(calculator.total()).isEqualTo(16D);
     }
 
+	@Ignore
     @Test
     public void priceForThreeDifferentBooks_is10PercentDiscounted() {
         Map<Book, Basket.Amount> books = new HashMap<Book, Basket.Amount>();

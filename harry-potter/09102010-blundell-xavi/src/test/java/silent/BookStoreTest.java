@@ -1,6 +1,7 @@
 package silent;
 
 import org.junit.Test;
+import org.junit.Ignore;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -40,6 +41,7 @@ public class BookStoreTest {
         assertEquals(15.2D, total, 0);
     }
 
+    @Ignore
     @Test
     public void buyingThreeDifferentBooks_shouldApply10percentDiscount() {
         Order order = store.startOrder();
