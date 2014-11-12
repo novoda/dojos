@@ -21,9 +21,9 @@ public class AnagramsTest {
     public void testCalculateTotalAnagrams() throws Exception {
         String input = "four";
 
-        int output = Anagrams.generate(input).size();
+        List<String> output = Anagrams.generate(input);
 
-        assertThat(output).isEqualTo(24);
+        assertThat(output).hasSize(24);
     }
 
     @Test
