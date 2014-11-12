@@ -1,11 +1,8 @@
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Write a program to generate all potential
@@ -19,8 +16,6 @@ import static org.junit.Assert.assertTrue;
  * obir obri oibr oirb orbi orib
  */
 public class AnagramsTest {
-
-    private List<String> output;
 
     @Test
     public void testCalculateTotalAnagrams() throws Exception {
@@ -37,7 +32,7 @@ public class AnagramsTest {
 
         List<String> output = Anagrams.generate(input);
 
-        assertList(output).contains("biro");
+        assertThat(output).contains("biro");
     }
 
     @Test
@@ -46,7 +41,7 @@ public class AnagramsTest {
 
         List<String> output = Anagrams.generate(input);
 
-        assertList(output).contains("ibro");
+        assertThat(output).contains("ibro");
     }
 
     @Test
@@ -55,7 +50,7 @@ public class AnagramsTest {
 
         List<String> output = Anagrams.generate(input);
 
-        assertList(output).contains("ribo");
+        assertThat(output).contains("ribo");
     }
 
     @Test
@@ -64,7 +59,7 @@ public class AnagramsTest {
 
         List<String> output = Anagrams.generate(input);
 
-        assertList(output).contains("oirb");
+        assertThat(output).contains("oirb");
     }
 
     @Test
@@ -73,7 +68,7 @@ public class AnagramsTest {
 
         List<String> output = Anagrams.generate(input);
 
-        assertList(output).contains(
+        assertThat(output).contains(
                 "blundell",
                 "lbundell",
                 "ulbndell",
@@ -82,18 +77,6 @@ public class AnagramsTest {
                 "elundbll",
                 "llundebl",
                 "llundelb");
-    }
-
-    private AnagramsTest assertList(List<String> output) {
-        assertFalse("Actual List was null", output == null);
-        this.output = output;
-        return this;
-    }
-
-    private void contains(String... expected) {
-        String msg = "List was: " + output + " \n"
-                + " Expected to contain: " + Arrays.asList(expected);
-        assertTrue(msg, output.containsAll(Arrays.asList(expected)));
     }
 
 }
