@@ -1,6 +1,7 @@
 package com.bowling;
 
 import org.junit.Test;
+import org.junit.Ignore;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,6 +18,7 @@ public class BowlingGameTest {
         assertEquals(game.getScore(), 0);
     }
 
+    @Ignore
     @Test
     public void scoreTwentyForAllOnesGame() {
         BowlingGame game = BowlingGameFactory.createBowlingGame();

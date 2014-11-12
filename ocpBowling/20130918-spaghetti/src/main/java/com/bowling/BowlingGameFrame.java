@@ -6,8 +6,8 @@ public abstract class BowlingGameFrame {
     private final int secondRoll;
 
     public BowlingGameFrame(){
-        this.firstRoll = firstRoll;
-        this.secondRoll = secondRoll;
+        this.firstRoll = 0;
+        this.secondRoll = 1;
     }
 
     public int getSecondRoll() {
