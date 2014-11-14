@@ -23,4 +23,4 @@ include 'tennis_refactoring:201302-teamA', 'tennis_refactoring:201302-teamB'
 include 'tic-tac-toe:default'
 
 // anagrams
-include 'anagrams:default', 'anagrams:20141012-paul'
+include 'anagrams:default', 'anagrams:20141012-paul', 'anagrams:20141014-david-paul'
