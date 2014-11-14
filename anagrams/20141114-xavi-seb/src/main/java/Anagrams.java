@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Write a program to generate all potential
  * anagrams of an input string.
@@ -11,4 +14,9 @@
  */
 public class Anagrams {
 
+    public List<String> from(String a) {
+        List<String> strings = new ArrayList<String>();
+        strings.add(a);
+        return strings;
+    }
 }

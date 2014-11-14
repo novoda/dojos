@@ -1,5 +1,8 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.fest.assertions.api.Assertions.assertThat;
 
 /**
@@ -15,8 +18,14 @@ import static org.fest.assertions.api.Assertions.assertThat;
  */
 public class AnagramsTest {
 
+    private ArrayList<String> ANAGRAMS_FOR_A = new ArrayList<String>() {{ add("a"); }};
+
     @Test
-    public void testUseFestItRocks() throws Exception {
-        assertThat(true).isEqualTo(true);
+    public void testOneCharAnagramIsItself() throws Exception {
+        List<String> expected = ANAGRAMS_FOR_A;
+
+        List<String> anagrams = new Anagrams().from("a");
+        
+        assertThat(anagrams).isEqualTo(expected);
     }
 }
