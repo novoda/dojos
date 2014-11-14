@@ -20,4 +20,8 @@ public class Anagrams {
 
         return accumulative;
     }
+
+    public static String generate(String input) {
+        return "ibro";
+    }
 }

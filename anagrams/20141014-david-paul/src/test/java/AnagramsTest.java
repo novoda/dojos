@@ -28,4 +28,13 @@ public class AnagramsTest {
 
         assertThat(output).isEqualTo(24);
     }
+
+    @Test
+    public void testFirstTwoLatterareSwapped() throws Exception {
+        String input = "biro";
+
+        String output = Anagrams.generate(input);
+
+        assertThat(output).isEqualTo("ibro");
+    }
 }
