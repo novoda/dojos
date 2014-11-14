@@ -1,5 +1,6 @@
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -50,11 +51,21 @@ public class AnagramsTest {
     }
 
     @Test
-    public void testFirstLetterIsSwappedWithTheThird() throws Exception {
+    public void testFirstLetterOfBenIsSwappedWithTheLast() throws Exception {
         String input = "ben";
 
         List<String> output = Anagrams.generate(input);
 
         assertThat(output).contains("neb");
+    }
+
+    @Ignore
+    @Test
+    public void testFirstLetterOfBiroIsSwappedWithTheLast() throws Exception {
+        String input = "biro";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("oirb");
     }
 }
