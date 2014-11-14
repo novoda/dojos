@@ -1,3 +1,6 @@
+import java.util.List;
+
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -24,17 +27,45 @@ public class AnagramsTest {
     public void testCalculateTotalAnagrams() throws Exception {
         String input = "biro";
 
-        int output = Anagrams.total(input);
+        List<String> output = Anagrams.generate(input);
 
-        assertThat(output).isEqualTo(24);
+        assertThat(output).hasSize(24);
     }
 
     @Test
-    public void testFirstTwoLatterareSwapped() throws Exception {
+    public void testFirstTwoLetterOfBiroAreSwapped() throws Exception {
         String input = "biro";
 
-        String output = Anagrams.generate(input);
+        List<String> output = Anagrams.generate(input);
 
-        assertThat(output).isEqualTo("ibro");
+        assertThat(output).contains("ibro");
+    }
+
+    @Test
+    public void testFirstTwoLetterOfBenAreSwapped() throws Exception {
+        String input = "ben";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("ebn");
+    }
+
+    @Test
+    public void testFirstLetterOfBenIsSwappedWithTheLast() throws Exception {
+        String input = "ben";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("neb");
+    }
+
+    @Ignore
+    @Test
+    public void testFirstLetterOfBiroIsSwappedWithTheLast() throws Exception {
+        String input = "biro";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("oirb");
     }
 }

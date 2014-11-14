@@ -32,7 +32,7 @@ public class AnagramsTest {
     Anagrams anagrams;
 
     @Before
-    void setup() {
+    public void setup() {
         anagrams = new Anagrams();
     }
 
