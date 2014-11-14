@@ -1,3 +1,7 @@
+import org.junit.Test;
+
+import static org.fest.assertions.api.Assertions.assertThat;
+
 /**
  * Write a program to generate all potential
  * anagrams of an input string.
@@ -11,4 +15,8 @@
  */
 public class AnagramsTest {
 
+    @Test
+    public void testUseFestItRocks() throws Exception {
+        assertThat(true).isEqualTo(true);
+    }
 }
