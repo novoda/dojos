@@ -30,11 +30,20 @@ public class AnagramsTest {
     }
 
     @Test
-    public void testFirstTwoLatterareSwapped() throws Exception {
+    public void testFirstTwoLetterOfBiroAreSwapped() throws Exception {
         String input = "biro";
 
         String output = Anagrams.generate(input);
 
         assertThat(output).isEqualTo("ibro");
+    }
+
+    @Test
+    public void testFirstTwoLetterOfBenAreSwapped() throws Exception {
+        String input = "ben";
+
+        String output = Anagrams.generate(input);
+
+        assertThat(output).isEqualTo("ebn");
     }
 }

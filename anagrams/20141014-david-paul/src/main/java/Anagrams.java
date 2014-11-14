@@ -22,6 +22,15 @@ public class Anagrams {
     }
 
     public static String generate(String input) {
-        return "ibro";
+        char[] inputChars = input.toCharArray();
+
+        char move = inputChars[0];
+        char replace = inputChars[1];
+        inputChars[0] = replace;
+        inputChars[1] = move;
+
+        String output = String.valueOf(inputChars);
+
+        return output;
     }
 }
