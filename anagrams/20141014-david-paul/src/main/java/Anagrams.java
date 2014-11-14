@@ -11,4 +11,13 @@
  */
 public class Anagrams {
 
+    public static int total(String anagram) {
+        int accumulative = 1;
+
+        for (int i = anagram.length() - 1; i > 0; --i) {
+            accumulative += accumulative * i;
+        }
+
+        return accumulative;
+    }
 }

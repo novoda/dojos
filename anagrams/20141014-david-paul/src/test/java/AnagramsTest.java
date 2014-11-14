@@ -19,4 +19,13 @@ public class AnagramsTest {
     public void testUseFestItRocks() throws Exception {
         assertThat(true).isEqualTo(true);
     }
+
+    @Test
+    public void testCalculateTotalAnagrams() throws Exception {
+        String input = "biro";
+
+        int output = Anagrams.total(input);
+
+        assertThat(output).isEqualTo(24);
+    }
 }
