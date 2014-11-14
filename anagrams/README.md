@@ -7,3 +7,7 @@
  ibro ibor irbo irob iobr iorb
  rbio rboi ribo riob roib robi
  obir obri oibr oirb orbi orib
+
+Using this example as a simple Kata that can be done remotely
+
+First Product Attempted - https://screenhero.com/
