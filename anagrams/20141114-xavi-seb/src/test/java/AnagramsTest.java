@@ -1,3 +1,4 @@
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -18,27 +19,40 @@ import static org.fest.assertions.api.Assertions.assertThat;
  */
 public class AnagramsTest {
 
-    private static final String TWO_LETTERS = "ab";
-    private static final List<String> ANAGRAMS_FOR_TWO_LETTERS = new ArrayList<String>() {{add("ab"); add("ba"); }};
-    private ArrayList<String> ANAGRAMS_FOR_A = new ArrayList<String>() {{ add("a"); }};
+
+    private static final String A = "a";
+    private static final List<String> ANAGRAMS_FOR_A = new ArrayList<String>() {{ add("a"); }};
+
+    private static final String AB = "ab";
+    private static final List<String> ANAGRAMS_FOR_AB = new ArrayList<String>() {{ add("ab"); add("ba"); }};
 
     @Test
     public void testOneCharAnagramIsItself() throws Exception {
         List<String> expected = ANAGRAMS_FOR_A;
 
-        List<String> anagrams = new Anagrams().from("a");
+        List<String> anagrams = new Anagrams().from(A);
 
         assertThat(anagrams).isEqualTo(expected);
     }
 
     @Test
-    public void testAllAnagramsAreSameLengthAsInput() throws Exception {
-        List<String> expected = ANAGRAMS_FOR_TWO_LETTERS;
+    public void testAnagramsListHasCorrectLength() throws Exception {
+        List<String> expected = ANAGRAMS_FOR_AB;
 
-        List<String> anagrams = new Anagrams().from(TWO_LETTERS);
+        List<String> anagrams = new Anagrams().from(AB);
+
+        assertThat(anagrams).hasSameSizeAs(expected);
+    }
+
+    @Test
+    @Ignore
+    public void testAllAnagramsAreSameLengthAsInput() throws Exception {
+        List<String> expected = ANAGRAMS_FOR_AB;
+
+        List<String> anagrams = new Anagrams().from(AB);
 
         for (String anagram : anagrams) {
-            assertThat(anagram).hasSize(TWO_LETTERS.length());
+            assertThat(anagram).hasSize(AB.length());
         }
         // TODO: This test is wrong!
     }

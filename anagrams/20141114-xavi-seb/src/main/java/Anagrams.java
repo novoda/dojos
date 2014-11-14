@@ -16,7 +16,9 @@ public class Anagrams {
 
     public List<String> from(String a) {
         List<String> strings = new ArrayList<String>();
-        strings.add(a);
+        for (int i = 0; i < a.length(); i++) {
+            strings.add(a);
+        }
         return strings;
     }
 }
