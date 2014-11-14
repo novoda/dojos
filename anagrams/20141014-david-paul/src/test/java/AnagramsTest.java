@@ -1,3 +1,5 @@
+import java.util.List;
+
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -33,17 +35,26 @@ public class AnagramsTest {
     public void testFirstTwoLetterOfBiroAreSwapped() throws Exception {
         String input = "biro";
 
-        String output = Anagrams.generate(input);
+        List<String> output = Anagrams.generate(input);
 
-        assertThat(output).isEqualTo("ibro");
+        assertThat(output).contains("ibro");
     }
 
     @Test
     public void testFirstTwoLetterOfBenAreSwapped() throws Exception {
         String input = "ben";
 
-        String output = Anagrams.generate(input);
+        List<String> output = Anagrams.generate(input);
 
-        assertThat(output).isEqualTo("ebn");
+        assertThat(output).contains("ebn");
+    }
+
+    @Test
+    public void testFirstLetterIsSwappedWithTheThird() throws Exception {
+        String input = "ben";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("neb");
     }
 }

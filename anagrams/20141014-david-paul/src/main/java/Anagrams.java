@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Write a program to generate all potential
  * anagrams of an input string.
@@ -21,16 +24,23 @@ public class Anagrams {
         return accumulative;
     }
 
-    public static String generate(String input) {
+    public static List<String> generate(String input) {
+        List<String> anagrams = new ArrayList<String>();
+
         char[] inputChars = input.toCharArray();
 
-        char move = inputChars[0];
-        char replace = inputChars[1];
-        inputChars[0] = replace;
-        inputChars[1] = move;
+        for (int i = 0; i < total(input); i++) {
+            int movePosition = i < input.length() ? i : 0;
+            char move = inputChars[movePosition];
+            char replace = inputChars[1];
+            inputChars[movePosition] = replace;
+            inputChars[1] = move;
 
-        String output = String.valueOf(inputChars);
+            String output = String.valueOf(inputChars);
 
-        return output;
+            anagrams.add(output);
+        }
+
+        return anagrams;
     }
 }
