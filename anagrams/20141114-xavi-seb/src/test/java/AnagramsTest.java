@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -19,39 +20,60 @@ import static org.fest.assertions.api.Assertions.assertThat;
  */
 public class AnagramsTest {
 
-
     private static final String A = "a";
     private static final List<String> ANAGRAMS_FOR_A = new ArrayList<String>() {{ add("a"); }};
 
     private static final String AB = "ab";
     private static final List<String> ANAGRAMS_FOR_AB = new ArrayList<String>() {{ add("ab"); add("ba"); }};
 
+    private static final String ABC = "abc";
+    private static final List<String> ANAGRAMS_FOR_ABC = new ArrayList<String>() {{ add("abc"); add("acb"); add("bac"); add("bca"); add("cab"); add("cba"); }};
+
+    Anagrams anagrams;
+
+    @Before
+    void setup() {
+        anagrams = new Anagrams();
+    }
+
     @Test
-    public void testOneCharAnagramIsItself() throws Exception {
+    public void testAnagramForAIsItself() throws Exception {
         List<String> expected = ANAGRAMS_FOR_A;
 
-        List<String> anagrams = new Anagrams().from(A);
+        List<String> result = anagrams.from(A);
 
-        assertThat(anagrams).isEqualTo(expected);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
     public void testAnagramsForAbHasCorrectLength() throws Exception {
         List<String> expected = ANAGRAMS_FOR_AB;
 
-        List<String> anagrams = new Anagrams().from(AB);
+        List<String> result = anagrams.from(AB);
 
-        assertThat(anagrams).hasSameSizeAs(expected);
+        assertThat(result).hasSameSizeAs(expected);
     }
+
+    @Test
+    public void testAnagramsForAbcHasCorrectLength() {
+        List<String> expected = ANAGRAMS_FOR_ABC;
+
+        List<String> result = anagrams.from(ABC);
+
+        assertThat(result).hasSameSizeAs(expected);
+    }
+
+
+
 
     @Test
     @Ignore
     public void testAllAnagramsAreSameLengthAsInput() throws Exception {
         List<String> expected = ANAGRAMS_FOR_AB;
 
-        List<String> anagrams = new Anagrams().from(AB);
+        List<String> result = anagrams.from(AB);
 
-        for (String anagram : anagrams) {
+        for (String anagram : result) {
             assertThat(anagram).hasSize(AB.length());
         }
         // TODO: This test is wrong!

@@ -14,11 +14,28 @@ import java.util.List;
  */
 public class Anagrams {
 
-    public List<String> from(String a) {
-        List<String> strings = new ArrayList<String>();
-        for (int i = 0; i < a.length(); i++) {
-            strings.add(a);
+    public List<String> from(String word) {
+        List<String> anagrams = new ArrayList<String>();
+        for (int i = 0; i < word.length(); i++) {
+            anagrams.addAll(generatePermutationsFor(word));
         }
-        return strings;
+        return anagrams;
     }
+
+    List<String> generatePermutationsFor(String word) {
+        int count = factorial(word.length() - 1);
+        List<String> permutations = new ArrayList<String>(count);
+        for (int i = 0; i < count; i++) {
+            permutations.add(word);
+        }
+        return permutations;
+    }
+
+    int factorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+        return factorial(n - 1) * n;
+    }
+
 }
