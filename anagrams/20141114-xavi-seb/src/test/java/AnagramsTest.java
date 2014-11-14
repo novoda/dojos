@@ -36,7 +36,7 @@ public class AnagramsTest {
     }
 
     @Test
-    public void testAnagramsListHasCorrectLength() throws Exception {
+    public void testAnagramsForAbHasCorrectLength() throws Exception {
         List<String> expected = ANAGRAMS_FOR_AB;
 
         List<String> anagrams = new Anagrams().from(AB);
