@@ -7,8 +7,7 @@ This is where the Novoda team do all their hacking
 
 - find the dojo's module you want to attempt this will be a module under the root dir
 - inside this copy the `default` directory and name it with the date and your name or pairing name
-- this dir you just copied should have instructions to run the dojo as well as any examplee code
-- a dojo level `build.gradle` containing 
+- this dir you just copied should have instructions to run the dojo as well as any example code
 
 ```
 -dojos
