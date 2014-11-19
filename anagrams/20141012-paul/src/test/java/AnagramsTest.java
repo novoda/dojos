@@ -37,7 +37,7 @@ public class AnagramsTest {
     }
 
     @Test
-    public void testNewForCIPoints) throws Exception {
+    public void testNewForCIPoints() throws Exception { // cAT@!!
         String input = "biro";
 
         List<String> output = Anagrams.generate(input);
