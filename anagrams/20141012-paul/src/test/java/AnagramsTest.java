@@ -36,6 +36,15 @@ public class AnagramsTest {
         assertThat(output).contains("biro");
     }
 
+    @Test // testSwapFirstLetterIntoFirstPosition
+    public void testOriginalWordIsAnAnagramOfItself2() throws Exception {
+        String input = "biro";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("biro");
+    }
+
     @Test
     public void testNewForCIPoints() throws Exception { // cAT@!!
         String input = "biro";
