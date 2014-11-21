@@ -44,6 +44,15 @@ public class AnagramsTest {
 
         assertThat(output).contains("ibro");
     }
+    
+    @Test
+    public void testNewForCIPoints2() throws Exception { // cAT@!!
+        String input = "biro";
+
+        List<String> output = Anagrams.generate(input);
+
+        assertThat(output).contains("ibro");
+    }
 
     @Test
     public void testSwapFirstLetterIntoSecondPosition() throws Exception {
