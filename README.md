@@ -49,3 +49,4 @@ should be added to keep all the implementations using the same build
 ```
 include: 'myKata:default'
 ```
+
