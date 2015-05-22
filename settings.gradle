@@ -46,3 +46,9 @@ include 'anagrams:default'
 include 'anagrams:20141012-paul'
 include 'anagrams:20141014-david-paul'
 include 'anagrams:20141014-adam-stefan'
+
+// change of a dollar
+include 'changeOfADollar:default'
+include 'changeOfADollar:20150522-adam-freidger'
+include 'changeOfADollar:20150522-conor-andrei'
+include 'changeOfADollar:20150522-paul-ferran'
