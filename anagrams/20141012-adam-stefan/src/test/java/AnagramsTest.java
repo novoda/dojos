@@ -1,3 +1,5 @@
+import java.util.List;
+
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -15,8 +17,47 @@ import static org.fest.assertions.api.Assertions.assertThat;
  */
 public class AnagramsTest {
 
+    private final static int BIRO_MAX_COMBINATIONS = 256;
+
     @Test
     public void testUseFestItRocks() throws Exception {
         assertThat(true).isEqualTo(true);
     }
+
+    @Test
+    public void testMaximumLetterCount() {
+        Anagrams anagrams = new Anagrams("biro");
+
+        List<String> output = anagrams.generate();
+
+        assertThat(output.size()).isEqualTo(BIRO_MAX_COMBINATIONS);
+    }
+    
+    @Test
+    public void testMaximumLetterCount2() {
+        Anagrams anagrams = new Anagrams("biro");
+
+        List<String> output = anagrams.generate();
+
+        assertThat(output.size()).isEqualTo(BIRO_MAX_COMBINATIONS);
+    }
+    
+    @Test
+    public void testMaximumLetterCount3() {
+        Anagrams anagrams = new Anagrams("biro");
+
+        List<String> output = anagrams.generate();
+
+        assertThat(output.size()).isEqualTo(BIRO_MAX_COMBINATIONS);
+    }
+   
+   
+    @Test
+    public void testMaximumLetterCount4() {
+        Anagrams anagrams = new Anagrams("biro");
+
+        List<String> output = anagrams.generate();
+
+        assertThat(output.size()).isEqualTo(BIRO_MAX_COMBINATIONS);
+    }    
 }
