@@ -38,7 +38,7 @@ public class MessagingService extends IntentService {
     }
 
     private void sendNotificationForConversation(int conversationId, String sender, String message, long timestamp) {
-        // A pending Intent for reads
+        // A pending Intent for messages being read
         PendingIntent readPendingIntent = PendingIntent.getBroadcast(
                 getApplicationContext(),
                 conversationId,
