@@ -31,7 +31,7 @@ public class MessagingService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         // Handle intent to send a new notification.
-        if (intent != null && SEND_MESSAGE_ACTION.equals(intent.getAction())) {
+        if (SEND_MESSAGE_ACTION.equals(intent.getAction())) {
 
             sendNotificationForConversation(
                     Conversations.CONVERSATION_ID,
