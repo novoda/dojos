@@ -1,0 +1,4 @@
+/// Extend the notification with CarExtender.
+.extend(new CarExtender()
+      .setUnreadConversation(unreadConversationBuilder.build()))
+/// End

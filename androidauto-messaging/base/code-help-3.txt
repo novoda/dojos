@@ -1,0 +1,25 @@
+/// Add the code to create the UnreadConversation
+
+// Build a RemoteInput for receiving voice input in a Car Notification
+RemoteInput remoteInput = new RemoteInput.Builder(EXTRA_VOICE_REPLY).build();
+
+// Building a Pending Intent for the reply action to trigger
+PendingIntent replyIntent = PendingIntent.getBroadcast(getApplicationContext(),
+       conversationId,
+       getMessageReplyIntent(conversationId),
+       PendingIntent.FLAG_UPDATE_CURRENT);
+
+// Create the UnreadConversation and populate it with the participant name,
+// read and reply intents.
+UnreadConversation.Builder unreadConversationBuilder =
+       new UnreadConversation.Builder(sender)
+               .setLatestTimestamp(timestamp)
+               .setReadPendingIntent(readPendingIntent)
+               .setReplyAction(replyIntent, remoteInput);
+
+// Note: Add messages from oldest to newest to the UnreadConversation.Builder
+// Since we are sending a single message here we simply add the message.
+// In a real world application there could be multiple messages which should be ordered
+// and added from oldest to newest.
+unreadConversationBuilder.addMessage(message);
+/// End create UnreadConversation
