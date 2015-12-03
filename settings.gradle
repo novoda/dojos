@@ -58,3 +58,7 @@ include 'changeOfADollar:20150522-paul-ferran'
 // recents list
 include 'recents-list:default' 
 include 'recents-list:20151113-xavi-quentin'
+
+// gilded rose
+include 'gilded-rose:default'
+include 'gilded-rose:20151203-xavi'
