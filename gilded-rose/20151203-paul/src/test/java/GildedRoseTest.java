@@ -8,4 +8,5 @@ public class GildedRoseTest {
     public void testThatTestsRun() throws Exception {
         assertThat(true).isEqualTo(true);
     }
+
 }

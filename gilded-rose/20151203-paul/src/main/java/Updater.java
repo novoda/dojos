@@ -1,11 +1,8 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class Updater {
 
-    public List<Item> updateQuality(List<Item> input) {
-        List<Item> items = new ArrayList<Item>();
-        items.addAll(input);
+    public void updateQuality(List<Item> items) {
         for (int i = 0; i < items.size(); i++) {
             if ((!"Aged Brie".equals(items.get(i).getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) {
                 if (items.get(i).getQuality() > 0) {
@@ -55,6 +52,5 @@ public class Updater {
                 }
             }
         }
-        return items;
     }
 }

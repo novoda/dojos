@@ -20,9 +20,7 @@ public class GildedRose {
         items.add(new Item("Conjured Mana Cake", 3, 6));
 
         Updater updater = new Updater();
-        List<Item> updatedItems = updater.updateQuality(items);
-        items.clear();
-        items.addAll(updatedItems);
+        updater.updateQuality(items);
     }
 
 }
