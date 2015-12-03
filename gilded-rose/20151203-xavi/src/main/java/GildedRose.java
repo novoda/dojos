@@ -28,9 +28,9 @@ public class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            if (!"Aged Brie".equals(item.getName()) && !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+            if (isNotAgedBrie(item) && isNotBackstagePasses(item)) {
                 if (item.getQuality() > 0) {
-                    if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+                    if (isNotSulfuras(item)) {
                         item.setQuality(item.getQuality() - 1);
                     }
                 }
@@ -38,7 +38,7 @@ public class GildedRose {
                 if (item.getQuality() < 50) {
                     item.setQuality(item.getQuality() + 1);
 
-                    if ("Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+                    if (isBackstagePasses(item)) {
                         if (item.getSellIn() < 11) {
                             if (item.getQuality() < 50) {
                                 item.setQuality(item.getQuality() + 1);
@@ -54,15 +54,15 @@ public class GildedRose {
                 }
             }
 
-            if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+            if (isNotSulfuras(item)) {
                 item.setSellIn(item.getSellIn() - 1);
             }
 
             if (item.getSellIn() < 0) {
-                if (!"Aged Brie".equals(item.getName())) {
-                    if (!"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+                if (isNotAgedBrie(item)) {
+                    if (isNotBackstagePasses(item)) {
                         if (item.getQuality() > 0) {
-                            if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+                            if (isNotSulfuras(item)) {
                                 item.setQuality(item.getQuality() - 1);
                             }
                         }
@@ -76,6 +76,22 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isBackstagePasses(Item item) {
+        return "Backstage passes to a TAFKAL80ETC concert".equals(item.getName());
+    }
+
+    private boolean isNotSulfuras(Item item) {
+        return !"Sulfuras, Hand of Ragnaros".equals(item.getName());
+    }
+
+    private boolean isNotBackstagePasses(Item item) {
+        return !isBackstagePasses(item);
+    }
+
+    private boolean isNotAgedBrie(Item item) {
+        return !"Aged Brie".equals(item.getName());
     }
 
     public List<Item> getItems() {
