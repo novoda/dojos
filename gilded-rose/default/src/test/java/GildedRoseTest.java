@@ -1,8 +1,11 @@
 import org.junit.Test;
 
+import static org.fest.assertions.api.Assertions.assertThat;
+
 public class GildedRoseTest {
 
     @Test
-    public void smokeTest() throws Exception {
+    public void testThatTestsRun() throws Exception {
+        assertThat(true).isEqualTo(true);
     }
 }
