@@ -7,7 +7,7 @@ Goto this folder:
 `github.com/novoda/dojos/tree/master/fizzBuzz`
 
 Make a copy of the folder below (*rename default with a team name*):
-`github.com/novoda/dojos/tree/master/recents-list/default`
+`github.com/novoda/dojos/tree/master/fizzBuzz/default`
 
 Update the `settings.gradle` file in the root of `dojos` adding your module
 
