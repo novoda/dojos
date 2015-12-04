@@ -5,7 +5,9 @@ import static org.fest.assertions.api.Assertions.assertThat;
 public class FizzBuzzTest {
 
     @Test
-    public void testThatWorks() {
-        assertThat(true).isTrue();
+    public void whenWeRunItWithOneTheOutputIsTheNumber() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        assertThat(fizzBuzz.output(1)).isEqualTo("1");
     }
 }
