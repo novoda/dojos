@@ -10,6 +10,7 @@ include 'fizzBuzz:default'
 include 'fizzBuzz:20121116-carl_and_david'
 include 'fizzBuzz:20121116-goncalo_and_peter'
 include 'fizzBuzz:20121116-paul_and_adam'
+include 'fizzBuzz:20151204-daniele_and_daniele'
 
 // haikuReview
 include 'haikuReview:default'
@@ -67,6 +68,7 @@ include 'gilded-rose:20151203-paul'
 
 //leap-year
 include 'leap-year:default'
+include 'leap-year:20151204_daniele_2'
 
 //prime-factors
 include 'prime-factors:default'
