@@ -67,3 +67,6 @@ include 'gilded-rose:20151203-paul'
 
 //leap-year
 include 'leap-year:default'
+
+//prime-factors
+include 'prime-factors:default'
