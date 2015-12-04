@@ -6,6 +6,7 @@ include 'bankAccount:20121206-ronan-gonzalo'
 include 'bankAccount:20121206-shiv-paul'
 
 // fizzbuzz
+include 'fizzBuzz:default'
 include 'fizzBuzz:20121116-carl_and_david'
 include 'fizzBuzz:20121116-goncalo_and_peter'
 include 'fizzBuzz:20121116-paul_and_adam'
@@ -46,7 +47,7 @@ include 'anagrams:default'
 include 'anagrams:20141012-paul'
 include 'anagrams:20141014-david-paul'
 include 'anagrams:20141014-adam-stefan'
-include 'anagrams:20141114-cartaul' 
+include 'anagrams:20141114-cartaul'
 include 'anagrams:20141114-xavi-seb'
 
 // change of a dollar
@@ -56,7 +57,7 @@ include 'changeOfADollar:20150522-conor-andrei'
 include 'changeOfADollar:20150522-paul-ferran'
 
 // recents list
-include 'recents-list:default' 
+include 'recents-list:default'
 include 'recents-list:20151113-xavi-quentin'
 
 // gilded rose
