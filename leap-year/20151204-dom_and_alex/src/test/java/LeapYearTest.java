@@ -13,4 +13,9 @@ public class LeapYearTest {
     public void testThat1996IsALeapYear() {
         assertThat(new LeapYear().isALeapYear(1996)).isTrue();
     }
+
+    @Test
+    public void testThat1992IsALeapYear() {
+        assertThat(new LeapYear().isALeapYear(1992)).isTrue();
+    }
 }
