@@ -10,4 +10,11 @@ public class FizzBuzzTest {
 
         assertThat(fizzBuzz.output(1)).isEqualTo("1");
     }
+
+    @Test
+    public void whenWeRunItWithTwoTheOutputIsTheNumber() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        assertThat(fizzBuzz.output(2)).isEqualTo("2");
+    }
 }
