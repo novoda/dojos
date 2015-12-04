@@ -1,14 +1,18 @@
 public class FizzBuzz {
     public String output(int input) {
-        if (input % 3 == 0 && input % 5 == 0) {
+        if (modulo(input, 3) && modulo(input, 5)) {
             return "FizzBuzz";
         }
-        if (input % 3 == 0) {
+        if (modulo(input, 3)) {
             return "Fizz";
         }
-        if (input % 5 == 0) {
+        if (modulo(input, 5)) {
             return "Buzz";
         }
         return String.valueOf(input);
+    }
+
+    private boolean modulo(int input, int modulo) {
+        return input % modulo == 0;
     }
 }
