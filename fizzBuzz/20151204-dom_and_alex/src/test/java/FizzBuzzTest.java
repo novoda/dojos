@@ -52,4 +52,11 @@ public class FizzBuzzTest {
 
         assertThat(fizzBuzz.output(15)).isEqualTo("FizzBuzz");
     }
+
+    @Test
+    public void whenWeRunItWithThirtyTheOutputIsTheFizzBuzz() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        assertThat(fizzBuzz.output(30)).isEqualTo("FizzBuzz");
+    }
 }
