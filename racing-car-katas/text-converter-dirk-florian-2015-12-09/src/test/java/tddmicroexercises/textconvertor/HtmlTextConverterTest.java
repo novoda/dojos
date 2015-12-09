@@ -3,6 +3,8 @@ package tddmicroexercises.textconvertor;
 import com.google.common.io.Resources;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static org.junit.Assert.assertEquals;
 
 public class HtmlTextConverterTest {
@@ -12,6 +14,18 @@ public class HtmlTextConverterTest {
     @Test
     public void foo() {
         HtmlTextConverter converter = new HtmlTextConverter(FILE_PATH);
+
         assertEquals(FILE_PATH, converter.getFilename());
+    }
+
+    @Test
+    public void convertToHtml() throws IOException {
+        HtmlTextConverter converter = new HtmlTextConverter(FILE_PATH);
+
+        String result = converter.convertToHtml();
+
+/*
+        assertEquals("foo", result);
+*/
     }
 }
