@@ -72,3 +72,11 @@ include 'leap-year:20151204_daniele_2'
 
 //prime-factors
 include 'prime-factors:default'
+
+// racing-car-katas
+include 'racing-car-katas:do-not-copy'
+include 'racing-car-katas:leaderboard'
+include 'racing-car-katas:telemetry-system'
+include 'racing-car-katas:text-converter'
+include 'racing-car-katas:tire-pressure-monitoring-system'
+include 'racing-car-katas:turn-ticket-dispenser'
