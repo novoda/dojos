@@ -6,17 +6,16 @@ Fork / Clone github.com/novoda/dojos
 Goto this folder:
 `dojos/racing-car-katas`
 
-Make a copy of one the folder below (*append a team name*):
-`leaderborad`
-`telemetry-system`
-`text-converter`
-`tire-pressure-monitoring-system`
-`turn-ticket-dispenser`
+Make a copy of one the folders listed below and **append a team name** please:
+- `leaderborad`
+- `telemetry-system`
+- `text-converter`
+- `tire-pressure-monitoring-system`
+- `turn-ticket-dispenser`
 
 Update the `settings.gradle` file in the root of `dojos` adding your module
 
-run `./gradlew clean build` to ensure you are all set
-
+run `../gradlew clean build` to ensure you are all set
 
 
 Racing Car Katas
