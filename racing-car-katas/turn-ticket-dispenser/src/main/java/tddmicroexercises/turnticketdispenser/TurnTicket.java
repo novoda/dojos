@@ -1,16 +1,13 @@
 package tddmicroexercises.turnticketdispenser;
 
-public class TurnTicket
-{
+public class TurnTicket {
     private final int turnNumber;
 
-    public TurnTicket(int turnNumber)
-    {
+    public TurnTicket(int turnNumber) {
         this.turnNumber = turnNumber;
     }
 
-    public int getTurnNumber()
-    {
+    public int getTurnNumber() {
         return turnNumber;
     }
 
