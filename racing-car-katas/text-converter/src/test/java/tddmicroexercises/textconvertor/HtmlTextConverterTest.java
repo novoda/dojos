@@ -16,15 +16,5 @@ public class HtmlTextConverterTest {
         HtmlTextConverter converter = new HtmlTextConverter(FILE_PATH);
         assertEquals(FILE_PATH, converter.getFilename());
     }
-
-    @Test
-    public void convertToHtml() throws IOException {
-        HtmlTextConverter converter = new HtmlTextConverter(FILE_PATH);
-
-        String result = converter.convertToHtml();
-
-/*
-        assertEquals("foo", result);
-*/
-    }
+    
 }
