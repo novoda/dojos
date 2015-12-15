@@ -70,6 +70,10 @@ include 'gilded-rose:20151203-paul'
 include 'leap-year:default'
 include 'leap-year:20151204_daniele_2'
 
+//lcdDigits
+include 'lcd-digits:default'
+include 'lcd-digits:20151215-tobi-paul'
+
 //prime-factors
 include 'prime-factors:default'
 
