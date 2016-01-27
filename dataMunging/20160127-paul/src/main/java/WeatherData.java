@@ -26,14 +26,16 @@ public class WeatherData {
             }
             int day = cleanCell(rowData[1]);
 
-            int maximumTemperatureFarenheight = cleanCell(rowData[2]);
             if(!valid(rowData[2])) {
                 continue;
             }
-            int minimumTemperatureFarenheight = cleanCell(rowData[3]);
+            int maximumTemperatureFarenheight = cleanCell(rowData[2]);
+
             if(!valid(rowData[3])) {
                 continue;
             }
+            int minimumTemperatureFarenheight = cleanCell(rowData[3]);
+            
             Weather rowWeather = new Weather(day, maximumTemperatureFarenheight, minimumTemperatureFarenheight);
             weather.add(rowWeather);
             System.out.println(rowWeather);
