@@ -86,3 +86,6 @@ include 'racing-car-katas:text-converter_dirk'
 include 'racing-car-katas:tire-pressure-monitoring-system'
 include 'racing-car-katas:turn-ticket-dispenser'
 include 'racing-car-katas:20151209-text-converter-paul-juan'
+
+// data munging
+include 'dataMunging:default'
