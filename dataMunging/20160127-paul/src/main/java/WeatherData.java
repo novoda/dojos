@@ -20,7 +20,6 @@ public class WeatherData {
             String row = dataRows[i];
             String[] rowData = row.split("\\s+");
 
-            System.out.println(i + ": " + Arrays.asList(rowData));
             if(!valid(rowData[1])) {
                 continue;
             }
@@ -35,10 +34,9 @@ public class WeatherData {
                 continue;
             }
             int minimumTemperatureFarenheight = cleanCell(rowData[3]);
-            
+
             Weather rowWeather = new Weather(day, maximumTemperatureFarenheight, minimumTemperatureFarenheight);
             weather.add(rowWeather);
-            System.out.println(rowWeather);
         }
 
         System.out.println(weather);
@@ -56,7 +54,6 @@ public class WeatherData {
     private static Integer cleanCell(String input) {
         input = input.trim();
         int totalLength = input.length() - 1;
-        System.out.println(input);
         char start = input.charAt(0);
         char end = input.charAt(totalLength);
         if(isInteger(start) && isInteger(end)) {
@@ -70,7 +67,6 @@ public class WeatherData {
 
     private static boolean isInteger(char input) {
         try {
-            System.out.println("IS INT "  + input);
             Integer.parseInt(String.valueOf(input));
             return true;
         } catch (NumberFormatException e) {
