@@ -2,6 +2,8 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Func1;
 
+import java.util.List;
+
 public class DataMunger {
 
     private final String data;
@@ -24,10 +26,10 @@ public class DataMunger {
     }
 
     public Observable<String> entries() {
-         return lines()
-                 .filter(headers())
-                 .filter(emptyLines())
-                 .filter(monthlyAverage());
+        return lines()
+                .filter(headers())
+                .filter(emptyLines())
+                .filter(monthlyAverage());
     }
 
     private Func1<String, Boolean> headers() {
@@ -55,5 +57,17 @@ public class DataMunger {
                 return !line.contains("mo");
             }
         };
+    }
+
+    public Observable<List<String>> cells() {
+        return entries().
+                flatMap(new Func1<String, Observable<List<String>>>() {
+                    @Override
+                    public Observable<List<String>> call(String line) {
+                        return Observable.from(line.split(" "))
+                                .take(3)
+                                .toList();
+                    }
+                });
     }
 }
