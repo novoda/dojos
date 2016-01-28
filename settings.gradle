@@ -90,3 +90,4 @@ include 'racing-car-katas:20151209-text-converter-paul-juan'
 // data munging
 include 'dataMunging:default'
 include 'dataMunging:20160127-paul'
+include 'dataMunging:20160128-paul-gareth'
