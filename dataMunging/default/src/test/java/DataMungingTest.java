@@ -1,11 +1,11 @@
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
 public class DataMungingTest {
 
     @Test
     public void shouldBeTrue() throws Exception {
-        assertTrue(true);
+        assertThat(true).isTrue();
     }
 }
