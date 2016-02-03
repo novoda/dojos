@@ -73,6 +73,7 @@ include 'leap-year:20151204_daniele_2'
 //lcdDigits
 include 'lcd-digits:default'
 include 'lcd-digits:20151215-tobi-paul'
+include 'lcd-digits:20160203-antonio-joe'
 
 //prime-factors
 include 'prime-factors:default'
