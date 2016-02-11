@@ -12,7 +12,7 @@
 		FA6B13211C6C89B900B70632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6B131F1C6C89B900B70632 /* Main.storyboard */; };
 		FA6B13231C6C89B900B70632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6B13221C6C89B900B70632 /* Assets.xcassets */; };
 		FA6B13261C6C89B900B70632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6B13241C6C89B900B70632 /* LaunchScreen.storyboard */; };
-		FA6B13311C6C89B900B70632 /* Roman_numeralsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B13301C6C89B900B70632 /* Roman_numeralsTests.swift */; };
+		FA6B13311C6C89B900B70632 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B13301C6C89B900B70632 /* Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +34,7 @@
 		FA6B13251C6C89B900B70632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA6B13271C6C89B900B70632 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA6B132C1C6C89B900B70632 /* Roman numeralsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Roman numeralsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA6B13301C6C89B900B70632 /* Roman_numeralsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roman_numeralsTests.swift; sourceTree = "<group>"; };
+		FA6B13301C6C89B900B70632 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		FA6B13321C6C89B900B70632 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +90,7 @@
 		FA6B132F1C6C89B900B70632 /* Roman numeralsTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA6B13301C6C89B900B70632 /* Roman_numeralsTests.swift */,
+				FA6B13301C6C89B900B70632 /* Tests.swift */,
 				FA6B13321C6C89B900B70632 /* Info.plist */,
 			);
 			path = "Roman numeralsTests";
@@ -206,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6B13311C6C89B900B70632 /* Roman_numeralsTests.swift in Sources */,
+				FA6B13311C6C89B900B70632 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +388,7 @@
 				FA6B13371C6C89B900B70632 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA6B13381C6C89B900B70632 /* Build configuration list for PBXNativeTarget "Roman numeralsTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +397,7 @@
 				FA6B133A1C6C89B900B70632 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
