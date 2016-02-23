@@ -70,7 +70,7 @@ is silent and so 'code' actually has only one syllable.)
 Output
 ------------
 
-For each haiku, output a comma seaprated single line
+For each haiku, output a comma separated single line
 that contains the number of syllables in each haiku,
 together with the letter Y if it is a haiku, or N if
 it is not a haiku (see below).
