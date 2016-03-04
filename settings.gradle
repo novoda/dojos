@@ -37,6 +37,7 @@ include 'fizzBuzz:20151204-dom_and_alex'
 
 // gilded rose
 include 'gilded-rose:default'
+include 'gilded-rose:20151203-juan'
 include 'gilded-rose:20151203-xavi'
 include 'gilded-rose:20151203-paul'
 
