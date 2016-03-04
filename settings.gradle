@@ -25,7 +25,7 @@ include 'dataMunging:default'
 include 'dataMunging:20150127-data-munging-xavi'
 include 'dataMunging:20160127-paul'
 include 'dataMunging:20160128-paul-gareth'
-include 'dataMunging:20160127-juan-volker'
+//include 'dataMunging:20160127-juan-volker' needs J8 gradle setup
 
 // fizzbuzz
 include 'fizzBuzz:default'
