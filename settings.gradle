@@ -5,7 +5,7 @@ include 'anagrams:20141014-david-paul'
 include 'anagrams:20141012-adam-stefan'
 include 'anagrams:20141114-cartaul'
 include 'anagrams:20141114-xavi-seb'
-include 'anagrams:20150304-paul-michal'
+include 'anagrams:20160304-paul-michal'
 
 // bankAccount
 include 'bankAccount:default'
