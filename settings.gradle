@@ -93,6 +93,8 @@ include 'recents-list:20151113-xavi-quentin'
 // remotekata
 include 'remotekata:ashAndVolker'
 include 'remotekata:paulAndZvonko'
+include 'remotekata:andreiAndXavi'
+include 'remotekata:ferranAndFlo'
 
 // tennis_refactoring
 include 'tennis_refactoring:201302-teamA'
