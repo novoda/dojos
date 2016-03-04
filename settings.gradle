@@ -49,7 +49,7 @@ include 'tic-tac-toe:default'
 include 'anagrams:default'
 include 'anagrams:20141012-paul'
 include 'anagrams:20141014-david-paul'
-include 'anagrams:20141014-adam-stefan'
+include 'anagrams:20141012-adam-stefan'
 include 'anagrams:20141114-cartaul'
 include 'anagrams:20141114-xavi-seb'
 
