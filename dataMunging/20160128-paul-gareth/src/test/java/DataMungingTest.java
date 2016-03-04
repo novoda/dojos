@@ -1,10 +1,10 @@
-import static org.assertj.core.api.Assertions.assertThat;
-
-import junit.framework.Assert;
 import org.junit.Test;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class DataMungingTest {
 
@@ -25,7 +25,7 @@ public class DataMungingTest {
 
         int count = 0;
         for (int i = 0; i < 3; i++) {
-            if(matcher.find()) {
+            if (matcher.find()) {
                 String group = matcher.group(0);
                 System.out.println(group);
                 count++;
@@ -33,6 +33,6 @@ public class DataMungingTest {
 
         }
 
-        Assert.assertTrue("matcher count was " + count, count == 3);
+        assertTrue("matcher count was " + count, count == 3);
     }
 }
