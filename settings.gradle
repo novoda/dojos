@@ -1,3 +1,11 @@
+// anagrams
+include 'anagrams:default'
+include 'anagrams:20141012-paul'
+include 'anagrams:20141014-david-paul'
+include 'anagrams:20141012-adam-stefan'
+include 'anagrams:20141114-cartaul'
+include 'anagrams:20141114-xavi-seb'
+
 // bankAccount
 include 'bankAccount:default'
 include 'bankAccount:20121206-adamsky'
@@ -5,12 +13,30 @@ include 'bankAccount:20121206-david-peter'
 include 'bankAccount:20121206-ronan-gonzalo'
 include 'bankAccount:20121206-shiv-paul'
 
+// change of a dollar
+include 'changeOfADollar:default'
+include 'changeOfADollar:20150522-adam-freidger'
+include 'changeOfADollar:20150522-conor-andrei'
+include 'changeOfADollar:20150522-paul-ferran'
+
+// data munging
+include 'dataMunging:default'
+include 'dataMunging:20150127-data-munging-xavi'
+include 'dataMunging:20160127-paul'
+include 'dataMunging:20160128-paul-gareth'
+include 'dataMunging:20160127-juan-volker'
+
 // fizzbuzz
 include 'fizzBuzz:default'
 include 'fizzBuzz:20121116-carl_and_david'
 include 'fizzBuzz:20121116-goncalo_and_peter'
 include 'fizzBuzz:20121116-paul_and_adam'
 include 'fizzBuzz:20151204-daniele_and_daniele'
+
+// gilded rose
+include 'gilded-rose:default'
+include 'gilded-rose:20151203-xavi'
+include 'gilded-rose:20151203-paul'
 
 // haikuReview
 include 'haikuReview:default'
@@ -26,6 +52,14 @@ include 'harry-potter:09102010-blundell-xavi'
 include 'harry-potter:20131009-babylon'
 include 'harry-potter:frankie-antonio'
 
+//lcdDigits
+include 'lcd-digits:default'
+include 'lcd-digits:20151215-tobi-paul'
+
+//leap-year
+include 'leap-year:default'
+include 'leap-year:20151204_daniele_2'
+
 // ocpBowling
 include 'ocpBowling:default'
 include 'ocpBowling:20130918-nojvihs'
@@ -33,48 +67,6 @@ include 'ocpBowling:20130918-paul_xavi'
 include 'ocpBowling:20130918-spaghetti'
 include 'ocpBowling:fankie_ben'
 include 'ocpBowling:20130918-omnitron'
-
-// remotekata
-include 'remotekata:ashAndVolker'
-include 'remotekata:paulAndZvonko'
-
-// tennis_refactoring
-include 'tennis_refactoring:201302-teamA'
-include 'tennis_refactoring:201302-teamB'
-
-//tic-tac-toe
-include 'tic-tac-toe:default'
-
-// anagrams
-include 'anagrams:default'
-include 'anagrams:20141012-paul'
-include 'anagrams:20141014-david-paul'
-include 'anagrams:20141012-adam-stefan'
-include 'anagrams:20141114-cartaul'
-include 'anagrams:20141114-xavi-seb'
-
-// change of a dollar
-include 'changeOfADollar:default'
-include 'changeOfADollar:20150522-adam-freidger'
-include 'changeOfADollar:20150522-conor-andrei'
-include 'changeOfADollar:20150522-paul-ferran'
-
-// recents list
-include 'recents-list:default'
-include 'recents-list:20151113-xavi-quentin'
-
-// gilded rose
-include 'gilded-rose:default'
-include 'gilded-rose:20151203-xavi'
-include 'gilded-rose:20151203-paul'
-
-//leap-year
-include 'leap-year:default'
-include 'leap-year:20151204_daniele_2'
-
-//lcdDigits
-include 'lcd-digits:default'
-include 'lcd-digits:20151215-tobi-paul'
 
 //prime-factors
 include 'prime-factors:default'
@@ -89,9 +81,17 @@ include 'racing-car-katas:tire-pressure-monitoring-system'
 include 'racing-car-katas:turn-ticket-dispenser'
 include 'racing-car-katas:20151209-text-converter-paul-juan'
 
-// data munging
-include 'dataMunging:default'
-include 'dataMunging:20150127-data-munging-xavi'
-include 'dataMunging:20160127-paul'
-include 'dataMunging:20160128-paul-gareth'
-include 'dataMunging:20160127-juan-volker'
+// recents list
+include 'recents-list:default'
+include 'recents-list:20151113-xavi-quentin'
+
+// remotekata
+include 'remotekata:ashAndVolker'
+include 'remotekata:paulAndZvonko'
+
+// tennis_refactoring
+include 'tennis_refactoring:201302-teamA'
+include 'tennis_refactoring:201302-teamB'
+
+//tic-tac-toe
+include 'tic-tac-toe:default'
