@@ -5,6 +5,7 @@ include 'anagrams:20141014-david-paul'
 include 'anagrams:20141012-adam-stefan'
 include 'anagrams:20141114-cartaul'
 include 'anagrams:20141114-xavi-seb'
+include 'anagrams:20150304-paul-michal'
 
 // bankAccount
 include 'bankAccount:default'
@@ -32,6 +33,7 @@ include 'fizzBuzz:20121116-carl_and_david'
 include 'fizzBuzz:20121116-goncalo_and_peter'
 include 'fizzBuzz:20121116-paul_and_adam'
 include 'fizzBuzz:20151204-daniele_and_daniele'
+include 'fizzBuzz:20151204-dom_and_alex'
 
 // gilded rose
 include 'gilded-rose:default'
