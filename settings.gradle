@@ -62,6 +62,7 @@ include 'lcd-digits:20151215-tobi-paul'
 //leap-year
 include 'leap-year:default'
 include 'leap-year:20151204_daniele_2'
+include 'leap-year:20151204-dom_and_alex'
 
 // ocpBowling
 include 'ocpBowling:default'
