@@ -1,6 +1,6 @@
-Rock beats Scissors.
-Scissors beat paper.
-Paper beats rock.
+Stone beats Scissors.
+Scissors beat Paper.
+Paper beats Stone.
 
 1. Write the first failing test. Then write a factory that returns an object, or an aggregate of objects, that make the test pass.
 
