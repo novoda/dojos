@@ -104,5 +104,5 @@ include 'tennis_refactoring:201302-teamB'
 include 'tic-tac-toe:default'
 
 // ocpPaperScissorsStone
-include 'ocpPaperScissorsStone:default'
+include 'ocpPaperScissorsStone:java:default'
 
