@@ -105,4 +105,5 @@ include 'tic-tac-toe:default'
 
 // ocpPaperScissorsStone
 include 'ocpPaperScissorsStone:java:default'
+include 'ocpPaperScissorsStone:java:03082016-tahsin-tobi'
 
