@@ -73,7 +73,7 @@ include 'ocpBowling:frankie-ben'
 include 'ocpBowling:20130918-omnitron'
 
 //prime-factors
-include 'prime-factors:default'
+include 'prime-factors:java:default'
 
 // racing-car-katas
 include 'racing-car-katas:do-not-copy'
