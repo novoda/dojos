@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8EE92FF1D86FFDE00F7D930 /* PrimeFactors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EE92FE1D86FFDE00F7D930 /* PrimeFactors.swift */; };
 		CB14C55C1D856697005BFF17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB14C55B1D856696005BFF17 /* AppDelegate.swift */; };
 		CB14C55E1D856697005BFF17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB14C55D1D856697005BFF17 /* ViewController.swift */; };
 		CB14C5631D856697005BFF17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB14C5621D856697005BFF17 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8EE92FE1D86FFDE00F7D930 /* PrimeFactors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimeFactors.swift; sourceTree = "<group>"; };
 		CB14C5581D856696005BFF17 /* PrimeFactors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrimeFactors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB14C55B1D856696005BFF17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB14C55D1D856697005BFF17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				CB14C55D1D856697005BFF17 /* ViewController.swift */,
 				CB14C5621D856697005BFF17 /* Assets.xcassets */,
 				CB14C5671D856697005BFF17 /* Info.plist */,
+				B8EE92FE1D86FFDE00F7D930 /* PrimeFactors.swift */,
 			);
 			path = PrimeFactors;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB14C55E1D856697005BFF17 /* ViewController.swift in Sources */,
+				B8EE92FF1D86FFDE00F7D930 /* PrimeFactors.swift in Sources */,
 				CB14C55C1D856697005BFF17 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +371,7 @@
 				CB14C5771D856697005BFF17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB14C5781D856697005BFF17 /* Build configuration list for PBXNativeTarget "PrimeFactorsTests" */ = {
 			isa = XCConfigurationList;
@@ -375,6 +380,7 @@
 				CB14C57A1D856697005BFF17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

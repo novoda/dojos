@@ -11,8 +11,12 @@ class PrimeFactorsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testThatOneIsItsOwnPrime() {
+        let primeFactors = PrimeFactors()
+
+        let result = primeFactors.factorize(1)
+
+        XCTAssertEqual(result, [1])
+    }
     }
 }
