@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "332FD9084BB48A17DE3A7E494BF5DEBFD19FA42B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "332FD9084BB48A17DE3A7E494BF5DEBFD19FA42B" : 0,
+    "C5D865E9283BF5BD4AFCAAAC422C580DCD270F3F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "247E55E7-0A73-411D-BACD-FA717BF28D8A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "332FD9084BB48A17DE3A7E494BF5DEBFD19FA42B" : "dojos\/",
+    "C5D865E9283BF5BD4AFCAAAC422C580DCD270F3F" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PaperScissorsStone",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ocpPaperScissorsStone\/swift\/PaperScissorsStone\/PaperScissorsStone.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/novoda\/dojos.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "332FD9084BB48A17DE3A7E494BF5DEBFD19FA42B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/novoda\/novoda.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C5D865E9283BF5BD4AFCAAAC422C580DCD270F3F"
+    }
+  ]
+}

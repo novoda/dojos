@@ -73,7 +73,7 @@ include 'ocpBowling:frankie-ben'
 include 'ocpBowling:20130918-omnitron'
 
 //prime-factors
-include 'prime-factors:default'
+include 'prime-factors:java:default'
 
 // racing-car-katas
 include 'racing-car-katas:do-not-copy'
@@ -102,3 +102,9 @@ include 'tennis_refactoring:201302-teamB'
 
 //tic-tac-toe
 include 'tic-tac-toe:default'
+
+// ocpPaperScissorsStone
+include 'ocpPaperScissorsStone:java:default'
+include 'ocpPaperScissorsStone:java:03082016_paul-flo'
+include 'ocpPaperScissorsStone:java:03082016-tahsin-tobi'
+include 'ocpPaperScissorsStone:java:03082016-juergen-toto'
