@@ -18,5 +18,12 @@ class PrimeFactorsTests: XCTestCase {
 
         XCTAssertEqual(result, [1])
     }
+
+    func testThatFourFactorizesToTwoAndTwo() {
+        let primeFactos = PrimeFactors()
+
+        let result: [Int] = primeFactos.factorize(4)
+
+        XCTAssertEqual(result, [2, 2])
     }
 }
