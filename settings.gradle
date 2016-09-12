@@ -74,6 +74,7 @@ include 'ocpBowling:20130918-omnitron'
 
 //prime-factors
 include 'prime-factors:java:default'
+include 'prime-factors:java:Team-BCN'
 
 // racing-car-katas
 include 'racing-car-katas:do-not-copy'
