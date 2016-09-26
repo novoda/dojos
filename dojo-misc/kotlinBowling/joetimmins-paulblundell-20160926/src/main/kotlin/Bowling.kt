@@ -1,5 +1,5 @@
 
 
 fun score(plays: List<Int>): Int {
-    return 0
+    return plays.fold(0, {a, b -> a + b})
 }
