@@ -1,17 +1,14 @@
 Tic Tac Toe Battle Kata
 
+## The aim
 
-The aim: 
+To create a tic tac toe playing bot.
 
-// TODO
+Then that bot will battle other bots in a round robin tournament to find the bestest bot.
 
-How to:
+## How to
 
 Create a `my-cool-team-name.conf` in this directory.
-
-name: You or your teams name
-path: The classpath of your code* 
-langauge: The name of the language* 
 
 ```json
 {
@@ -21,29 +18,51 @@ langauge: The name of the language*
 }
 ```
 
-Supported languages
+name: You or your teams name (this will be used n )
+path: The classpath of your code*
+language: The name of the language*
+
+## Supported languages
 
 `javascript` nodejs 6.7.0
+
 `java` 1.8
+
 `swift` 2.2.1
+
 `kotlin` 1.0.4
+
 `haskell` GCH 8.0.1
 
-Pathing
+## Pathing
 
-`javascript` yourDirectory/YourFile.js
-`java` yourDirectory/  must contain a Main.java 
-`swift` yourDirectory/  must contain a Main.swift 
-`kotlin` yourDirectory/  must contain a Main.kt 
-`haskell` yourDirectory/  must contain a Main.hs
+`javascript` pathToMyCode/YourFile.js
+`java` pathToMyCode/  must contain a Main.java
+`swift` pathToMyCode/  must contain a Main.swift
+`kotlin` pathToMyCode/  must contain a Main.kt
+`haskell` pathToMyCode/  must contain a Main.hs
 
 
-Arguments
+## Arguments
 
-Arg 1 - The board as a comma separated string. `-` is unplayed. 
-`-,-,-,-,-,-,-,-,-`
+Arg 1 - The board as a comma separated string. `-` is unplayed.
+`-,X,-,0,-,X,-,0,-`
+
+```
+[ 0 | 1 | 2 ]
+[ 3 | 4 | 5 ]
+[ 6 | 7 | 8 ]
+```
 
 Arg 2 - The player key, X or 0.
 
 
+## Playing a move
 
+print out a single board index to the console. 0 - 8.
+
+```
+System.out.print("0");
+```
+
+## Scoring
