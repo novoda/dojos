@@ -6,6 +6,8 @@ To create a tic tac toe playing bot.
 
 Then that bot will battle other bots in a round robin tournament to find the bestest bot.
 
+Each bot will play each other bot twice, taking turns going first.
+
 ## How to
 
 Create a `my-cool-team-name.conf` in this directory.
@@ -66,3 +68,9 @@ System.out.print("0");
 ```
 
 ## Scoring
+
+a win is **2** points.
+
+a draw is **1** point.
+
+and a invalid move is **-1**!
