@@ -163,6 +163,26 @@ public class Main {
             }
         }
 
+        // left diagonal win
+
+        if (board[2].equals(key)) {
+            if (board[4].equals(key)) {
+                return 6;
+            }
+        }
+
+        if (board[4].equals(key)) {
+            if (board[6].equals(key)) {
+                return 2;
+            }
+        }
+
+        if (board[6].equals(key)) {
+            if (board[2].equals(key)) {
+                return 4;
+            }
+        }
+
         // else
 
         return NO_AVAILABLE_MOVE;
