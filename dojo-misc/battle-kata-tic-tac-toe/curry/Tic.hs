@@ -23,7 +23,21 @@ isClassicSetup O [[Nothing, Nothing,Nothing],[Nothing, Just X, Nothing], [Nothin
 isClassicSetup _ _ = False
 
 playBestMove :: Player -> Board -> Move
-playBestMove player board = (2, Regular)
+playBestMove player board = (cast (fst . play $ board), Regular) 
+
+cast :: Maybe Int -> Int
+cast (Just a) = a
+cast Nothing = 0
+
+play = foldl hack (Nothing, 0)
+
+hack :: (Maybe Int, Int) -> Row -> (Maybe Int, Int)
+hack acc = foldl hack2 acc 
+
+hack2 :: (Maybe Int, Int) -> Cell -> (Maybe Int, Int)
+hack2 (Nothing, index) Nothing = (Just index, index + 1)
+hack2 (Nothing, index) cell = (Nothing, index + 1)
+hack2 (found, index) _ = (found, index + 1)
 
 foo :: Row -> Int
 foo = fst . foldl bar (0, Nothing) 
