@@ -179,40 +179,31 @@ public class Main {
     }
 
     private static int findConnectedCornerMove(String key, String[] board) {
-
-        if (board[0].equals(key) && isEmpty(board[1])
-                && board[2].equals(key) && isEmpty(board[2])) {
+        if (board[0].equals(key) && isEmpty(board[1]) && isEmpty(board[2])) {
             return 1;
         }
-        if (board[0].equals(key) && isEmpty(board[3])
-                && board[6].equals(key) && isEmpty(board[6])) {
+        if (board[0].equals(key) && isEmpty(board[3]) && isEmpty(board[6])) {
             return 3;
         }
 
-        if (board[2].equals(key) && isEmpty(board[1])
-                && board[0].equals(key) && isEmpty(board[0])) {
+        if (board[2].equals(key) && isEmpty(board[1]) && isEmpty(board[0])) {
             return 1;
         }
-        if (board[2].equals(key) && isEmpty(board[5])
-                && board[8].equals(key) && isEmpty(board[8])) {
+        if (board[2].equals(key) && isEmpty(board[5]) && isEmpty(board[8])) {
             return 5;
         }
 
-        if (board[6].equals(key) && isEmpty(board[7])
-                && board[8].equals(key) && isEmpty(board[8])) {
+        if (board[6].equals(key) && isEmpty(board[7]) && isEmpty(board[8])) {
             return 7;
         }
-        if (board[6].equals(key) && isEmpty(board[3])
-                && board[0].equals(key) && isEmpty(board[0])) {
+        if (board[6].equals(key) && isEmpty(board[3]) && isEmpty(board[0])) {
             return 3;
         }
 
-        if (board[8].equals(key) && isEmpty(board[7])
-                && board[6].equals(key) && isEmpty(board[6])) {
+        if (board[8].equals(key) && isEmpty(board[7]) && isEmpty(board[6])) {
             return 7;
         }
-        if (board[8].equals(key) && isEmpty(board[5])
-                && board[2].equals(key) && isEmpty(board[2])) {
+        if (board[8].equals(key) && isEmpty(board[5]) && isEmpty(board[2])) {
             return 5;
         }
 
