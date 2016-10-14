@@ -7,5 +7,5 @@ fun main(String board, String counterType): Int {
         myCounter = "0"
     }
 
-    return 9
+    java.lang.System.out.println(9)
 }
