@@ -17,7 +17,7 @@ function main(game) {
 
 
 function tryToPlay(arr) {
-  for (int i=0; i<arr.length; i++) {
+  for (let i=0; i<arr.length; i++) {
     if (game[i] == "-") {
       play(i);
       return true;
