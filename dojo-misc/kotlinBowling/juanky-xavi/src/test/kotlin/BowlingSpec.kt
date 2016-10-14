@@ -2,7 +2,7 @@ import io.kotlintest.specs.ShouldSpec
 
 class BowlingSpec : ShouldSpec() {
     init {
-        "score" {
+        "score should" {
             should("be 0 for all gutters") {
                 score(replicate(20, 0)) shouldBe 0
             }

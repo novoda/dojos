@@ -17,9 +17,12 @@
 package com.google.android.perftesting
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.GradleException
 import org.gradle.api.logging.Logger
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.incremental.IncrementalTaskInputs
+
+import java.nio.file.Paths
 
 /**
  * Defined Gradle task to execute local android device tests using monkeyrunner. This task makes it
@@ -46,38 +49,38 @@ public class RunLocalPerfTestsTask extends DefaultTask {
 
     @TaskAction
     void execute(IncrementalTaskInputs inputs) {
-//        mLogger.warn("Starting monkeyrunner")
-//        ProcessBuilder processBuilder = new ProcessBuilder()
-//
-//        // TODO: Read these properties using a better method.
-//        Properties properties = new Properties()
-//        project.rootProject.file('local.properties').withDataInputStream { inputStream ->
-//            properties.load(inputStream)
-//        }
-//        def sdkDir = properties.getProperty('sdk.dir')
-//
-//        def monkeyExt = ''
-//        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-//            monkeyExt = '.bat'
-//        }
-//
-//        def monkeyPath = Paths.get(sdkDir, "tools", "monkeyrunner" + monkeyExt).toAbsolutePath().toString()
-//        def rootDir = getProject().getRootDir().getAbsolutePath()
-//        def monkeyScriptPath = Paths.get(rootDir, "run_perf_tests.py").toAbsolutePath().toString()
-//        processBuilder.command(monkeyPath, monkeyScriptPath, rootDir, mDeviceId)
-//        processBuilder.environment().put("ANDROID_HOME", sdkDir)
-//        processBuilder.redirectErrorStream()
-//        Process process = processBuilder.start()
-//        process.waitFor()
-//
-//        // Redirect output from the script to the console so it's not supressed.
-//        process.in.eachLine() { line ->
-//            mLogger.warn("Script: " + line)
-//        }
-//        if (process.exitValue() != 0) {
-//            throw new GradleException("Monkeyrunner script didn't complete")
-//        }
-//        mLogger.warn("Monkeyrunner complete")
+        mLogger.warn("Starting monkeyrunner")
+        ProcessBuilder processBuilder = new ProcessBuilder()
+
+        // TODO: Read these properties using a better method.
+        Properties properties = new Properties()
+        project.rootProject.file('local.properties').withDataInputStream { inputStream ->
+            properties.load(inputStream)
+        }
+        def sdkDir = properties.getProperty('sdk.dir')
+
+        def monkeyExt = ''
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            monkeyExt = '.bat'
+        }
+
+        def monkeyPath = Paths.get(sdkDir, "tools", "monkeyrunner" + monkeyExt).toAbsolutePath().toString()
+        def rootDir = getProject().getRootDir().getAbsolutePath()
+        def monkeyScriptPath = Paths.get(rootDir, "run_perf_tests.py").toAbsolutePath().toString()
+        processBuilder.command(monkeyPath, monkeyScriptPath, rootDir, mDeviceId)
+        processBuilder.environment().put("ANDROID_HOME", sdkDir)
+        processBuilder.redirectErrorStream()
+        Process process = processBuilder.start()
+        process.waitFor()
+
+        // Redirect output from the script to the console so it's not supressed.
+        process.in.eachLine() { line ->
+            mLogger.warn("Script: " + line)
+        }
+        if (process.exitValue() != 0) {
+            throw new GradleException("Monkeyrunner script didn't complete")
+        }
+        mLogger.warn("Monkeyrunner complete")
     }
 
     public void setDeviceId(String deviceId) {

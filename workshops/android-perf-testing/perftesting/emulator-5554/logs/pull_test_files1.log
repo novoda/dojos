@@ -1,0 +1,5 @@
+pull: building file list...
+[ 56%] /storage/emulated/0/Android/data/com.google.android.perftesting/files/testdata/testdata/batterystats.dumpsys.log: 100%
+[ 83%] /storage/emulated/0/Android/data/com.google.android.perftesting/files/testdata/testdata/getprops.log: 100%
+[100%] /storage/emulated/0/Android/data/com.google.android.perftesting/files/testdata/testdata/locationRequests.dumpsys.log: 100%
+/storage/emulated/0/Android/data/com.google.android.perftesting/files/testdata/: 4 files pulled. 0 files skipped. 0.3 MB/s (20202 bytes in 0.076s)
