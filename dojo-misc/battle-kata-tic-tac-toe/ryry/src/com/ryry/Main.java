@@ -1,3 +1,5 @@
+package com.ryry;
+
 public class Main {
 
     public static void main(String[] args) {
