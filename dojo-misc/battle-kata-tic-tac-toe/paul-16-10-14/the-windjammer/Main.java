@@ -12,13 +12,25 @@ public class Main {
     public static void main(String[] args) {
         String[] board = args[0].split(",");
         String key = args[1];
-        int positionToPlay = getWinningMove(key, board);
+
+        int positionToPlay = getKeyMove(board);
+
+        if (positionToPlay == NO_AVAILABLE_MOVE) {
+            positionToPlay = getWinningMove(key, board);
+        }
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
             positionToPlay = getAnyOpenPosition(board);
         }
 
         System.out.println(positionToPlay);
+    }
+
+    private static int getKeyMove(String[] board) {
+        if (board[4].equals("-")) {
+            return 4;
+        }
+        return NO_AVAILABLE_MOVE;
     }
 
     private static int getWinningMove(String key, String[] board) {
@@ -105,7 +117,85 @@ public class Main {
 
         // middle row win
 
+        if (board[0].equals(key)) {
+            if (board[6].equals(key)) {
+                return 3;
+            }
+        }
+
+        if (board[1].equals(key)) {
+            if (board[8].equals(key)) {
+                return 4;
+            }
+        }
+
+        if (board[2].equals(key)) {
+            if (board[8].equals(key)) {
+                return 5;
+            }
+        }
+
         // left row win
+
+        if (board[6].equals(key)) {
+            if (board[3].equals(key)) {
+                return 0;
+            }
+        }
+
+        if (board[8].equals(key)) {
+            if (board[4].equals(key)) {
+                return 1;
+            }
+        }
+
+        if (board[8].equals(key)) {
+            if (board[5].equals(key)) {
+                return 2;
+            }
+        }
+
+        // right diagonal win
+
+        if (board[0].equals(key)) {
+            if (board[4].equals(key)) {
+                return 8;
+            }
+        }
+
+        if (board[4].equals(key)) {
+            if (board[8].equals(key)) {
+                return 0;
+            }
+        }
+
+        if (board[8].equals(key)) {
+            if (board[0].equals(key)) {
+                return 4;
+            }
+        }
+
+        // left diagonal win
+
+        if (board[2].equals(key)) {
+            if (board[4].equals(key)) {
+                return 6;
+            }
+        }
+
+        if (board[4].equals(key)) {
+            if (board[6].equals(key)) {
+                return 2;
+            }
+        }
+
+        if (board[6].equals(key)) {
+            if (board[2].equals(key)) {
+                return 4;
+            }
+        }
+
+        // else
 
         return NO_AVAILABLE_MOVE;
     }
