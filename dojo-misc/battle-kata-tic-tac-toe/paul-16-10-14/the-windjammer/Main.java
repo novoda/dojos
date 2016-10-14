@@ -55,113 +55,113 @@ public class Main {
     private static int getAvailableThirdMoveInARow(String key, String[] board) {
         // first column win
 
-        if (isWinAvailable(key, board[2], board[1])) {
+        if (isPositionAvailable(key, board[2], board[1], board[0])) {
             return 0;
         }
 
-        if (isWinAvailable(key, board[5], board[4])) {
+        if (isPositionAvailable(key, board[5], board[4], board[3])) {
             return 3;
         }
 
-        if (isWinAvailable(key, board[8], board[7])) {
+        if (isPositionAvailable(key, board[8], board[7], board[6])) {
             return 6;
         }
 
         // middle column win
 
-        if (isWinAvailable(key, board[0], board[2])) {
+        if (isPositionAvailable(key, board[0], board[2], board[1])) {
             return 1;
         }
 
-        if (isWinAvailable(key, board[3], board[5])) {
+        if (isPositionAvailable(key, board[3], board[5], board[4])) {
             return 4;
         }
 
-        if (isWinAvailable(key, board[6], board[8])) {
+        if (isPositionAvailable(key, board[6], board[8], board[7])) {
             return 7;
         }
 
         // right column win
 
-        if (isWinAvailable(key, board[0], board[1])) {
+        if (isPositionAvailable(key, board[0], board[1], board[2])) {
             return 2;
         }
 
-        if (isWinAvailable(key, board[3], board[4])) {
+        if (isPositionAvailable(key, board[3], board[4], board[5])) {
             return 5;
         }
 
-        if (isWinAvailable(key, board[6], board[7])) {
+        if (isPositionAvailable(key, board[6], board[7], board[8])) {
             return 8;
         }
 
         // top row win
 
-        if (isWinAvailable(key, board[6], board[3])) {
+        if (isPositionAvailable(key, board[6], board[3], board[0])) {
             return 0;
         }
 
-        if (isWinAvailable(key, board[8], board[4])) {
+        if (isPositionAvailable(key, board[8], board[4], board[1])) {
             return 1;
         }
 
-        if (isWinAvailable(key, board[8], board[5])) {
+        if (isPositionAvailable(key, board[8], board[5], board[2])) {
             return 2;
         }
 
         // middle row win
 
-        if (isWinAvailable(key, board[0], board[6])) {
+        if (isPositionAvailable(key, board[0], board[6], board[3])) {
             return 3;
         }
 
-        if (isWinAvailable(key, board[1], board[8])) {
+        if (isPositionAvailable(key, board[1], board[8], board[4])) {
             return 4;
         }
 
-        if (isWinAvailable(key, board[2], board[8])) {
+        if (isPositionAvailable(key, board[2], board[8], board[5])) {
             return 5;
         }
 
         // bottom row win
 
-        if (isWinAvailable(key, board[0], board[3])) {
+        if (isPositionAvailable(key, board[0], board[3], board[6])) {
             return 6;
         }
 
-        if (isWinAvailable(key, board[1], board[4])) {
-            return 8;
+        if (isPositionAvailable(key, board[1], board[4], board[7])) {
+            return 7;
         }
 
-        if (isWinAvailable(key, board[2], board[5])) {
+        if (isPositionAvailable(key, board[2], board[5], board[8])) {
             return 8;
         }
 
         // right diagonal win
 
-        if (isWinAvailable(key, board[0], board[4])) {
+        if (isPositionAvailable(key, board[0], board[4], board[8])) {
             return 8;
         }
 
-        if (isWinAvailable(key, board[4], board[8])) {
+        if (isPositionAvailable(key, board[4], board[8], board[0])) {
             return 0;
         }
 
-        if (isWinAvailable(key, board[8], board[0])) {
+        if (isPositionAvailable(key, board[8], board[0], board[4])) {
             return 4;
         }
 
         // left diagonal win
 
-        if (isWinAvailable(key, board[2], board[4])) {
+        if (isPositionAvailable(key, board[2], board[4], board[6])) {
             return 6;
         }
 
-        if (isWinAvailable(key, board[4], board[6])) {
+        if (isPositionAvailable(key, board[4], board[6], board[2])) {
             return 2;
         }
 
-        if (isWinAvailable(key, board[6], board[2])) {
+        if (isPositionAvailable(key, board[6], board[2], board[4])) {
             return 4;
         }
 
@@ -170,8 +170,8 @@ public class Main {
         return NO_AVAILABLE_MOVE;
     }
 
-    private static boolean isWinAvailable(String key, String move1, String move2) {
-        return move1.equals(key) && move2.equals(key);
+    private static boolean isPositionAvailable(String key, String move1, String move2, String move3) {
+        return move1.equals(key) && move2.equals(key) && isEmpty(move3);
     }
 
     static int findMiddleMove(String[] board) {
