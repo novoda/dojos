@@ -36,7 +36,7 @@ public class Main {
 
         List<Integer> availablePositionsToPlay = availablePositionsToPlay(boardMatrix);
 
-        int best = getBestPositionFrom(availablePositionsToPlay);
+        int best = getBetterPositionFrom(boardMatrix, availablePositionsToPlay, key);
         System.out.println("" + best);
     }
 
@@ -67,38 +67,58 @@ public class Main {
         }
     }
 
-//    private static int getBetterPositionFrom(String[][] boardMatrix, List<Integer> availablePositions, String key) {
-//        if (availablePositions.contains(CENTRAL_POSITION)) {
-//            return CENTRAL_POSITION;
-//        } else {
-//            int bestPosition = availablePositions.get(0);
-//            int bestScore = 0;
-//            for (Integer position : availablePositions) {
-//                int score = getScoreFor(boardMatrix, position);
-//                if (score > bestScore) {
-//                    bestPosition = position;
-//                    bestScore = score;
-//                }
-//            }
-//            return bestPosition;
-//        }
-//    }
+    private static int getBetterPositionFrom(String[][] boardMatrix, List<Integer> availablePositions, String key) {
+        if (availablePositions.contains(CENTRAL_POSITION)) {
+            return CENTRAL_POSITION;
+        } else {
+            int bestPosition = availablePositions.get(0);
+            int bestScore = 0;
+            for (Integer position : availablePositions) {
+                int score = getScoreFor(boardMatrix, position, key);
+                if (score > bestScore) {
+                    bestPosition = position;
+                    bestScore = score;
+                }
+            }
+            return bestPosition;
+        }
+    }
 
-//    private static int getScoreFor(String[][] boardMatrix, int position, String key) {
-//        return getScoreFor(boardMatrix, key);
-//    }
-//
-//    private static int getScoreFor(String[][] boardMatrix, String key) {
-//        int currentScore = 0;
-//        for (int i = 0; i < boardMatrix.length; i++) {
-//            for (int j = 0; j < boardMatrix[i].length; j++) {
-//                if (i - 1 >= 0 && boardMatrix[i-1][j].equals())
-//                String position = boardMatrix[i][j];
-//                if (AVAILABLE.equals(position)) {
-//                    availablePositions.add(positionFor(i, j));
-//                }
-//            }
-//        }
-//    }
+    private static int getScoreFor(String[][] boardMatrix, int position, String key) {
+        String[][] copy = new String[3][3];
+        for (int i = 0; i < boardMatrix.length; i++) {
+            for (int j = 0; j < boardMatrix[i].length; j++) {
+                copy[i][j] = boardMatrix[i][j];
+                if (positionFor(i, j) == position) {
+                    copy[i][j] = key;
+                }
+            }
+        }
+        return getScoreFor(boardMatrix, key);
+    }
+
+    private static int getScoreFor(String[][] boardMatrix, String key) {
+        int currentScore = 0;
+        for (int i = 0; i < boardMatrix.length; i++) {
+            for (int j = 0; j < boardMatrix[i].length; j++) {
+                if (i - 1 >= 0 && boardMatrix[i-1][j].equals(key)) {
+                    currentScore++;
+                }
+
+                if (i + 1 < 3 && boardMatrix[i+1][j].equals(key)) {
+                    currentScore++;
+                }
+
+                if (j - 1 >= 0 && boardMatrix[i][j-1].equals(key)) {
+                    currentScore++;
+                }
+
+                if (j + 1 < 3 && boardMatrix[i][j+1].equals(key)) {
+                    currentScore++;
+                }
+            }
+        }
+        return currentScore;
+    }
 
 }
