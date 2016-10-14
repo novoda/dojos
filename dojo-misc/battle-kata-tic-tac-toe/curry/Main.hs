@@ -31,7 +31,11 @@ readPlayer "o" = O
 readPlayer "O" = O
 readPlayer "0" = O
 
-readBoard xs = first:second:third:[]
+readBoard :: String -> Board
+readBoard = readCellsToBoard . readCells
+
+readCellsToBoard :: [Cell] -> Board
+readCellsToBoard xs = first:second:third:[]
     where 
         first = take 3 xs
         second = take 3 . drop 3 $ xs
