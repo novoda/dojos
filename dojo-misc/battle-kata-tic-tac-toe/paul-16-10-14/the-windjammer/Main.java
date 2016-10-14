@@ -105,7 +105,45 @@ public class Main {
 
         // middle row win
 
+        if (board[0].equals(key)) {
+            if (board[6].equals(key)) {
+                return 3;
+            }
+        }
+
+        if (board[1].equals(key)) {
+            if (board[8].equals(key)) {
+                return 4;
+            }
+        }
+
+        if (board[2].equals(key)) {
+            if (board[8].equals(key)) {
+                return 5;
+            }
+        }
+
         // left row win
+
+        if (board[6].equals(key)) {
+            if (board[3].equals(key)) {
+                return 0;
+            }
+        }
+
+        if (board[8].equals(key)) {
+            if (board[4].equals(key)) {
+                return 1;
+            }
+        }
+
+        if (board[8].equals(key)) {
+            if (board[5].equals(key)) {
+                return 2;
+            }
+        }
+
+        // else
 
         return NO_AVAILABLE_MOVE;
     }
