@@ -26,9 +26,17 @@ public class Game {
     }
     
     public void go() {
-        for (int i = board.size() -1 ; i >= 0; i--) {
-            if (board.get(i).value == Mark.EMPTY) {
-                System.out.println(board.indexOf(board.get(i)));
+        if (board.get(2) == EMPTY) {
+            System.out.println(2);
+        } else if (board.get(5) == EMPTY) {
+            System.out.println(5);
+        } else if (board.get(8) == EMPTY) {
+            System.out.println(8);
+        } else {
+            for (int i = board.size() -1 ; i >= 0; i--) {
+                if (board.get(i).value == Mark.EMPTY) {
+                    System.out.println(board.indexOf(board.get(i)));
+                }
             }
         }
     }
