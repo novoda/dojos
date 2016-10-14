@@ -33,7 +33,9 @@ fun main(args: Array<String>) {
 
 
 fun isRowWithTwo(positionsList: MutableList<Position>, vararg positions: Int): Int {
-    if (isFull(positionsList, positions) || isOnlyOneUsed(positionsList, positions)) {
+    if (isFull(positionsList, positions)
+            || isOnlyOneUsed(positionsList, positions)
+            || twoDifferent(positionsList, positions)) {
         return -1
     }
     positions.forEach {
@@ -43,6 +45,23 @@ fun isRowWithTwo(positionsList: MutableList<Position>, vararg positions: Int): I
         }
     }
     return -1
+}
+
+fun twoDifferent(positionsList: MutableList<Position>, positions: IntArray): Boolean {
+    var firstFound = Position.EMPTY
+    var firstId: Int = -1
+    positions.forEach {
+        if (positionsList[it] != Position.EMPTY) {
+            firstFound = positionsList[it]
+            firstId = it
+        }
+    }
+    positions.forEach {
+        if (positionsList[it] != Position.EMPTY && firstId != it && positionsList[it] != firstFound) {
+            return true
+        }
+    }
+    return false
 }
 
 fun isOnlyOneUsed(positionsList: MutableList<Position>, positions: IntArray): Boolean {

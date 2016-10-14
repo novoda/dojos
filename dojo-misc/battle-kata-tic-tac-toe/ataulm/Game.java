@@ -26,19 +26,76 @@ public class Game {
     }
     
     public void go() {
-        if (board.get(2) == EMPTY) {
-            System.out.println(2);
-        } else if (board.get(5) == EMPTY) {
-            System.out.println(5);
-        } else if (board.get(8) == EMPTY) {
-            System.out.println(8);
-        } else {
-            for (int i = board.size() -1 ; i >= 0; i--) {
-                if (board.get(i).value == Mark.EMPTY) {
-                    System.out.println(board.indexOf(board.get(i)));
-                }
+        if (markedCorner()) {
+            return;
+        }
+        
+        if (markedSide()) {
+            return;
+        }
+        
+        for (int i = board.size() - 1; i >= 0; i--) {
+            if (board.get(i).value == Mark.EMPTY) {
+                int value = board.indexOf(board.get(i));
+                print(value);
             }
         }
+    }
+    
+    private boolean markedCorner() {
+        if (empty(0)) {
+            print(0);
+            return true;
+        }
+        
+        if (empty(2)) {
+            print(2);
+            return true;
+        }
+        
+        if (empty(6)) {
+            print(6);
+            return true;
+        }
+        
+        if (empty(8)) {
+            print(8);
+            return true;
+        }
+        
+        return false;
+    }
+    
+    private boolean markedSide() {
+        if (empty(1)) {
+            print(1);
+            return true;
+        }
+        
+        if (empty(3)) {
+            print(3);
+            return true;
+        }
+        
+        if (empty(5)) {
+            print(5);
+            return true;
+        }
+        
+        if (empty(7)) {
+            print(7);
+            return true;
+        }
+        
+        return false;
+    }
+    
+    private void print(int value) {
+        System.out.println(value);
+    }
+    
+    private boolean empty(int i) {
+        return board.get(i).value == Mark.EMPTY;
     }
     
     private final class Spot {
