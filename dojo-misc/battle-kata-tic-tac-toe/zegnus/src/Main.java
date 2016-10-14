@@ -1,10 +1,6 @@
 public class Main {
 
     public static void main(String[] args) {
-//        args = new String[2];
-//        args[0] = "X,-,-,-,-,0,-,-,0";
-//        args[1] = "X";
-
         String[] board = args[0].split(",");
         String player = args[1];
 
