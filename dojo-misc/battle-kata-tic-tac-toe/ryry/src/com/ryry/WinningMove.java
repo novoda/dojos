@@ -5,52 +5,54 @@ import java.util.List;
 
 public class WinningMove {
 
-    private String[] winningOne = new String[]{
+    private Board winningOne = new Board(new String[]{
             "x", "x", "x",
             "-", "-", "-",
             "-", "-", "-"
-    };
+    });
 
-    private String[] winningTwo = new String[]{
+    private Board winningTwo = new Board(new String[]{
             "x", "-", "-",
             "x", "-", "-",
             "x", "-", "-"
-    };
+    });
 
-    private String[] winningThree = new String[]{
+    private Board winningThree = new Board(new String[]{
             "x", "-", "-",
             "-", "x", "-",
             "-", "-", "x"
-    };
+    });
 
-    private String[] winningFour = new String[]{
+    private Board winningFour = new Board(new String[]{
             "-", "-", "x",
             "-", "-", "x",
             "-", "-", "x"
-    };
+    });
 
-    private String[] winningFive = new String[]{
+    private Board winningFive = new Board(new String[]{
             "-", "-", "-",
             "x", "x", "x",
             "-", "-", "-"
-    };
+    });
 
-    private String[] winningSix = new String[]{
+    private Board winningSix = new Board(new String[]{
             "-", "x", "-",
             "-", "x", "-",
             "-", "x", "-"
-    };
+    });
 
-    private String[] winningSeven = new String[]{
+    private Board winningSeven = new Board(new String[]{
             "-", "-", "x",
             "-", "x", "-",
             "x", "-", "-"
-    };
+    });
 
-    private String[] winningEight = new String[]{
+    private Board winningEight = new Board(new String[]{
             "-", "-", "-",
             "-", "-", "-",
             "x", "x", "x"
-    };
+    });
+
+
 
 }
