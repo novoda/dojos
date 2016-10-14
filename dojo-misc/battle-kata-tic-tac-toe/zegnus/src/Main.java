@@ -49,10 +49,13 @@ public class Main {
     }
 
     private static int findNextWinnerPosition(String[] board, String player) {
+        String[] newBoard = board.clone();
         for (int i = 0; i < 9; i++) {
-            int nextFreePosition = findNextFreePosition(board);
-            if (win(board, player)) {
-                return nextFreePosition;
+            if (newBoard[i].equals("-")) {
+                newBoard[i] = player;
+                if (isWin(newBoard, player)) {
+                    return i;
+                }
             }
         }
 
@@ -69,7 +72,7 @@ public class Main {
         return -1;
     }
 
-    private static boolean win(String[] board, String player) {
+    private static boolean isWin(String[] board, String player) {
         return anyRow(board, player) || anyColumn(board, player) || anyDiagonal(board, player);
     }
 
