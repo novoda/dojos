@@ -13,6 +13,12 @@ public class Main {
         String[] board = args[0].split(",");
         String key = args[1];
 
+        int positionToPlay = getPositionToPlay(board, key);
+
+        System.out.println(positionToPlay);
+    }
+
+    static int getPositionToPlay(String[] board, String key) {
         int positionToPlay = getKeyMove(board);
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
@@ -22,8 +28,7 @@ public class Main {
         if (positionToPlay == NO_AVAILABLE_MOVE) {
             positionToPlay = getAnyOpenPosition(board);
         }
-
-        System.out.println(positionToPlay);
+        return positionToPlay;
     }
 
     private static int getKeyMove(String[] board) {
