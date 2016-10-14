@@ -13,27 +13,14 @@
  */
 
 public class Main {
-
+    
     public static void main(String... betterThanPaul) {
-        Board board = new Board(betterThanPaul);
-        if (board.isInvalid()) {
+        try {
+            Game game = new Game(betterThanPaul);
+            game.go();
+        } catch (Exception yolo) {
             System.out.println("0");
-        } else {
-            
         }
     }
     
-    private static class Checker {
-        
-    }
-    
-    private static class Board {
-        
-        public Board(String... board) throws IllegalStateException {
-            if (board.length != 9) {
-                throw new IllegalStateException("");
-            }
-        }
-    }
-
 }
