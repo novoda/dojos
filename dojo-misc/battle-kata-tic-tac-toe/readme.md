@@ -39,9 +39,13 @@ language: The name of the language*
 ## Pathing
 
 `javascript` pathToMyCode/YourFile.js
+
 `java` pathToMyCode/  must contain a Main.java
+
 `swift` pathToMyCode/  must contain a Main.swift
+
 `kotlin` pathToMyCode/  must contain a Main.kt
+
 `haskell` pathToMyCode/  must contain a Main.hs
 
 
