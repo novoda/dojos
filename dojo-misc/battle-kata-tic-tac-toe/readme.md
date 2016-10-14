@@ -2,9 +2,7 @@ Tic Tac Toe Battle Kata
 
 ## The aim
 
-To create a tic tac toe playing bot.
-
-Then that bot will battle other bots in a round robin tournament to find the bestest bot.
+To create a tic tac toe playing bot, then that bot will battle other bots in a round robin tournament to find the bestest bot.
 
 Each bot will play each other bot twice, taking turns going first.
 
