@@ -1,6 +1,4 @@
-package demo
-
-fun main(args: Array<String>) {
+n(args: Array<String>) {
     val player = args[1].toPlayer()
     val state = args[0].toState(player)
 
@@ -68,6 +66,13 @@ class State(private val player: Player, private val moves: List<Player>) {
                 if (col1 == row1 && col2 == row2) {
                     val place = listOf(0, 1, 2).minus(col1).minus(col2).first()
                     return moveNum(place, place)
+                }
+
+                if (col1 + row1 == 2 && col2 + row2 == 2) {
+                    val place = listOf(0, 1, 2).minus(col1).minus(col2).first()
+                    var otherPlace = (place - 2)
+                    otherPlace = if (otherPlace < 0) otherPlace * -1 else otherPlace
+                    return moveNum(place, otherPlace)
                 }
             }
         }
