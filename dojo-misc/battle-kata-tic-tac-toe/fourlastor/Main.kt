@@ -2,7 +2,7 @@ fun main(args: Array<String>) {
     val player = args[1].toPlayer()
     val state = args[0].toState(player)
 
-    println(state.nextMove())
+    println("${state.nextMove()}")
 }
 
 private fun String.toState(player: Player): State {
