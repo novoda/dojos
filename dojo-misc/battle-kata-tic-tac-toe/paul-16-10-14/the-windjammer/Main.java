@@ -31,7 +31,7 @@ public class Main {
         return positionToPlay;
     }
 
-    private static int getKeyMove(String[] board) {
+    static int getKeyMove(String[] board) {
         if (board[4].equals("-")) {
             return 4;
         }
