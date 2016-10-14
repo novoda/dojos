@@ -32,7 +32,7 @@ public class Main {
     }
 
     static int getKeyMove(String[] board) {
-        if (board[4].equals("-")) {
+        if (isEmpty(board[4])) {
             return 4;
         }
         return NO_AVAILABLE_MOVE;
@@ -44,7 +44,7 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[1].equals(key)) {
-                if (board[2].equals("-")) {
+                if (isEmpty(board[2])) {
                     return 2;
                 }
             }
@@ -52,7 +52,7 @@ public class Main {
 
         if (board[3].equals(key)) {
             if (board[4].equals(key)) {
-                if (board[5].equals("-")) {
+                if (isEmpty(board[5])) {
                     return 5;
                 }
             }
@@ -60,7 +60,7 @@ public class Main {
 
         if (board[6].equals(key)) {
             if (board[7].equals(key)) {
-                if (board[8].equals("-")) {
+                if (isEmpty(board[8])) {
                     return 8;
                 }
             }
@@ -70,7 +70,7 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[2].equals(key)) {
-                if (board[1].equals("-")) {
+                if (isEmpty(board[1])) {
                     return 1;
                 }
             }
@@ -78,7 +78,7 @@ public class Main {
 
         if (board[3].equals(key)) {
             if (board[5].equals(key)) {
-                if (board[4].equals("-")) {
+                if (isEmpty(board[4])) {
                     return 4;
                 }
             }
@@ -86,7 +86,7 @@ public class Main {
 
         if (board[6].equals(key)) {
             if (board[8].equals(key)) {
-                if (board[7].equals("-")) {
+                if (isEmpty(board[7])) {
                     return 7;
                 }
             }
@@ -96,7 +96,7 @@ public class Main {
 
         if (board[2].equals(key)) {
             if (board[1].equals(key)) {
-                if (board[0].equals("-")) {
+                if (isEmpty(board[0])) {
                     return 0;
                 }
             }
@@ -104,7 +104,7 @@ public class Main {
 
         if (board[5].equals(key)) {
             if (board[4].equals(key)) {
-                if (board[3].equals("-")) {
+                if (isEmpty(board[3])) {
                     return 3;
                 }
             }
@@ -112,7 +112,7 @@ public class Main {
 
         if (board[8].equals(key)) {
             if (board[7].equals(key)) {
-                if (board[6].equals("-")) {
+                if (isEmpty(board[6])) {
                     return 6;
                 }
             }
@@ -122,7 +122,7 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[3].equals(key)) {
-                if (board[6].equals("-")) {
+                if (isEmpty(board[6])) {
                     return 6;
                 }
             }
@@ -130,7 +130,7 @@ public class Main {
 
         if (board[1].equals(key)) {
             if (board[4].equals(key)) {
-                if (board[8].equals("-")) {
+                if (isEmpty(board[8])) {
                     return 8;
                 }
             }
@@ -138,7 +138,7 @@ public class Main {
 
         if (board[2].equals(key)) {
             if (board[5].equals(key)) {
-                if (board[8].equals("-")) {
+                if (isEmpty(board[8])) {
                     return 8;
                 }
             }
@@ -148,7 +148,7 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[6].equals(key)) {
-                if (board[3].equals("-")) {
+                if (isEmpty(board[3])) {
                     return 3;
                 }
             }
@@ -156,7 +156,7 @@ public class Main {
 
         if (board[1].equals(key)) {
             if (board[8].equals(key)) {
-                if (board[4].equals("-")) {
+                if (isEmpty(board[4])) {
                     return 4;
                 }
             }
@@ -164,7 +164,7 @@ public class Main {
 
         if (board[2].equals(key)) {
             if (board[8].equals(key)) {
-                if (board[5].equals("-")) {
+                if (isEmpty(board[5])) {
                     return 5;
                 }
             }
@@ -174,7 +174,7 @@ public class Main {
 
         if (board[6].equals(key)) {
             if (board[3].equals(key)) {
-                if (board[0].equals("-")) {
+                if (isEmpty(board[0])) {
                     return 0;
                 }
             }
@@ -182,7 +182,7 @@ public class Main {
 
         if (board[8].equals(key)) {
             if (board[4].equals(key)) {
-                if (board[1].equals("-")) {
+                if (isEmpty(board[1])) {
                     return 1;
                 }
             }
@@ -190,7 +190,7 @@ public class Main {
 
         if (board[8].equals(key)) {
             if (board[5].equals(key)) {
-                if (board[2].equals("-")) {
+                if (isEmpty(board[2])) {
                     return 2;
                 }
             }
@@ -200,7 +200,7 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[4].equals(key)) {
-                if (board[8].equals("-")) {
+                if (isEmpty(board[8])) {
                     return 8;
                 }
             }
@@ -208,7 +208,7 @@ public class Main {
 
         if (board[4].equals(key)) {
             if (board[8].equals(key)) {
-                if (board[0].equals("-")) {
+                if (isEmpty(board[0])) {
                     return 0;
                 }
             }
@@ -216,7 +216,7 @@ public class Main {
 
         if (board[8].equals(key)) {
             if (board[0].equals(key)) {
-                if (board[4].equals("-")) {
+                if (isEmpty(board[4])) {
                     return 4;
                 }
             }
@@ -226,7 +226,7 @@ public class Main {
 
         if (board[2].equals(key)) {
             if (board[4].equals(key)) {
-                if (board[6].equals("-")) {
+                if (isEmpty(board[6])) {
                     return 6;
                 }
             }
@@ -234,7 +234,7 @@ public class Main {
 
         if (board[4].equals(key)) {
             if (board[6].equals(key)) {
-                if (board[2].equals("-")) {
+                if (isEmpty(board[2])) {
                     return 2;
                 }
             }
@@ -242,7 +242,7 @@ public class Main {
 
         if (board[6].equals(key)) {
             if (board[2].equals(key)) {
-                if (board[4].equals("-")) {
+                if (isEmpty(board[4])) {
                     return 4;
                 }
             }
@@ -253,10 +253,14 @@ public class Main {
         return NO_AVAILABLE_MOVE;
     }
 
+    private static boolean isEmpty(String s) {
+        return s.equals("-");
+    }
+
     static int getAnyOpenPosition(String[] board) {
         for (int i = 0; i < board.length; i++) {
             String position = board[i];
-            if (position.equals("-")) {
+            if (isEmpty(position)) {
                 return i;
             }
         }
