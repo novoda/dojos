@@ -2,7 +2,7 @@ fun main(args: Array<String>) {
     val player = args[1].toPlayer()
     val state = args[0].toState(player)
 
-    println("${state.nextMove()}")
+    println(state.nextMove())
 }
 
 private fun String.toState(player: Player): State {
@@ -31,7 +31,7 @@ enum class Player {
 
 class State(private val player: Player, private val moves: List<Player>) {
     fun nextMove(): Int {
-        return blockWinningMove() ?: tryToCenter() ?: tryToWin() ?: putFirstCorner() ?: putFirstEdge()!!
+        return blockWinningMove() ?: tryToWin() ?: tryToCenter() ?: putFirstCorner() ?: putFirstEdge()!!
     }
 
     private fun blockWinningMove(): Int? {
@@ -55,17 +55,34 @@ class State(private val player: Player, private val moves: List<Player>) {
 
                 if (col1 == col2) {
                     val row = listOf(0, 1, 2).minus(row1).minus(row2).first()
-                    return moveNum(col1, row)
+                    val moveNum = moveNum(col1, row)
+
+                    if (moves[moveNum] == Player.UNPLAYED) {
+                        return moveNum
+                    } else {
+                        return@inner
+                    }
                 }
 
                 if (row1 == row2) {
                     val col = listOf(0, 1, 2).minus(col1).minus(col2).first()
-                    return moveNum(col, row1)
+                    val moveNum = moveNum(col, row1)
+
+                    if (moves[moveNum] == Player.UNPLAYED) {
+                        return moveNum
+                    } else {
+                        return@inner
+                    }
                 }
 
                 if (col1 == row1 && col2 == row2) {
                     val place = listOf(0, 1, 2).minus(col1).minus(col2).first()
-                    return moveNum(place, place)
+                    val moveNum = moveNum(place, place)
+                    if (moves[moveNum] == Player.UNPLAYED) {
+                        return moveNum
+                    } else {
+                        return@inner
+                    }
                 }
 
                 if (col1 + row1 == 2 && col2 + row2 == 2) {
