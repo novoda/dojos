@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 //        args = new String[2];
-//        args[0] = "-,-,-,-,-,-,-,-,-";
+//        args[0] = "X,-,-,-,-,0,-,-,0";
 //        args[1] = "X";
 
         String[] board = args[0].split(",");
@@ -39,8 +39,24 @@ public class Main {
     }
 
     private static String findNextMove(String[] board, String player) {
-        int nextFreePosition = findNextFreePosition(board);
-        return String.valueOf(nextFreePosition);
+        int nextPosition;
+
+        nextPosition = findNextWinnerPosition(board, player);
+        if (nextPosition == -1) {
+            nextPosition = findNextFreePosition(board);
+        }
+        return String.valueOf(nextPosition);
+    }
+
+    private static int findNextWinnerPosition(String[] board, String player) {
+        for (int i = 0; i < 9; i++) {
+            int nextFreePosition = findNextFreePosition(board);
+            if (win(board, player)) {
+                return nextFreePosition;
+            }
+        }
+
+        return -1;
     }
 
     private static int findNextFreePosition(String[] board) {
