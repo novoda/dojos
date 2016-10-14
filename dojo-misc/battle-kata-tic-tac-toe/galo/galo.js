@@ -1,6 +1,6 @@
 function main(game) {
-    let indices = [];
-    for (let i=0; i<game.length; i++) {
+    var indices = [];
+    for (var i=0; i<game.length; i++) {
         if (game[i] == "-") {
             indices.push(i);
         }
