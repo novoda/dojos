@@ -31,8 +31,8 @@ public class Main {
         return positionToPlay;
     }
 
-    private static int getKeyMove(String[] board) {
-        if (board[4].equals("-")) {
+    static int getKeyMove(String[] board) {
+        if (isEmpty(board[4])) {
             return 4;
         }
         return NO_AVAILABLE_MOVE;
@@ -44,19 +44,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[1].equals(key)) {
-                return 2;
+                if (isEmpty(board[2])) {
+                    return 2;
+                }
             }
         }
 
         if (board[3].equals(key)) {
             if (board[4].equals(key)) {
-                return 5;
+                if (isEmpty(board[5])) {
+                    return 5;
+                }
             }
         }
 
         if (board[6].equals(key)) {
             if (board[7].equals(key)) {
-                return 8;
+                if (isEmpty(board[8])) {
+                    return 8;
+                }
             }
         }
 
@@ -64,19 +70,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[2].equals(key)) {
-                return 1;
+                if (isEmpty(board[1])) {
+                    return 1;
+                }
             }
         }
 
         if (board[3].equals(key)) {
             if (board[5].equals(key)) {
-                return 4;
+                if (isEmpty(board[4])) {
+                    return 4;
+                }
             }
         }
 
         if (board[6].equals(key)) {
             if (board[8].equals(key)) {
-                return 7;
+                if (isEmpty(board[7])) {
+                    return 7;
+                }
             }
         }
 
@@ -84,19 +96,25 @@ public class Main {
 
         if (board[2].equals(key)) {
             if (board[1].equals(key)) {
-                return 0;
+                if (isEmpty(board[0])) {
+                    return 0;
+                }
             }
         }
 
         if (board[5].equals(key)) {
             if (board[4].equals(key)) {
-                return 3;
+                if (isEmpty(board[3])) {
+                    return 3;
+                }
             }
         }
 
         if (board[8].equals(key)) {
             if (board[7].equals(key)) {
-                return 6;
+                if (isEmpty(board[6])) {
+                    return 6;
+                }
             }
         }
 
@@ -104,19 +122,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[3].equals(key)) {
-                return 6;
+                if (isEmpty(board[6])) {
+                    return 6;
+                }
             }
         }
 
         if (board[1].equals(key)) {
             if (board[4].equals(key)) {
-                return 8;
+                if (isEmpty(board[8])) {
+                    return 8;
+                }
             }
         }
 
         if (board[2].equals(key)) {
             if (board[5].equals(key)) {
-                return 8;
+                if (isEmpty(board[8])) {
+                    return 8;
+                }
             }
         }
 
@@ -124,19 +148,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[6].equals(key)) {
-                return 3;
+                if (isEmpty(board[3])) {
+                    return 3;
+                }
             }
         }
 
         if (board[1].equals(key)) {
             if (board[8].equals(key)) {
-                return 4;
+                if (isEmpty(board[4])) {
+                    return 4;
+                }
             }
         }
 
         if (board[2].equals(key)) {
             if (board[8].equals(key)) {
-                return 5;
+                if (isEmpty(board[5])) {
+                    return 5;
+                }
             }
         }
 
@@ -144,19 +174,25 @@ public class Main {
 
         if (board[6].equals(key)) {
             if (board[3].equals(key)) {
-                return 0;
+                if (isEmpty(board[0])) {
+                    return 0;
+                }
             }
         }
 
         if (board[8].equals(key)) {
             if (board[4].equals(key)) {
-                return 1;
+                if (isEmpty(board[1])) {
+                    return 1;
+                }
             }
         }
 
         if (board[8].equals(key)) {
             if (board[5].equals(key)) {
-                return 2;
+                if (isEmpty(board[2])) {
+                    return 2;
+                }
             }
         }
 
@@ -164,19 +200,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[4].equals(key)) {
-                return 8;
+                if (isEmpty(board[8])) {
+                    return 8;
+                }
             }
         }
 
         if (board[4].equals(key)) {
             if (board[8].equals(key)) {
-                return 0;
+                if (isEmpty(board[0])) {
+                    return 0;
+                }
             }
         }
 
         if (board[8].equals(key)) {
             if (board[0].equals(key)) {
-                return 4;
+                if (isEmpty(board[4])) {
+                    return 4;
+                }
             }
         }
 
@@ -184,19 +226,25 @@ public class Main {
 
         if (board[2].equals(key)) {
             if (board[4].equals(key)) {
-                return 6;
+                if (isEmpty(board[6])) {
+                    return 6;
+                }
             }
         }
 
         if (board[4].equals(key)) {
             if (board[6].equals(key)) {
-                return 2;
+                if (isEmpty(board[2])) {
+                    return 2;
+                }
             }
         }
 
         if (board[6].equals(key)) {
             if (board[2].equals(key)) {
-                return 4;
+                if (isEmpty(board[4])) {
+                    return 4;
+                }
             }
         }
 
@@ -205,10 +253,14 @@ public class Main {
         return NO_AVAILABLE_MOVE;
     }
 
+    private static boolean isEmpty(String s) {
+        return s.equals("-");
+    }
+
     static int getAnyOpenPosition(String[] board) {
         for (int i = 0; i < board.length; i++) {
             String position = board[i];
-            if (position.equals("-")) {
+            if (isEmpty(position)) {
                 return i;
             }
         }
