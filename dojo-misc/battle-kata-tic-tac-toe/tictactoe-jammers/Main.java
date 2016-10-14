@@ -63,16 +63,41 @@ public class Main {
         if (availablePositions.contains(CENTRAL_POSITION)) {
             return CENTRAL_POSITION;
         } else {
-            return availablePositions.get(0);
+            return availablePositions.get(availablePositions.size() - 1);
         }
     }
 
-//    private static int getBetterPositionFrom(String[][] boardMatrix, List<Integer> availablePositions) {
+//    private static int getBetterPositionFrom(String[][] boardMatrix, List<Integer> availablePositions, String key) {
 //        if (availablePositions.contains(CENTRAL_POSITION)) {
 //            return CENTRAL_POSITION;
 //        } else {
+//            int bestPosition = availablePositions.get(0);
+//            int bestScore = 0;
+//            for (Integer position : availablePositions) {
+//                int score = getScoreFor(boardMatrix, position);
+//                if (score > bestScore) {
+//                    bestPosition = position;
+//                    bestScore = score;
+//                }
+//            }
+//            return bestPosition;
+//        }
+//    }
+
+//    private static int getScoreFor(String[][] boardMatrix, int position, String key) {
+//        return getScoreFor(boardMatrix, key);
+//    }
 //
-//            return availablePositions.get(0);
+//    private static int getScoreFor(String[][] boardMatrix, String key) {
+//        int currentScore = 0;
+//        for (int i = 0; i < boardMatrix.length; i++) {
+//            for (int j = 0; j < boardMatrix[i].length; j++) {
+//                if (i - 1 >= 0 && boardMatrix[i-1][j].equals())
+//                String position = boardMatrix[i][j];
+//                if (AVAILABLE.equals(position)) {
+//                    availablePositions.add(positionFor(i, j));
+//                }
+//            }
 //        }
 //    }
 
