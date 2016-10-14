@@ -143,12 +143,12 @@ public class Main {
             return 8;
         }
 
-        if (isPositionAvailable(key, board[4], board[8], board[0])) {
-            return 0;
-        }
-
         if (isPositionAvailable(key, board[8], board[0], board[4])) {
             return 4;
+        }
+
+        if (isPositionAvailable(key, board[4], board[8], board[0])) {
+            return 0;
         }
 
         // left diagonal win
@@ -157,12 +157,12 @@ public class Main {
             return 6;
         }
 
-        if (isPositionAvailable(key, board[4], board[6], board[2])) {
-            return 2;
-        }
-
         if (isPositionAvailable(key, board[6], board[2], board[4])) {
             return 4;
+        }
+
+        if (isPositionAvailable(key, board[4], board[6], board[2])) {
+            return 2;
         }
 
         // else
