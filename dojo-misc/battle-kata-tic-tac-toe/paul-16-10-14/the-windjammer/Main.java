@@ -13,7 +13,7 @@ public class Main {
         String[] board = args[0].split(",");
         String key = args[1];
 
-        int positionToPlay = getPositionToPlay(board, key);
+        int positionToPlay = findPositionToPlay(board, key);
 
         if (isEmpty(board[positionToPlay])) {
             System.out.println(positionToPlay);
@@ -22,81 +22,49 @@ public class Main {
         }
     }
 
-    static int getPositionToPlay(String[] board, String key) {
-        int positionToPlay = getDefensiveBlockMove(key, board);
+    static int findPositionToPlay(String[] board, String key) {
+        int positionToPlay = findDefensiveBlockMove(key, board);
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
-            positionToPlay = getWinningMove(key, board);
+            positionToPlay = findWinningMove(key, board);
         }
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
-            positionToPlay = getMiddleMove(board);
+            positionToPlay = findMiddleMove(board);
         }
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
-            positionToPlay = getCornerMove(board);
+            positionToPlay = findCornerMove(board);
         }
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
-            positionToPlay = getAnyOpenPosition(board);
+            positionToPlay = findAnyOpenPosition(board);
         }
 
         return positionToPlay;
     }
 
-    private static int getDefensiveBlockMove(String key, String[] board) {
-        return getWinningMove(key.equals("X") ? "0" : "X", board);
+    private static int findDefensiveBlockMove(String key, String[] board) {
+        return findWinningMove(key.equals("X") ? "0" : "X", board);
     }
 
-    private static int getWinningMove(String key, String[] board) {
+    private static int findWinningMove(String key, String[] board) {
         return getAvailableThirdMoveInARow(key, board);
     }
 
-    static int getMiddleMove(String[] board) {
-        if (isEmpty(board[4])) {
-            return 4;
-        }
+    private static int getAvailableThirdMoveInARow(String key, String[] board) {
+        // first column win
 
-        return NO_AVAILABLE_MOVE;
-    }
-
-    private static int getCornerMove(String[] board) {
-        if (isEmpty(board[8])) {
-            return 8;
-        }
-
-        if (isEmpty(board[6])) {
-            return 6;
-        }
-
-        if (isEmpty(board[2])) {
-            return 2;
-        }
-
-        if (isEmpty(board[0])) {
+        if (isWinAvailable(key, board[2], board[1])) {
             return 0;
         }
 
-        return NO_AVAILABLE_MOVE;
-    }
-
-    private static boolean isEmpty(String s) {
-        return s.equals("-");
-    }
-
-    private static int getAvailableThirdMoveInARow(String key, String[] board) {
-        // right column win
-
-        if (isWinAvailable(key, board[0], board[1])) {
-            return 2;
+        if (isWinAvailable(key, board[5], board[4])) {
+            return 3;
         }
 
-        if (isWinAvailable(key, board[3], board[4])) {
-            return 5;
-        }
-
-        if (isWinAvailable(key, board[6], board[7])) {
-            return 8;
+        if (isWinAvailable(key, board[8], board[7])) {
+            return 6;
         }
 
         // middle column win
@@ -113,32 +81,32 @@ public class Main {
             return 7;
         }
 
-        // first column win
+        // right column win
 
-        if (isWinAvailable(key, board[2], board[1])) {
+        if (isWinAvailable(key, board[0], board[1])) {
+            return 2;
+        }
+
+        if (isWinAvailable(key, board[3], board[4])) {
+            return 5;
+        }
+
+        if (isWinAvailable(key, board[6], board[7])) {
+            return 8;
+        }
+
+        // top row win
+
+        if (isWinAvailable(key, board[6], board[3])) {
             return 0;
         }
 
-        if (isWinAvailable(key, board[5], board[4])) {
-            return 3;
+        if (isWinAvailable(key, board[8], board[4])) {
+            return 1;
         }
 
-        if (isWinAvailable(key, board[8], board[7])) {
-            return 6;
-        }
-
-        // bottom row win
-
-        if (isWinAvailable(key, board[0], board[3])) {
-            return 6;
-        }
-
-        if (isWinAvailable(key, board[1], board[4])) {
-            return 8;
-        }
-
-        if (isWinAvailable(key, board[2], board[5])) {
-            return 8;
+        if (isWinAvailable(key, board[8], board[5])) {
+            return 2;
         }
 
         // middle row win
@@ -155,18 +123,18 @@ public class Main {
             return 5;
         }
 
-        // left row win
+        // bottom row win
 
-        if (isWinAvailable(key, board[6], board[3])) {
-            return 0;
+        if (isWinAvailable(key, board[0], board[3])) {
+            return 6;
         }
 
-        if (isWinAvailable(key, board[8], board[4])) {
-            return 1;
+        if (isWinAvailable(key, board[1], board[4])) {
+            return 8;
         }
 
-        if (isWinAvailable(key, board[8], board[5])) {
-            return 2;
+        if (isWinAvailable(key, board[2], board[5])) {
+            return 8;
         }
 
         // right diagonal win
@@ -206,7 +174,39 @@ public class Main {
         return move1.equals(key) && move2.equals(key);
     }
 
-    static int getAnyOpenPosition(String[] board) {
+    static int findMiddleMove(String[] board) {
+        if (isEmpty(board[4])) {
+            return 4;
+        }
+
+        return NO_AVAILABLE_MOVE;
+    }
+
+    private static int findCornerMove(String[] board) {
+        if (isEmpty(board[8])) {
+            return 8;
+        }
+
+        if (isEmpty(board[6])) {
+            return 6;
+        }
+
+        if (isEmpty(board[2])) {
+            return 2;
+        }
+
+        if (isEmpty(board[0])) {
+            return 0;
+        }
+
+        return NO_AVAILABLE_MOVE;
+    }
+
+    private static boolean isEmpty(String s) {
+        return s.equals("-");
+    }
+
+    static int findAnyOpenPosition(String[] board) {
         for (int i = 0; i < board.length; i++) {
             String position = board[i];
             if (isEmpty(position)) {
