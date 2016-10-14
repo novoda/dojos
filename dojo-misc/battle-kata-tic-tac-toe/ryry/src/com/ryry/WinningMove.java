@@ -53,9 +53,4 @@ public class WinningMove {
             "x", "x", "x"
     };
 
-    public boolean matches() {
-
-    }
-
-
 }
