@@ -1,4 +1,4 @@
-fun main(String board, String counterType): Int {
+fun main(String board, String counterType) {
     var myCounter: String
     if (counterType.equals("0")) {
         myCounter = "X"
@@ -7,5 +7,5 @@ fun main(String board, String counterType): Int {
         myCounter = "0"
     }
 
-    java.lang.System.out.println(9)
+    java.lang.System.out.println(0)
 }
