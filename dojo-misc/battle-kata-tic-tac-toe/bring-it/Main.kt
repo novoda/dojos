@@ -1,13 +1,17 @@
-fun main(board: String, counterType: String) {
-    var myCounter: String
-    if (counterType == "0") {
-        myCounter = "X"
-    }
-    if (counterType == "X") {
-        myCounter = "0"
-    }
+fun main(args: Array<String>) {
+//    var myCounter: String
+//    if (counterType == "0") {
+//        myCounter = "X"
+//    }
+//    if (counterType == "X") {
+//        myCounter = "0"
+//    }
 
-    val boardAsArray: List<String> = board.split(",")
+    val boardAsArray: List<String> = args[0].split(",")
 
-    System.out.println(boardAsArray.indexOf("-".toString()))
+    if (boardAsArray[4] == "-") {
+        print("4")
+    } else {
+        print(boardAsArray.indexOf("-"))
+    }
 }
