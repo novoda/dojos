@@ -67,4 +67,13 @@ public class Main {
         }
     }
 
+//    private static int getBetterPositionFrom(String[][] boardMatrix, List<Integer> availablePositions) {
+//        if (availablePositions.contains(CENTRAL_POSITION)) {
+//            return CENTRAL_POSITION;
+//        } else {
+//
+//            return availablePositions.get(0);
+//        }
+//    }
+
 }
