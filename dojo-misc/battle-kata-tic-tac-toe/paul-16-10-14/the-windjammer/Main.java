@@ -23,10 +23,10 @@ public class Main {
     }
 
     static int findPositionToPlay(String[] board, String key) {
-        int positionToPlay = findDefensiveBlockMove(key, board);
+        int positionToPlay = findWinningMove(key, board);
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
-            positionToPlay = findWinningMove(key, board);
+            positionToPlay = findDefensiveBlockMove(key, board);
         }
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
