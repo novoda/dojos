@@ -15,36 +15,40 @@ fun main(args: Array<String>) {
         return
     }
 
-    if (isRowWithTwo(positionsList, 0, 1, 2) != -1) return
-    if (isRowWithTwo(positionsList, 3, 4, 5) != -1) return
-    if (isRowWithTwo(positionsList, 6, 7, 8) != -1) return
+    if (twoOutOfThreeSameOccupied(positionsList, 0, 1, 2)) return
+    if (twoOutOfThreeSameOccupied(positionsList, 3, 4, 5)) return
+    if (twoOutOfThreeSameOccupied(positionsList, 6, 7, 8)) return
 
-    if (isRowWithTwo(positionsList, 0, 3, 6) != -1) return
-    if (isRowWithTwo(positionsList, 1, 4, 7) != -1) return
-    if (isRowWithTwo(positionsList, 2, 5, 8) != -1) return
+    if (twoOutOfThreeSameOccupied(positionsList, 0, 3, 6)) return
+    if (twoOutOfThreeSameOccupied(positionsList, 1, 4, 7)) return
+    if (twoOutOfThreeSameOccupied(positionsList, 2, 5, 8)) return
 
-    if (isRowWithTwo(positionsList, 0, 4, 8) != -1) return
-    if (isRowWithTwo(positionsList, 6, 4, 2) != -1) return
+    if (twoOutOfThreeSameOccupied(positionsList, 0, 4, 8)) return
+    if (twoOutOfThreeSameOccupied(positionsList, 6, 4, 2)) return
 
     val firstEmpty = getFirstEmpty(positionsList)
     println("$firstEmpty")
 }
 
+fun isEmpty(positionsList: MutableList<Position>): Boolean {
+    if (positionsList.filter { it == Position.EMPTY }
+            .size == 9) return true
+    else return false
+}
 
-
-fun isRowWithTwo(positionsList: MutableList<Position>, vararg positions: Int): Int {
+fun twoOutOfThreeSameOccupied(positionsList: MutableList<Position>, vararg positions: Int): Boolean {
     if (isFull(positionsList, positions)
             || isOnlyOneUsed(positionsList, positions)
             || twoDifferent(positionsList, positions)) {
-        return -1
+        return false
     }
     positions.forEach {
         if (positionsList[it] == Position.EMPTY) {
             println("$it")
-            return it
+            return true
         }
     }
-    return -1
+    return false
 }
 
 fun twoDifferent(positionsList: MutableList<Position>, positions: IntArray): Boolean {
@@ -89,12 +93,6 @@ fun getFirstEmpty(positionsList: MutableList<Position>): Int {
         if (positionsList[i] == Position.EMPTY) return i
     }
     return 0
-}
-
-fun isEmpty(positionsList: MutableList<Position>): Boolean {
-    if (positionsList.filter { it == Position.EMPTY }
-            .size == 9) return true
-    else return false
 }
 
 enum class Position {
