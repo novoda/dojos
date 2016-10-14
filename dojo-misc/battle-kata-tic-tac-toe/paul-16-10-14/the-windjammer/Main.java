@@ -44,19 +44,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[1].equals(key)) {
-                return 2;
+                if (board[2].equals("-")) {
+                    return 2;
+                }
             }
         }
 
         if (board[3].equals(key)) {
             if (board[4].equals(key)) {
-                return 5;
+                if (board[5].equals("-")) {
+                    return 5;
+                }
             }
         }
 
         if (board[6].equals(key)) {
             if (board[7].equals(key)) {
-                return 8;
+                if (board[8].equals("-")) {
+                    return 8;
+                }
             }
         }
 
@@ -64,19 +70,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[2].equals(key)) {
-                return 1;
+                if (board[1].equals("-")) {
+                    return 1;
+                }
             }
         }
 
         if (board[3].equals(key)) {
             if (board[5].equals(key)) {
-                return 4;
+                if (board[4].equals("-")) {
+                    return 4;
+                }
             }
         }
 
         if (board[6].equals(key)) {
             if (board[8].equals(key)) {
-                return 7;
+                if (board[7].equals("-")) {
+                    return 7;
+                }
             }
         }
 
@@ -84,19 +96,25 @@ public class Main {
 
         if (board[2].equals(key)) {
             if (board[1].equals(key)) {
-                return 0;
+                if (board[0].equals("-")) {
+                    return 0;
+                }
             }
         }
 
         if (board[5].equals(key)) {
             if (board[4].equals(key)) {
-                return 3;
+                if (board[3].equals("-")) {
+                    return 3;
+                }
             }
         }
 
         if (board[8].equals(key)) {
             if (board[7].equals(key)) {
-                return 6;
+                if (board[6].equals("-")) {
+                    return 6;
+                }
             }
         }
 
@@ -104,19 +122,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[3].equals(key)) {
-                return 6;
+                if (board[6].equals("-")) {
+                    return 6;
+                }
             }
         }
 
         if (board[1].equals(key)) {
             if (board[4].equals(key)) {
-                return 8;
+                if (board[8].equals("-")) {
+                    return 8;
+                }
             }
         }
 
         if (board[2].equals(key)) {
             if (board[5].equals(key)) {
-                return 8;
+                if (board[8].equals("-")) {
+                    return 8;
+                }
             }
         }
 
@@ -124,19 +148,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[6].equals(key)) {
-                return 3;
+                if (board[3].equals("-")) {
+                    return 3;
+                }
             }
         }
 
         if (board[1].equals(key)) {
             if (board[8].equals(key)) {
-                return 4;
+                if (board[4].equals("-")) {
+                    return 4;
+                }
             }
         }
 
         if (board[2].equals(key)) {
             if (board[8].equals(key)) {
-                return 5;
+                if (board[5].equals("-")) {
+                    return 5;
+                }
             }
         }
 
@@ -144,19 +174,25 @@ public class Main {
 
         if (board[6].equals(key)) {
             if (board[3].equals(key)) {
-                return 0;
+                if (board[0].equals("-")) {
+                    return 0;
+                }
             }
         }
 
         if (board[8].equals(key)) {
             if (board[4].equals(key)) {
-                return 1;
+                if (board[1].equals("-")) {
+                    return 1;
+                }
             }
         }
 
         if (board[8].equals(key)) {
             if (board[5].equals(key)) {
-                return 2;
+                if (board[2].equals("-")) {
+                    return 2;
+                }
             }
         }
 
@@ -164,19 +200,25 @@ public class Main {
 
         if (board[0].equals(key)) {
             if (board[4].equals(key)) {
-                return 8;
+                if (board[8].equals("-")) {
+                    return 8;
+                }
             }
         }
 
         if (board[4].equals(key)) {
             if (board[8].equals(key)) {
-                return 0;
+                if (board[0].equals("-")) {
+                    return 0;
+                }
             }
         }
 
         if (board[8].equals(key)) {
             if (board[0].equals(key)) {
-                return 4;
+                if (board[4].equals("-")) {
+                    return 4;
+                }
             }
         }
 
@@ -184,19 +226,25 @@ public class Main {
 
         if (board[2].equals(key)) {
             if (board[4].equals(key)) {
-                return 6;
+                if (board[6].equals("-")) {
+                    return 6;
+                }
             }
         }
 
         if (board[4].equals(key)) {
             if (board[6].equals(key)) {
-                return 2;
+                if (board[2].equals("-")) {
+                    return 2;
+                }
             }
         }
 
         if (board[6].equals(key)) {
             if (board[2].equals(key)) {
-                return 4;
+                if (board[4].equals("-")) {
+                    return 4;
+                }
             }
         }
 
