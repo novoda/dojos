@@ -10,14 +10,49 @@ fun main(args: Array<String>) {
         }
     }
 
-//    if (isEmpty(positionsList))
+    if (isEmpty(positionsList)) {
+        println("8")
+        return
+    }
 
-    println("0")
+//    isRowWithTwo(positionsList, 0, 1, 2)
+
+    val firstEmpty = getFirstEmpty(positionsList)
+    println("$firstEmpty")
 }
 
-//fun isEmpty(positionsList: MutableList<Position>): Boolean {
-//    positionsList.filter {  }
-//}
+
+
+fun isRowWithTwo(positionsList: MutableList<Position>, vararg positions: Int) {
+    if (isFull(positionsList, positions)) {
+        return
+    }
+    positions.forEach {
+
+    }
+}
+
+fun isFull(positionsList: MutableList<Position>, positions: IntArray): Boolean {
+    positions.forEach {
+        if (positionsList[it] == Position.EMPTY) {
+            return false
+        }
+    }
+    return true
+}
+
+fun getFirstEmpty(positionsList: MutableList<Position>): Int {
+    for (i in 0..8) {
+        if (positionsList[i] == Position.EMPTY) return i
+    }
+    return 0
+}
+
+fun isEmpty(positionsList: MutableList<Position>): Boolean {
+    if (positionsList.filter { it == Position.EMPTY }
+            .size == 9) return true
+    else return false
+}
 
 enum class Position {
     EMPTY, MINE, OTHER
