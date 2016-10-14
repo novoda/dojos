@@ -1,16 +1,56 @@
 public class Main {
 
     public static void main(String[] args) {
-        args = new String[2];
-        args[0] = "-,X,-,0,-,X,-,0,-";
-        args[1] = "X";
+//        args = new String[2];
+//        args[0] = "-,-,-,-,-,-,-,-,-";
+//        args[1] = "X";
 
         String[] board = args[0].split(",");
         String player = args[1];
 
-        System.out.println("is a win? " + win(board, player));
+        if (firstToMove(board)) {
+            System.out.println("4");
+        } else if (secondToMoveAndFreeTopLeft(board, player)) {
+            System.out.print("2");
+        } else {
+            System.out.println(findNextMove(board, player));
+        }
+    }
 
-        System.out.println("0");
+    private static boolean firstToMove(String[] board) {
+        for (int i = 0; i < 9; i++) {
+            if (!board[i].equals("-")) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static boolean secondToMoveAndFreeTopLeft(String[] board, String player) {
+        int numberOfOpponentPosition = 0;
+        for (int i = 0; i < 9; i++) {
+            if (board[i].equals(player)) {
+                numberOfOpponentPosition++;
+            }
+        }
+
+        return numberOfOpponentPosition == 1 && board[2].equals("-");
+    }
+
+    private static String findNextMove(String[] board, String player) {
+        int nextFreePosition = findNextFreePosition(board);
+        return String.valueOf(nextFreePosition);
+    }
+
+    private static int findNextFreePosition(String[] board) {
+        for (int i = 0; i < 9; i++) {
+            if (board[i].equals("-")) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     private static boolean win(String[] board, String player) {
