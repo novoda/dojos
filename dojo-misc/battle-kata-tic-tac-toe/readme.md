@@ -59,7 +59,7 @@ Arg 1 - The board as a comma separated string. `-` is unplayed.
 ```
 
 Arg 2 - The player key, X or 0.
-
+**It's a Zero/0 !** 
 
 ## Playing a move
 
