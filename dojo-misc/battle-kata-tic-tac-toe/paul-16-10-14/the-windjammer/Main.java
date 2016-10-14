@@ -15,7 +15,11 @@ public class Main {
 
         int positionToPlay = getPositionToPlay(board, key);
 
-        System.out.println(positionToPlay);
+        if (isEmpty(board[positionToPlay])) {
+            System.out.println(positionToPlay);
+        } else {
+            throw new RuntimeException("Draw Game!");
+        }
     }
 
     static int getPositionToPlay(String[] board, String key) {
@@ -28,6 +32,7 @@ public class Main {
         if (positionToPlay == NO_AVAILABLE_MOVE) {
             positionToPlay = getAnyOpenPosition(board);
         }
+
         return positionToPlay;
     }
 
@@ -38,214 +43,121 @@ public class Main {
         return NO_AVAILABLE_MOVE;
     }
 
-    private static int getWinningMove(String key, String[] board) {
+    private static boolean isEmpty(String s) {
+        return s.equals("-");
+    }
 
+    private static int getWinningMove(String key, String[] board) {
         // right column win
 
-        if (board[0].equals(key)) {
-            if (board[1].equals(key)) {
-                if (isEmpty(board[2])) {
-                    return 2;
-                }
-            }
+        if (isWinAvailable(key, board[0], board[1])) {
+            return 2;
         }
 
-        if (board[3].equals(key)) {
-            if (board[4].equals(key)) {
-                if (isEmpty(board[5])) {
-                    return 5;
-                }
-            }
+        if (isWinAvailable(key, board[3], board[4])) {
+            return 5;
         }
 
-        if (board[6].equals(key)) {
-            if (board[7].equals(key)) {
-                if (isEmpty(board[8])) {
-                    return 8;
-                }
-            }
+        if (isWinAvailable(key, board[6], board[7])) {
+            return 8;
         }
 
         // middle column win
 
-        if (board[0].equals(key)) {
-            if (board[2].equals(key)) {
-                if (isEmpty(board[1])) {
-                    return 1;
-                }
-            }
+        if (isWinAvailable(key, board[0], board[2])) {
+            return 1;
         }
 
-        if (board[3].equals(key)) {
-            if (board[5].equals(key)) {
-                if (isEmpty(board[4])) {
-                    return 4;
-                }
-            }
+        if (isWinAvailable(key, board[3], board[5])) {
+            return 4;
         }
 
-        if (board[6].equals(key)) {
-            if (board[8].equals(key)) {
-                if (isEmpty(board[7])) {
-                    return 7;
-                }
-            }
+        if (isWinAvailable(key, board[6], board[8])) {
+            return 7;
         }
 
         // first column win
 
-        if (board[2].equals(key)) {
-            if (board[1].equals(key)) {
-                if (isEmpty(board[0])) {
-                    return 0;
-                }
-            }
+        if (isWinAvailable(key, board[2], board[1])) {
+            return 0;
         }
 
-        if (board[5].equals(key)) {
-            if (board[4].equals(key)) {
-                if (isEmpty(board[3])) {
-                    return 3;
-                }
-            }
+        if (isWinAvailable(key, board[5], board[4])) {
+            return 3;
         }
 
-        if (board[8].equals(key)) {
-            if (board[7].equals(key)) {
-                if (isEmpty(board[6])) {
-                    return 6;
-                }
-            }
+        if (isWinAvailable(key, board[8], board[7])) {
+            return 6;
         }
 
         // bottom row win
 
-        if (board[0].equals(key)) {
-            if (board[3].equals(key)) {
-                if (isEmpty(board[6])) {
-                    return 6;
-                }
-            }
+        if (isWinAvailable(key, board[0], board[3])) {
+            return 6;
         }
 
-        if (board[1].equals(key)) {
-            if (board[4].equals(key)) {
-                if (isEmpty(board[8])) {
-                    return 8;
-                }
-            }
+        if (isWinAvailable(key, board[1], board[4])) {
+            return 8;
         }
 
-        if (board[2].equals(key)) {
-            if (board[5].equals(key)) {
-                if (isEmpty(board[8])) {
-                    return 8;
-                }
-            }
+        if (isWinAvailable(key, board[2], board[5])) {
+            return 8;
         }
 
         // middle row win
 
-        if (board[0].equals(key)) {
-            if (board[6].equals(key)) {
-                if (isEmpty(board[3])) {
-                    return 3;
-                }
-            }
+        if (isWinAvailable(key, board[0], board[6])) {
+            return 3;
         }
 
-        if (board[1].equals(key)) {
-            if (board[8].equals(key)) {
-                if (isEmpty(board[4])) {
-                    return 4;
-                }
-            }
+        if (isWinAvailable(key, board[1], board[8])) {
+            return 4;
         }
 
-        if (board[2].equals(key)) {
-            if (board[8].equals(key)) {
-                if (isEmpty(board[5])) {
-                    return 5;
-                }
-            }
+        if (isWinAvailable(key, board[2], board[8])) {
+            return 5;
         }
 
         // left row win
 
-        if (board[6].equals(key)) {
-            if (board[3].equals(key)) {
-                if (isEmpty(board[0])) {
-                    return 0;
-                }
-            }
+        if (isWinAvailable(key, board[6], board[3])) {
+            return 0;
         }
 
-        if (board[8].equals(key)) {
-            if (board[4].equals(key)) {
-                if (isEmpty(board[1])) {
-                    return 1;
-                }
-            }
+        if (isWinAvailable(key, board[8], board[4])) {
+            return 1;
         }
 
-        if (board[8].equals(key)) {
-            if (board[5].equals(key)) {
-                if (isEmpty(board[2])) {
-                    return 2;
-                }
-            }
+        if (isWinAvailable(key, board[8], board[5])) {
+            return 2;
         }
 
         // right diagonal win
 
-        if (board[0].equals(key)) {
-            if (board[4].equals(key)) {
-                if (isEmpty(board[8])) {
-                    return 8;
-                }
-            }
+        if (isWinAvailable(key, board[0], board[4])) {
+            return 8;
         }
 
-        if (board[4].equals(key)) {
-            if (board[8].equals(key)) {
-                if (isEmpty(board[0])) {
-                    return 0;
-                }
-            }
+        if (isWinAvailable(key, board[4], board[8])) {
+            return 0;
         }
 
-        if (board[8].equals(key)) {
-            if (board[0].equals(key)) {
-                if (isEmpty(board[4])) {
-                    return 4;
-                }
-            }
+        if (isWinAvailable(key, board[8], board[0])) {
+            return 4;
         }
 
         // left diagonal win
 
-        if (board[2].equals(key)) {
-            if (board[4].equals(key)) {
-                if (isEmpty(board[6])) {
-                    return 6;
-                }
-            }
+        if (isWinAvailable(key, board[2], board[4])) {
+            return 6;
         }
 
-        if (board[4].equals(key)) {
-            if (board[6].equals(key)) {
-                if (isEmpty(board[2])) {
-                    return 2;
-                }
-            }
+        if (isWinAvailable(key, board[4], board[6])) {
+            return 2;
         }
 
-        if (board[6].equals(key)) {
-            if (board[2].equals(key)) {
-                if (isEmpty(board[4])) {
-                    return 4;
-                }
-            }
+        if (isWinAvailable(key, board[6], board[2])) {
+            return 4;
         }
 
         // else
@@ -253,8 +165,8 @@ public class Main {
         return NO_AVAILABLE_MOVE;
     }
 
-    private static boolean isEmpty(String s) {
-        return s.equals("-");
+    private static boolean isWinAvailable(String key, String move1, String move2) {
+        return move1.equals(key) && move2.equals(key);
     }
 
     static int getAnyOpenPosition(String[] board) {
