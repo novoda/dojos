@@ -23,10 +23,18 @@ public class Main {
     }
 
     static int getPositionToPlay(String[] board, String key) {
-        int positionToPlay = getKeyMove(board);
+        int positionToPlay = getDefensiveBlockMove(key, board);
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
             positionToPlay = getWinningMove(key, board);
+        }
+
+        if (positionToPlay == NO_AVAILABLE_MOVE) {
+            positionToPlay = getMiddleMove(board);
+        }
+
+        if (positionToPlay == NO_AVAILABLE_MOVE) {
+            positionToPlay = getCornerMove(board);
         }
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
@@ -36,10 +44,39 @@ public class Main {
         return positionToPlay;
     }
 
-    static int getKeyMove(String[] board) {
+    private static int getDefensiveBlockMove(String key, String[] board) {
+        return getWinningMove(key.equals("X") ? "0" : "X", board);
+    }
+
+    private static int getWinningMove(String key, String[] board) {
+        return getAvailableThirdMoveInARow(key, board);
+    }
+
+    static int getMiddleMove(String[] board) {
         if (isEmpty(board[4])) {
             return 4;
         }
+
+        return NO_AVAILABLE_MOVE;
+    }
+
+    private static int getCornerMove(String[] board) {
+        if (isEmpty(board[8])) {
+            return 8;
+        }
+
+        if (isEmpty(board[6])) {
+            return 6;
+        }
+
+        if (isEmpty(board[2])) {
+            return 2;
+        }
+
+        if (isEmpty(board[0])) {
+            return 0;
+        }
+
         return NO_AVAILABLE_MOVE;
     }
 
@@ -47,7 +84,7 @@ public class Main {
         return s.equals("-");
     }
 
-    private static int getWinningMove(String key, String[] board) {
+    private static int getAvailableThirdMoveInARow(String key, String[] board) {
         // right column win
 
         if (isWinAvailable(key, board[0], board[1])) {
