@@ -11,15 +11,14 @@ function main(game) {
     ]
 
   for (var i=0; i<plays.length; i++) {
-    if (tryToPlay(plays[i])) {
+    if (tryToPlay(plays[i], game)) {
 
     }
   }
 }
 
 
-
-function tryToPlay(arr) {
+function tryToPlay(arr, game) {
   for (let i=0; i<arr.length; i++) {
     if (game[i] == "-") {
       play(i);
@@ -44,7 +43,7 @@ function isMiddlemostFree(game) {
 }
 
 function played(pos) {
-  for (int i=0; i<played.length; i++) {
+  for (let i=0; i<played.length; i++) {
     if (played[i] == pos) {
         return true;
     }
