@@ -50,6 +50,8 @@ language: The name of the language*
 
 ## Arguments
 
+The bots will recieve two arguments to their `main` function.
+
 Arg 1 - The board as a comma separated string. `-` is unplayed.
 `-,X,-,0,-,X,-,0,-`
 
