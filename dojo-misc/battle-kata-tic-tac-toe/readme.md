@@ -1,4 +1,5 @@
 Tic Tac Toe Battle Kata
+=====
 
 ## The aim
 
