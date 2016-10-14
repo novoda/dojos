@@ -12,13 +12,25 @@ public class Main {
     public static void main(String[] args) {
         String[] board = args[0].split(",");
         String key = args[1];
-        int positionToPlay = getWinningMove(key, board);
+
+        int positionToPlay = getKeyMove(board);
+
+        if (positionToPlay == NO_AVAILABLE_MOVE) {
+            positionToPlay = getWinningMove(key, board);
+        }
 
         if (positionToPlay == NO_AVAILABLE_MOVE) {
             positionToPlay = getAnyOpenPosition(board);
         }
 
         System.out.println(positionToPlay);
+    }
+
+    private static int getKeyMove(String[] board) {
+        if (board[4].equals("-")) {
+            return 4;
+        }
+        return NO_AVAILABLE_MOVE;
     }
 
     private static int getWinningMove(String key, String[] board) {
