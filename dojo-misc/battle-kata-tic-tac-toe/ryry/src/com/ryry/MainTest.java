@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 public class MainTest extends TestCase {
 
-    public void testgiven() throws Exception {
+    public void testThatGivenIPlayAtAPositionWhenCheckingThatPositionThenItHasBeenPlayed() throws Exception {
         Board board = new Board();
 
         board.playMoveAt(0, Player.PLAYER_ONE);
