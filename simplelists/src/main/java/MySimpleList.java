@@ -1,6 +1,3 @@
-/**
- * Created by leck on 21/10/16.
- */
 public class MySimpleList implements SimpleList {
     @Override
     public String find(String element) {
