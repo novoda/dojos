@@ -7,7 +7,7 @@ public class MySimpleList implements SimpleList {
 
     @Override
     public String find(String element) {
-        if (headNode != null) {
+        if (!isEmpty()) {
             Node current = headNode;
             do {
                 if (current.hasElement(element)) {
