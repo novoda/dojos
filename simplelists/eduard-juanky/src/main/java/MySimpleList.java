@@ -7,7 +7,7 @@ public class MySimpleList implements SimpleList {
 
     @Override
     public String find(String element) {
-        if (hasHead()) {
+        if (headNode != null) {
             Node current = headNode;
             do {
                 if (current.hasElement(element)) {
@@ -27,25 +27,22 @@ public class MySimpleList implements SimpleList {
 
     @Override
     public void add(String element) {
-        if (hasHead()) {
+        if (isEmpty()) {
+            headNode = new Node(element);
+            tailNode = headNode;
+        } else {
             Node newNode = new Node(element);
             tailNode.nextNode = newNode;
             tailNode = newNode;
-        } else {
-            headNode = new Node(element);
-            tailNode = headNode;
+
         }
         count++;
-    }
-
-    private boolean hasHead() {
-        return headNode != null;
     }
 
     @Override
     public String[] values() {
         String[] values = new String[count];
-        if (count == 0) {
+        if (isEmpty()) {
             return values;
         }
 
@@ -61,9 +58,13 @@ public class MySimpleList implements SimpleList {
         return values;
     }
 
+    private boolean isEmpty() {
+        return headNode == null;
+    }
+
     @Override
     public void delete(String element) {
-        if (count == 0) {
+        if (isEmpty()) {
             return;
         }
 
