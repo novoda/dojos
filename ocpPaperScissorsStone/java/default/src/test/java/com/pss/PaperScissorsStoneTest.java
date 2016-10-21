@@ -16,7 +16,6 @@ public class PaperScissorsStoneTest {
         Item rock = Factory.create(true);
         Item scissors = Factory.create(false);
 
-
         assertEquals(true, rock.beats(scissors));
         assertEquals(false, scissors.beats(rock));
     }
