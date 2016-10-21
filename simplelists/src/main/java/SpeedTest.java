@@ -88,8 +88,7 @@ public class SpeedTest {
             list.delete(value);
         }
 
-        stopwatch.stop();
-        printTime("drain", stopwatch.elapsed(TimeUnit.MILLISECONDS));
+        printTime("drain", stopwatch.stop());
     }
 
     private void drainFromEnd(SimpleList list) {
@@ -102,8 +101,7 @@ public class SpeedTest {
             list.delete(value);
         }
 
-        stopwatch.stop();
-        printTime("backdrain", stopwatch.elapsed(TimeUnit.MILLISECONDS));
+        printTime("backdrain", stopwatch.stop());
     }
 
     private SimpleList listWithItems() {
@@ -114,13 +112,12 @@ public class SpeedTest {
             list.add("item" + Integer.toString(i));
         }
 
-        stopwatch.stop();
-        printTime("add", stopwatch.elapsed(TimeUnit.MILLISECONDS));
+        printTime("add", stopwatch.stop());
         return list;
     }
 
-    private static void printTime(String label, long duration) {
-        String text = String.format("%s: %6d  ", label, duration);
+    private static void printTime(String label, Stopwatch watch) {
+        String text = String.format("%s: %6d  ", label, watch.elapsed(TimeUnit.MILLISECONDS));
         System.out.print(text);
     }
 
