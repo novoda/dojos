@@ -14,7 +14,8 @@ public class SimpleListTest {
 
     @Before
     public void createList() {
-        list = new MySimpleList();
+        //list = new MySimpleList();
+        list = new SpeedTest.JavaListWrapper(new java.util.ArrayList());
     }
 
     @Test
