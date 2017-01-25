@@ -66,12 +66,12 @@ include 'leap-year:20151204_daniele_2'
 include 'leap-year:20151204-dom_and_alex'
 
 // ocpBowling
-include 'ocpBowling:default'
-include 'ocpBowling:20130918-nojvihs'
-include 'ocpBowling:20130918-paul_xavi'
-include 'ocpBowling:20130918-spaghetti'
-include 'ocpBowling:frankie-ben'
-include 'ocpBowling:20130918-omnitron'
+include 'ocpBowling:java:default'
+include 'ocpBowling:java:20130918-nojvihs'
+include 'ocpBowling:java:20130918-paul_xavi'
+include 'ocpBowling:java:20130918-spaghetti'
+include 'ocpBowling:java:frankie-ben'
+include 'ocpBowling:java:20130918-omnitron'
 
 //prime-factors
 include 'prime-factors:java:default'
