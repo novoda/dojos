@@ -1,18 +1,22 @@
 package com.tobi.movies.steps;
 
 import android.support.test.InstrumentationRegistry;
+import android.support.test.rule.ActivityTestRule;
 
 import com.tobi.movies.Dependencies;
 import com.tobi.movies.EspressoDependencies;
 import com.tobi.movies.MovieApplication;
 import com.tobi.movies.backend.ConfigurableBackend;
 import com.tobi.movies.popularstream.ApiMoviePoster;
+import com.tobi.movies.popularstream.PopularMoviesActivity;
 import com.tobi.movies.popularstream.PopularMoviesRobot;
 
 import java.util.Map;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class PopularMoviesSteps {
 
@@ -45,5 +49,15 @@ public class PopularMoviesSteps {
         MovieApplication movieApplication = (MovieApplication) InstrumentationRegistry.getTargetContext().getApplicationContext();
         Dependencies dependencies = movieApplication.getDependencies();
         return ((EspressoDependencies) dependencies).getConfigurableBackend();
+    }
+
+    @When("^Launch poster overview screen$")
+    public void launchPosterOverviewScreen() throws Throwable {
+        popularMoviesRobot.launchPopularMovies(new ActivityTestRule<>(PopularMoviesActivity.class));
+    }
+
+    @Then("^I expect to see movie poster with url \"([^\"]*)\" at position (\\d+)$")
+    public void iExpectToSeeMoviePosterWithUrlAtPosition(String posterUrl, int position) throws Throwable {
+        popularMoviesRobot.checkPosterWithPathIsDisplayedAtPosition(position, posterUrl);;
     }
 }
