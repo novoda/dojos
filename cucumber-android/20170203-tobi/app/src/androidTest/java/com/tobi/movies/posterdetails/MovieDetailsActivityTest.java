@@ -47,6 +47,16 @@ public class MovieDetailsActivityTest {
                 .checkMovieDescriptionIsDisplayed(MOVIE_DESCRIPTION);
     }
 
+    @Test
+    public void shouldShowMovieReleaseDate() {
+        backend.addMovieDetails(apiMovieDetails);
+
+        PosterDetailsRobot.create()
+                .launchDetailsScreen(MOVIE_ID, rule)
+                .checkMovieReleaseDateIsDisplayed(RELEASE_DATE);
+
+    }
+
     private ApiMovieDetails createApiMovieDetails(long movieId, String movieTitle, String movieOverview, String posterPath, String releaseDate) {
         ApiMovieDetails apiMovieDetails = new ApiMovieDetails();
         apiMovieDetails.originalTitle = movieTitle;
