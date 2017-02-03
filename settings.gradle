@@ -116,3 +116,4 @@ include 'simplelist:eduard-juanky'
 
 // cucumber-android
 include 'cucumber-android:default:app'
+include 'cucumber-android:20170203-tobi:app'
