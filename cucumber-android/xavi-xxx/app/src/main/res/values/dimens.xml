@@ -1,0 +1,7 @@
+<resources>
+  <dimen name="movie_poster_height">200dp</dimen>
+  <dimen name="movie_poster_padding">5dp</dimen>
+  <dimen name="movieDetails_titleTextSize">20sp</dimen>
+  <dimen name="movieDetails_posterWidth">200dp</dimen>
+  <dimen name="movieDetails_overviewMargin">5dp</dimen>
+</resources>
