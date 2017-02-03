@@ -7,8 +7,16 @@ Feature: Movie Posters
       | 200     | xmen.jpg     |
       | 300     | starwars.jpg |
 
+  @current
+  Scenario Outline: Show movie poster
+    When Launch poster overview screen
+    Then I expect to see  the following movie poster
+      | path   | pos   |
+      | <path> | <pos> |
 
-    @current
-   Scenario: Show movie poster
-     When Launch poster overview screen
-     Then I expect to see movie poster with url "deadpool.jpg" at position 0
+
+    Examples:
+      | path         | pos |
+      | deadpool.jpg | 0   |
+      | xmen.jpg     | 1   |
+      | starwars.jpg | 2   |
