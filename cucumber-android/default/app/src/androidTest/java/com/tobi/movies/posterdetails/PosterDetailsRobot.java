@@ -19,6 +19,10 @@ public class PosterDetailsRobot extends Robot<PosterDetailsRobot> {
         return checkTextIsDisplayed(movieTitle, R.id.movieTitle);
     }
 
+    public PosterDetailsRobot launchDetailsScreen(long movieId) {
+        return launchDetailsScreen(movieId, new ActivityTestRule<>(MovieDetailsActivity.class));
+    }
+
     public PosterDetailsRobot launchDetailsScreen(long movieId, ActivityTestRule<MovieDetailsActivity> testRule) {
         testRule.launchActivity(MovieDetailsActivity.createIntentFor(movieId, InstrumentationRegistry.getInstrumentation()
                 .getTargetContext()

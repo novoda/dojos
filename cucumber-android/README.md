@@ -20,7 +20,9 @@ Update the `settings.gradle` file in the root of `dojos` adding your module
 
 run `./gradlew clean build` to ensure you are all set
 
-Create a file called **secrets.properties** in the app directory of your module and add the **API-Key** from the [wiki](https://github.com/novoda/base/wiki/themoviedb).
+Rename **secrets.properties.sample** in the app directory of your module to **secrets.properties** and add the **API-Key** from the [wiki](https://github.com/novoda/base/wiki/themoviedb).
+
+Run the application. You should see a grid of movie posters.
 
 
 ---
