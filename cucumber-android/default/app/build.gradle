@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.android.tools.build:gradle:2.3.0-beta3'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'com.novoda:gradle-build-properties-plugin:0.2'
 
@@ -30,7 +30,7 @@ buildProperties {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '24.0.2'
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId 'com.tobi.movies'
