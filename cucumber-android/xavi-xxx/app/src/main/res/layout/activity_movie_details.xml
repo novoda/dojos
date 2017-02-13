@@ -28,6 +28,12 @@
       android:layout_height="wrap_content"
       android:layout_margin="@dimen/movieDetails_overviewMargin"/>
 
+    <TextView
+      android:id="@+id/releaseDate"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/movieDetails_overviewMargin"/>
+
   </LinearLayout>
 
 </ScrollView>

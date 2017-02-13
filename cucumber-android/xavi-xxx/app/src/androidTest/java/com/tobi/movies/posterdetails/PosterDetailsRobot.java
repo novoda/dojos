@@ -1,10 +1,10 @@
 package com.tobi.movies.posterdetails;
 
-import android.support.test.InstrumentationRegistry;
-import android.support.test.rule.ActivityTestRule;
-
 import com.tobi.movies.R;
 import com.tobi.movies.Robot;
+
+import android.support.test.InstrumentationRegistry;
+import android.support.test.rule.ActivityTestRule;
 
 public class PosterDetailsRobot extends Robot<PosterDetailsRobot> {
 
@@ -33,4 +33,9 @@ public class PosterDetailsRobot extends Robot<PosterDetailsRobot> {
     public PosterDetailsRobot checkMovieDescriptionIsDisplayed(String movieDescription) {
         return checkTextIsDisplayed(movieDescription, R.id.movieOverview);
     }
+
+    public PosterDetailsRobot checkMovieReleaseDateIsDisplayed(String releaseDate) {
+        return checkTextIsDisplayed(releaseDate, R.id.releaseDate);
+    }
+
 }

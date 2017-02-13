@@ -1,5 +1,11 @@
 package com.tobi.movies.posterdetails;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import com.tobi.movies.ImageLoader;
+import com.tobi.movies.MovieApplication;
+import com.tobi.movies.R;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,13 +14,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.tobi.movies.ImageLoader;
-import com.tobi.movies.MovieApplication;
-import com.tobi.movies.R;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class MovieDetailsActivity extends Activity implements MovieDetailsMVP.View {
 
@@ -36,6 +35,9 @@ public class MovieDetailsActivity extends Activity implements MovieDetailsMVP.Vi
 
     @Bind(R.id.movieOverview)
     TextView movieOverview;
+
+    @Bind(R.id.releaseDate)
+    TextView releaseDate;
 
     private MovieDetailsPresenter presenter;
     private ImageLoader imageLoader;
@@ -71,6 +73,7 @@ public class MovieDetailsActivity extends Activity implements MovieDetailsMVP.Vi
     public void display(MovieDetails movieDetails) {
         movieTitle.setText(movieDetails.originalTitle());
         movieOverview.setText(movieDetails.overview());
+        releaseDate.setText(movieDetails.releaseDate().toString("yyyy-MM-dd"));
         imageLoader.loadWebImageInto(Uri.parse(movieDetails.posterPath()), moviePoster);
     }
 
