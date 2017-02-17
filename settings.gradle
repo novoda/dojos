@@ -119,6 +119,8 @@ include 'cucumber-android:default:app'
 include 'cucumber-android:20170203-tobi:app'
 include 'cucumber-android:20170203-flo-volker:app'
 include 'cucumber-android:20170217-jt:app'
+include 'cucumber-android:20170217-eduard-tobi:app'
+
 
 // silent-kata-rul
 include 'silent-kata-rul:default'
