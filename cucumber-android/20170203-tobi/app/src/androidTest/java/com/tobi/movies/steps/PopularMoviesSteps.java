@@ -59,16 +59,5 @@ public class PopularMoviesSteps {
     @Then("^I expect to see movie poster with url \"([^\"]*)\" at position (\\d+)$")
     public void iExpectToSeeMoviePosterWithUrlAtPosition(String posterUrl, int position) throws Throwable {
         popularMoviesRobot.checkPosterWithPathIsDisplayedAtPosition(position, posterUrl);
-        ;
-    }
-
-    @Then("^I expect to see  the following movie poster$")
-    public void iExpectToSeeTheFollowingMoviePosters(final DataTable dataTable) throws Throwable {
-        final Map<String, String> row = dataTable.asMaps(String.class, String.class).get(0);
-
-        String path = row.get("path");
-        int pos = Integer.valueOf(row.get("pos"));
-
-        popularMoviesRobot.checkPosterWithPathIsDisplayedAtPosition(pos, path);
     }
 }

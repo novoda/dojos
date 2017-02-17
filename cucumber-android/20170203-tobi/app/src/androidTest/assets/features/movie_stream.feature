@@ -10,13 +10,10 @@ Feature: Movie Posters
   @current
   Scenario Outline: Show movie poster
     When Launch poster overview screen
-    Then I expect to see  the following movie poster
-      | path   | pos   |
-      | <path> | <pos> |
-
+    Then I expect to see movie poster with url "<image>" at position <pos>
 
     Examples:
-      | path         | pos |
+      | image        | pos |
       | deadpool.jpg | 0   |
       | xmen.jpg     | 1   |
       | starwars.jpg | 2   |
