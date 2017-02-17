@@ -44,7 +44,7 @@ We first gonna create a failing Cucumber Scenario then implement the feature and
 3. The next step should verify that the release date is displayed
 
 4. Watch your test fail:
-```../../gradlew connectedCheck -Pcucumber --info```
+```./gradlew -p cucumber-android/[YOUR_FOLDER]/app connectedCheck -Pcucumber --info```
 
 4. Fix the test by displaying the **MovieDetails#releaseDate** in the **MovieDetailsActivity**. To do so implement the feature and add the needed code to the **PosterDetailsRobot**. Then use the **PosterDetailsRobot** in your step definitions to make the test pass.
 
@@ -73,7 +73,7 @@ Create a new **feature file** with the name **movie_stream.feature** and a scena
 
 - You can annotate your scenario or the whole feature, for example with **@details** to just run this one using the command-line:
 
-	```../../gradlew connectedCheck -Pcucumber -Ptags="@details"```
+	```./gradlew -p cucumber-android/[YOUR_FOLDER]/app connectedCheck -Pcucumber -Ptags="@details"```
 
 
 
