@@ -118,6 +118,7 @@ include 'simplelist:eduard-juanky'
 include 'cucumber-android:default:app'
 include 'cucumber-android:20170203-tobi:app'
 include 'cucumber-android:20170203-flo-volker:app'
+include 'cucumber-android:20170217-jt:app'
 
 // silent-kata-rul
 include 'silent-kata-rul:default'
