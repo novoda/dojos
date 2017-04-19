@@ -8,3 +8,6 @@ bankAccount/gradlew -p bankAccount clean test
 
 echo "\n######## Build changeOfADollar/ ########"
 changeOfADollar/gradlew -p changeOfADollar clean test
+
+echo "\n######## Build cucumber-android/ ########"
+cucumber-android/gradlew -p cucumber-android clean test
