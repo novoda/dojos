@@ -35,3 +35,6 @@ lcd-digits/gradlew -p lcd-digits clean test
 
 echo "\n######## Build leap-year/ ########"
 leap-year/gradlew -p leap-year clean test
+
+echo "\n######## Build ocpBowling/java/ ########"
+ocpBowling/java/gradlew -p ocpBowling/java clean test
