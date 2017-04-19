@@ -25,7 +25,9 @@ class CachingFruitFetcher {
 		if let name = UserDefaults.standard.string(forKey: "lastFruit") {
 			return Fruit(name: name)
 		} else {
-			return try? InternetFruitFetcher.instance.loadFruitFromInternet()
+			let maybeFruit = try? InternetFruitFetcher.instance.loadFruitFromInternet()
+			UserDefaults.standard.set(maybeFruit?.name, forKey: "lastFruit")
+			return maybeFruit
 		}
 	}
 
@@ -41,7 +43,7 @@ class InternetFruitFetcher {
 
 	func loadFruitFromInternet() throws -> Fruit {
 		// pretend this loads a fruit from some API
-		return Fruit(name: randomFruitName())
+		return Fruit(name: "Banana")
 	}
 
 }
