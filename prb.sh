@@ -17,3 +17,6 @@ cucumber-android/gradlew -p cucumber-android clean test
 
 echo "\n######## Build dataMunging/ ########"
 dataMunging/gradlew -p dataMunging clean test
+
+echo "\n######## Build fizzBuzz/ ########"
+fizzBuzz/gradlew -p fizzBuzz clean test
