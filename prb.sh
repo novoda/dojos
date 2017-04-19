@@ -23,3 +23,6 @@ fizzBuzz/gradlew -p fizzBuzz clean test
 
 echo "\n######## Build gilded-rose/ ########"
 gilded-rose/gradlew -p gilded-rose clean test
+
+echo "\n######## Build haikuReview/ ########"
+haikuReview/gradlew -p haikuReview clean test
