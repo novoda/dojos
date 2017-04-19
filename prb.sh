@@ -29,3 +29,6 @@ haikuReview/gradlew -p haikuReview clean test
 
 echo "\n######## Build harry-potter/ ########"
 harry-potter/gradlew -p harry-potter clean test
+
+echo "\n######## Build lcd-digits/ ########"
+lcd-digits/gradlew -p lcd-digits clean test
