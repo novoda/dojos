@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69853E4A479030096A7B3828 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69853B434EBEC83AB769F10D /* Fruit.swift */; };
+		69853EACE5B8E33F89694A9B /* InternetFruitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69853806BAAC88C9C4252533 /* InternetFruitRepository.swift */; };
+		866260981EA7C87600A0BA17 /* CachingFruitFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866260971EA7C87600A0BA17 /* CachingFruitFetcher.swift */; };
 		FAD118411E7C129A00805F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD118401E7C129A00805F65 /* AppDelegate.swift */; };
 		FAD118431E7C129A00805F65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD118421E7C129A00805F65 /* ViewController.swift */; };
 		FAD118461E7C129A00805F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD118441E7C129A00805F65 /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		69853806BAAC88C9C4252533 /* InternetFruitRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetFruitRepository.swift; sourceTree = "<group>"; };
+		69853B434EBEC83AB769F10D /* Fruit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
+		866260971EA7C87600A0BA17 /* CachingFruitFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachingFruitFetcher.swift; sourceTree = "<group>"; };
 		FAD1183D1E7C129A00805F65 /* DependencyInversion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependencyInversion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD118401E7C129A00805F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD118421E7C129A00805F65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 				FAD118471E7C129A00805F65 /* Assets.xcassets */,
 				FAD118491E7C129A00805F65 /* LaunchScreen.storyboard */,
 				FAD1184C1E7C129A00805F65 /* Info.plist */,
+				69853806BAAC88C9C4252533 /* InternetFruitRepository.swift */,
+				69853B434EBEC83AB769F10D /* Fruit.swift */,
+				866260971EA7C87600A0BA17 /* CachingFruitFetcher.swift */,
 			);
 			path = DependencyInversion;
 			sourceTree = "<group>";
@@ -201,6 +210,9 @@
 			files = (
 				FAD118431E7C129A00805F65 /* ViewController.swift in Sources */,
 				FAD118411E7C129A00805F65 /* AppDelegate.swift in Sources */,
+				69853EACE5B8E33F89694A9B /* InternetFruitRepository.swift in Sources */,
+				69853E4A479030096A7B3828 /* Fruit.swift in Sources */,
+				866260981EA7C87600A0BA17 /* CachingFruitFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +375,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DependencyInversionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.novoda.DependencyInversionTests;
@@ -376,6 +389,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DependencyInversionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.novoda.DependencyInversionTests;
@@ -404,6 +418,7 @@
 				FAD1185C1E7C129A00805F65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAD1185D1E7C129A00805F65 /* Build configuration list for PBXNativeTarget "DependencyInversionTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +427,7 @@
 				FAD1185F1E7C129A00805F65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
