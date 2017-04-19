@@ -13,7 +13,6 @@
 		FAD118481E7C129A00805F65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD118471E7C129A00805F65 /* Assets.xcassets */; };
 		FAD1184B1E7C129A00805F65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD118491E7C129A00805F65 /* LaunchScreen.storyboard */; };
 		FAD118561E7C129A00805F65 /* DependencyInversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD118551E7C129A00805F65 /* DependencyInversionTests.swift */; };
-		FAD118631E7C1E5E00805F65 /* PretendInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD118621E7C1E5E00805F65 /* PretendInternet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +36,6 @@
 		FAD118511E7C129A00805F65 /* DependencyInversionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DependencyInversionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD118551E7C129A00805F65 /* DependencyInversionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInversionTests.swift; sourceTree = "<group>"; };
 		FAD118571E7C129A00805F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAD118621E7C1E5E00805F65 /* PretendInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PretendInternet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +92,6 @@
 			children = (
 				FAD118551E7C129A00805F65 /* DependencyInversionTests.swift */,
 				FAD118571E7C129A00805F65 /* Info.plist */,
-				FAD118621E7C1E5E00805F65 /* PretendInternet.swift */,
 			);
 			path = DependencyInversionTests;
 			sourceTree = "<group>";
@@ -212,7 +209,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD118561E7C129A00805F65 /* DependencyInversionTests.swift in Sources */,
-				FAD118631E7C1E5E00805F65 /* PretendInternet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
