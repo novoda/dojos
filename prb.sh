@@ -20,3 +20,6 @@ dataMunging/gradlew -p dataMunging clean test
 
 echo "\n######## Build fizzBuzz/ ########"
 fizzBuzz/gradlew -p fizzBuzz clean test
+
+echo "\n######## Build gilded-rose/ ########"
+gilded-rose/gradlew -p gilded-rose clean test
