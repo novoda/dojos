@@ -32,3 +32,6 @@ harry-potter/gradlew -p harry-potter clean test
 
 echo "\n######## Build lcd-digits/ ########"
 lcd-digits/gradlew -p lcd-digits clean test
+
+echo "\n######## Build leap-year/ ########"
+leap-year/gradlew -p leap-year clean test
