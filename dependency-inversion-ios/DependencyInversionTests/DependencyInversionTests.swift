@@ -25,7 +25,7 @@ class CachingFruitFetcher {
 		if let name = UserDefaults.standard.string(forKey: "lastFruit") {
 			return Fruit(name: name)
 		} else {
-			let maybeFruit = try? InternetFruitFetcher.instance.loadFruitFromInternet()
+			let maybeFruit = try? InternetFruitRepository.instance.loadFruitFromInternet()
 			UserDefaults.standard.set(maybeFruit?.name, forKey: "lastFruit")
 			return maybeFruit
 		}
@@ -37,9 +37,10 @@ struct Fruit {
 	let name: String
 }
 
-class InternetFruitFetcher {
+// Don't change the implementation of this file! You can make the class implement a protocol though.
+class InternetFruitRepository {
 
-	static let instance = InternetFruitFetcher()
+	static let instance = InternetFruitRepository()
 
 	func loadFruitFromInternet() throws -> Fruit {
 		// this acts like the internet, it's slow and then sometimes, it just fails!
