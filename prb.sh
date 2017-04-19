@@ -26,3 +26,6 @@ gilded-rose/gradlew -p gilded-rose clean test
 
 echo "\n######## Build haikuReview/ ########"
 haikuReview/gradlew -p haikuReview clean test
+
+echo "\n######## Build harry-potter/ ########"
+harry-potter/gradlew -p harry-potter clean test
