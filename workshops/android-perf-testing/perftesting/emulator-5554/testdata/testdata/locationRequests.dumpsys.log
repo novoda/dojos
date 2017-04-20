@@ -1,0 +1,72 @@
+SERVICE com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService dc95e3c pid=1867
+  Client:
+
+    Geofencer State:
+    Registered geofences:
+        <none>
+    Geofences in blacklist:
+        <none>
+    Dump of hardware geofencing:
+        Class is RealBlockingGeofenceHardware, monitoringType=0, limit=50
+        Supported=false, available=false, enabled on this device=true
+        Registered geofences:
+        <none>
+    Location update interval=-1s
+    Dump of ActivityDetector:
+        Interval=-1s
+    Dump of current state:
+        DisabledState
+    GeofencerStateMachine:
+     total records=20
+     rec[0]: time=03-25 13:24:51.302 processed=DisabledState org=DisabledState dest=<null> what=SM_QUERY_LOCATION_OPT_IN_CMD
+     rec[1]: time=03-25 13:24:51.357 processed=DisabledState org=DisabledState dest=<null> what=SM_HARDWARE_GEOFENCE_CHANGED_CMD
+     rec[2]: time=03-25 13:26:43.850 processed=DisabledState org=DisabledState dest=<null> what=SM_QUERY_LOCATION_OPT_IN_CMD
+     rec[3]: time=03-25 13:26:43.897 processed=DisabledState org=DisabledState dest=<null> what=SM_HARDWARE_GEOFENCE_CHANGED_CMD
+     rec[4]: time=03-25 13:31:45.803 processed=DisabledState org=DisabledState dest=<null> what=SM_DUMP_CMD
+     rec[5]: time=03-25 13:31:46.849 processed=DisabledState org=DisabledState dest=<null> what=SM_QUERY_LOCATION_OPT_IN_CMD
+     rec[6]: time=03-25 13:31:46.864 processed=DisabledState org=DisabledState dest=<null> what=SM_HARDWARE_GEOFENCE_CHANGED_CMD
+     rec[7]: time=03-25 13:33:22.357 processed=DisabledState org=DisabledState dest=<null> what=SM_DUMP_CMD
+     rec[8]: time=03-25 13:33:23.399 processed=DisabledState org=DisabledState dest=<null> what=SM_QUERY_LOCATION_OPT_IN_CMD
+     rec[9]: time=03-25 13:33:23.458 processed=DisabledState org=DisabledState dest=<null> what=SM_HARDWARE_GEOFENCE_CHANGED_CMD
+    curState=DisabledState
+
+    Fused Location Provider State:
+      failoverState: false
+    --FusionEngine--
+      enabled: true
+      priming: false
+      controllers:
+        GpsPulse[requested=false, enabled=true, clients=[], interval=MAX, trigger=false, minpulse=MAX]
+        Passive[requested=true, enabled=true, start(ERT)=11573ms, clients=[]]
+        StepDetector[requested=false, enabled=true, clients=[]]
+        Nlp[requested=false, enabled=false, clients=[], interval=MAX, trigger=false, debug info=false]
+        NlpLowPower[requested=false, enabled=false, clients=[], interval=MAX, trigger=false, debug info=false]
+        ActivityRecognition[requested=false, enabled=true, clients=[], interval=MAX, trigger=false, debug info=false]
+        GpsPulse[requested=false, enabled=true, clients=[], interval=MAX, trigger=false, minpulse=-1ms]
+      last locations:
+        fused: null
+        fused(coarse): null
+        gps: null
+        network: null
+        network(coarse): null
+      throttling: moving
+
+    Active Location Requests:
+
+    Location Request History By Package:
+    Tracked duration 61[minutes]
+
+
+    FLP WakeLock Count:
+      remove updates overlay: 7 (29%)
+      request updates overlay: 7 (29%)
+      fusion engine enabled: 1 (4%)
+      init system cache: 1 (4%)
+      dump: 3 (13%)
+      removeLocationUpdates: 5 (21%)
+
+    Event Log:
+    03-25 12:35:12: Engine [FusionEngine] enabled
+    03-25 12:35:12: Stopped low power NLP updates
+    03-25 12:35:12: Stopped NLP updates
+    03-25 12:35:12: Stopped GPS updates

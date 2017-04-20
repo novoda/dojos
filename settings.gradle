@@ -49,6 +49,7 @@ include 'haikuReview:20140213-zvonko-paul'
 include 'haikuReview:20140219-roundrobin'
 include 'haikuReview:20160222-paul-ian'
 include 'haikuReview:20160223-paul-jose'
+include 'haikuReview:20161219-paul-niamh'
 
 // harry-potter
 include 'harry-potter:09102010-blundell-xavi'
@@ -65,12 +66,12 @@ include 'leap-year:20151204_daniele_2'
 include 'leap-year:20151204-dom_and_alex'
 
 // ocpBowling
-include 'ocpBowling:default'
-include 'ocpBowling:20130918-nojvihs'
-include 'ocpBowling:20130918-paul_xavi'
-include 'ocpBowling:20130918-spaghetti'
-include 'ocpBowling:frankie-ben'
-include 'ocpBowling:20130918-omnitron'
+include 'ocpBowling:java:default'
+include 'ocpBowling:java:20130918-nojvihs'
+include 'ocpBowling:java:20130918-paul_xavi'
+include 'ocpBowling:java:20130918-spaghetti'
+include 'ocpBowling:java:frankie-ben'
+include 'ocpBowling:java:20130918-omnitron'
 
 //prime-factors
 include 'prime-factors:java:default'
@@ -108,3 +109,19 @@ include 'ocpPaperScissorsStone:java:default'
 include 'ocpPaperScissorsStone:java:03082016_paul-flo'
 include 'ocpPaperScissorsStone:java:03082016-tahsin-tobi'
 include 'ocpPaperScissorsStone:java:03082016-juergen-toto'
+
+// simplelists
+include 'simplelists:default'
+include 'simplelist:eduard-juanky'
+
+// cucumber-android
+include 'cucumber-android:default:app'
+include 'cucumber-android:20170203-tobi:app'
+include 'cucumber-android:20170203-flo-volker:app'
+include 'cucumber-android:20170217-jt:app'
+include 'cucumber-android:20170217-eduard-tobi:app'
+
+
+// silent-kata-rul
+include 'silent-kata-rul:default'
+include 'silent-kata-rul:20170213-paul-luis-xavi'

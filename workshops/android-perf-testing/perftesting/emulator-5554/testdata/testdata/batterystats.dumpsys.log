@@ -1,0 +1,277 @@
+Battery History (0% used, 64 used of 256KB, 2 strings using 108):
+                    0 (9) RESET:TIME: 2016-03-25-13-35-54
+                    0 (1) 050 status=charging health=good plug=ac temp=0 volt=0 +running +wake_lock +mobile_radio +screen +plugged data_conn=umts phone_signal_strength=good +charging
+                    0 (2) 050 top=u0a14:"com.google.android.googlequicksearchbox"
+                    0 (2) 050 user=0:"0"
+                    0 (2) 050 userfg=0:"0"
+
+Daily stats:
+  Current start time: 2016-03-25-12-35-04
+  Next min deadline: 2016-03-26-04-00-00
+  Next max deadline: 2016-03-26-06-00-00
+    Package changes:
+      Update com.google.android.perftesting vers=1
+      Update com.google.android.perftesting vers=1
+      Update com.google.android.perftesting.test vers=0
+      Update com.google.android.perftesting.test vers=0
+      Update com.google.android.perftesting vers=0
+      Update com.google.android.perftesting vers=1
+      Update com.google.android.perftesting.test vers=0
+      Update com.google.android.perftesting vers=1
+      Update com.google.android.perftesting.test vers=0
+      Update com.google.android.perftesting vers=1
+      Update com.google.android.perftesting.test vers=0
+      Update com.google.android.perftesting vers=1
+      Update com.google.android.perftesting.test vers=0
+      Update com.google.android.perftesting vers=1
+      Update com.google.android.perftesting.test vers=0
+      Update com.google.android.perftesting vers=1
+      Update com.google.android.perftesting.test vers=0
+  Daily from 2016-03-22-19-23-32 to 2016-03-25-12-35-04:
+    Package changes:
+      Update com.channel4.ondemand vers=165230049
+      Update com.google.android.marvin.talkback vers=40401001
+  Daily from 2016-03-17-22-06-51 to 2016-03-22-19-23-20:
+    Package changes:
+      Update com.channel4.ondemand vers=0
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+      Update com.channel4.ondemand vers=165230049
+  Daily from 2016-03-14-17-09-25 to 2016-03-15-19-24-36:
+    Package changes:
+      Update com.channel4.ondemand vers=0
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+      Update com.channel4.ondemand vers=165250046
+  Daily from 2016-03-11-19-59-38 to 2016-03-14-17-09-25:
+    Package changes:
+      Update com.channel4.ondemand vers=0
+      Update com.channel4.ondemand vers=0
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+  Daily from 2016-03-10-18-54-28 to 2016-03-11-19-59-38:
+    Package changes:
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+  Daily from 2016-02-26-14-45-55 to 2016-03-10-18-54-28:
+    Package changes:
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+  Daily from 2016-02-25-15-11-36 to 2016-02-26-14-45-55:
+    Package changes:
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=0
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=0
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+      Update com.channel4.ondemand vers=165230044
+
+Statistics since last charge:
+  System starts: 0, currently on battery: false
+  Time on battery: 0ms (0.0%) realtime, 0ms (0.0%) uptime
+  Time on battery screen off: 0ms (0.0%) realtime, 0ms (0.0%) uptime
+  Total run time: 23ms realtime, 23ms uptime
+  Start clock time: 2016-03-25-13-35-54
+  Screen on: 0ms (--%) 0x, Interactive: 0ms (--%)
+  Screen brightnesses: (no activity)
+  Mobile total received: 0B, sent: 0B (packets received 0, sent 0)
+  Phone signal levels: (no activity)
+  Signal scanning time: 0ms
+  Radio types: (no activity)
+  Mobile radio active time: 0ms (--%) 0x
+  Wi-Fi total received: 0B, sent: 0B (packets received 0, sent 0)
+  Wifi on: 0ms (--%), Wifi running: 0ms (--%)
+  Wifi states: (no activity)
+  Wifi supplicant states: (no activity)
+  Wifi signal levels: (no activity)
+  WiFi Idle time: 0ms (--%)
+  WiFi Rx time:   0ms (--%)
+  WiFi Tx time:   0ms (--%)
+  WiFi Power drain: 0mAh
+  Bluetooth Idle time: 0ms (--%)
+  Bluetooth Rx time:   0ms (--%)
+  Bluetooth Tx time:   0ms (--%)
+  Bluetooth Power drain: 0mAh
+
+  Device battery use since last full charge
+    Amount discharged (lower bound): 0
+    Amount discharged (upper bound): 0
+    Amount discharged while screen on: 0
+    Amount discharged while screen off: 0
+
+  1000:
+    Sensor 0: (not used)
+  1001:
+    (nothing executed)
+  2000:
+    (nothing executed)
+  u0a1:
+    (nothing executed)
+  u0a2:
+    (nothing executed)
+  u0a3:
+    (nothing executed)
+  u0a4:
+    (nothing executed)
+  u0a5:
+    (nothing executed)
+  u0a6:
+    (nothing executed)
+  u0a7:
+    (nothing executed)
+  u0a8:
+    (nothing executed)
+  u0a13:
+    (nothing executed)
+  u0a14:
+    (nothing executed)
+  u0a20:
+    (nothing executed)
+  u0a24:
+    (nothing executed)
+  u0a27:
+    (nothing executed)
+  u0a28:
+    (nothing executed)
+  u0a30:
+    (nothing executed)
+  u0a34:
+    (nothing executed)
+  u0a38:
+    (nothing executed)
+  u0a39:
+    (nothing executed)
+  u0a43:
+    (nothing executed)
+  u0a44:
+    (nothing executed)
+  u0a48:
+    (nothing executed)
+  u0a57:
+    (nothing executed)
+  u0a66:
+    (nothing executed)
+  u0a67:
+    (nothing executed)
+
