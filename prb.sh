@@ -53,3 +53,6 @@ remotekata/gradlew -p remotekata clean test
 
 echo "\n######## Build tennis_refactoring/ ########"
 tennis_refactoring/gradlew -p tennis_refactoring clean test
+
+echo "\n######## Build tic-tac-toe/ ########"
+tic-tac-toe/gradlew -p tic-tac-toe clean test
