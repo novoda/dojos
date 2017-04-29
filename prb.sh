@@ -38,3 +38,6 @@ leap-year/gradlew -p leap-year clean test
 
 echo "\n######## Build ocpBowling/java/ ########"
 ocpBowling/java/gradlew -p ocpBowling/java clean test
+
+echo "\n######## Build prime-factors/java/ ########"
+prime-factors/java/gradlew -p prime-factors/java clean test
