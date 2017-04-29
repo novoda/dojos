@@ -44,3 +44,6 @@ prime-factors/java/gradlew -p prime-factors/java clean test
 
 echo "\n######## Build racing-car-katas/ ########"
 racing-car-katas/gradlew -p racing-car-katas clean test
+
+echo "\n######## Build recents-list/ ########"
+recents-list/gradlew -p recents-list clean test
