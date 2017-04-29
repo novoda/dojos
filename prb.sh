@@ -47,3 +47,6 @@ racing-car-katas/gradlew -p racing-car-katas clean test
 
 echo "\n######## Build recents-list/ ########"
 recents-list/gradlew -p recents-list clean test
+
+echo "\n######## Build remotekata/ ########"
+remotekata/gradlew -p remotekata clean test
