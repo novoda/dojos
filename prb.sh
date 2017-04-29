@@ -50,3 +50,6 @@ recents-list/gradlew -p recents-list clean test
 
 echo "\n######## Build remotekata/ ########"
 remotekata/gradlew -p remotekata clean test
+
+echo "\n######## Build tennis_refactoring/ ########"
+tennis_refactoring/gradlew -p tennis_refactoring clean test
