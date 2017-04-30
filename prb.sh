@@ -59,3 +59,6 @@ tic-tac-toe/gradlew -p tic-tac-toe clean test
 
 echo "\n######## Build ocpPaperScissorsStone/java ########"
 ocpPaperScissorsStone/java/gradlew -p ocpPaperScissorsStone/java clean test
+
+echo "\n######## Build simplelists/ ########"
+simplelists/gradlew -p simplelists clean test
