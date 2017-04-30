@@ -62,3 +62,6 @@ ocpPaperScissorsStone/java/gradlew -p ocpPaperScissorsStone/java clean test
 
 echo "\n######## Build simplelists/ ########"
 simplelists/gradlew -p simplelists clean test
+
+echo "\n######## Build silent-kata-rul/ ########"
+silent-kata-rul/gradlew -p silent-kata-rul clean test
