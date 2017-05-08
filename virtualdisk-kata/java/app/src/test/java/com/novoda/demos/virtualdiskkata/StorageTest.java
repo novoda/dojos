@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 
-public class VirtualdiskTest {
+public class StorageTest {
 
     @Test
     public void canTest() {

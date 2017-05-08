@@ -1,5 +1,5 @@
 package com.novoda.demos.virtualdiskkata;
 
 
-public class Virtualdisk {
+public class Storage {
 }
