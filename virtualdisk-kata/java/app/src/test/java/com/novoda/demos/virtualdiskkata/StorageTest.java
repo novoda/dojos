@@ -8,8 +8,12 @@ import static org.junit.Assert.assertEquals;
 public class StorageTest {
 
     @Test
-    public void canTest() {
-        assertEquals(true, true);
+    public void rootDirectoryHasDefaultName() {
+        Storage storage = new Storage();
+
+        Directory rootDirectory = storage.rootDirectory();
+
+        assertEquals("/", rootDirectory.name());
     }
 
 }
