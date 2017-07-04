@@ -121,7 +121,9 @@ include 'cucumber-android:20170203-flo-volker:app'
 include 'cucumber-android:20170217-jt:app'
 include 'cucumber-android:20170217-eduard-tobi:app'
 
-
 // silent-kata-rul
 include 'silent-kata-rul:default'
 include 'silent-kata-rul:20170213-paul-luis-xavi'
+
+// room-kata
+include 'room-kata:default'
