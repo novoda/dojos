@@ -7,17 +7,17 @@ import android.widget.TextView;
 
 class CharacterView extends LinearLayout {
 
-    private TextView textView;
+    private TextView characterNameView;
 
     public CharacterView(Context context) {
         super(context);
 
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         layoutInflater.inflate(R.layout.character_view_layout, this, true);
-        textView = findViewById(R.id.character_name_view);
+        characterNameView = findViewById(R.id.character_name_view);
     }
 
-    public TextView getTextView() {
-        return textView;
+    public TextView getCharacterNameView() {
+        return characterNameView;
     }
 }
