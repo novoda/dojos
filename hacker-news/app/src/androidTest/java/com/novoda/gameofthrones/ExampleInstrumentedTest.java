@@ -1,4 +1,4 @@
-package com.novoda.hackernews;
+package com.novoda.gameofthrones;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
