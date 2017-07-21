@@ -1,22 +1,23 @@
 package com.novoda.gameofthrones;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import java.util.List;
 
-class SimpleAdapter extends RecyclerView.Adapter {
-    private MainActivity mainActivity;
+class CharactersAdapter extends RecyclerView.Adapter {
+    private Context context;
     private final List<Character> listOfCharacters;
 
-    public SimpleAdapter(MainActivity mainActivity, List<Character> listOfCharacters) {
-        this.mainActivity = mainActivity;
+    CharactersAdapter(Context context, List<Character> listOfCharacters) {
+        this.context = context;
         this.listOfCharacters = listOfCharacters;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        CharacterView characterView = new CharacterView(mainActivity);
+        CharacterView characterView = new CharacterView(context);
         return new RecyclerView.ViewHolder(characterView) {
         };
     }

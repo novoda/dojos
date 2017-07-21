@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView storiesView = (RecyclerView) findViewById(R.id.stories_view);
         storiesView.setLayoutManager(new LinearLayoutManager(this));
 
-        storiesView.setAdapter(new SimpleAdapter(this, listOfCharacters));
+        storiesView.setAdapter(new CharactersAdapter(this, listOfCharacters));
     }
 
     @Override
