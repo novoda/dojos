@@ -1,19 +1,13 @@
 package com.novoda.gameofthrones;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,38 +19,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final List<String> strings = new ArrayList<>();
-        strings.add("apple");
-        strings.add("banana");
-        strings.add("orange");
-        strings.add("pear");
-        strings.add("nectarine");
-        strings.add("peach");
-        strings.add("cherry");
+        final List<Character> listOfCharacters = CharactersProvider.getCharacters();
 
         RecyclerView storiesView = (RecyclerView) findViewById(R.id.stories_view);
         storiesView.setLayoutManager(new LinearLayoutManager(this));
 
-        storiesView.setAdapter(new RecyclerView.Adapter() {
-            @Override
-            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                CustomTextView customTextView = new CustomTextView(MainActivity.this);
-                return new RecyclerView.ViewHolder(customTextView) {
-                };
-            }
-
-            @Override
-            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-                CustomTextView itemView = (CustomTextView) holder.itemView;
-                String string = strings.get(position);
-                itemView.getTextView().setText(string);
-            }
-
-            @Override
-            public int getItemCount() {
-                return strings.size();
-            }
-        });
+        storiesView.setAdapter(new SimpleAdapter(this, listOfCharacters));
     }
 
     @Override
@@ -81,20 +49,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    static class CustomTextView extends LinearLayout {
-
-        private TextView textView;
-
-        public CustomTextView(Context context) {
-            super(context);
-
-            LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-            layoutInflater.inflate(R.layout.item_view, this, true);
-            textView = findViewById(R.id.item_text);
-        }
-
-        public TextView getTextView() {
-            return textView;
-        }
-    }
 }
