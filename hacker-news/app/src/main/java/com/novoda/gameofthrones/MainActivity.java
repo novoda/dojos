@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         RecyclerView storiesView = (RecyclerView) findViewById(R.id.stories_view);
+
+        final List<Character> characters = CharactersProvider.getCharacters();
+
+        RecyclerView.Adapter<GenericViewHolder> viewHolderAdapter = new GenericViewHolderAdapter(this, characters);
+
+        storiesView.setAdapter(viewHolderAdapter);
+
         storiesView.setLayoutManager(new LinearLayoutManager(this));
     }
 
