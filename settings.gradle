@@ -127,3 +127,4 @@ include 'silent-kata-rul:20170213-paul-luis-xavi'
 
 // room-kata
 include 'room-kata:default'
+include 'room-kata:20170830-ferran'
