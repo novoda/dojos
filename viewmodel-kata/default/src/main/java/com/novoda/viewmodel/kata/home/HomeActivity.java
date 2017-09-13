@@ -28,9 +28,9 @@ public class HomeActivity extends AppCompatActivity implements HomeDisplayer {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        RecyclerView recyclerView = findViewById(R.id.notes_recycler_view);
         newNoteEditText = findViewById(R.id.new_note_edit_text);
 
+        RecyclerView recyclerView = findViewById(R.id.notes_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new NotesAdapter();
         recyclerView.setAdapter(adapter);
@@ -38,7 +38,6 @@ public class HomeActivity extends AppCompatActivity implements HomeDisplayer {
         NoteDaoRepository noteDaoRepository = AppDatabaseCreator.create(getApplicationContext()).noteDao();
         HomeService homeService = new HomeService(noteDaoRepository);
         presenter = new HomePresenter(this, homeService);
-
     }
 
     @Override
