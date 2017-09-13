@@ -1,3 +1,4 @@
+include ':viewmodel-kata'
 // anagrams
 include 'anagrams:default'
 include 'anagrams:20141012-paul'
@@ -127,3 +128,6 @@ include 'silent-kata-rul:20170213-paul-luis-xavi'
 // room-kata
 include 'room-kata:default'
 include 'room-kata:20170830-ferran'
+
+// viewmodel-kata
+include 'viewmodel-kata:default'
