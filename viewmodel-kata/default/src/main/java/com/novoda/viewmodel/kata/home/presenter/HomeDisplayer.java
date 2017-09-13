@@ -4,7 +4,7 @@ import com.novoda.viewmodel.kata.data.Note;
 
 import java.util.List;
 
-public interface HomeDisplayer {
+interface HomeDisplayer {
 
     void attach(HomeActionListener actionListener);
 

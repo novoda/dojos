@@ -1,7 +1,12 @@
 package com.novoda.viewmodel.kata.home;
 
+import android.arch.lifecycle.LifecycleActivity;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
@@ -11,17 +16,17 @@ import com.novoda.viewmodel.kata.R;
 import com.novoda.viewmodel.kata.data.Note;
 import com.novoda.viewmodel.kata.db.AppDatabaseCreator;
 import com.novoda.viewmodel.kata.db.dao.NoteDaoRepository;
-import com.novoda.viewmodel.kata.home.presenter.HomeActionListener;
-import com.novoda.viewmodel.kata.home.presenter.HomeDisplayer;
-import com.novoda.viewmodel.kata.home.presenter.HomePresenter;
+import com.novoda.viewmodel.kata.home.viewmodel.HomeViewModel;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements HomeDisplayer {
+public class HomeActivity extends LifecycleActivity {
 
-    private HomePresenter presenter;
     private TextView newNoteEditText;
     private NotesAdapter adapter;
+    private HomeViewModel homeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,18 +41,12 @@ public class HomeActivity extends AppCompatActivity implements HomeDisplayer {
         recyclerView.setAdapter(adapter);
 
         NoteDaoRepository noteDaoRepository = AppDatabaseCreator.create(getApplicationContext()).noteDao();
-        HomeService homeService = new HomeService(noteDaoRepository);
-        presenter = new HomePresenter(this, homeService);
-    }
+        final HomeService homeService = new HomeService(noteDaoRepository);
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        presenter.startPresenting();
-    }
+        ViewModelProvider.Factory factory = new HomeViewModelFactory(homeService);
+        ViewModelProvider viewModelProvider = ViewModelProviders.of(this, factory);
+        homeViewModel = viewModelProvider.get(HomeViewModel.class);
 
-    @Override
-    public void attach(final HomeActionListener actionListener) {
         newNoteEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -55,23 +54,37 @@ public class HomeActivity extends AppCompatActivity implements HomeDisplayer {
                 if (newNoteText.isEmpty()) {
                     return true;
                 } else {
-                    actionListener.onNewNoteAdded(newNoteText);
+                    homeViewModel.insertNewNote(newNoteText);
                     v.setText("");
                     return false;
                 }
             }
         });
+
+        homeViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
+            @Override
+            public void onChanged(@Nullable List<Note> notes) {
+                adapter.update(notes);
+            }
+        });
     }
 
-    @Override
-    public void display(List<Note> notes) {
-        adapter.update(notes);
-    }
+    private static class HomeViewModelFactory implements ViewModelProvider.Factory {
+        private final HomeService homeService;
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        presenter.stopPresenting();
+        HomeViewModelFactory(HomeService homeService) {
+            this.homeService = homeService;
+        }
+
+        @Override
+        public <T extends ViewModel> T create(Class<T> aClass) {
+            try {
+                Constructor<T> constructor = aClass.getDeclaredConstructor(HomeService.class);
+                return constructor.newInstance(homeService);
+            } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
     }
 }
-
