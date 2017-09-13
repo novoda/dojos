@@ -1,4 +1,4 @@
-package com.novoda.viewmodel.kata;
+package com.novoda.viewmodel.kata.home;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.novoda.viewmodel.kata.R;
 import com.novoda.viewmodel.kata.data.Note;
 
 public class HomeActivity extends AppCompatActivity {

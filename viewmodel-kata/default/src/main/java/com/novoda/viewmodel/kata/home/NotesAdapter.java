@@ -1,4 +1,4 @@
-package com.novoda.viewmodel.kata;
+package com.novoda.viewmodel.kata.home;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.novoda.viewmodel.kata.R;
 import com.novoda.viewmodel.kata.data.Note;
 
 import java.util.ArrayList;
