@@ -17,7 +17,7 @@ public class HomeService {
 
     private final NoteDaoRepository repository;
 
-    HomeService(NoteDaoRepository repository) {
+    public HomeService(NoteDaoRepository repository) {
         this.repository = repository;
     }
 
