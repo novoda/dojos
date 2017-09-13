@@ -9,6 +9,5 @@ public class AppDatabaseCreator {
 
     public static AppDatabase create(Context applicationContext) {
         return Room.databaseBuilder(applicationContext, AppDatabase.class, DB_NAME).build();
-
     }
 }

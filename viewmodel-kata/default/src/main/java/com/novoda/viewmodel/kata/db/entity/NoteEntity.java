@@ -12,6 +12,10 @@ public class NoteEntity {
     @ColumnInfo(name = "text")
     private String text;
 
+    public NoteEntity(String text) {
+        this.text = text;
+    }
+
     public int getId() {
         return id;
     }

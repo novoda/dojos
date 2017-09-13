@@ -9,7 +9,7 @@ import com.novoda.viewmodel.kata.db.entity.NoteEntity;
 import java.util.List;
 
 @Dao
-public interface NoteDao {
+public interface NoteDaoRepository {
 
     @Query("SELECT * FROM notes")
     List<NoteEntity> getAll();
