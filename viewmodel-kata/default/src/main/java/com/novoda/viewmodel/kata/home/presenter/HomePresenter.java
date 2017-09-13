@@ -47,7 +47,7 @@ public class HomePresenter {
 
     private final Action onItemSaved = new Action() {
         @Override
-        public void run() throws Exception {
+        public void run() {
             loadData();
         }
     };
@@ -63,8 +63,8 @@ public class HomePresenter {
 
     private final Consumer<List<Note>> onDataLoaded = new Consumer<List<Note>>() {
         @Override
-        public void accept(List<Note> todos) throws Exception {
-            homeDisplayer.display(todos);
+        public void accept(List<Note> notes) {
+            homeDisplayer.display(notes);
         }
     };
 
