@@ -1,11 +1,17 @@
 package com.novoda.room.kata.entity;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity
 public class Photo {
-    private int id;
-    private String title;
-    private String imageUrl;
-    private String comment;
-    private String publicationDate;
+
+    @PrimaryKey
+    public final int id;
+    public final String title;
+    public final String imageUrl;
+    public final String comment;
+    public final String publicationDate;
 
     public Photo(int id, String title, String imageUrl, String comment, String publicationDate) {
         this.id = id;
