@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">ViewModel Kata</string>
+  <string name="new_note_hint">What\'s up ?</string>
+</resources>
