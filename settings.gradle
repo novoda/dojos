@@ -131,3 +131,4 @@ include 'room-kata:20170830-ferran'
 
 // viewmodel-kata
 include 'viewmodel-kata:default'
+include 'viewmodel-kata:20170913-jack'
