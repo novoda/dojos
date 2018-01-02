@@ -1,0 +1,1 @@
+include ':app', ':phoneapp', ':core', ':browserapp', ':toasterapp', ':launcher', ':toasterlauncher'
