@@ -58,10 +58,9 @@ class SavedSearchListViewModelTest {
         subject.loadSavedSearches()
 
         verify(listener).onStateLoaded(
-                listOf(
-                        SavedSearchWithSubscription(savedSearch, false),
-                        SavedSearchWithSubscription(savedSearchWithSubscription, true)
-                )
+                mapOf(savedSearch to false,
+                        savedSearchWithSubscription to true)
+
         )
     }
 
@@ -77,10 +76,9 @@ class SavedSearchListViewModelTest {
         subject.loadSavedSearches()
 
         verify(listener, times(2)).onStateLoaded(
-                listOf(
-                        SavedSearchWithSubscription(savedSearch, false),
-                        SavedSearchWithSubscription(savedSearchWithSubscription, true)
-                )
+                mapOf(savedSearch to false,
+                        savedSearchWithSubscription to true)
+
         )
         verify(savedSearchesRepository, times(1)).listSavedSearches()
     }
@@ -101,10 +99,9 @@ class SavedSearchListViewModelTest {
 
         verify(listener).onSubscriptionAddedTo(savedSearch)
         verify(listener).onStateLoaded(
-                listOf(
-                        SavedSearchWithSubscription(savedSearch, true),
-                        SavedSearchWithSubscription(savedSearchWithSubscription, true)
-                )
+                mapOf(savedSearch to true,
+                        savedSearchWithSubscription to true)
+
         )
     }
 
@@ -139,10 +136,9 @@ class SavedSearchListViewModelTest {
         subject.loadSavedSearches()
 
         verify(listener).onStateLoaded(
-                listOf(
-                        SavedSearchWithSubscription(savedSearch, false),
-                        SavedSearchWithSubscription(savedSearchWithSubscription, false)
-                )
+                mapOf(savedSearch to false,
+                        savedSearchWithSubscription to false)
+
         )
 
         verify(listener).onSubscriptionRemovedFrom(savedSearchWithSubscription)

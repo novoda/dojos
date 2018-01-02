@@ -9,10 +9,8 @@ interface SavedSearchModel {
     fun subscribeTo(savedSearch: SavedSearch, interval: Interval)
     fun unsubscribeFrom(savedSearch: SavedSearch)
 
-    data class SavedSearchWithSubscription(val savedSearch: SavedSearch, val hasSubscription: Boolean)
-
     interface Listener {
-        fun onStateLoaded(savedSearches: List<SavedSearchWithSubscription>)
+        fun onStateLoaded(savedSearches: Map<SavedSearch, Boolean>)
         fun onSubscriptionAddedTo(savedSearch: SavedSearch)
         fun onErrorAddingSubscriptionFor(savedSearch: SavedSearch)
         fun onSubscriptionRemovedFrom(savedSearch: SavedSearch)
