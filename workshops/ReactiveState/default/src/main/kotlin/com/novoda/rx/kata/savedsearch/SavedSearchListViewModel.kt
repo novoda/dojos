@@ -36,24 +36,18 @@ class SavedSearchListViewModel(
                             }
                             .compose(schedulingStrategy2.applyToSingle())
                 }
-                .doOnNext { (subscriptionResultToState, savedSearch) ->
-                    if (subscriptionResultToState.first) {
-                        listener?.onSubscriptionAddedTo(savedSearch)
-                    } else {
-                        listener?.onErrorAddingSubscriptionFor(savedSearch)
-                    }
-                }
                 .map { (subscriptionResultToState, savedSearch) ->
                     val (subscriptionResult, state) = subscriptionResultToState
                     val savedSearches = mutableMapOf<SavedSearch, Boolean>()
                     savedSearches.putAll(state.savedSearched)
                     savedSearches.put(savedSearch, subscriptionResult)
-                    state.copy(savedSearched = savedSearches)
+                    val error = if (!subscriptionResult) SavedSearchModel.Error.ADD else null
+                    state.copy(savedSearched = savedSearches, error = error)
                 }
                 .subscribe(statePipeline)
 
 
-        statePipeline.subscribeBy(onNext = { listener?.onStateLoaded(it.savedSearched) })
+        statePipeline.subscribeBy(onNext = { listener?.onStateLoaded(it.savedSearched, it.error) })
     }
 
     private fun savedSearchWithoutSubscription(savedSearch: SavedSearch) =
@@ -114,6 +108,6 @@ class SavedSearchListViewModel(
                 )
     }
 
-    private data class State(val savedSearched: Map<SavedSearch, Boolean>)
+    private data class State(val savedSearched: Map<SavedSearch, Boolean>, val error: SavedSearchModel.Error? = null)
     private data class AddSubscriptionCommand(val savedSearch: SavedSearch, val interval: Interval)
 }

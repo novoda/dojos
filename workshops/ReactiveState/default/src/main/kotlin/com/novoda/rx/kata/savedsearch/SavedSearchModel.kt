@@ -9,10 +9,13 @@ interface SavedSearchModel {
     fun subscribeTo(savedSearch: SavedSearch, interval: Interval)
     fun unsubscribeFrom(savedSearch: SavedSearch)
 
+    enum class Error {
+        ADD,
+        REMOVE
+    }
+
     interface Listener {
-        fun onStateLoaded(savedSearches: Map<SavedSearch, Boolean>)
-        fun onSubscriptionAddedTo(savedSearch: SavedSearch)
-        fun onErrorAddingSubscriptionFor(savedSearch: SavedSearch)
+        fun onStateLoaded(savedSearches: Map<SavedSearch, Boolean>, error: Error? = null)
         fun onSubscriptionRemovedFrom(savedSearch: SavedSearch)
         fun onErrorRemovingSubscriptionFor(savedSearch: SavedSearch)
     }

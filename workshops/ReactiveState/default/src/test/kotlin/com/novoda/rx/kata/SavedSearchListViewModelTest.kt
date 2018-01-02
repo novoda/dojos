@@ -97,7 +97,6 @@ class SavedSearchListViewModelTest {
 
         subject.subscribeTo(savedSearch, Interval.NEW_RESULT)
 
-        verify(listener).onSubscriptionAddedTo(savedSearch)
         verify(listener).onStateLoaded(
                 mapOf(savedSearch to true,
                         savedSearchWithSubscription to true)
@@ -118,7 +117,12 @@ class SavedSearchListViewModelTest {
 
         subject.subscribeTo(savedSearch, Interval.NEW_RESULT)
 
-        verify(listener).onErrorAddingSubscriptionFor(savedSearch)
+        verify(listener).onStateLoaded(
+                mapOf(savedSearch to false,
+                        savedSearchWithSubscription to true),
+                Error.ADD
+
+        )
     }
 
     @Test
@@ -153,7 +157,6 @@ class SavedSearchListViewModelTest {
 
         verify(listener).onErrorRemovingSubscriptionFor(savedSearch)
     }
-
 
 
     private fun givenSavedSearchHasSubscription(savedSearch: SavedSearch) {
