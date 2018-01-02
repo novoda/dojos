@@ -27,29 +27,15 @@ class SavedSearchListViewModel(
 
     init {
 
-        addSubscription
-                .withLatestFrom(statePipeline, { addCommand, state -> addCommand to state })
-                .flatMapSingle { (addCommand, state) ->
-                    addSubscriptionUseCase
-                            .addSubscriptionFor(addCommand.savedSearch, addCommand.interval)
-                            .map {
-                                it to state to addCommand.savedSearch
-                            }
-                            .compose(schedulingStrategy2.applyToSingle())
-                }
-                .map { (subscriptionResultToState, savedSearch) ->
-                    val (subscriptionResult, state) = subscriptionResultToState
-                    val savedSearches = mutableMapOf<SavedSearch, Boolean>()
-                    savedSearches.putAll(state.savedSearched)
-                    val subscriptionAdded = subscriptionResult is AddSubscriptionUseCase.Result.Success
-                    savedSearches.put(savedSearch, subscriptionAdded)
-                    val error = if (!subscriptionAdded) SavedSearchModel.Error.ADD else null
-                    state.copy(savedSearched = savedSearches, error = error)
-                }
+        Observable
+                .merge(addSubscription(), removeSubscription())
                 .subscribe(statePipeline)
 
+        statePipeline.subscribeBy(onNext = { listener?.onStateLoaded(it.savedSearched, it.error) })
+    }
 
-        removeSubscription
+    private fun removeSubscription(): Observable<State> {
+        return removeSubscription
                 .withLatestFrom(statePipeline, { removeCommand, state -> removeCommand to state })
                 .flatMapSingle { (removeCommand, state) ->
                     removeSubscriptionUseCase
@@ -68,11 +54,28 @@ class SavedSearchListViewModel(
                     val error = if (!subscriptionRemoved) SavedSearchModel.Error.REMOVE else null
                     state.copy(savedSearched = savedSearches, error = error)
                 }
-                .subscribe(statePipeline)
+    }
 
-
-
-        statePipeline.subscribeBy(onNext = { listener?.onStateLoaded(it.savedSearched, it.error) })
+    private fun addSubscription(): Observable<State> {
+        return addSubscription
+                .withLatestFrom(statePipeline, { addCommand, state -> addCommand to state })
+                .flatMapSingle { (addCommand, state) ->
+                    addSubscriptionUseCase
+                            .addSubscriptionFor(addCommand.savedSearch, addCommand.interval)
+                            .map {
+                                it to state to addCommand.savedSearch
+                            }
+                            .compose(schedulingStrategy2.applyToSingle())
+                }
+                .map { (subscriptionResultToState, savedSearch) ->
+                    val (subscriptionResult, state) = subscriptionResultToState
+                    val savedSearches = mutableMapOf<SavedSearch, Boolean>()
+                    savedSearches.putAll(state.savedSearched)
+                    val subscriptionAdded = subscriptionResult is AddSubscriptionUseCase.Result.Success
+                    savedSearches.put(savedSearch, subscriptionAdded)
+                    val error = if (!subscriptionAdded) SavedSearchModel.Error.ADD else null
+                    state.copy(savedSearched = savedSearches, error = error)
+                }
     }
 
     private fun savedSearchWithoutSubscription(savedSearch: SavedSearch) =
