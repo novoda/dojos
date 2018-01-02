@@ -7,6 +7,7 @@ import com.novoda.rx.kata.savedsearch.SubscriptionRepository.Interval
 import io.reactivex.MaybeSource
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.subjects.BehaviorSubject
 
 class SavedSearchListViewModel(
         private val savedSearchesRepository: SavedSearchesRepository,
@@ -16,6 +17,15 @@ class SavedSearchListViewModel(
 
     var listener: SavedSearchModel.Listener? = null
     private var state: State = State(emptyList())
+
+    private var statePipeline = BehaviorSubject.create<State>()
+
+    init {
+        statePipeline
+                .subscribeBy(
+                        onNext = { listener?.onStateLoaded(it.savedSearched) }
+                )
+    }
 
     override fun loadSavedSearches() {
         if (state.savedSearched.isNotEmpty()) {
@@ -45,7 +55,10 @@ class SavedSearchListViewModel(
                 }
                 .compose(schedulingStrategy2.apply())
                 .subscribeBy(
-                        onNext = { listener?.onStateLoaded(state.savedSearched) }
+                        onNext = {
+                            statePipeline.onNext(it)
+
+                        }
                 )
     }
 
@@ -60,7 +73,7 @@ class SavedSearchListViewModel(
                     state.savedSearched.forEach {
                         if (it.savedSearch == savedSearch) {
                             result.add(SavedSearchWithSubscription(it.savedSearch, true))
-                        }else {
+                        } else {
                             result.add(it)
                         }
                     }
@@ -81,7 +94,7 @@ class SavedSearchListViewModel(
                     state.savedSearched.forEach {
                         if (it.savedSearch == savedSearch) {
                             result.add(SavedSearchWithSubscription(it.savedSearch, false))
-                        }else {
+                        } else {
                             result.add(it)
                         }
                     }
