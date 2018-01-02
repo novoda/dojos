@@ -26,8 +26,6 @@ class SavedSearchListViewModelTest {
     @Mock
     private lateinit var subscriptionRepository: SubscriptionRepository
     @Mock
-    private lateinit var listener: SavedSearchModel.Listener
-    @Mock
     private lateinit var addSubscriptionUseCase: AddSubscriptionUseCase
     @Mock
     private lateinit var removeSubscriptionUseCase: RemoveSubscriptionUseCase
@@ -42,10 +40,6 @@ class SavedSearchListViewModelTest {
         )
     }
 
-    @Before
-    fun setUp() {
-        subject.listener = listener
-    }
 
     @Test
     fun `should load saved searches with subscriptions`() {
@@ -57,15 +51,15 @@ class SavedSearchListViewModelTest {
 
         subject.loadSavedSearches()
 
-        verify(listener).onStateLoaded(
-                mapOf(savedSearch to false,
-                        savedSearchWithSubscription to true)
-
-        )
+        subject
+                .state()
+                .test()
+                .assertValue(SavedSearchListViewModel.State(mapOf(savedSearch to false,
+                        savedSearchWithSubscription to true)))
     }
 
     @Test
-    fun `should return cached saved searches with subscriptions`() {
+    fun `should not emit state twice when already done`() {
         val savedSearch = savedSearch(id = 1, searchId = 1)
         val savedSearchWithSubscription = savedSearch(id = 2, searchId = 2)
         givenSavedSearches(listOf(savedSearch, savedSearchWithSubscription))
@@ -75,11 +69,10 @@ class SavedSearchListViewModelTest {
         subject.loadSavedSearches()
         subject.loadSavedSearches()
 
-        verify(listener, times(2)).onStateLoaded(
-                mapOf(savedSearch to false,
-                        savedSearchWithSubscription to true)
-
-        )
+        subject
+                .state()
+                .test()
+                .assertValueCount(1)
         verify(savedSearchesRepository, times(1)).listSavedSearches()
     }
 
@@ -93,15 +86,14 @@ class SavedSearchListViewModelTest {
         givenSavedSearchHasNoSubscription(savedSearch)
         givenSavedSearchHasSubscription(savedSearchWithSubscription)
         subject.loadSavedSearches()
-        reset(listener)
 
         subject.subscribeTo(savedSearch, Interval.NEW_RESULT)
 
-        verify(listener).onStateLoaded(
-                mapOf(savedSearch to true,
-                        savedSearchWithSubscription to true)
-
-        )
+        subject
+                .state()
+                .test()
+                .assertValue(SavedSearchListViewModel.State(mapOf(savedSearch to true,
+                        savedSearchWithSubscription to true)))
     }
 
     @Test
@@ -113,16 +105,14 @@ class SavedSearchListViewModelTest {
         givenSavedSearchHasNoSubscription(savedSearch)
         givenSavedSearchHasSubscription(savedSearchWithSubscription)
         subject.loadSavedSearches()
-        reset(listener)
 
         subject.subscribeTo(savedSearch, Interval.NEW_RESULT)
 
-        verify(listener).onStateLoaded(
-                mapOf(savedSearch to false,
-                        savedSearchWithSubscription to true),
-                Error.ADD
-
-        )
+        subject
+                .state()
+                .test()
+                .assertValue(SavedSearchListViewModel.State(mapOf(savedSearch to false,
+                        savedSearchWithSubscription to true), Error.ADD))
     }
 
     @Test
@@ -134,15 +124,14 @@ class SavedSearchListViewModelTest {
         givenSavedSearchHasNoSubscription(savedSearch)
         givenSavedSearchHasSubscription(savedSearchWithSubscription)
         subject.loadSavedSearches()
-        reset(listener)
 
         subject.unsubscribeFrom(savedSearchWithSubscription)
 
-        verify(listener).onStateLoaded(
-                mapOf(savedSearch to false,
-                        savedSearchWithSubscription to false)
-
-        )
+        subject
+                .state()
+                .test()
+                .assertValue(SavedSearchListViewModel.State(mapOf(savedSearch to false,
+                        savedSearchWithSubscription to false)))
     }
 
     @Test
@@ -154,15 +143,14 @@ class SavedSearchListViewModelTest {
         givenSavedSearchHasNoSubscription(savedSearch)
         givenSavedSearchHasSubscription(savedSearchWithSubscription)
         subject.loadSavedSearches()
-        reset(listener)
 
         subject.unsubscribeFrom(savedSearchWithSubscription)
 
-        verify(listener).onStateLoaded(
-                mapOf(savedSearch to false,
-                        savedSearchWithSubscription to true),
-                Error.REMOVE
-        )
+        subject
+                .state()
+                .test()
+                .assertValue(SavedSearchListViewModel.State(mapOf(savedSearch to false,
+                        savedSearchWithSubscription to true), Error.REMOVE))
     }
 
     private fun givenSavedSearchHasSubscription(savedSearch: SavedSearch) {
