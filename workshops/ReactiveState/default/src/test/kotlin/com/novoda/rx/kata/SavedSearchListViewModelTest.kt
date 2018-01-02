@@ -1,7 +1,10 @@
 package com.novoda.rx.kata
 
 
-import com.nhaarman.mockito_kotlin.*
+import com.nhaarman.mockito_kotlin.any
+import com.nhaarman.mockito_kotlin.times
+import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockito_kotlin.whenever
 import com.novoda.rx.kata.misc.SchedulingStrategy2
 import com.novoda.rx.kata.savedsearch.*
 import com.novoda.rx.kata.savedsearch.SavedSearchModel.Error
@@ -11,7 +14,6 @@ import com.novoda.rx.kata.savedsearch.SubscriptionRepository.Subscription
 import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock

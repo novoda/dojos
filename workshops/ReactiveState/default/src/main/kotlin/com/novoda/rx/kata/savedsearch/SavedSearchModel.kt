@@ -15,8 +15,4 @@ interface SavedSearchModel {
         ADD,
         REMOVE
     }
-
-    interface Listener {
-        fun onStateLoaded(savedSearches: Map<SavedSearch, Boolean>, error: Error? = null)
-    }
 }

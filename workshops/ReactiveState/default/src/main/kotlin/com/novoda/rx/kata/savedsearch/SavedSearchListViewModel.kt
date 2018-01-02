@@ -21,6 +21,7 @@ class SavedSearchListViewModel(
     private var statePipeline = BehaviorSubject.create<State>()
     private var addSubscription = PublishSubject.create<AddSubscriptionCommand>()
     private var removeSubscription = PublishSubject.create<RemoveSubscriptionCommand>()
+
     init {
 
         Observable
@@ -34,20 +35,27 @@ class SavedSearchListViewModel(
                 .flatMapSingle { (removeCommand, state) ->
                     removeSubscriptionUseCase
                             .removeSubscriptionFor(removeCommand.savedSearch)
-                            .map {
-                                it to state to removeCommand.savedSearch
+                            .map { result ->
+                                result to state to removeCommand.savedSearch
                             }
                             .compose(schedulingStrategy2.applyToSingle())
                 }
                 .map { (subscriptionResultToState, savedSearch) ->
                     val (subscriptionResult, state) = subscriptionResultToState
-                    val savedSearches = mutableMapOf<SavedSearch, Boolean>()
-                    savedSearches.putAll(state.savedSearched)
                     val subscriptionRemoved = subscriptionResult is RemoveSubscriptionUseCase.Result.Success
-                    savedSearches.put(savedSearch, subscriptionRemoved.not())
+
+                    val savedSearches = applyChange(state, savedSearch, isSubscribed = subscriptionRemoved.not())
+
                     val error = if (!subscriptionRemoved) SavedSearchModel.Error.REMOVE else null
                     state.copy(savedSearched = savedSearches, error = error)
                 }
+    }
+
+    private fun applyChange(state: State, savedSearch: SavedSearch, isSubscribed: Boolean): MutableMap<SavedSearch, Boolean> {
+        val savedSearches = mutableMapOf<SavedSearch, Boolean>()
+        savedSearches.putAll(state.savedSearched)
+        savedSearches.put(savedSearch, isSubscribed)
+        return savedSearches
     }
 
     private fun addSubscription(): Observable<State> {
@@ -56,17 +64,17 @@ class SavedSearchListViewModel(
                 .flatMapSingle { (addCommand, state) ->
                     addSubscriptionUseCase
                             .addSubscriptionFor(addCommand.savedSearch, addCommand.interval)
-                            .map {
-                                it to state to addCommand.savedSearch
+                            .map { result ->
+                                result to state to addCommand.savedSearch
                             }
                             .compose(schedulingStrategy2.applyToSingle())
                 }
                 .map { (subscriptionResultToState, savedSearch) ->
                     val (subscriptionResult, state) = subscriptionResultToState
-                    val savedSearches = mutableMapOf<SavedSearch, Boolean>()
-                    savedSearches.putAll(state.savedSearched)
                     val subscriptionAdded = subscriptionResult is AddSubscriptionUseCase.Result.Success
-                    savedSearches.put(savedSearch, subscriptionAdded)
+
+                    val savedSearches = applyChange(state, savedSearch, isSubscribed = subscriptionAdded)
+
                     val error = if (!subscriptionAdded) SavedSearchModel.Error.ADD else null
                     state.copy(savedSearched = savedSearches, error = error)
                 }
@@ -97,16 +105,14 @@ class SavedSearchListViewModel(
                     ).toSingle()
                 }
                 .toList()
-                .map {
-                    val state :MutableMap<SavedSearch,Boolean> = mutableMapOf()
-                    it.forEach {
-                        state.put(it.first, it.second)
+                .map { savedSearchesAndSubcriptionState ->
+                    val data: MutableMap<SavedSearch, Boolean> = mutableMapOf()
+                    savedSearchesAndSubcriptionState.forEach {
+                        val (savedSearch, isSubscribed) = it
+                        data.put(savedSearch, isSubscribed)
                     }
 
-                    state
-                }
-                .map {
-                    State(it)
+                    State(data)
                 }
                 .compose(schedulingStrategy2.applyToSingle())
                 .subscribe(Consumer {
