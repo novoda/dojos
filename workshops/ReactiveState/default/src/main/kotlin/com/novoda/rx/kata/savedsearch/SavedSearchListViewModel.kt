@@ -13,6 +13,7 @@ import io.reactivex.subjects.PublishSubject
 class SavedSearchListViewModel(
         private val savedSearchesRepository: SavedSearchesRepository,
         private val subscriptionRepository: SubscriptionRepository,
+        private val addSubscriptionUseCase: AddSubscriptionUseCase,
         private val schedulingStrategy2: SchedulingStrategy2
 ) : SavedSearchModel {
 
@@ -27,10 +28,8 @@ class SavedSearchListViewModel(
         addSubscription
                 .withLatestFrom(statePipeline, { addCommand, state -> addCommand to state })
                 .flatMapSingle { (addCommand, state) ->
-                    subscriptionRepository
-                            .subscribeTo(addCommand.savedSearch, addCommand.interval)
-                            .toSingleDefault(true)
-                            .onErrorReturn { false }
+                    addSubscriptionUseCase
+                            .addSubscriptionFor(addCommand.savedSearch, addCommand.interval)
                             .map {
                                 it to state to addCommand.savedSearch
                             }
@@ -40,8 +39,9 @@ class SavedSearchListViewModel(
                     val (subscriptionResult, state) = subscriptionResultToState
                     val savedSearches = mutableMapOf<SavedSearch, Boolean>()
                     savedSearches.putAll(state.savedSearched)
-                    savedSearches.put(savedSearch, subscriptionResult)
-                    val error = if (!subscriptionResult) SavedSearchModel.Error.ADD else null
+                    val subscriptionAdded = subscriptionResult is AddSubscriptionUseCase.Result.Success
+                    savedSearches.put(savedSearch, subscriptionAdded)
+                    val error = if (!subscriptionAdded) SavedSearchModel.Error.ADD else null
                     state.copy(savedSearched = savedSearches, error = error)
                 }
                 .subscribe(statePipeline)

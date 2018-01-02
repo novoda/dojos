@@ -7,16 +7,14 @@ import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import com.novoda.rx.kata.misc.SchedulingStrategy2
-import com.novoda.rx.kata.savedsearch.SavedSearchListViewModel
-import com.novoda.rx.kata.savedsearch.SavedSearchModel
+import com.novoda.rx.kata.savedsearch.*
 import com.novoda.rx.kata.savedsearch.SavedSearchModel.*
-import com.novoda.rx.kata.savedsearch.SavedSearchesRepository
 import com.novoda.rx.kata.savedsearch.SavedSearchesRepository.SavedSearch
-import com.novoda.rx.kata.savedsearch.SubscriptionRepository
 import com.novoda.rx.kata.savedsearch.SubscriptionRepository.*
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Observable
+import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -33,11 +31,14 @@ class SavedSearchListViewModelTest {
     private lateinit var subscriptionRepository: SubscriptionRepository
     @Mock
     private lateinit var listener: SavedSearchModel.Listener
+    @Mock
+    private lateinit var addSubscriptionUseCase: AddSubscriptionUseCase
 
     private val subject by lazy {
         SavedSearchListViewModel(
                 savedSearchesRepository,
                 subscriptionRepository,
+                addSubscriptionUseCase,
                 SchedulingStrategy2.immediate()
         )
     }
@@ -85,7 +86,7 @@ class SavedSearchListViewModelTest {
 
     @Test
     fun `should subscribe to search`() {
-        whenever(subscriptionRepository.subscribeTo(any(), any())).thenReturn(Completable.complete())
+        whenever(addSubscriptionUseCase.addSubscriptionFor(any(), any())).thenReturn(Single.just(AddSubscriptionUseCase.Result.Success()))
 
         val savedSearch = savedSearch(id = 1, searchId = 1)
         val savedSearchWithSubscription = savedSearch(id = 2, searchId = 2)
@@ -106,7 +107,7 @@ class SavedSearchListViewModelTest {
 
     @Test
     fun `should notify with error in case adding a subscription failed`() {
-        whenever(subscriptionRepository.subscribeTo(any(), any())).thenReturn(Completable.error(IllegalStateException("some error")))
+        whenever(addSubscriptionUseCase.addSubscriptionFor(any(), any())).thenReturn(Single.just(AddSubscriptionUseCase.Result.Failed()))
         val savedSearch = savedSearch(id = 1, searchId = 1)
         val savedSearchWithSubscription = savedSearch(id = 2, searchId = 2)
         givenSavedSearches(listOf(savedSearch, savedSearchWithSubscription))
