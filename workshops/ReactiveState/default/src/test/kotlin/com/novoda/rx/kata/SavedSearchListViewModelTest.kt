@@ -98,7 +98,6 @@ class SavedSearchListViewModelTest {
         reset(listener)
 
         subject.subscribeTo(savedSearch, Interval.NEW_RESULT)
-        subject.loadSavedSearches()
 
         verify(listener).onSubscriptionAddedTo(savedSearch)
         verify(listener).onStateLoaded(

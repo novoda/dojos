@@ -9,6 +9,7 @@ import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.rxkotlin.withLatestFrom
 import io.reactivex.subjects.BehaviorSubject
+import io.reactivex.subjects.PublishSubject
 
 class SavedSearchListViewModel(
         private val savedSearchesRepository: SavedSearchesRepository,
@@ -20,12 +21,49 @@ class SavedSearchListViewModel(
     private var state: State = State(emptyList())
 
     private var statePipeline = BehaviorSubject.create<State>()
+    private var addSubscription = PublishSubject.create<AddSubscriptionCommand>()
 
     init {
-        statePipeline
-                .subscribeBy(
-                        onNext = { listener?.onStateLoaded(it.savedSearched) }
-                )
+
+        addSubscription
+                .withLatestFrom(statePipeline, { addCommand, state -> addCommand to state })
+                .flatMapSingle { (addCommand, state) ->
+                    subscriptionRepository
+                            .subscribeTo(addCommand.savedSearch, addCommand.interval)
+                            .toSingleDefault(true)
+                            .onErrorReturn { false }
+                            .map {
+                                it to state to addCommand.savedSearch
+                            }
+                            .compose(schedulingStrategy2.applyToSingle())
+                }
+                .doOnNext { (subscriptionResultToState, savedSearch) ->
+                    if (subscriptionResultToState.first) {
+                        listener?.onSubscriptionAddedTo(savedSearch)
+                    } else {
+                        listener?.onErrorAddingSubscriptionFor(savedSearch)
+                    }
+                }
+                .map { (subscriptionResultToState, savedSearch) ->
+                    val (subscriptionResult, state) = subscriptionResultToState
+                    val result: MutableList<SavedSearchWithSubscription> = mutableListOf()
+                    state.savedSearched.forEach {
+                        if (it.savedSearch == savedSearch && subscriptionResult) {
+                            result.add(SavedSearchWithSubscription(it.savedSearch, true))
+                        } else {
+                            result.add(it)
+                        }
+                    }
+                    state.copy(savedSearched = result)
+                }
+                .subscribe(statePipeline)
+
+
+        statePipeline.subscribeBy(onNext = { listener?.onStateLoaded(it.savedSearched) })
+    }
+
+    override fun subscribeTo(savedSearch: SavedSearch, interval: Interval) {
+        addSubscription.onNext(AddSubscriptionCommand(savedSearch, interval))
     }
 
     override fun loadSavedSearches() {
@@ -66,37 +104,6 @@ class SavedSearchListViewModel(
     private fun savedSearchWithoutSubscription(savedSearch: SavedSearch) =
             MaybeSource<SavedSearchWithSubscription> { p0 -> p0.onSuccess(SavedSearchWithSubscription(savedSearch, false)) }
 
-    override fun subscribeTo(savedSearch: SavedSearch, interval: Interval) {
-        subscriptionRepository
-                .subscribeTo(savedSearch, interval)
-                .toSingleDefault(true)
-                .onErrorReturn { false }
-                .toObservable()
-                .withLatestFrom(statePipeline, { subscriptionAdded, state -> subscriptionAdded to state })
-                .doOnNext { (subscriptionResult, _) ->
-                    if (subscriptionResult) {
-                        listener?.onSubscriptionAddedTo(savedSearch)
-                    } else {
-                        listener?.onErrorAddingSubscriptionFor(savedSearch)
-                    }
-                }
-                .map { (subscriptionResult, state) ->
-                    val result: MutableList<SavedSearchWithSubscription> = mutableListOf()
-                    state.savedSearched.forEach {
-                        if (it.savedSearch == savedSearch && subscriptionResult) {
-                            result.add(SavedSearchWithSubscription(it.savedSearch, true))
-                        } else {
-                            result.add(it)
-                        }
-                    }
-                    state.copy(savedSearched = result)
-                }.subscribeBy(
-                onNext = {
-                    statePipeline.onNext(it)
-                }
-        )
-    }
-
     override fun unsubscribeFrom(savedSearch: SavedSearch) {
         subscriptionRepository
                 .unSubscribeFrom(savedSearch)
@@ -119,4 +126,5 @@ class SavedSearchListViewModel(
     }
 
     private data class State(val savedSearched: List<SavedSearchWithSubscription>)
+    private data class AddSubscriptionCommand(val savedSearch: SavedSearch, val interval: Interval)
 }
