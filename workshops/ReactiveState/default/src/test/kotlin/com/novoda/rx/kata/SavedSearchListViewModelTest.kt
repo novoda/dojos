@@ -112,7 +112,13 @@ class SavedSearchListViewModelTest {
     @Test
     fun `should notify with error in case adding a subscription failed`() {
         whenever(subscriptionRepository.subscribeTo(any(), any())).thenReturn(Completable.error(IllegalStateException("some error")))
-        val savedSearch = savedSearch(id = 1, searchId = 2)
+        val savedSearch = savedSearch(id = 1, searchId = 1)
+        val savedSearchWithSubscription = savedSearch(id = 2, searchId = 2)
+        givenSavedSearches(listOf(savedSearch, savedSearchWithSubscription))
+        givenSavedSearchHasNoSubscription(savedSearch)
+        givenSavedSearchHasSubscription(savedSearchWithSubscription)
+        subject.loadSavedSearches()
+        reset(listener)
 
         subject.subscribeTo(savedSearch, Interval.NEW_RESULT)
 

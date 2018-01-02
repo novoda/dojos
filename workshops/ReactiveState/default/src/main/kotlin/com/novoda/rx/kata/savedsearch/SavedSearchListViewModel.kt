@@ -7,6 +7,7 @@ import com.novoda.rx.kata.savedsearch.SubscriptionRepository.Interval
 import io.reactivex.MaybeSource
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.rxkotlin.withLatestFrom
 import io.reactivex.subjects.BehaviorSubject
 
 class SavedSearchListViewModel(
@@ -68,22 +69,32 @@ class SavedSearchListViewModel(
     override fun subscribeTo(savedSearch: SavedSearch, interval: Interval) {
         subscriptionRepository
                 .subscribeTo(savedSearch, interval)
-                .doOnComplete {
+                .toSingleDefault(true)
+                .onErrorReturn { false }
+                .toObservable()
+                .withLatestFrom(statePipeline, { subscriptionAdded, state -> subscriptionAdded to state })
+                .doOnNext { (subscriptionResult, _) ->
+                    if (subscriptionResult) {
+                        listener?.onSubscriptionAddedTo(savedSearch)
+                    } else {
+                        listener?.onErrorAddingSubscriptionFor(savedSearch)
+                    }
+                }
+                .map { (subscriptionResult, state) ->
                     val result: MutableList<SavedSearchWithSubscription> = mutableListOf()
                     state.savedSearched.forEach {
-                        if (it.savedSearch == savedSearch) {
+                        if (it.savedSearch == savedSearch && subscriptionResult) {
                             result.add(SavedSearchWithSubscription(it.savedSearch, true))
                         } else {
                             result.add(it)
                         }
                     }
-                    state = state.copy(savedSearched = result)
+                    state.copy(savedSearched = result)
+                }.subscribeBy(
+                onNext = {
+                    statePipeline.onNext(it)
                 }
-                .compose(schedulingStrategy2.applyToCompletable())
-                .subscribeBy(
-                        onComplete = { listener?.onSubscriptionAddedTo(savedSearch) },
-                        onError = { listener?.onErrorAddingSubscriptionFor(savedSearch) }
-                )
+        )
     }
 
     override fun unsubscribeFrom(savedSearch: SavedSearch) {
