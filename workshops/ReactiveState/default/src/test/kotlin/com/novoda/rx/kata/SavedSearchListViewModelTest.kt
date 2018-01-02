@@ -1,17 +1,13 @@
 package com.novoda.rx.kata
 
 
-import com.nhaarman.mockito_kotlin.any
-import com.nhaarman.mockito_kotlin.reset
-import com.nhaarman.mockito_kotlin.times
-import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.whenever
+import com.nhaarman.mockito_kotlin.*
 import com.novoda.rx.kata.misc.SchedulingStrategy2
 import com.novoda.rx.kata.savedsearch.*
-import com.novoda.rx.kata.savedsearch.SavedSearchModel.*
+import com.novoda.rx.kata.savedsearch.SavedSearchModel.Error
 import com.novoda.rx.kata.savedsearch.SavedSearchesRepository.SavedSearch
-import com.novoda.rx.kata.savedsearch.SubscriptionRepository.*
-import io.reactivex.Completable
+import com.novoda.rx.kata.savedsearch.SubscriptionRepository.Interval
+import com.novoda.rx.kata.savedsearch.SubscriptionRepository.Subscription
 import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -33,12 +29,15 @@ class SavedSearchListViewModelTest {
     private lateinit var listener: SavedSearchModel.Listener
     @Mock
     private lateinit var addSubscriptionUseCase: AddSubscriptionUseCase
+    @Mock
+    private lateinit var removeSubscriptionUseCase: RemoveSubscriptionUseCase
 
     private val subject by lazy {
         SavedSearchListViewModel(
                 savedSearchesRepository,
                 subscriptionRepository,
                 addSubscriptionUseCase,
+                removeSubscriptionUseCase,
                 SchedulingStrategy2.immediate()
         )
     }
@@ -128,7 +127,7 @@ class SavedSearchListViewModelTest {
 
     @Test
     fun `should unsubscribe from search`() {
-        whenever(subscriptionRepository.unSubscribeFrom(any())).thenReturn(Completable.complete())
+        whenever(removeSubscriptionUseCase.removeSubscriptionFor(any())).thenReturn(Single.just(RemoveSubscriptionUseCase.Result.Success()))
         val savedSearch = savedSearch(id = 1, searchId = 1)
         val savedSearchWithSubscription = savedSearch(id = 2, searchId = 2)
         givenSavedSearches(listOf(savedSearch, savedSearchWithSubscription))
@@ -138,27 +137,33 @@ class SavedSearchListViewModelTest {
         reset(listener)
 
         subject.unsubscribeFrom(savedSearchWithSubscription)
-        subject.loadSavedSearches()
 
         verify(listener).onStateLoaded(
                 mapOf(savedSearch to false,
                         savedSearchWithSubscription to false)
 
         )
-
-        verify(listener).onSubscriptionRemovedFrom(savedSearchWithSubscription)
     }
 
     @Test
     fun `should notify with error in case removing a subscription failed`() {
-        whenever(subscriptionRepository.unSubscribeFrom(any())).thenReturn(Completable.error(IllegalStateException("some error")))
-        val savedSearch = savedSearch(1, 2)
+        whenever(removeSubscriptionUseCase.removeSubscriptionFor(any())).thenReturn(Single.just(RemoveSubscriptionUseCase.Result.Failed()))
+        val savedSearch = savedSearch(id = 1, searchId = 1)
+        val savedSearchWithSubscription = savedSearch(id = 2, searchId = 2)
+        givenSavedSearches(listOf(savedSearch, savedSearchWithSubscription))
+        givenSavedSearchHasNoSubscription(savedSearch)
+        givenSavedSearchHasSubscription(savedSearchWithSubscription)
+        subject.loadSavedSearches()
+        reset(listener)
 
-        subject.unsubscribeFrom(savedSearch)
+        subject.unsubscribeFrom(savedSearchWithSubscription)
 
-        verify(listener).onErrorRemovingSubscriptionFor(savedSearch)
+        verify(listener).onStateLoaded(
+                mapOf(savedSearch to false,
+                        savedSearchWithSubscription to true),
+                Error.REMOVE
+        )
     }
-
 
     private fun givenSavedSearchHasSubscription(savedSearch: SavedSearch) {
         whenever(subscriptionRepository.hasSubscriptionFor(savedSearch)).thenReturn(Maybe.just(Subscription(savedSearch.id, Interval.ONCE_A_DAY)))

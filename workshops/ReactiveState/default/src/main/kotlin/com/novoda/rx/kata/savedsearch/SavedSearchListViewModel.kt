@@ -14,6 +14,7 @@ class SavedSearchListViewModel(
         private val savedSearchesRepository: SavedSearchesRepository,
         private val subscriptionRepository: SubscriptionRepository,
         private val addSubscriptionUseCase: AddSubscriptionUseCase,
+        private val removeSubscriptionUseCase: RemoveSubscriptionUseCase,
         private val schedulingStrategy2: SchedulingStrategy2
 ) : SavedSearchModel {
 
@@ -22,6 +23,7 @@ class SavedSearchListViewModel(
 
     private var statePipeline = BehaviorSubject.create<State>()
     private var addSubscription = PublishSubject.create<AddSubscriptionCommand>()
+    private var removeSubscription = PublishSubject.create<RemoveSubscriptionCommand>()
 
     init {
 
@@ -45,6 +47,29 @@ class SavedSearchListViewModel(
                     state.copy(savedSearched = savedSearches, error = error)
                 }
                 .subscribe(statePipeline)
+
+
+        removeSubscription
+                .withLatestFrom(statePipeline, { removeCommand, state -> removeCommand to state })
+                .flatMapSingle { (removeCommand, state) ->
+                    removeSubscriptionUseCase
+                            .removeSubscriptionFor(removeCommand.savedSearch)
+                            .map {
+                                it to state to removeCommand.savedSearch
+                            }
+                            .compose(schedulingStrategy2.applyToSingle())
+                }
+                .map { (subscriptionResultToState, savedSearch) ->
+                    val (subscriptionResult, state) = subscriptionResultToState
+                    val savedSearches = mutableMapOf<SavedSearch, Boolean>()
+                    savedSearches.putAll(state.savedSearched)
+                    val subscriptionRemoved = subscriptionResult is RemoveSubscriptionUseCase.Result.Success
+                    savedSearches.put(savedSearch, subscriptionRemoved.not())
+                    val error = if (!subscriptionRemoved) SavedSearchModel.Error.REMOVE else null
+                    state.copy(savedSearched = savedSearches, error = error)
+                }
+                .subscribe(statePipeline)
+
 
 
         statePipeline.subscribeBy(onNext = { listener?.onStateLoaded(it.savedSearched, it.error) })
@@ -93,21 +118,10 @@ class SavedSearchListViewModel(
     }
 
     override fun unsubscribeFrom(savedSearch: SavedSearch) {
-        subscriptionRepository
-                .unSubscribeFrom(savedSearch)
-                .doOnComplete {
-                    val savedSearches = mutableMapOf<SavedSearch, Boolean>()
-                    savedSearches.putAll(state.savedSearched)
-                    savedSearches.put(savedSearch, false)
-                    state = state.copy(savedSearched = savedSearches)
-                }
-                .compose(schedulingStrategy2.applyToCompletable())
-                .subscribeBy(
-                        onComplete = { listener?.onSubscriptionRemovedFrom(savedSearch) },
-                        onError = { listener?.onErrorRemovingSubscriptionFor(savedSearch) }
-                )
+        removeSubscription.onNext(RemoveSubscriptionCommand(savedSearch))
     }
 
     private data class State(val savedSearched: Map<SavedSearch, Boolean>, val error: SavedSearchModel.Error? = null)
     private data class AddSubscriptionCommand(val savedSearch: SavedSearch, val interval: Interval)
+    private data class RemoveSubscriptionCommand(val savedSearch: SavedSearch)
 }

@@ -16,7 +16,5 @@ interface SavedSearchModel {
 
     interface Listener {
         fun onStateLoaded(savedSearches: Map<SavedSearch, Boolean>, error: Error? = null)
-        fun onSubscriptionRemovedFrom(savedSearch: SavedSearch)
-        fun onErrorRemovingSubscriptionFor(savedSearch: SavedSearch)
     }
 }
