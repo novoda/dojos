@@ -22,7 +22,6 @@ Go inside this copy of the `default` directory,  and name it with the date and y
 ## Android katas
 
 - add the copied kata to the root `settings.gradle` as `theKata:01012014-yourname-pairsname`
-
 ```
 include: 'theKata:default', 'theKata:01012014-yourname-pairsname'
 ```
@@ -45,7 +44,6 @@ include: 'theKata:default', 'theKata:01012014-yourname-pairsname'
         |- default
         |- yourImpl
 ```
-
 ## Android katas
 
 A dojo level `build.gradle` containing should be added to keep all the implementations using the same build.
@@ -55,7 +53,6 @@ subprojects {
 	apply from: '../default/build.gradle'
 }
 ```
-
 Add the finished kata's to the root `settings.gradle` as `dojo:implName`
 
 ```
@@ -76,6 +73,3 @@ If the dojo only contains the `default` folder, it means it has only been used f
 ```
 
 Now you can [run a new dojo](https://github.com/novoda/dojos#running-a-dojo) on either language
-
-
-
