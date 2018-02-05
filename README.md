@@ -5,11 +5,11 @@ This is where the Novoda team do all their hacking
 
 # Running a dojo
 
-Find the module of the dojo you want to attempt. This will be a module under the root dir. Inside you will either find the  `default`  directory or a specific language directory.
+Find the module of the dojo you want to attempt. This will be a module under the root dir. Inside you will either find the `default` directory or a specific language directory.
 
-If you only find the  `default` directory, follow [these instructions](#Updating-a-dojo). Once the folder structure has been updated properly you can continue, make a copy of the default project of whichever language you want to run the kata with.
+If you only find the `default` directory, follow [these instructions](#Updating-a-dojo). Once the folder structure has been updated properly you can continue, make a copy of the default project of whichever language you want to run the kata with.
 
-Go inside this copy of the `default` directory,  and name it with the date and your name or pairing name. This dir you just copied should have instructions to run the dojo as well as any example code.
+Go inside this copy of the `default` directory, and name it with the date and your name or pairing name. This dir you just copied should have instructions to run the dojo as well as any example code.
 ```
 -dojos
 |- theKata
