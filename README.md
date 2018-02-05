@@ -5,7 +5,7 @@ This is where the Novoda team do all their hacking
 
 # Running a dojo
 
-Find the module of the dojo you want to attempt. This will be a module under the root dir. Inside you will either find the  `default`  directory or a `Java` and `Swift` directory.
+Find the module of the dojo you want to attempt. This will be a module under the root dir. Inside you will either find the  `default`  directory or a specific language directory.
 
 If you only find the  `default` directory, follow [these instructions](#Updating-a-dojo). Once the folder structure has been updated properly you can continue, make a copy of the default project of whichever language you want to run the kata with.
 
@@ -28,17 +28,17 @@ include: 'theKata:default', 'theKata:01012014-yourname-pairsname'
 # Starting a new dojo
 
 - Create a new directory inside root with the dojo's name
-- Create two directories inside the dojo's named `Swift` and `Java`
+- If the dojo targets specific programming languages like `Swift` or `Java`, create a directory with the name of the language. If the kata does not have a specific programming language you can place the code on root folder.
 - create a `default` directory inside whichever language you want to run the kata on
 - This `default` directory will contain any template source code and `gradle` file (if you are using a a Java project)
 - Implementations of the dojo should be at the same directory level as the default directory
 ```
 -dojos
 |- myKata
-    |- java
+    |- oneLanguage
         |- default
         |- yourImpl
-    |- swift
+    |- anotherLanguage
         |- default
         |- yourImpl
 ```
@@ -57,12 +57,13 @@ include: 'myKata:default'
 
 # Updating a legacy dojo
 
-If the dojo only contains the `default` folder, it means it has only been used for Android programming and the structure needs to be updated. Create two new folders with  `Swift` and `Java`  and add everything on the current source dojo folder into Java.
+If the dojo only contains the `default` folder, it is possible that it has only been used for Android programming before and the structure needs to be updated. To do so create a `Java` folder and place all the code currently on root inside of the new folder (including the `default` folder). You can then create a new folder on the kata root with the new language you want to run the kata on if necessary.
+
 ```
 -dojos
 |- theKata
-    |- swift
-    |- java
+    |- oneLanguage
+    |- existingLanguage
         |- default
         |- 01012014-existingname-existingpair
 ```
