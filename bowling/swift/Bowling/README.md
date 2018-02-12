@@ -1,3 +1,5 @@
+# TDD Bowling Kata
+
 The game consists of 10 frames as shown above.  In each frame the player has
 two opportunities to knock down 10 pins.  The score for the frame is the total
 number of pins knocked down, plus bonuses for strikes and spares.
@@ -14,19 +16,26 @@ In the tenth frame a player who rolls a spare or strike is allowed to roll the e
 balls to complete the frame.  However no more than three balls can be rolled in
 tenth frame.
 
-Original Source: http://butunclebob.com/files/downloads/Bowling%20Game%20Kata.ppt
+Sources:
+- [kata logs](http://kata-log.rocks/bowling-game-kata)
+- [Power point](http://butunclebob.com/files/downloads/Bowling%20Game%20Kata.ppt)
 
-____
+## How to start:
 
-1. Write the first failing test. Then write a factory that returns an object, or an aggregate of objects, that make the test pass.
+1. Write the first failing test. Then write code to make the first test pass.
 
-The factory should be limited to creating objects and linking them together. No conditionals allowed.
+The code written should only be intended to make the first test pass.
 
 2. Write the next failing test.
 
-3. Can you make it pass by changing the factory and/or creating a new class and nothing else?
+3. Can you make it pass by building over what you already written?
 If yes, great! Go back to 2.
 If not, refactor until you can.
 
-The refactoring should bring the system to a state where it’s possible to implement the next test just by changing the aggregate of objects that is returned by the factory. Be careful not to implement new functionality; the current test should still fail.
+The refactoring should bring the system to a state where it’s possible to implement the next test just by adding the necessary features. Be careful not to implement new functionality; the current test should still fail.
 
+## How to evaluate the dojo:
+- What was the first test? was it useful? (Did they write a good test)?
+- What decision (architecture wise) did they made at the beginning? Did they stick to it? was it useful (solves the problem) and how simple was it?
+- Method extraction
+- Did they saw possible flaws with their code after learning more about the requirements? How did they approach that?
