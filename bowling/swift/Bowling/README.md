@@ -26,7 +26,7 @@ Sources:
 
 2. Write the next failing test.
 
-3. Can you make it pass by building over what you already written?
+3. Can you make it pass by building on what you already written?
 If yes, great! Go back to 2.
 If not, refactor until you can.
 
@@ -35,5 +35,5 @@ The refactoring should bring the system to a state where it’s possible to impl
 ## How to evaluate the dojo:
 - What was the first test? Was it useful? Did they write a good test?
 - What decision (architecture-wise) did they make at the beginning? Did they stick to it? Was it useful (solves the problem) and how simple was it?
-- Method extraction: did they extract any functionalities to outside classes or protocols? If no, why not? Is the code still testable? 
-- Did they saw possible flaws with their code after learning more about the requirements? How did they approach that?
+- Method extraction: did they extract any functionality to outside classes or protocols? If no, why not? Is the code still testable?
+- Did they see possible flaws with their code after learning more about the requirements? How did they approach that?
