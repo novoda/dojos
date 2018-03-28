@@ -1,4 +1,4 @@
-package com.novoda.iockata.core.di
+package com.novoda.iockata.di
 
 import android.content.Context
 import com.novoda.iockata.core.devicefeatures.DeviceFeatureModule

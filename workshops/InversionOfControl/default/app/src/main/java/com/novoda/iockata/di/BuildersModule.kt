@@ -1,4 +1,4 @@
-package com.novoda.iockata.core.di
+package com.novoda.iockata.di
 
 import com.novoda.iockata.launcher.IoCLauncherActivity
 import dagger.Module

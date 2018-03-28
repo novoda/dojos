@@ -3,7 +3,7 @@
           package="com.novoda.iockata">
 
     <application
-        android:name=".core.di.IoCLauncherApplication"
+        android:name="com.novoda.iockata.di.IoCLauncherApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
