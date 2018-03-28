@@ -4,7 +4,6 @@ interface DeviceFeature {
 
     fun canDial(): Boolean
     fun canShootPhoto(): Boolean
-    fun canGoOnline(): Boolean
     fun canToast():Boolean
 
 }

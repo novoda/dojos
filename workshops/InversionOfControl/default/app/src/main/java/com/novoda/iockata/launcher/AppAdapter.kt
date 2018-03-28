@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.novoda.iockata.R
+import com.novoda.iockata.core.devicefeatures.DeviceFeature
 import com.novoda.iockata.launcher.apps.App
-import com.novoda.iockata.launcher.apps.browser.BrowserApp
 import com.novoda.iockata.launcher.apps.camera.CameraApp
 import com.novoda.iockata.launcher.apps.phone.PhoneApp
 import com.novoda.iockata.launcher.apps.toaster.ToasterApp
-import com.novoda.iockata.core.devicefeatures.DeviceFeature
 
 class AppAdapter(activity: Activity, deviceFeature: DeviceFeature) : RecyclerView.Adapter<AppAdapter.ViewHolder>() {
 
@@ -22,10 +21,6 @@ class AppAdapter(activity: Activity, deviceFeature: DeviceFeature) : RecyclerVie
 
         if (deviceFeature.canDial()) {
             apps.add(PhoneApp(activity))
-        }
-
-        if (deviceFeature.canGoOnline()) {
-            apps.add(BrowserApp(activity))
         }
 
         if (deviceFeature.canShootPhoto()) {
