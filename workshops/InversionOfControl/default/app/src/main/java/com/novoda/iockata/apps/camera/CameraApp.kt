@@ -1,11 +1,11 @@
-package com.novoda.iockata.launcher.apps.camera
+package com.novoda.iockata.apps.camera
 
 import android.app.Activity
 import android.content.Intent
 import android.provider.MediaStore
 import android.widget.Toast
 import com.novoda.iockata.R
-import com.novoda.iockata.launcher.apps.App
+import com.novoda.iockata.apps.App
 
 
 class CameraApp(private val activity: Activity) : App {
