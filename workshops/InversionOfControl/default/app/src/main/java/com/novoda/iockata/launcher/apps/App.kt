@@ -1,4 +1,4 @@
-package com.novoda.iockata.apps
+package com.novoda.iockata.launcher.apps
 
 import android.support.annotation.DrawableRes
 

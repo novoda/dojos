@@ -1,11 +1,11 @@
-package com.novoda.iockata.apps.phone
+package com.novoda.iockata.launcher.apps.phone
 
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import com.novoda.iockata.R
-import com.novoda.iockata.apps.App
+import com.novoda.iockata.launcher.apps.App
 
 class PhoneApp(private val activity: Activity) : App {
 

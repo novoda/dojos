@@ -1,11 +1,11 @@
-package com.novoda.iockata.apps.browser
+package com.novoda.iockata.launcher.apps.browser
 
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import com.novoda.iockata.R
-import com.novoda.iockata.apps.App
+import com.novoda.iockata.launcher.apps.App
 
 
 class BrowserApp(private val activity: Activity) : App {

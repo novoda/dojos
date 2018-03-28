@@ -1,9 +1,9 @@
-package com.novoda.iockata.apps.toaster
+package com.novoda.iockata.launcher.apps.toaster
 
 import android.app.Activity
 import android.widget.Toast
 import com.novoda.iockata.R
-import com.novoda.iockata.apps.App
+import com.novoda.iockata.launcher.apps.App
 
 class ToasterApp(private val activity: Activity) : App {
 
