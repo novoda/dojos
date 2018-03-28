@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.novoda.iockata.R
-import com.novoda.iockata.apps.AppAdapter
 import com.novoda.iockata.core.devicefeatures.DeviceFeature
 import dagger.android.AndroidInjection
 import javax.inject.Inject
