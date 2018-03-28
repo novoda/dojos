@@ -1,4 +1,4 @@
-package com.novoda.iockata.core.di
+package com.novoda.iockata.di
 
 import dagger.Component
 import dagger.android.AndroidInjector
