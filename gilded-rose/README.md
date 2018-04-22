@@ -15,7 +15,7 @@ Update the `settings.gradle` file in the root of `dojos` adding your module
 
 run `./gradlew clean build` to ensure you are all set
 
-** iOS **
+**iOS**
 
 https://github.com/CaleyD/gilded-rose-swift
 
