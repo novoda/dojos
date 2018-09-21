@@ -23,7 +23,7 @@ Write a function to convert in the other direction, ie numeral to digit
 - Can you make the code really beautiful and highly readable?
 - Does it help to break out lots of small named functions from the main function, or is it better to keep it all in one function?
 - if you don’t know an algorithm to do this already, can you derive one using strict TDD?
-- Does the order you take the tests in affect the final design of your algorithm?
+- Does the order you write the tests affect the final design of your algorithm?
 - Would it be better to work out an algorithm first before starting with TDD?
 - If you do know an algorithm already, can you implement it using strict TDD?
 - Can you think of another algorithm?
