@@ -14,7 +14,7 @@ include 'bankAccount:20121206-adamsky'
 include 'bankAccount:20121206-david-peter'
 include 'bankAccount:20121206-ronan-gonzalo'
 include 'bankAccount:20121206-shiv-paul'
-include 'bankAccount:20181019-xxxx-xavi'
+include 'bankAccount:20181019-juanky-xavi'
 
 // change of a dollar
 include 'changeOfADollar:default'
