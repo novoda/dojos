@@ -4,10 +4,16 @@ class Account {
 
     private val transactions: MutableList<Amount> = mutableListOf(Amount(0))
 
-    fun balance(): Balance = Balance(transactions.reduce { acc, amount -> acc + amount })
+    fun balance(): Balance = Balance(transactions.reduce { acc, amount ->
+        acc + amount
+    })
 
-    fun deposit(amount: Int) {
-        transactions.add(Amount(amount))
+    fun deposit(amount: Amount) {
+        transactions.add(amount)
+    }
+
+    fun withdraw(amount: Amount) {
+        transactions.add(Amount(-amount.value))
     }
 }
 

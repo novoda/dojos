@@ -28,5 +28,17 @@ class AccountTest {
         account.assertBalanceEquals(30)
     }
 
+    @Test
+    fun `balance should be 10 when depositing 20 and withdrawing 10`() {
+        account.deposit(20)
+        account.withdraw(10)
+
+        account.assertBalanceEquals(10)
+    }
+
+    private fun Account.deposit(value: Int) = deposit(Amount(value))
+
+    private fun Account.withdraw(value: Int) = withdraw(Amount(value))
+
     private fun Account.assertBalanceEquals(value: Int) = assertThat(balance().amount.value, equalTo(value))
 }
