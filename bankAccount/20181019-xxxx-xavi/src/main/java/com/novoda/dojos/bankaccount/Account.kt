@@ -13,6 +13,11 @@ class Account {
     fun withdraw(amount: Amount) {
         ledger.withdraw(amount)
     }
+
+    fun transfer(amount: Amount, toAccount: Account) {
+        ledger.withdraw(amount)
+        toAccount.deposit(amount)
+    }
 }
 
 data class Balance(val amount: Amount)

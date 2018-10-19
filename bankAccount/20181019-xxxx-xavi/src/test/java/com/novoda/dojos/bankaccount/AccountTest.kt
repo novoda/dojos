@@ -36,9 +36,22 @@ class AccountTest {
         account.assertBalanceEquals(10)
     }
 
+    @Test
+    fun `balance should be 10 and 10 when transfering to another account`() {
+        account.deposit(20)
+        val anotherAccount = Account()
+
+        account.transfer(amount = 10, to = anotherAccount)
+
+        account.assertBalanceEquals(10)
+        anotherAccount.assertBalanceEquals(10)
+    }
+
     private fun Account.deposit(value: Int) = deposit(Amount(value))
 
     private fun Account.withdraw(value: Int) = withdraw(Amount(value))
+
+    private fun Account.transfer(amount: Int, to: Account) = transfer(Amount(amount), to)
 
     private fun Account.assertBalanceEquals(value: Int) = assertThat(balance().amount.value, equalTo(value))
 }
