@@ -2,12 +2,22 @@ package com.novoda.dojos.bankaccount
 
 class Account {
 
-    private val transactions: MutableList<Transaction> = mutableListOf()
+    private val ledger: Ledger = Ledger()
 
-    fun balance(): Balance = Balance(transactions.fold(Amount(0)) { acc, transaction ->
-        transaction.applyTo(acc)
-    })
+    fun balance(): Balance = ledger.balance()
 
+    fun deposit(amount: Amount) {
+        ledger.deposit(amount)
+    }
+
+    fun withdraw(amount: Amount) {
+        ledger.withdraw(amount)
+    }
+}
+
+data class Balance(val amount: Amount)
+
+data class Ledger(val transactions: MutableList<Transaction> = mutableListOf()) {
     fun deposit(amount: Amount) {
         transactions.add(Deposit(amount))
     }
@@ -15,9 +25,11 @@ class Account {
     fun withdraw(amount: Amount) {
         transactions.add(Withdrawal(amount))
     }
-}
 
-data class Balance(val amount: Amount)
+    fun balance(): Balance = Balance(transactions.fold(Amount(0)) { acc, transaction ->
+        transaction.applyTo(acc)
+    })
+}
 
 data class Amount(val value: Int) {
     operator fun plus(other: Amount) = Amount(value + other.value)
