@@ -11,3 +11,7 @@ dependencies {
 	compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
+task wrapper(type: Wrapper) {
+    distributionType = Wrapper.DistributionType.ALL
+    gradleVersion = '4.10.2'
+}
