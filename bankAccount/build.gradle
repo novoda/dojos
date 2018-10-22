@@ -1,13 +1,22 @@
-plugins {
-	id 'org.jetbrains.kotlin.jvm' version '1.2.71'
-}
-subprojects {
-	apply from: '../default/build.gradle'
-}
-repositories {
-	mavenCentral()
-}
-dependencies {
-	compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+buildscript {
+    ext.kotlin_version = '1.2.71'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
 
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    apply from: rootProject.file('default/build.gradle')
+}
+
+task wrapper(type: Wrapper) {
+    distributionType = Wrapper.DistributionType.ALL
+    gradleVersion = '4.10.2'
+}
