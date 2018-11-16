@@ -12,7 +12,9 @@
 		9F29B7F9219EC2E5003D88AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F29B7F1219EC2E5003D88AF /* LaunchScreen.storyboard */; };
 		9F29B7FA219EC2E5003D88AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F29B7F3219EC2E5003D88AF /* Main.storyboard */; };
 		9F29B7FB219EC2E5003D88AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29B7F5219EC2E5003D88AF /* AppDelegate.swift */; };
-		9F29B800219EC2F0003D88AF /* Testable_codeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29B7FE219EC2F0003D88AF /* Testable_codeTests.swift */; };
+		9F29B804219ECE73003D88AF /* PresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29B803219ECE73003D88AF /* PresenterTests.swift */; };
+		9F29B807219ED8E9003D88AF /* PresenterAndViewHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29B805219ED8D9003D88AF /* PresenterAndViewHint.swift */; };
+		9F29B80A219EDB2D003D88AF /* PresenterAndViewRefactored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29B808219EDB2A003D88AF /* PresenterAndViewRefactored.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +36,11 @@
 		9F29B7F4219EC2E5003D88AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9F29B7F5219EC2E5003D88AF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F29B7F6219EC2E5003D88AF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F29B7FE219EC2F0003D88AF /* Testable_codeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testable_codeTests.swift; sourceTree = "<group>"; };
 		9F29B7FF219EC2F0003D88AF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F29B802219ECE73003D88AF /* Testable codeTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Testable codeTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		9F29B803219ECE73003D88AF /* PresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterTests.swift; sourceTree = "<group>"; };
+		9F29B805219ED8D9003D88AF /* PresenterAndViewHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterAndViewHint.swift; sourceTree = "<group>"; };
+		9F29B808219EDB2A003D88AF /* PresenterAndViewRefactored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterAndViewRefactored.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,8 @@
 				9F29B7F3219EC2E5003D88AF /* Main.storyboard */,
 				9F29B7F5219EC2E5003D88AF /* AppDelegate.swift */,
 				9F29B7F6219EC2E5003D88AF /* Info.plist */,
+				9F29B805219ED8D9003D88AF /* PresenterAndViewHint.swift */,
+				9F29B808219EDB2A003D88AF /* PresenterAndViewRefactored.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -90,8 +97,9 @@
 		9F29B7FD219EC2F0003D88AF /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				9F29B7FE219EC2F0003D88AF /* Testable_codeTests.swift */,
 				9F29B7FF219EC2F0003D88AF /* Info.plist */,
+				9F29B803219ECE73003D88AF /* PresenterTests.swift */,
+				9F29B802219ECE73003D88AF /* Testable codeTests-Bridging-Header.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 					};
 					9F29B7DE219EC24D003D88AF = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 9F29B7CA219EC24C003D88AF;
 					};
 				};
@@ -197,6 +206,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F29B80A219EDB2D003D88AF /* PresenterAndViewRefactored.swift in Sources */,
+				9F29B807219ED8E9003D88AF /* PresenterAndViewHint.swift in Sources */,
 				9F29B7FB219EC2E5003D88AF /* AppDelegate.swift in Sources */,
 				9F29B7F7219EC2E5003D88AF /* ViewController.swift in Sources */,
 			);
@@ -206,7 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F29B800219EC2F0003D88AF /* Testable_codeTests.swift in Sources */,
+				9F29B804219ECE73003D88AF /* PresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +406,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -404,6 +416,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.novoda.dojo.Testable-codeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Testable codeTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Testable code.app/Testable code";
@@ -415,6 +429,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -424,6 +439,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.novoda.dojo.Testable-codeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Testable codeTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Testable code.app/Testable code";
