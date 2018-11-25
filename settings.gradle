@@ -97,12 +97,6 @@ include 'tennis_refactoring:201302-teamB'
 //tic-tac-toe
 include 'tic-tac-toe:default'
 
-// ocpPaperScissorsStone
-include 'ocpPaperScissorsStone:java:default'
-include 'ocpPaperScissorsStone:java:03082016_paul-flo'
-include 'ocpPaperScissorsStone:java:03082016-tahsin-tobi'
-include 'ocpPaperScissorsStone:java:03082016-juergen-toto'
-
 // simplelists
 include 'simplelists:default'
 include 'simplelist:eduard-juanky'
