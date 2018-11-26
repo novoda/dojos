@@ -69,17 +69,6 @@ include 'ocpBowling:java:20130918-omnitron'
 //prime-factors
 include 'prime-factors:java:default'
 
-// racing-car-katas
-include 'racing-car-katas:do-not-copy'
-include 'racing-car-katas:leaderboard'
-include 'racing-car-katas:telemetry-system'
-include 'racing-car-katas:text-converter'
-include 'racing-car-katas:text-converter_dirk'
-include 'racing-car-katas:tire-pressure-monitoring-system'
-include 'racing-car-katas:turn-ticket-dispenser'
-include 'racing-car-katas:20151209-text-converter-paul-juan'
-include 'racing-car-katas:text-converter-dirk-florian-2015-12-09'
-
 // recents list
 include 'recents-list:default'
 include 'recents-list:20151113-xavi-quentin'
