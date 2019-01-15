@@ -6,8 +6,8 @@ import okhttp3.Response
 import java.util.*
 
 private const val HEADER_BASIC = "Basic "
-private const val HEADER_ACCEPT = "Accept "
-private const val AUTHORIZATION = "Authorization "
+private const val HEADER_ACCEPT = "Accept"
+private const val AUTHORIZATION = "Authorization"
 private const val HEADER_API_VERSION = "application/vnd.github.v3+json"
 
 internal class NetworkDependencyProvider(private val userName: String, private val token: String) {
