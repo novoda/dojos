@@ -2,8 +2,6 @@ package com.novoda.workshop.contributors
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.novoda.workshop.GitHubService
 import com.novoda.workshop.R
 import com.novoda.workshop.core.NetworkDependencyProvider
 import kotlinx.android.synthetic.main.activity_contributers.*
@@ -11,8 +9,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 import kotlin.coroutines.CoroutineContext
 
 class ContributorsActivity : AppCompatActivity(), CoroutineScope {
@@ -40,19 +36,11 @@ class ContributorsActivity : AppCompatActivity(), CoroutineScope {
 
     }
 
-    private fun createService(): GitHubService {
+    private fun createService(): ContributorsBackend {
         val userName = "XXX"
         val token = "XXX"
-        val httpClient = NetworkDependencyProvider(userName, token).provideHttpClient()
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.github.com")
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
-            .addConverterFactory(MoshiConverterFactory.create())
-            .client(httpClient)
-            .build()
-
-        return retrofit.create(GitHubService::class.java)
+        val networkDependencyProvider = NetworkDependencyProvider(userName, token)
+        return ContributorsDependencyProvider(networkDependencyProvider).providerBackend()
     }
 
     override fun onStop() {
