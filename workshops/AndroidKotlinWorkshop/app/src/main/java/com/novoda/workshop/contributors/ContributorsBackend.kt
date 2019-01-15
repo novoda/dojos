@@ -7,14 +7,11 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 internal interface ContributorsBackend {
-    @GET("orgs/{org}/repos?per_page=100")
-    fun listOrgRepos(
-        @Path("org") org: String
-    ): Deferred<List<Repo>>
+    @GET("orgs/novoda/repos?per_page=100")
+    fun listRepos(): Deferred<List<Repo>>
 
-    @GET("repos/{owner}/{repo}/contributors?per_page=100")
-    fun listRepoContributors(
-        @Path("owner") owner: String,
+    @GET("repos/novoda/{repo}/contributors?per_page=100")
+    fun listContributors(
         @Path("repo") repo: String
     ): Deferred<List<User>>
 }

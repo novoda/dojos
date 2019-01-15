@@ -17,10 +17,10 @@ internal class ContributorsPresenter(private val backend: ContributorsBackend) :
         job = Job()
 
         launch {
-            val deferredRepos = backend.listOrgRepos("novoda")
+            val deferredRepos = backend.listRepos()
             val repos = deferredRepos.await()
-            val contributors = repos.flatMap {
-                val users = backend.listRepoContributors("novoda", it.name).await()
+            val contributors = repos.flatMap { repo ->
+                val users = backend.listContributors(repo.name).await()
                 users
             }.aggregate()
 
