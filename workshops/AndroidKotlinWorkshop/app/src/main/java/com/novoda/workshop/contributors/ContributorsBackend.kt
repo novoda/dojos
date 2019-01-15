@@ -6,7 +6,6 @@ import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-
 internal interface ContributorsBackend {
     @GET("orgs/{org}/repos?per_page=100")
     fun listOrgRepos(

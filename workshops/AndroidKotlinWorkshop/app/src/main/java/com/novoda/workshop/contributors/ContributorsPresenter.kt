@@ -1,11 +1,11 @@
 package com.novoda.workshop.contributors
 
+import com.novoda.workshop.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
-
 
 internal class ContributorsPresenter(private val backend: ContributorsBackend) : CoroutineScope {
 
@@ -19,8 +19,12 @@ internal class ContributorsPresenter(private val backend: ContributorsBackend) :
         launch {
             val deferredRepos = backend.listOrgRepos("novoda")
             val repos = deferredRepos.await()
-            val repoSizeAsString = repos.size.toString()
-            view.render(repoSizeAsString)
+            val contributors = repos.flatMap {
+                val users = backend.listRepoContributors("novoda", it.name).await()
+                users
+            }.aggregate()
+
+            view.render(contributors)
         }
     }
 
@@ -29,6 +33,15 @@ internal class ContributorsPresenter(private val backend: ContributorsBackend) :
     }
 
     interface View {
-        fun render(repoSizeAsString: String)
+        fun render(contributors: List<User>)
     }
+
+    private fun List<User>.aggregate(): List<User> =
+        groupingBy { it.login }
+            .reduce { login, a, b ->
+                User(login, a.contributions + b.contributions)
+            }
+            .values
+            .sortedByDescending { it.contributions }
+
 }

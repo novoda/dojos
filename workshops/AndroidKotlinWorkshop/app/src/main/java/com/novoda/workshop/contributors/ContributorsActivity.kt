@@ -3,10 +3,11 @@ package com.novoda.workshop.contributors
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.novoda.workshop.R
+import com.novoda.workshop.User
 import com.novoda.workshop.core.NetworkDependencyProvider
 import kotlinx.android.synthetic.main.activity_contributers.*
 
-class ContributorsActivity : AppCompatActivity(), ContributorsPresenter.View {
+internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter.View {
 
     private val presenter: ContributorsPresenter
         get() {
@@ -31,7 +32,7 @@ class ContributorsActivity : AppCompatActivity(), ContributorsPresenter.View {
         super.onStop()
     }
 
-    override fun render(repoSizeAsString: String) {
-        label.text = repoSizeAsString
+    override fun render(contributors: List<User>) {
+        label.text = contributors.size.toString()
     }
 }
