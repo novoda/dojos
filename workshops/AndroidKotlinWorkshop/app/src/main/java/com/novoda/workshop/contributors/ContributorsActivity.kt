@@ -5,17 +5,16 @@ import android.support.v7.app.AppCompatActivity
 import com.novoda.workshop.R
 import com.novoda.workshop.core.NetworkDependencyProvider
 import kotlinx.android.synthetic.main.activity_contributers.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
-class ContributorsActivity : AppCompatActivity(), CoroutineScope {
+class ContributorsActivity : AppCompatActivity(), ContributorsPresenter.View {
 
-    override val coroutineContext: CoroutineContext get() = Dispatchers.Main + job
-
-    private lateinit var job: Job
+    private val presenter: ContributorsPresenter
+        get() {
+            val userName = "XXX"
+            val token = "XXX"
+            val networkDependencyProvider = NetworkDependencyProvider(userName, token)
+            return ContributorsDependencyProvider(networkDependencyProvider).providePresenter()
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,27 +23,15 @@ class ContributorsActivity : AppCompatActivity(), CoroutineScope {
 
     override fun onStart() {
         super.onStart()
-        job = Job()
-
-        val service = createService()
-
-        launch {
-            val deferredRepos = service.listOrgRepos("novoda")
-            val repos = deferredRepos.await()
-            label.text = repos.size.toString()
-        }
-
-    }
-
-    private fun createService(): ContributorsBackend {
-        val userName = "XXX"
-        val token = "XXX"
-        val networkDependencyProvider = NetworkDependencyProvider(userName, token)
-        return ContributorsDependencyProvider(networkDependencyProvider).providerBackend()
+        presenter.startPresenting(this)
     }
 
     override fun onStop() {
+        presenter.stopPresenting()
         super.onStop()
-        job.cancel()
+    }
+
+    override fun render(repoSizeAsString: String) {
+        label.text = repoSizeAsString
     }
 }

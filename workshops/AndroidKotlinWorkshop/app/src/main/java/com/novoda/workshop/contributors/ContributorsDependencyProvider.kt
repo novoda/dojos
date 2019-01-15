@@ -5,18 +5,23 @@ import com.novoda.workshop.core.NetworkDependencyProvider
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-private const val BASE_URL = "https://api.github.com"
+private const val GITHUB_API_URL = "https://api.github.com"
+
 internal class ContributorsDependencyProvider(networkDependencyProvider: NetworkDependencyProvider) {
     private val httpClient = networkDependencyProvider.provideHttpClient()
 
-    fun providerBackend(): ContributorsBackend {
+    private fun provideBackend(): ContributorsBackend {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(GITHUB_API_URL)
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .addConverterFactory(MoshiConverterFactory.create())
             .client(httpClient)
             .build()
 
         return retrofit.create(ContributorsBackend::class.java)
+    }
+
+    fun providePresenter(): ContributorsPresenter {
+        return ContributorsPresenter(provideBackend())
     }
 }
