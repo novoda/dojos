@@ -17,14 +17,18 @@ internal class ContributorsPresenter(private val backend: ContributorsBackend) :
         job = Job()
 
         launch {
-            val deferredRepos = backend.listRepos()
-            val repos = deferredRepos.await()
-            val contributors = repos.flatMap { repo ->
-                val users = backend.listContributors(repo.name).await()
-                users
-            }.aggregate()
+            try {
+                val deferredRepos = backend.listRepos()
+                val repos = deferredRepos.await()
+                val contributors = repos.flatMap { repo ->
+                    val users = backend.listContributors(repo.name).await()
+                    users
+                }.aggregate()
 
-            view.render(contributors)
+                view.render(contributors)
+            } catch (e: Exception) {
+                view.showError(e.message)
+            }
         }
     }
 
@@ -34,12 +38,13 @@ internal class ContributorsPresenter(private val backend: ContributorsBackend) :
 
     interface View {
         fun render(contributors: List<User>)
+        fun showError(message: String?)
     }
 
     private fun List<User>.aggregate(): List<User> =
         groupingBy { it.login }
             .reduce { login, a, b ->
-                User(login, a.contributions + b.contributions)
+                User(login, a.contributions + b.contributions, a.avatarUrl)
             }
             .values
             .sortedByDescending { it.contributions }

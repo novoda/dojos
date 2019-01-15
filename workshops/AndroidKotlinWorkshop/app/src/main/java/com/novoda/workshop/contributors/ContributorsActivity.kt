@@ -8,7 +8,6 @@ import com.novoda.workshop.core.NetworkDependencyProvider
 import kotlinx.android.synthetic.main.activity_contributers.*
 
 internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter.View {
-
     private val presenter: ContributorsPresenter
         get() {
             val userName = "XXX"
@@ -34,5 +33,9 @@ internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter
 
     override fun render(contributors: List<User>) {
         label.text = contributors.size.toString()
+    }
+
+    override fun showError(message: String?) {
+        label.text = message ?: getString(R.string.contributors_error)
     }
 }

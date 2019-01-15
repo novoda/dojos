@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android Kotlin Workshop</string>
+    <string name="contributors_error">Something went wrong</string>
 </resources>
