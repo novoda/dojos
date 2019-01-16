@@ -11,14 +11,8 @@ import com.novoda.workshop.core.NetworkDependencyProvider
 import kotlinx.android.synthetic.main.activity_contributors.*
 
 internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter.View {
-    private val presenter: ContributorsPresenter
-        get() {
-            val userName = "tobiasheine"
-            val token = "65912f6919f834fe937774509dd27d986efb7891"
-            val networkDependencyProvider = NetworkDependencyProvider(userName, token)
-            return ContributorsDependencyProvider(networkDependencyProvider).providePresenter()
-        }
 
+    private lateinit var presenter: ContributorsPresenter
     private val contributorsAdapter = ContributorsAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +22,11 @@ internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter
         contributorList.layoutManager = LinearLayoutManager(this)
         val contributorsAdapter = contributorsAdapter
         contributorList.adapter = contributorsAdapter
+
+        val userName = "tobiasheine"
+        val token = "65912f6919f834fe937774509dd27d986efb7891"
+        val networkDependencyProvider = NetworkDependencyProvider(userName, token)
+        presenter = ContributorsDependencyProvider(networkDependencyProvider).providePresenter()
     }
 
     override fun onStart() {
