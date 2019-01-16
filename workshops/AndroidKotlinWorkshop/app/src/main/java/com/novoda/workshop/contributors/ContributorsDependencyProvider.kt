@@ -1,6 +1,8 @@
 package com.novoda.workshop.contributors
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.novoda.workshop.contributors.fetcher.ContributorsBackend
+import com.novoda.workshop.contributors.fetcher.ContributorsFetcher
 import com.novoda.workshop.core.NetworkDependencyProvider
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory

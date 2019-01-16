@@ -1,9 +1,10 @@
-package com.novoda.workshop.contributors
+package com.novoda.workshop.contributors.view
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.novoda.workshop.R
+import com.novoda.workshop.contributors.data.Contributor
 
 internal class ContributorsAdapter : RecyclerView.Adapter<ContributorHolder>() {
 

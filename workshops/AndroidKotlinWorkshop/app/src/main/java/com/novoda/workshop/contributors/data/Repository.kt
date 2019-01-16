@@ -1,4 +1,4 @@
-package com.novoda.workshop.contributors
+package com.novoda.workshop.contributors.data
 
 internal data class Repository(
     val id: Long,

@@ -1,4 +1,6 @@
-package com.novoda.workshop.contributors
+package com.novoda.workshop.contributors.fetcher
+
+import com.novoda.workshop.contributors.data.Contributor
 
 
 internal class ContributorsFetcher(private val backend: ContributorsBackend) {

@@ -1,5 +1,7 @@
-package com.novoda.workshop.contributors
+package com.novoda.workshop.contributors.fetcher
 
+import com.novoda.workshop.contributors.data.Contributor
+import com.novoda.workshop.contributors.data.Repository
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Path

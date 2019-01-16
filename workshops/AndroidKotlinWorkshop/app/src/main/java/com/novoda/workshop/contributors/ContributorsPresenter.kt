@@ -1,5 +1,7 @@
 package com.novoda.workshop.contributors
 
+import com.novoda.workshop.contributors.data.Contributor
+import com.novoda.workshop.contributors.fetcher.ContributorsFetcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

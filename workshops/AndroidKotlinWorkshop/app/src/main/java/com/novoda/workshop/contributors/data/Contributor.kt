@@ -1,4 +1,4 @@
-package com.novoda.workshop.contributors
+package com.novoda.workshop.contributors.data
 
 import com.squareup.moshi.Json
 

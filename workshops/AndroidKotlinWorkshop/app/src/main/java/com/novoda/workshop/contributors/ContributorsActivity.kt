@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.novoda.workshop.R
+import com.novoda.workshop.contributors.data.Contributor
+import com.novoda.workshop.contributors.view.ContributorsAdapter
 import com.novoda.workshop.core.NetworkDependencyProvider
 import kotlinx.android.synthetic.main.activity_contributors.*
 

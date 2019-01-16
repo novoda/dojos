@@ -1,4 +1,4 @@
-package com.novoda.workshop.contributors
+package com.novoda.workshop.contributors.view
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -6,6 +6,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.model.GlideUrl
 import com.novoda.workshop.R
+import com.novoda.workshop.contributors.data.Contributor
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_contributor.*
 
