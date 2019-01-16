@@ -1,6 +1,5 @@
 package com.novoda.workshop.credentials
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.novoda.workshop.R
@@ -14,7 +13,12 @@ internal class CredentialsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_credentials)
         show_contributors_button.setOnClickListener {
-            startActivity(Intent(this, ContributorsActivity::class.java))
+            val userName = user_name_input.text.toString()
+            val token = token_input.text.toString()
+
+            if (userName.isNotEmpty() && token.isNotEmpty()) {
+                startActivity(ContributorsActivity.createIntent(this, userName, token))
+            }
         }
     }
 }

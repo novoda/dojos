@@ -1,5 +1,7 @@
 package com.novoda.workshop.contributors
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -9,6 +11,9 @@ import com.novoda.workshop.contributors.data.Contributor
 import com.novoda.workshop.contributors.view.ContributorsAdapter
 import com.novoda.workshop.core.NetworkDependencyProvider
 import kotlinx.android.synthetic.main.activity_contributors.*
+
+private const val EXTRA_USER_NAME = "extra_user_name"
+private const val EXTRA_TOKEN = "extra_token"
 
 internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter.View {
 
@@ -20,13 +25,15 @@ internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter
         setContentView(R.layout.activity_contributors)
         title = getString(R.string.contributors_activity_title)
         contributorList.layoutManager = LinearLayoutManager(this)
-        val contributorsAdapter = contributorsAdapter
         contributorList.adapter = contributorsAdapter
+        presenter = createPresenter()
+    }
 
-        val userName = "tobiasheine"
-        val token = "65912f6919f834fe937774509dd27d986efb7891"
+    private fun createPresenter(): ContributorsPresenter {
+        val userName = intent.getStringExtra(EXTRA_USER_NAME)
+        val token = intent.getStringExtra(EXTRA_TOKEN)
         val networkDependencyProvider = NetworkDependencyProvider(userName, token)
-        presenter = ContributorsDependencyProvider(networkDependencyProvider).providePresenter()
+        return ContributorsDependencyProvider(networkDependencyProvider).providePresenter()
     }
 
     override fun onStart() {
@@ -46,5 +53,14 @@ internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter
     override fun showError(message: String?) {
         val errorMessage = message ?: getString(R.string.contributors_error)
         Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
+    }
+
+    companion object {
+        fun createIntent(context: Context, userName: String, token: String): Intent {
+            val intent = Intent(context, ContributorsActivity::class.java)
+            intent.putExtra(EXTRA_USER_NAME, userName)
+            intent.putExtra(EXTRA_TOKEN, token)
+            return intent
+        }
     }
 }
