@@ -21,7 +21,7 @@ internal class ContributorHolder(override val containerView: View) : RecyclerVie
     }
 
     private fun labelFrom(user: User) =
-        resources.getString(R.string.contributor_label, user.login, user.contributions)
+        resources.getString(R.string.contributor_item_label, user.login, user.contributions)
 
 }
 

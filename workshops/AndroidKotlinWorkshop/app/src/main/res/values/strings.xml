@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Android Kotlin Workshop</string>
     <string name="contributors_error">Something went wrong</string>
-    <string name="contributor_label">%s (%d)</string>
+    <string name="contributor_item_label">%s (%d)</string>
+    <string name="contributors_activity_title">Most active contributors</string>
 </resources>

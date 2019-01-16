@@ -23,6 +23,7 @@ internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contributors)
+        title = getString(R.string.contributors_activity_title)
         contributorList.layoutManager = LinearLayoutManager(this)
         val contributorsAdapter = contributorsAdapter
         contributorList.adapter = contributorsAdapter
