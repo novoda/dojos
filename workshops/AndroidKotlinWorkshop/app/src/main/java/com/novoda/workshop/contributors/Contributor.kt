@@ -3,7 +3,7 @@ package com.novoda.workshop.contributors
 import com.squareup.moshi.Json
 
 internal data class Contributor(
-    val name: String,
+    @field:Json(name = "login") val name: String,
     val contributions: Int,
     @field:Json(name = "avatar_url") val avatarUrl: String
 )

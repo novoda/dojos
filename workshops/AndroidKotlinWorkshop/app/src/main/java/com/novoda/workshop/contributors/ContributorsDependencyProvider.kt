@@ -22,6 +22,8 @@ internal class ContributorsDependencyProvider(networkDependencyProvider: Network
     }
 
     fun providePresenter(): ContributorsPresenter {
-        return ContributorsPresenter(provideBackend())
+        return ContributorsPresenter(provideFetcher())
     }
+
+    private fun provideFetcher() = ContributorsFetcher(provideBackend())
 }

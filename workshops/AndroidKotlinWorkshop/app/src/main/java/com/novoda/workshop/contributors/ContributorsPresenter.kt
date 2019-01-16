@@ -6,7 +6,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-internal class ContributorsPresenter(private val backend: ContributorsBackend) : CoroutineScope {
+internal class ContributorsPresenter(private val fetcher: ContributorsFetcher) : CoroutineScope {
 
     override val coroutineContext: CoroutineContext get() = Dispatchers.Main + job
 
@@ -17,14 +17,8 @@ internal class ContributorsPresenter(private val backend: ContributorsBackend) :
 
         launch {
             try {
-                val deferredRepos = backend.listRepos()
-                val repos = deferredRepos.await()
-                val allContributors = mutableListOf<Contributor>()
-
-                repos.forEach { repo ->
-                    val users = backend.listContributors(repo.name).await()
-                    allContributors.addAll(users)
-                    view.render(allContributors.aggregate())
+                fetcher.fetchContributors { contributors ->
+                    view.render(contributors)
                 }
             } catch (e: Exception) {
                 view.showError(e.message)
@@ -40,13 +34,5 @@ internal class ContributorsPresenter(private val backend: ContributorsBackend) :
         fun render(contributors: List<Contributor>)
         fun showError(message: String?)
     }
-
-    private fun List<Contributor>.aggregate(): List<Contributor> =
-        groupingBy { it.name }
-            .reduce { login, a, b ->
-                Contributor(login, a.contributions + b.contributions, a.avatarUrl)
-            }
-            .values
-            .sortedByDescending { it.contributions }
 
 }
