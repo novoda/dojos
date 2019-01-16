@@ -20,12 +20,13 @@ internal class ContributorsPresenter(private val backend: ContributorsBackend) :
             try {
                 val deferredRepos = backend.listRepos()
                 val repos = deferredRepos.await()
-                val contributors = repos.flatMap { repo ->
-                    val users = backend.listContributors(repo.name).await()
-                    users
-                }.aggregate()
+                val allContributors = mutableListOf<User>()
 
-                view.render(contributors)
+                repos.forEach { repo ->
+                    val users = backend.listContributors(repo.name).await()
+                    allContributors.addAll(users)
+                    view.render(allContributors.aggregate())
+                }
             } catch (e: Exception) {
                 view.showError(e.message)
             }
