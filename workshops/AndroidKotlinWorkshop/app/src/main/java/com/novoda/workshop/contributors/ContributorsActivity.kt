@@ -26,10 +26,10 @@ internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter
         title = getString(R.string.contributors_activity_title)
         contributorList.layoutManager = LinearLayoutManager(this)
         contributorList.adapter = contributorsAdapter
-        presenter = createPresenter()
+        presenter = createPresenter(intent)
     }
 
-    private fun createPresenter(): ContributorsPresenter {
+    private fun createPresenter(intent: Intent): ContributorsPresenter {
         val userName = intent.getStringExtra(EXTRA_USER_NAME)
         val token = intent.getStringExtra(EXTRA_TOKEN)
         val networkDependencyProvider = NetworkDependencyProvider(userName, token)
