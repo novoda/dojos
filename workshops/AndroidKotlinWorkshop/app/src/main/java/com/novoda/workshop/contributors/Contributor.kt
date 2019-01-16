@@ -1,9 +1,9 @@
-package com.novoda.workshop
+package com.novoda.workshop.contributors
 
 import com.squareup.moshi.Json
 
-internal data class User(
-    val login: String,
+internal data class Contributor(
+    val name: String,
     val contributions: Int,
     @field:Json(name = "avatar_url") val avatarUrl: String
 )

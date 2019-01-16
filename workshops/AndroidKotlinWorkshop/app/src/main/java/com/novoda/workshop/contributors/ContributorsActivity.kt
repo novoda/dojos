@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.novoda.workshop.R
-import com.novoda.workshop.User
 import com.novoda.workshop.core.NetworkDependencyProvider
 import kotlinx.android.synthetic.main.activity_contributors.*
 
@@ -39,7 +38,7 @@ internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter
         super.onStop()
     }
 
-    override fun render(contributors: List<User>) {
+    override fun render(contributors: List<Contributor>) {
         contributorsAdapter.setContributors(contributors)
     }
 
