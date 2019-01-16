@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="contributor_avatar_size">48dp</dimen>
+    <dimen name="contributor_item_spacing">12dp</dimen>
+</resources>

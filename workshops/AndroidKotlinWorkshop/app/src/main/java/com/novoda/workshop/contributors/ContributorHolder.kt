@@ -2,6 +2,9 @@ package com.novoda.workshop.contributors
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.model.GlideUrl
 import com.novoda.workshop.R
 import com.novoda.workshop.User
 import kotlinx.android.extensions.LayoutContainer
@@ -14,9 +17,15 @@ internal class ContributorHolder(override val containerView: View) : RecyclerVie
 
     fun bind(user: User) {
         contributor_label.text = labelFrom(user)
+        contributor_image.loadImageFrom(user.avatarUrl)
     }
 
     private fun labelFrom(user: User) =
         resources.getString(R.string.contributor_label, user.login, user.contributions)
 
+}
+
+private fun ImageView.loadImageFrom(avatarUrl: String) {
+    Glide.with(context).load(GlideUrl(avatarUrl))
+        .into(this)
 }

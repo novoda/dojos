@@ -8,21 +8,22 @@
 
     <ImageView
             android:id="@+id/contributor_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="@dimen/contributor_avatar_size"
+            android:layout_height="@dimen/contributor_avatar_size"
+            android:layout_marginBottom="@dimen/contributor_item_spacing"
+            android:layout_marginStart="@dimen/contributor_item_spacing"
+            android:layout_marginTop="@dimen/contributor_item_spacing"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@android:drawable/ic_dialog_alert"/>
+            tools:src="@android:drawable/ic_dialog_alert" />
 
     <TextView
             android:id="@+id/contributor_label"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/contributor_item_spacing"
             android:gravity="center_vertical"
             app:layout_constraintStart_toEndOf="@id/contributor_image"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,6 +31,5 @@
             app:layout_constraintVertical_chainStyle="spread_inside"
             tools:text="tobiasheine (200 contributions)"
     />
-
 
 </android.support.constraint.ConstraintLayout>
