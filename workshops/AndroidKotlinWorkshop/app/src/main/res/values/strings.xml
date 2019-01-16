@@ -3,4 +3,9 @@
     <string name="contributors_error">Something went wrong</string>
     <string name="contributor_item_label">%s (%d)</string>
     <string name="contributors_activity_title">Most active contributors</string>
+    <string name="launcher_user_label">Github user name:</string>
+    <string name="launcher_token_label">Github token:</string>
+    <string name="launcher_user_hint">Enter github user name</string>
+    <string name="launcher_token_hint">Enter github token</string>
+    <string name="launcher_show_contributors_label">Show novoda contributors</string>
 </resources>
