@@ -2,6 +2,7 @@ package com.novoda.workshop.contributors
 
 import com.novoda.workshop.contributors.data.Contributor
 import com.novoda.workshop.contributors.fetcher.ContributorsFetcher
+import com.novoda.workshop.contributors.view.View
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
@@ -41,10 +42,6 @@ internal class ContributorsPresenter(private val fetcher: ContributorsFetcher) :
         job.cancel()
     }
 
-    interface View {
-        fun render(contributors: List<Contributor>)
-        fun showError(message: String?)
-    }
 }
 
 private fun java.lang.Exception.isNotCausedByCancellingJob(): Boolean = this !is CancellationException

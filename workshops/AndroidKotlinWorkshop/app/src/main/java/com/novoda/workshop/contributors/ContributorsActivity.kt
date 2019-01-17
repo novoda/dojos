@@ -9,12 +9,13 @@ import android.widget.Toast
 import com.novoda.workshop.R
 import com.novoda.workshop.contributors.data.Contributor
 import com.novoda.workshop.contributors.view.ContributorsAdapter
+import com.novoda.workshop.contributors.view.View
 import kotlinx.android.synthetic.main.activity_contributors.*
 
 private const val EXTRA_USER_NAME = "extra_user_name"
 private const val EXTRA_TOKEN = "extra_token"
 
-internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter.View {
+internal class ContributorsActivity : AppCompatActivity(), View {
 
     private lateinit var presenter: ContributorsPresenter
     private val contributorsAdapter = ContributorsAdapter()
