@@ -9,7 +9,6 @@ import android.widget.Toast
 import com.novoda.workshop.R
 import com.novoda.workshop.contributors.data.Contributor
 import com.novoda.workshop.contributors.view.ContributorsAdapter
-import com.novoda.workshop.core.NetworkDependencyProvider
 import kotlinx.android.synthetic.main.activity_contributors.*
 
 private const val EXTRA_USER_NAME = "extra_user_name"
@@ -32,8 +31,7 @@ internal class ContributorsActivity : AppCompatActivity(), ContributorsPresenter
     private fun createPresenter(intent: Intent): ContributorsPresenter {
         val userName = intent.getStringExtra(EXTRA_USER_NAME)
         val token = intent.getStringExtra(EXTRA_TOKEN)
-        val networkDependencyProvider = NetworkDependencyProvider(userName, token)
-        return ContributorsDependencyProvider(networkDependencyProvider).providePresenter()
+        return ContributorsDependencyProvider(userName, token).providePresenter()
     }
 
     override fun onStart() {

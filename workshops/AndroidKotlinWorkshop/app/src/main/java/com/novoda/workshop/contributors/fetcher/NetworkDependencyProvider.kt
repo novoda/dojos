@@ -1,4 +1,4 @@
-package com.novoda.workshop.core
+package com.novoda.workshop.contributors.fetcher
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -22,7 +22,10 @@ internal class NetworkDependencyProvider(private val userName: String, private v
     private fun authInterceptor(chain: Interceptor.Chain): Response {
         val original = chain.request()
         val builder = original.newBuilder()
-            .header(HEADER_ACCEPT, HEADER_API_VERSION)
+            .header(
+                HEADER_ACCEPT,
+                HEADER_API_VERSION
+            )
             .header(AUTHORIZATION, authTokenHeader())
         val request = builder.build()
         return chain.proceed(request)

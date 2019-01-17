@@ -3,14 +3,15 @@ package com.novoda.workshop.contributors
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.novoda.workshop.contributors.fetcher.ContributorsBackend
 import com.novoda.workshop.contributors.fetcher.ContributorsFetcher
-import com.novoda.workshop.core.NetworkDependencyProvider
+import com.novoda.workshop.contributors.fetcher.NetworkDependencyProvider
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 private const val GITHUB_API_URL = "https://api.github.com"
 
-internal class ContributorsDependencyProvider(networkDependencyProvider: NetworkDependencyProvider) {
-    private val httpClient = networkDependencyProvider.provideHttpClient()
+internal class ContributorsDependencyProvider(userName: String, token: String) {
+
+    private val httpClient = NetworkDependencyProvider(userName, token).provideHttpClient()
 
     private fun provideBackend(): ContributorsBackend {
         val retrofit = Retrofit.Builder()
