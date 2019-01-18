@@ -10,7 +10,7 @@ import com.novoda.workshop.contributors.data.Contributor
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_contributor.*
 
-internal class ContributorHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
+internal class ContributorViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
     LayoutContainer {
 
     private val resources = containerView.resources

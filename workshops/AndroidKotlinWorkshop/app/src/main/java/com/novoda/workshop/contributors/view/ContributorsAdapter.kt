@@ -6,16 +6,16 @@ import android.view.ViewGroup
 import com.novoda.workshop.R
 import com.novoda.workshop.contributors.data.Contributor
 
-internal class ContributorsAdapter : RecyclerView.Adapter<ContributorHolder>() {
+internal class ContributorsAdapter : RecyclerView.Adapter<ContributorViewHolder>() {
 
     private val contributors = mutableListOf<Contributor>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContributorHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContributorViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_contributor, parent, false)
-        return ContributorHolder(itemView)
+        return ContributorViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(viewHolder: ContributorHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: ContributorViewHolder, position: Int) {
         viewHolder.bind(contributors[position])
     }
 
