@@ -6,9 +6,15 @@ import com.novoda.workshop.contributors.view.View
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-internal class ContributorsPresenter(private val fetcher: ContributorsFetcher) : CoroutineScope {
+internal class ContributorsPresenter(
+    private val fetcher: ContributorsFetcher,
+    private val dispatcherStrategy: DispatcherStrategy = DispatcherStrategy(
+        Dispatchers.Main,
+        Dispatchers.IO
+    )
+) : CoroutineScope {
 
-    override val coroutineContext: CoroutineContext get() = Dispatchers.IO + job
+    override val coroutineContext: CoroutineContext get() = dispatcherStrategy.work + job
 
     private lateinit var job: Job
     private lateinit var view: View
@@ -30,11 +36,11 @@ internal class ContributorsPresenter(private val fetcher: ContributorsFetcher) :
         }
     }
 
-    private fun renderContributors(contributors: List<Contributor>) = launch(Dispatchers.Main) {
+    private fun renderContributors(contributors: List<Contributor>) = launch(dispatcherStrategy.ui) {
         view.render(contributors)
     }
 
-    private fun showError(e: java.lang.Exception) = launch(Dispatchers.Main) {
+    private fun showError(e: java.lang.Exception) = launch(dispatcherStrategy.ui) {
         view.showError(e.message)
     }
 
