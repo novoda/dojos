@@ -14,24 +14,19 @@ internal class ContributorsPresenter(
     )
 ) : CoroutineScope {
 
-    override val coroutineContext: CoroutineContext get() = dispatcherStrategy.work + job
+    override val coroutineContext: CoroutineContext
+        get() = dispatcherStrategy.work + job + exceptionHandler()
 
     private lateinit var job: Job
     private lateinit var view: View
 
     fun startPresenting(view: View) {
-        job = Job()
+        this.job = Job()
         this.view = view
 
         launch {
-            try {
-                fetcher.fetchContributors { contributors ->
-                    renderContributors(contributors)
-                }
-            } catch (e: Exception) {
-                if (e.isNotCausedByCancellingJob()) {
-                    showError(e)
-                }
+            fetcher.fetchContributors { contributors ->
+                renderContributors(contributors)
             }
         }
     }
@@ -40,14 +35,20 @@ internal class ContributorsPresenter(
         view.render(contributors)
     }
 
-    private fun showError(e: java.lang.Exception) = launch(dispatcherStrategy.ui) {
-        view.showError(e.message)
+    private fun exceptionHandler(): CoroutineExceptionHandler {
+        return CoroutineExceptionHandler { _, throwable ->
+            job = Job()
+            showError(throwable)
+        }
     }
+
+    private fun showError(e: Throwable) =
+        launch(dispatcherStrategy.ui) {
+            view.showError(e.message)
+        }
 
     fun stopPresenting() {
         job.cancel()
     }
 
 }
-
-private fun java.lang.Exception.isNotCausedByCancellingJob(): Boolean = this !is CancellationException
