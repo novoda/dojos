@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Android Kotlin Workshop</string>
+
+    <string name="contributors_error">Something went wrong</string>
+    <string name="contributor_item_label">%s (%d)</string>
+    <string name="contributors_activity_title">Most active contributors</string>
+
+    <string name="credentials_user_label">Github user name:</string>
+    <string name="credentials_token_label">Github token:</string>
+    <string name="credentials_user_hint">Enter github user name</string>
+    <string name="credentials_token_hint">Enter github token</string>
+    <string name="credentials_show_contributors_label">Show novoda contributors</string>
+    <string name="credentials_missing_error">Please enter github user name and token</string>
+</resources>

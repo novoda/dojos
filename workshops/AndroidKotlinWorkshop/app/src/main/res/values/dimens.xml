@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="contributor_avatar_size">48dp</dimen>
+    <dimen name="spacing_s">12dp</dimen>
+    <dimen name="spacing_m">20dp</dimen>
+    <dimen name="credentials_input_label_width">120dp</dimen>
+</resources>
