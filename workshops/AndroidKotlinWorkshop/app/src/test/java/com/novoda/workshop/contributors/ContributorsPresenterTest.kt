@@ -18,7 +18,6 @@ class ContributorsPresenterTest {
             DispatcherStrategy(ui = Dispatchers.Unconfined, work = Dispatchers.Unconfined)
     )
 
-
     @Test
     fun `renders contributors`() = runBlocking {
         presenter.startPresenting(view)

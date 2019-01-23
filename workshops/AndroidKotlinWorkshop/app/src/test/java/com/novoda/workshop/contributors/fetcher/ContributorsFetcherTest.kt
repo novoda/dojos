@@ -23,6 +23,7 @@ internal class ContributorsFetcherTest {
                 contributor("michal", 1)
         )
         val callback = mock<(List<Contributor>) -> Unit>()
+
         fetcher.fetchContributors(callback)
 
         verify(callback).invoke(listOf(
@@ -44,6 +45,7 @@ internal class ContributorsFetcherTest {
                 contributor("michal", 1)
         )
         val callback = mock<(List<Contributor>) -> Unit>()
+
         fetcher.fetchContributors(callback)
 
         verify(callback).invoke(listOf(
