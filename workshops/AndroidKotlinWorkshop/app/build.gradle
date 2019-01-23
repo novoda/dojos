@@ -41,6 +41,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.assertj:assertj-core:3.9.0'
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
+    testImplementation "org.mockito:mockito-inline:2.22.0"
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
