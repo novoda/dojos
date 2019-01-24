@@ -2,9 +2,7 @@ package com.novoda.workshop.contributors.fetcher
 
 import com.novoda.workshop.contributors.data.Contributor
 
-
 internal class ContributorsFetcher(private val backend: ContributorsBackend) {
-
     suspend fun fetchContributors(callback: (List<Contributor>) -> Unit) {
         val deferredRepos = backend.listRepos()
         val repos = deferredRepos.await()
@@ -16,13 +14,4 @@ internal class ContributorsFetcher(private val backend: ContributorsBackend) {
             callback.invoke(allContributors.aggregate())
         }
     }
-
-    private fun List<Contributor>.aggregate(): List<Contributor> =
-        groupingBy { it.name }
-            .reduce { login, a, b ->
-                Contributor(login, a.contributions + b.contributions, a.avatarUrl)
-            }
-            .values
-            .sortedByDescending { it.contributions }
-
 }
