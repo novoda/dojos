@@ -4,7 +4,13 @@ import com.novoda.workshop.contributors.data.Contributor
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
-class ListExtensionsTest {
+class ContributorAggregationTest {
+
+    // TODO: Verify the implementation by running this test
+    // Click on the green run button on the left side of the method declaration
+    // In case the test fails you will see a the test output including a <Click to see difference> link.
+    // Click it to see the difference between the expected and actual test result.
+
     @Test
     fun `aggregates and sorts contributors`() {
         val expectedAggregatedContributions = listOf(
@@ -20,7 +26,9 @@ class ListExtensionsTest {
                 Contributor(name = "Berta", contributions = 1, avatarUrl = "berta url"),
                 Contributor(name = "Berta", contributions = 1, avatarUrl = "berta url"),
                 Contributor(name = "Michal", contributions = 2, avatarUrl = "michal url")
-        ).aggregate()
+        )
+        //.aggregate()
+        // TODO: Remove the above comment once you've implemented the extension function to test it
 
         assertThat(aggregatedContributions).isEqualTo(expectedAggregatedContributions)
     }
