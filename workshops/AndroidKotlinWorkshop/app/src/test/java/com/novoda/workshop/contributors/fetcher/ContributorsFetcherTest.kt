@@ -1,5 +1,6 @@
 package com.novoda.workshop.contributors.fetcher
 
+import com.nhaarman.mockitokotlin2.inOrder
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
@@ -17,18 +18,20 @@ internal class ContributorsFetcherTest {
     @Test
     fun `fetches contributors from one repo`() = runBlocking {
         val dojos = Repository(id = 1, name = "dojos")
+        val berta = contributor("berta", 1)
+        val michal = contributor("michal", 1)
         givenRepositories(dojos)
         givenContributions(dojos,
-                contributor("berta", 1),
-                contributor("michal", 1)
+                berta,
+                michal
         )
         val callback = mock<(List<Contributor>) -> Unit>()
 
         fetcher.fetchContributors(callback)
 
         verify(callback).invoke(listOf(
-                contributor("berta", 1),
-                contributor("michal", 1)
+                berta,
+                michal
         ))
     }
 
@@ -36,25 +39,28 @@ internal class ContributorsFetcherTest {
     fun `fetches aggregated contributors from all repos and updates per repo`() = runBlocking {
         val dojos = Repository(id = 1, name = "dojos")
         val spikes = Repository(id = 2, name = "spikes")
+        val berta = contributor("berta", 1)
+        val michal = contributor("michal", 1)
         givenRepositories(dojos, spikes)
         givenContributions(dojos,
-                contributor("berta", 1),
-                contributor("michal", 1)
+                berta,
+                michal
         )
         givenContributions(spikes,
-                contributor("michal", 1)
+                michal
         )
         val callback = mock<(List<Contributor>) -> Unit>()
 
         fetcher.fetchContributors(callback)
 
-        verify(callback).invoke(listOf(
-                contributor("berta", 1),
-                contributor("michal", 1)
+        val inOrder = inOrder(callback)
+        inOrder.verify(callback).invoke(listOf(
+                berta,
+                michal
         ))
-        verify(callback).invoke(listOf(
-                contributor("michal", 2),
-                contributor("berta", 1)
+        inOrder.verify(callback).invoke(listOf(
+                michal.copy(contributions = 2),
+                berta
         ))
     }
 

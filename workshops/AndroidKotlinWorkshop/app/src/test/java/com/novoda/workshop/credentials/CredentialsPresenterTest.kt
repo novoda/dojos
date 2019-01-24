@@ -1,6 +1,5 @@
 package com.novoda.workshop.credentials
 
-import com.nhaarman.mockitokotlin2.KArgumentCaptor
 import com.nhaarman.mockitokotlin2.argumentCaptor
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
@@ -12,6 +11,7 @@ class CredentialsPresenterTest {
     private val view: CredentialsView = mock()
     private val navigator: CredentialsNavigator = mock()
     private val presenter = CredentialsPresenter(navigator)
+
     @Before
     fun setUp() {
         presenter.startPresenting(view)
@@ -19,32 +19,27 @@ class CredentialsPresenterTest {
 
     @Test
     fun `shows error when empty user name submitted`() {
-        val functionCapture = argumentCaptor<(String, String) -> Unit>()
-
-        capturedSubmitFunction(functionCapture).invoke("", "token")
+        submitFunction().invoke("", "token")
 
         verify(view).showMissingCredentialsError()
     }
 
     @Test
     fun `shows error when empty token submitted`() {
-        val functionCapture = argumentCaptor<(String, String) -> Unit>()
-
-        capturedSubmitFunction(functionCapture).invoke("name", "")
+        submitFunction().invoke("name", "")
 
         verify(view).showMissingCredentialsError()
     }
 
     @Test
     fun `navigates to contributors`() {
-        val functionCapture = argumentCaptor<(String, String) -> Unit>()
-
-        capturedSubmitFunction(functionCapture).invoke("name", "token")
+        submitFunction().invoke("name", "token")
 
         verify(navigator).navigateToContributors(userName = "name", token = "token")
     }
 
-    private fun capturedSubmitFunction(functionCapture: KArgumentCaptor<(String, String) -> Unit>): (String, String) -> Unit {
+    private fun submitFunction(): (String, String) -> Unit {
+        val functionCapture = argumentCaptor<(String, String) -> Unit>()
         verify(view).onCredentialsSubmitted = functionCapture.capture()
         return functionCapture.firstValue
     }
