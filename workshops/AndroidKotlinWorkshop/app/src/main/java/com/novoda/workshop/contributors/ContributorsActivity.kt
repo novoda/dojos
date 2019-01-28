@@ -1,6 +1,5 @@
 package com.novoda.workshop.contributors
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -12,9 +11,8 @@ import com.novoda.workshop.contributors.view.ContributorsAdapter
 import com.novoda.workshop.contributors.view.View
 import kotlinx.android.synthetic.main.activity_contributors.*
 
-private const val EXTRA_USER_NAME = "extra_user_name"
-private const val EXTRA_TOKEN = "extra_token"
-
+// TODO: The IDE gives you a hint that this activity is not yet registered in the manifest.
+// Either add it manually or follow the hints (option + return) to do this.
 internal class ContributorsActivity : AppCompatActivity(), View {
 
     private lateinit var presenter: ContributorsPresenter
@@ -29,21 +27,16 @@ internal class ContributorsActivity : AppCompatActivity(), View {
         presenter = createPresenter(intent)
     }
 
+    // TODO: Create the presenter using data we passed via the intent
     private fun createPresenter(intent: Intent): ContributorsPresenter {
-        val userName = intent.getStringExtra(EXTRA_USER_NAME)
-        val token = intent.getStringExtra(EXTRA_TOKEN)
+        val userName = ""
+        val token = ""
         return ContributorsDependencyProvider(userName, token).providePresenter()
     }
 
-    override fun onStart() {
-        super.onStart()
-        presenter.startPresenting(this)
-    }
-
-    override fun onStop() {
-        presenter.stopPresenting()
-        super.onStop()
-    }
+    // TODO: Start/Stop the presenter based on the Activity lifecycle
+    // https://developer.android.com/reference/android/app/Activity.html#onStart()
+    // https://developer.android.com/reference/android/app/Activity.html#onStop()
 
     override fun render(contributors: List<Contributor>) {
         contributorsAdapter.setContributors(contributors)
@@ -54,12 +47,4 @@ internal class ContributorsActivity : AppCompatActivity(), View {
         Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
     }
 
-    companion object {
-        fun createIntent(context: Context, userName: String, token: String): Intent {
-            val intent = Intent(context, ContributorsActivity::class.java)
-            intent.putExtra(EXTRA_USER_NAME, userName)
-            intent.putExtra(EXTRA_TOKEN, token)
-            return intent
-        }
-    }
 }
