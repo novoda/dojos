@@ -15,6 +15,7 @@ internal class CredentialsActivity : AppCompatActivity(), CredentialsView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_credentials)
         presenter = CredentialsDependencyProvider(this).providePresenter()
+        // TODO hook up callback to view
     }
 
     override fun onStart() {
