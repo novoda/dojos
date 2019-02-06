@@ -9,18 +9,11 @@ import kotlinx.android.synthetic.main.activity_credentials.*
 
 
 internal class CredentialsActivity : AppCompatActivity(), CredentialsView {
-    override var onCredentialsSubmitted: (String, String) -> Unit = { _, _ -> }
-
     private lateinit var presenter: CredentialsPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_credentials)
-        show_contributors_button.setOnClickListener {
-            val userName = user_name_input.text.toString()
-            val token = token_input.text.toString()
-            onCredentialsSubmitted(userName, token)
-        }
         presenter = CredentialsDependencyProvider(this).providePresenter()
     }
 

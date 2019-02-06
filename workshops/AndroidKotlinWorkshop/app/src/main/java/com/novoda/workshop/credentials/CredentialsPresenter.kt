@@ -9,16 +9,9 @@ internal class CredentialsPresenter(private val navigator: CredentialsNavigator)
 
     fun startPresenting(view: CredentialsView) {
         this.view = view
-        this.view.onCredentialsSubmitted = { userName, token ->
-            if (userName.isNotEmpty() && token.isNotEmpty()) {
-                navigator.navigateToContributors(userName, token)
-            } else {
-                view.showMissingCredentialsError()
-            }
-        }
     }
 
     fun stopPresenting() {
-        this.view.onCredentialsSubmitted = { _, _ -> }
+        // no op
     }
 }
