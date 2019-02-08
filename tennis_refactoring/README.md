@@ -1,4 +1,4 @@
-[Original](https://github.com/emilybache/Refactoring-Katas/tree/master/Tennis) created by [emilybache](https://github.com/emilybache)
+[Original](https://github.com/emilybache/Tennis-Refactoring-Kata) created by [emilybache](https://github.com/emilybache)
 
 # Tennis Refactoring Kata
 
