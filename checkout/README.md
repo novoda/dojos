@@ -12,17 +12,19 @@
 2. Multiple item discount for a single item (3 of x for 1.30) 
 3. Multiple item discount for a group of items (3 for 2, buy one, get another 1/2 price)
 4. Discount after a specific time of day (happy hour)
-5. Customer loyalty card 1 (£10 off for every £100 spent).
-6. Customer loyalty card 2 (stamp card - £10 for every 10 stamps) The system should work with both loyalty cards. 
-7. Staff card - 33% flat discount, no special offers of any kind.
-8. a) Multiple offer types can apply to the same item (can be part of a 3 for 2, and also 2 for 45). 
+5. All you can drink offer (lasts one hour)
+6. Customer loyalty card 1 (£10 off for every £100 spent).
+7. Customer loyalty card 2 (stamp card - £10 for every 10 stamps) The system should work with both loyalty cards. 
+8. Staff card - 33% flat discount, no special offers of any kind.
+9. a) Multiple offer types can apply to the same item (can be part of a 3 for 2, and also 2 for 45). 
    b) If multiple offers apply, only the one that gives the single greatest discount is applied).
    c) Loyalty cards are not affected by this restriction.
-9. (stretch) Consider how future arbitrary rules might be applied
+10. (stretch) Consider how future arbitrary rules might be applied
 
 ## Some example prices
+SKU = Stock Keeping Unit, code used to identify a unique item for sale.
 
- | Item   |  Unit Price   |   Special Price |
+ | Item SKU   |  Unit Price   |   Special Price |
  |---|---|---|
  | A  | 50  | 3 for 130 |
  | B  | 30 | 2 for 45 |
