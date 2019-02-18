@@ -15,8 +15,9 @@
 5. Customer loyalty card 1 (£10 off for every £100 spent).
 6. Customer loyalty card 2 (stamp card - £10 for every 10 stamps) The system should work with both loyalty cards. 
 7. Staff card - 33% flat discount, no special offers of any kind.
-8. a) Multiple offer types can apply to the same item (can be part of a 3 for 2, and also 20
+8. a) Multiple offer types can apply to the same item (can be part of a 3 for 2, and also 2 for 45). 
    b) If multiple offers apply, only the one that gives the single greatest discount is applied).
+   c) Loyalty cards are not affected by this restriction.
 9. (stretch) Consider how future arbitrary rules might be applied
 
 ## Some example prices
