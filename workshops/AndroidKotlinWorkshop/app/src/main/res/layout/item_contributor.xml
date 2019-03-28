@@ -33,18 +33,18 @@
 
     <TextView
         android:id="@+id/contributor_name"
+        style="@style/ItemValueStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="@id/contributor_name_label"
         app:layout_constraintStart_toEndOf="@id/contributor_name_label"
         app:layout_constraintTop_toTopOf="@id/contributor_name_label"
         tools:text="tobiasheine" />
 
     <TextView
-        style="@style/ItemLabelStyle"
         android:id="@+id/contributor_contributions_label"
+        style="@style/ItemLabelStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_s"
@@ -56,6 +56,7 @@
 
     <TextView
         android:id="@+id/contributor_contributions"
+        style="@style/ItemValueStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
