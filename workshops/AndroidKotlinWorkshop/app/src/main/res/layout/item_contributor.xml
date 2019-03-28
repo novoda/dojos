@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
-    android:background="@drawable/contributor_item_selector">
+    android:clickable="true">
+
+    <!-- TODO 5: create and set state selector on the ConstraintLayout to show different states when selecting
+         Note: you can use the colours state_pressed, state_focused, item_background-->
 
     <ImageView
         android:id="@+id/contributor_image"
