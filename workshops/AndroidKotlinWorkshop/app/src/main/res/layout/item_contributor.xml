@@ -1,35 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="@drawable/contributor_item_selector">
 
     <ImageView
-            android:id="@+id/contributor_image"
-            android:layout_width="@dimen/contributor_avatar_size"
-            android:layout_height="@dimen/contributor_avatar_size"
-            android:layout_marginBottom="@dimen/spacing_s"
-            android:layout_marginStart="@dimen/spacing_s"
-            android:layout_marginTop="@dimen/spacing_s"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@android:drawable/ic_dialog_alert" />
+        android:id="@+id/contributor_image"
+        android:layout_width="@dimen/contributor_avatar_size"
+        android:layout_height="@dimen/contributor_avatar_size"
+        android:layout_marginStart="@dimen/spacing_s"
+        android:layout_marginTop="@dimen/spacing_s"
+        android:layout_marginBottom="@dimen/spacing_s"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@android:drawable/ic_dialog_alert" />
 
     <TextView
-            android:id="@+id/contributor_label"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/spacing_s"
-            android:gravity="center_vertical"
-            app:layout_constraintStart_toEndOf="@id/contributor_image"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_chainStyle="spread_inside"
-            tools:text="tobiasheine (200 contributions)"
-    />
+        android:id="@+id/contributor_name_label"
+        style="@style/ItemLabelStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/contributor_label_start_margin"
+        android:layout_marginBottom="@dimen/spacing_xxs"
+        android:text="@string/contributor_name_label"
+        app:layout_constraintBottom_toTopOf="@id/contributor_contributions_label"
+        app:layout_constraintStart_toEndOf="@id/contributor_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/contributor_name"
+        style="@style/ItemValueStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_value_start_margin"
+        app:layout_constraintBottom_toBottomOf="@id/contributor_name_label"
+        app:layout_constraintStart_toEndOf="@id/contributor_name_label"
+        app:layout_constraintTop_toTopOf="@id/contributor_name_label"
+        tools:text="tobiasheine" />
+
+    <TextView
+        android:id="@+id/contributor_contributions_label"
+        style="@style/ItemLabelStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/contributor_label_start_margin"
+        android:layout_marginTop="@dimen/spacing_xxs"
+        android:text="@string/contributor_contributions_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/contributor_image"
+        app:layout_constraintTop_toBottomOf="@id/contributor_name_label" />
+
+    <TextView
+        android:id="@+id/contributor_contributions"
+        style="@style/ItemValueStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_value_start_margin"
+        app:layout_constraintBottom_toBottomOf="@id/contributor_contributions_label"
+        app:layout_constraintStart_toEndOf="@id/contributor_contributions_label"
+        app:layout_constraintTop_toTopOf="@id/contributor_contributions_label"
+        tools:text="308" />
 
 </android.support.constraint.ConstraintLayout>
