@@ -16,7 +16,7 @@ internal class ContributorViewHolder(override val containerView: View) : Recycle
     private val resources = containerView.resources
 
     fun bind(contributor: Contributor) {
-        contributor_label.text = labelFrom(contributor)
+        contributor_name_label.text = labelFrom(contributor)
         contributor_image.loadImageFrom(contributor.avatarUrl)
     }
 
