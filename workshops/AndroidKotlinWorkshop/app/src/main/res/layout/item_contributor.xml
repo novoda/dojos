@@ -42,7 +42,7 @@
         android:id="@+id/contributor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/item_value_start_margin"
+        android:layout_marginStart="6dp"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="@id/contributor_name_label"
         app:layout_constraintStart_toEndOf="@id/contributor_name_label"
@@ -60,11 +60,13 @@
         app:layout_constraintStart_toEndOf="@id/contributor_image"
         app:layout_constraintTop_toBottomOf="@id/contributor_name_label" />
 
+    <!-- TODO 4: extract the layout_marginStart of contributor_name and contributor_contributions to the same dimension -->
+
     <TextView
         android:id="@+id/contributor_contributions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/item_value_start_margin"
+        android:layout_marginStart="6dp"
         app:layout_constraintBottom_toBottomOf="@id/contributor_contributions_label"
         app:layout_constraintStart_toEndOf="@id/contributor_contributions_label"
         app:layout_constraintTop_toTopOf="@id/contributor_contributions_label"
