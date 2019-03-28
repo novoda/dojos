@@ -21,8 +21,10 @@
     <TextView
         android:id="@+id/contributor_name_label"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_s"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginBottom="2dp"
         android:gravity="center_vertical"
         android:text="Name:"
         app:layout_constraintBottom_toTopOf="@id/contributor_contributions_label"
@@ -32,20 +34,21 @@
     <TextView
         android:id="@+id/contributor_name"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_s"
         android:gravity="center_vertical"
-        app:layout_constraintBottom_toTopOf="@id/contributor_contributions_label"
+        app:layout_constraintBottom_toBottomOf="@id/contributor_name_label"
         app:layout_constraintStart_toEndOf="@id/contributor_name_label"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/contributor_name_label"
         tools:text="tobiasheine" />
 
     <TextView
         android:id="@+id/contributor_contributions_label"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_s"
         android:gravity="center_vertical"
+        android:layout_marginTop="2dp"
         android:text="Contributions:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/contributor_image"
@@ -54,12 +57,12 @@
     <TextView
         android:id="@+id/contributor_contributions"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_s"
         android:gravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/contributor_contributions_label"
         app:layout_constraintStart_toEndOf="@id/contributor_contributions_label"
-        app:layout_constraintTop_toBottomOf="@id/contributor_name"
+        app:layout_constraintTop_toTopOf="@id/contributor_contributions_label"
         tools:text="308" />
 
 
