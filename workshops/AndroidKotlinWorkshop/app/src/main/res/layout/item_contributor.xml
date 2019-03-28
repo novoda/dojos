@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:clickable="true">
 
-    <!-- TODO 5: create and set state selector on the ConstraintLayout to show different states when selecting
+    <!-- TODO 5: create a state selector drawable and set it on the ConstraintLayout to show different states when selecting
          Note: you can use the colours state_pressed, state_focused, item_background-->
 
     <ImageView
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@android:drawable/ic_dialog_alert" />
 
-    <!-- TODO 2: Apply use the same textSize and textStyle from contributor_name_label to contributor_contributions_label-->
+    <!-- TODO 2: Apply the same textSize and textStyle from contributor_name_label to contributor_contributions_label-->
 
     <TextView
         android:id="@+id/contributor_name_label"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <!-- TODO 2: Apply the the same textSize from contributor_name to contributor_contributions -->
+    <!-- TODO 2: Apply the same textSize from contributor_name to contributor_contributions -->
 
     <TextView
         android:id="@+id/contributor_name"

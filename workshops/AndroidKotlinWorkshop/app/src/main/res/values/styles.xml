@@ -1,6 +1,6 @@
 <resources>
 
-    <!-- TODO 1: Modify the colours below to change the colour's through the app -->
+    <!-- TODO 1: Modify the colours below to change the colour's throughout the app -->
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -10,6 +10,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- TODO 3: extract two different styles for each of our types of textView from the item_contributor -->
+    <!-- TODO 3: extract two different styles for each of our types of TextView from the item_contributor layout -->
 
 </resources>
