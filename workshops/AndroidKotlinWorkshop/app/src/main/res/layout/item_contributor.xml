@@ -30,9 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/contributor_label_start_margin"
         android:layout_marginBottom="@dimen/spacing_xxs"
+        android:text="Name:"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:text="@string/contributor_name_label"
         app:layout_constraintBottom_toTopOf="@id/contributor_contributions_label"
         app:layout_constraintStart_toEndOf="@id/contributor_image"
         app:layout_constraintTop_toTopOf="parent"
@@ -51,13 +51,14 @@
         app:layout_constraintTop_toTopOf="@id/contributor_name_label"
         tools:text="tobiasheine" />
 
+    <!-- TODO 6: Extract the string resources for contributor_contributions_label and contributor_name_label -->
     <TextView
         android:id="@+id/contributor_contributions_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/contributor_label_start_margin"
         android:layout_marginTop="@dimen/spacing_xxs"
-        android:text="@string/contributor_contributions_label"
+        android:text="Contributions:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/contributor_image"
         app:layout_constraintTop_toBottomOf="@id/contributor_name_label" />

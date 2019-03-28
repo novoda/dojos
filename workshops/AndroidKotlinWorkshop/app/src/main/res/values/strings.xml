@@ -10,6 +10,4 @@
     <string name="credentials_token_hint">Enter github token</string>
     <string name="credentials_show_contributors_label">Show novoda contributors</string>
     <string name="credentials_missing_error">Please enter github user name and token</string>
-    <string name="contributor_contributions_label">Contributions:</string>
-    <string name="contributor_name_label">Name:</string>
 </resources>
