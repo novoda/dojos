@@ -20,11 +20,11 @@
 
     <TextView
         android:id="@+id/contributor_name_label"
+        style="@style/ItemLabelStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_s"
         android:layout_marginBottom="2dp"
-        android:gravity="center_vertical"
         android:text="Name:"
         app:layout_constraintBottom_toTopOf="@id/contributor_contributions_label"
         app:layout_constraintStart_toEndOf="@id/contributor_image"
@@ -36,19 +36,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:gravity="center_vertical"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="@id/contributor_name_label"
         app:layout_constraintStart_toEndOf="@id/contributor_name_label"
         app:layout_constraintTop_toTopOf="@id/contributor_name_label"
         tools:text="tobiasheine" />
 
     <TextView
+        style="@style/ItemLabelStyle"
         android:id="@+id/contributor_contributions_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_s"
         android:layout_marginTop="2dp"
-        android:gravity="center_vertical"
         android:text="Contributions:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/contributor_image"
@@ -59,11 +59,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="@id/contributor_contributions_label"
         app:layout_constraintStart_toEndOf="@id/contributor_contributions_label"
         app:layout_constraintTop_toTopOf="@id/contributor_contributions_label"
         tools:text="308" />
-
 
 </android.support.constraint.ConstraintLayout>
