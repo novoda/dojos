@@ -3,4 +3,9 @@
     <color name="colorPrimary">#b71c1c</color>
     <color name="colorPrimaryDark">#7f0000</color>
     <color name="colorAccent">#f05545</color>
+
+    <color name="state_pressed">#33000000</color>
+    <color name="state_focused">#11000000</color>
+    <color name="item_background">#FFFFFF</color>
+
 </resources>
