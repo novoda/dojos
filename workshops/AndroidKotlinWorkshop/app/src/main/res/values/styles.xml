@@ -10,13 +10,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ItemLabelStyle">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="ItemValueStyle">
-        <item name="android:textSize">16sp</item>
-    </style>
+    <!-- TODO 3: extract two different styles for each of our types of textView from the item_contributor -->
 
 </resources>

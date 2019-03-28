@@ -20,25 +20,30 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@android:drawable/ic_dialog_alert" />
 
+    <!-- TODO 2: Apply use the same textSize and textStyle from contributor_name_label to contributor_contributions_label-->
+
     <TextView
         android:id="@+id/contributor_name_label"
-        style="@style/ItemLabelStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/contributor_label_start_margin"
         android:layout_marginBottom="@dimen/spacing_xxs"
+        android:textSize="16sp"
+        android:textStyle="bold"
         android:text="@string/contributor_name_label"
         app:layout_constraintBottom_toTopOf="@id/contributor_contributions_label"
         app:layout_constraintStart_toEndOf="@id/contributor_image"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <!-- TODO 2: Apply the the same textSize from contributor_name to contributor_contributions -->
+
     <TextView
         android:id="@+id/contributor_name"
-        style="@style/ItemValueStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/item_value_start_margin"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="@id/contributor_name_label"
         app:layout_constraintStart_toEndOf="@id/contributor_name_label"
         app:layout_constraintTop_toTopOf="@id/contributor_name_label"
@@ -46,7 +51,6 @@
 
     <TextView
         android:id="@+id/contributor_contributions_label"
-        style="@style/ItemLabelStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/contributor_label_start_margin"
@@ -58,7 +62,6 @@
 
     <TextView
         android:id="@+id/contributor_contributions"
-        style="@style/ItemValueStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/item_value_start_margin"
